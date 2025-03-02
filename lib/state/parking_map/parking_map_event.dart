@@ -15,3 +15,5 @@ class AddObject extends ParkingMapEvent {
   final Object3DType objectType;
   AddObject(this.webViewController, this.objectType);
 }
+
+class SaveParkingLayout extends ParkingMapEvent {}

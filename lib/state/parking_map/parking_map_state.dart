@@ -2,12 +2,19 @@ import 'dart:convert';
 
 import 'package:my_home_parking/core/enums/object_type.dart';
 
+enum ParkingMapStateSaveStatus { initial, saving, saved, error }
+
 // 주차장 지도 화면의 상태를 관리하는 클래스
 class ParkingMapState {
   // 당겨서 새로고침 기능의 활성화 상태
   final bool isPullToRefreshEnabled;
   // 현재 선택된 3D 객체 타입
   final Object3DType selectedObjectType;
+  final List<Map<String, dynamic>> parkingLayout;
+  final bool isSaving; // 저장 중 상태
+  final String? saveError;
+
+  final ParkingMapStateSaveStatus saveStatus; // 저장 실패 시 에러 메시지
 
   // private 생성자: 초기값 설정
   // named constructor with default values
@@ -16,6 +23,10 @@ class ParkingMapState {
     this.isPullToRefreshEnabled = true,
     // 기본 선택 객체는 기둥으로 설정
     this.selectedObjectType = Object3DType.pillar,
+    this.parkingLayout = const [],
+    this.isSaving = false,
+    this.saveError,
+    this.saveStatus = ParkingMapStateSaveStatus.initial,
   });
 
   // 초기 상태를 생성하는 factory 생성자
@@ -33,12 +44,18 @@ class ParkingMapState {
   ParkingMapState copyWith({
     bool? isPullToRefreshEnabled,
     Object3DType? selectedObjectType,
+    List<Map<String, dynamic>>? parkingLayout,
+    bool? isSaving,
+    String? saveError,
   }) {
     return ParkingMapState._(
       // 새 값이 제공되면 그 값을 사용하고, 아니면 현재 값을 유지
       isPullToRefreshEnabled:
           isPullToRefreshEnabled ?? this.isPullToRefreshEnabled,
       selectedObjectType: selectedObjectType ?? this.selectedObjectType,
+      parkingLayout: parkingLayout ?? this.parkingLayout,
+      isSaving: isSaving ?? this.isSaving,
+      saveError: saveError,
     );
   }
 

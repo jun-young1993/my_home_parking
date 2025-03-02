@@ -1,4 +1,4 @@
-import { Canvas } from "@react-three/fiber";
+import { Canvas, useThree } from "@react-three/fiber";
 import { OrbitControls, Html, TransformControls } from "@react-three/drei";
 import { useEffect, useRef, useState } from "react";
 import ParkingGround from "./parking/parking-ground";
@@ -17,42 +17,7 @@ interface RoadProps {
   rotation?: [number, number, number];
 }
 
-// 주차 공간 컴포넌트
-const ParkingSpot: React.FC<ParkingSpotProps> = ({ 
-  position, 
-  isOccupied = false, 
-  spotNumber 
-}) => {
-  const [hovered, setHovered] = useState(false);
-  
-  return (
-    <mesh
-      position={position}
-      onPointerOver={() => setHovered(true)}
-      onPointerOut={() => setHovered(false)}
-    >
-      <boxGeometry args={[2.5, 0.1, 5]} /> {/* 주차 공간 크기 */}
-      <meshStandardMaterial 
-        color={isOccupied ? "#ff4444" : (hovered ? "#88ff88" : "#666666")} 
-          />
-      {/* 주차 공간 번호 */}
-      <Html position={[0, 0.1, 0]} center>
-        <div style={{ color: 'white', fontSize: '20px' }}>{spotNumber}</div>
-        </Html>
 
-    </mesh>
-  );
-};
-
-// 도로 컴포넌트
-const Road: React.FC<RoadProps> = ({ position, size, rotation = [0, 0, 0] }) => {
-  return (
-    <mesh position={position} rotation={rotation}>
-      <boxGeometry args={size} />
-      <meshStandardMaterial color="#333333" />
-    </mesh>
-  );
-};
 
 interface SelectableObjectProps {
   object: React.ReactNode;
@@ -88,9 +53,20 @@ interface ThreeObject {
   position: [number, number, number];
 }
 
+// window 인터페이스 확장 추가
+declare global {
+  interface Window {
+    flutter_inappwebview: {
+      postMessage: (message: any) => void;
+    };
+  }
+}
+
 const ThreeEditor: React.FC = () => {
   const [objects, setObjects] = useState<ThreeObject[]>([]);
-  const [selectedId, setSelectedId] = useState<number | null>(null);
+    const [selectedId, setSelectedId] = useState<number | null>(null);
+    const {scene} = useThree();
+
 
   useEffect(() => {
     const handleMessage = (event: MessageEvent) => {
@@ -106,6 +82,41 @@ const ThreeEditor: React.FC = () => {
           position: [0, 0, 0]
         }]);
       }
+        if (event.data.type === 'getAllObjects') {
+            function getAllObjects() {
+                    // Three.js나 다른 3D 라이브러리에서 객체 정보 가져오기
+                    const objects = scene.children
+                        .filter(obj => obj.userData.type) // 저장할 객체만 필터링
+                        .map(obj => ({
+                        id: obj.uuid,
+                        type: obj.userData.type,
+                        position: {
+                            x: obj.position.x,
+                            y: obj.position.y,
+                            z: obj.position.z
+                        },
+                        rotation: {
+                            x: obj.rotation.x,
+                            y: obj.rotation.y,
+                            z: obj.rotation.z
+                        },
+                        scale: {
+                            x: obj.scale.x,
+                            y: obj.scale.y,
+                            z: obj.scale.z
+                        }
+                        }));
+                    
+                    return JSON.stringify(objects);
+            }
+             const objects = getAllObjects();
+            if (window.flutter_inappwebview) {
+                window.flutter_inappwebview.postMessage({
+                    type: 'getAllObjects',
+                    data: objects
+                });
+            }
+        }
     };
 
     window.addEventListener('message', handleMessage);
@@ -120,16 +131,16 @@ const ThreeEditor: React.FC = () => {
     let component;
     switch (obj.type) {
       case 'pillar':
-        component = <Pillar position={obj.position} />;
+        component = <Pillar  position={obj.position} userData={obj} />;
         break;
       case 'house':
-        component = <House position={obj.position} />;
+        component = <House position={obj.position} userData={obj} />;
         break;
       case 'car':
-        component = <Car position={obj.position} />;
+        component = <Car position={obj.position} userData={obj} />;
         break;
       case 'parking_space':
-        component = <ParkingSpace position={obj.position} />;
+        component = <ParkingSpace position={obj.position} userData={obj} />;
         break;
       default:
         return null;

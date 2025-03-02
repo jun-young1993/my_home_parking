@@ -1,7 +1,7 @@
 // 차량 컴포넌트
-const Car = ({ position }: { position: [number, number, number] }) => {
+const Car = ({ position, userData }: { position: [number, number, number], userData: Object  }) => {
   return (
-    <group position={position}>
+    <group position={position} userData={userData}>
       {/* 차체 */}
       <mesh position={[0, 0.2, 0]}>
         <boxGeometry args={[2, 0.5, 1]} />

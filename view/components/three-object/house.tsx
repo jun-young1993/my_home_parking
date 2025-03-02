@@ -1,7 +1,7 @@
 // 집 컴포넌트
-const House = ({ position }: { position: [number, number, number] }) => {
+const House = ({ position, userData }: { position: [number, number, number], userData: Object  }) => {
   return (
-    <group position={position}>
+    <group position={position} userData={userData}>
       {/* 집 몸체 */}
       <mesh position={[0, 0.5, 0]}>
         <boxGeometry args={[2, 1, 2]} />

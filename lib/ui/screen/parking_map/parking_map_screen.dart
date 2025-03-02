@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,6 +6,7 @@ import 'package:my_home_parking/core/constants/app_constants.dart';
 import 'package:my_home_parking/core/enums/object_type.dart';
 import 'package:my_home_parking/state/parking_map/parking_map_bloc.dart';
 import 'package:my_home_parking/state/parking_map/parking_map_event.dart';
+import 'package:my_home_parking/state/parking_map/parking_map_selector.dart';
 import 'package:my_home_parking/state/parking_map/parking_map_state.dart';
 import 'package:my_home_parking/ui/screen/parking_map/components/object_selection_button.dart';
 
@@ -87,6 +86,26 @@ class _ParkingMapScreenState extends State<ParkingMapScreen> {
         icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
         onPressed: () => Navigator.of(context).pop(),
       ),
+      actions: [
+        SaveStatusStateSelector(
+          (saveStatus) => IconButton(
+            icon:
+                saveStatus == ParkingMapStateSaveStatus.initial
+                    ? Icon(Icons.check_circle, color: Colors.green)
+                    : saveStatus == ParkingMapStateSaveStatus.initial
+                    ? Icon(Icons.save_outlined, color: Colors.blue)
+                    : saveStatus == ParkingMapStateSaveStatus.error
+                    ? Icon(Icons.error, color: Colors.red)
+                    : Icon(Icons.sync, color: Colors.orange),
+            onPressed:
+                saveStatus == ParkingMapStateSaveStatus.saving
+                    ? null // 저장 중일 때는 버튼 비활성화
+                    : () {
+                      context.read<ParkingMapBloc>().add(SaveParkingLayout());
+                    },
+          ),
+        ),
+      ],
       title: const Text(
         '주차장 지도',
         style: TextStyle(
@@ -96,6 +115,22 @@ class _ParkingMapScreenState extends State<ParkingMapScreen> {
         ),
       ),
     );
+  }
+
+  // 저장 버튼 클릭 시 스낵바로 결과 표시
+  void _showSaveResult(BuildContext context, ParkingMapState state) {
+    if (state.saveError != null) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(state.saveError!), backgroundColor: Colors.red),
+      );
+    } else if (!state.isSaving) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('저장이 완료되었습니다.'),
+          backgroundColor: Colors.green,
+        ),
+      );
+    }
   }
 
   Widget _buildObjectSelectionBar() {
@@ -162,45 +197,5 @@ class _ParkingMapScreenState extends State<ParkingMapScreen> {
         ),
       ),
     );
-  }
-
-
-}
-
-class ObjectSelectionButton extends StatelessWidget {
-  final Object3DType objectType;
-  final VoidCallback onSelected;
-
-  const ObjectSelectionButton({
-    super.key,
-    required this.objectType,
-    required this.onSelected,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onSelected,
-      style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.white,
-        foregroundColor: Colors.black87,
-        elevation: 2,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-      ),
-      child: Text(_getDisplayName(objectType)),
-    );
-  }
-
-  String _getDisplayName(Object3DType type) {
-    switch (type) {
-      case Object3DType.pillar:
-        return '기둥';
-      case Object3DType.house:
-        return '집';
-      case Object3DType.car:
-        return '차량';
-      case Object3DType.parkingSpace:
-        return '주차공간';
-    }
   }
 }

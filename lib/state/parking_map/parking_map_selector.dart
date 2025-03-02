@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_home_parking/state/parking_map/parking_map_bloc.dart';
 import 'package:my_home_parking/state/parking_map/parking_map_state.dart';
@@ -21,4 +22,15 @@ class ParkingMapSelector<T>
     required super.selector,
     required super.builder,
   });
+}
+
+class SaveStatusStateSelector
+    extends ParkingMapSelector<ParkingMapStateSaveStatus> {
+  SaveStatusStateSelector(
+    Widget Function(ParkingMapStateSaveStatus saveStatus) builder, {
+    super.key,
+  }) : super(
+         selector: (state) => state.saveStatus,
+         builder: (context, saveStatus) => builder(saveStatus),
+       );
 }
