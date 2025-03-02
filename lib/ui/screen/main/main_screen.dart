@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_home_parking/core/constants/app_constants.dart';
 import 'package:my_home_parking/routes.dart';
 
 class MainScreen extends StatefulWidget {
@@ -16,7 +17,7 @@ class _MainScreenState extends State<MainScreen> {
     return Scaffold(
       // 앱바 구현
       appBar: AppBar(
-        title: const Text('My App'),
+        title: Text(AppConstants.appName),
         actions: [
           IconButton(icon: const Icon(Icons.notifications), onPressed: () {}),
           IconButton(icon: const Icon(Icons.settings), onPressed: () {}),
@@ -62,13 +63,16 @@ class _MainScreenState extends State<MainScreen> {
                 padding: const EdgeInsets.all(16),
                 children: [
                   _buildMenuCard(
-                    '메뉴 1',
-                    Icons.home,
+                    AppConstants.parkingMapMenuDisplayName,
+                    Icons.car_rental,
                     onTap: () {
                       AppNavigator.push(Routes.parkingMap);
                     },
                   ),
-                  _buildMenuCard('메뉴 2', Icons.favorite),
+                  _buildMenuCard(
+                    AppConstants.parkingMapMenuDisplayName,
+                    Icons.favorite,
+                  ),
                   _buildMenuCard('메뉴 3', Icons.map),
                   _buildMenuCard('메뉴 4', Icons.shopping_cart),
                 ],

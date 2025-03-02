@@ -5,9 +5,11 @@ import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:my_home_parking/app.dart';
 import 'package:my_home_parking/repository/main_repository.dart';
 import 'package:my_home_parking/state/main/main_bloc.dart';
+import 'package:my_home_parking/core/constants/app_constants.dart';
 
 final InAppLocalhostServer localhostServer = InAppLocalhostServer(
   documentRoot: 'assets/web',
+  port: AppConstants.localPort,
 );
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
