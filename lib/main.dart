@@ -4,8 +4,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:my_home_parking/app.dart';
 import 'package:my_home_parking/repository/main_repository.dart';
+import 'package:my_home_parking/repository/parking_map_repository.dart';
 import 'package:my_home_parking/state/main/main_bloc.dart';
 import 'package:my_home_parking/core/constants/app_constants.dart';
+import 'package:my_home_parking/state/parking_map/parking_map_bloc.dart';
 
 final InAppLocalhostServer localhostServer = InAppLocalhostServer(
   documentRoot: 'assets/web',
@@ -28,11 +30,19 @@ Future<void> main() async {
         RepositoryProvider<MainRepository>(
           create: (context) => MainDefaultRepository(),
         ),
+        RepositoryProvider<ParkingMapRepository>(
+          create: (context) => ParkingMapDefaultRepository(),
+        ),
       ],
       child: MultiBlocProvider(
         providers: [
           BlocProvider(
             create: (context) => MainBloc(context.read<MainRepository>()),
+          ),
+          BlocProvider(
+            create:
+                (context) =>
+                    ParkingMapBloc(context.read<ParkingMapRepository>()),
           ),
         ],
         child: const MyApp(),
