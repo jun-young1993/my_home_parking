@@ -1,5 +1,7 @@
 # my_home_parking
 
+<!-- flutter pub run build_runner watch -d -->
+
 A new Flutter project.
 
 ## Getting Started
