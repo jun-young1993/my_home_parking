@@ -45,7 +45,7 @@ class ParkingMapBloc extends Bloc<ParkingMapEvent, ParkingMapState> {
       // final success = await _parkingMapRepository.saveParkingLayout(
       //   state.parkingLayout,
       // );
-      final success = true;
+      const success = true;
 
       if (success) {
         // 저장 성공

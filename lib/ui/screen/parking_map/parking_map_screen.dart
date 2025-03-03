@@ -91,12 +91,12 @@ class _ParkingMapScreenState extends State<ParkingMapScreen> {
           (saveStatus) => IconButton(
             icon:
                 saveStatus == ParkingMapStateSaveStatus.initial
-                    ? Icon(Icons.check_circle, color: Colors.green)
+                    ? const Icon(Icons.check_circle, color: Colors.green)
                     : saveStatus == ParkingMapStateSaveStatus.initial
-                    ? Icon(Icons.save_outlined, color: Colors.blue)
+                    ? const Icon(Icons.save_outlined, color: Colors.blue)
                     : saveStatus == ParkingMapStateSaveStatus.error
-                    ? Icon(Icons.error, color: Colors.red)
-                    : Icon(Icons.sync, color: Colors.orange),
+                    ? const Icon(Icons.error, color: Colors.red)
+                    : const Icon(Icons.sync, color: Colors.orange),
             onPressed:
                 saveStatus == ParkingMapStateSaveStatus.saving
                     ? null // 저장 중일 때는 버튼 비활성화

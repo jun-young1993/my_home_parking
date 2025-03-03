@@ -5,20 +5,6 @@ import ParkingGround from "./parking/parking-ground";
 import { Pillar, House, Car, ParkingSpace } from "./three-object";
 import { Group } from "three";
 
-interface ParkingSpotProps {
-  position: [number, number, number];
-  isOccupied?: boolean;
-  spotNumber: string;
-}
-
-interface RoadProps {
-  position: [number, number, number];
-  size: [number, number, number];
-  rotation?: [number, number, number];
-}
-
-
-
 interface SelectableObjectProps {
   object: React.ReactNode;
   onClick: () => void;
@@ -64,64 +50,81 @@ declare global {
 
 const ThreeEditor: React.FC = () => {
   const [objects, setObjects] = useState<ThreeObject[]>([]);
-    const [selectedId, setSelectedId] = useState<number | null>(null);
-    const {scene} = useThree();
+  const [selectedId, setSelectedId] = useState<number | null>(null);
 
+  const SceneContent = () => {
+    const { scene } = useThree();
 
-  useEffect(() => {
-    const handleMessage = (event: MessageEvent) => {
-      if (event.data.type === 'objectSelection') {
-        const { objectType } = event.data.data;
-        // Three.js 오브젝트 생성 로직
-        console.log('Selected object:', objectType);
-        // 새 오브젝트 추가
+    useEffect(() => {
+      const handleMessage = (event: MessageEvent) => {
+        if (event.data.type === 'objectSelection') {
+          const { objectType } = event.data.data;
+          // Three.js 오브젝트 생성 로직
+          console.log('Selected object:', objectType);
+          // 새 오브젝트 추가
 
-        setObjects((prev: ThreeObject[]) => [...prev, {
-          id: Date.now(),
-          type: objectType,
-          position: [0, 0, 0]
-        }]);
-      }
-        if (event.data.type === 'getAllObjects') {
-            function getAllObjects() {
-                    // Three.js나 다른 3D 라이브러리에서 객체 정보 가져오기
-                    const objects = scene.children
-                        .filter(obj => obj.userData.type) // 저장할 객체만 필터링
-                        .map(obj => ({
-                        id: obj.uuid,
-                        type: obj.userData.type,
-                        position: {
-                            x: obj.position.x,
-                            y: obj.position.y,
-                            z: obj.position.z
-                        },
-                        rotation: {
-                            x: obj.rotation.x,
-                            y: obj.rotation.y,
-                            z: obj.rotation.z
-                        },
-                        scale: {
-                            x: obj.scale.x,
-                            y: obj.scale.y,
-                            z: obj.scale.z
-                        }
-                        }));
-                    
-                    return JSON.stringify(objects);
-            }
-             const objects = getAllObjects();
-            if (window.flutter_inappwebview) {
-                window.flutter_inappwebview.postMessage({
-                    type: 'getAllObjects',
-                    data: objects
-                });
-            }
+          setObjects((prev: ThreeObject[]) => [...prev, {
+            id: Date.now(),
+            type: objectType,
+            position: [0, 0, 0]
+          }]);
         }
-    };
+        if (event.data.type === 'getAllObjects') {
+          function getAllObjects() {
+            // Three.js나 다른 3D 라이브러리에서 객체 정보 가져오기
+            const objects = scene.children
+              .filter(obj => obj.userData.type) // 저장할 객체만 필터링
+              .map(obj => ({
+                id: obj.uuid,
+                type: obj.userData.type,
+                position: {
+                  x: obj.position.x,
+                  y: obj.position.y,
+                  z: obj.position.z
+                },
+                rotation: {
+                  x: obj.rotation.x,
+                  y: obj.rotation.y,
+                  z: obj.rotation.z
+                },
+                scale: {
+                  x: obj.scale.x,
+                  y: obj.scale.y,
+                  z: obj.scale.z
+                }
+              }));
 
-    window.addEventListener('message', handleMessage);
-    return () => window.removeEventListener('message', handleMessage);
-  }, []);
+            return JSON.stringify(objects);
+          }
+          const objects = getAllObjects();
+          if (window.flutter_inappwebview) {
+            window.flutter_inappwebview.postMessage({
+              type: 'getAllObjects',
+              data: objects
+            });
+          }
+        }
+      };
+
+      window.addEventListener('message', handleMessage);
+      return () => window.removeEventListener('message', handleMessage);
+    }, [scene]);
+
+    return (
+      <>
+        <ambientLight intensity={0.5} />
+        <directionalLight position={[10, 10, 5]} intensity={1} />
+        <OrbitControls 
+          enableDamping
+          makeDefault
+          minPolarAngle={Math.PI / 12}
+          maxPolarAngle={Math.PI / 2.1}
+        />
+        <ParkingGround />
+        {objects.map(renderObject)}
+      </>
+    );
+  };
 
   const handleSelect = (id: number) => {
     setSelectedId(id === selectedId ? null : id);
@@ -173,17 +176,7 @@ const ThreeEditor: React.FC = () => {
         camera={{ position: [0, 15, 15], fov: 60 }}
         style={{ height: "100vh" }}
       >
-        <ambientLight intensity={0.5} />
-        <directionalLight position={[10, 10, 5]} intensity={1} />
-        
-        <OrbitControls 
-          enableDamping // 카메라 움직임에 관성/감쇠 효과를 주는 옵션입니다. 부드러운 카메라 이동을 위해 사용됩니다.
-          makeDefault // OrbitControls를 기본 컨트롤러로 설정하는 옵션입니다. 다른 컨트롤러와 충돌을 방지하기 위해 사용됩니다.
-        />
-        
-        <ParkingGround />
-        
-        {objects.map(renderObject)}
+        <SceneContent />
       </Canvas>
     </div>
   );

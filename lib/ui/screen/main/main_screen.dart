@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:my_home_parking/core/constants/app_constants.dart';
-import 'package:my_home_parking/routes.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_home_parking/exceptions/app_exception.dart';
+import 'package:my_home_parking/state/main/main_bloc.dart';
+import 'package:my_home_parking/state/main/main_event.dart';
+import 'package:my_home_parking/state/main/main_selector.dart';
+import 'package:my_home_parking/ui/screen/main/sections/registration/user_info/post_adress_section.dart';
+import 'package:my_home_parking/ui/screen/main/sections/registration_section.dart';
+import 'package:my_home_parking/ui/widgets/error_view.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
@@ -10,108 +16,77 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
-  int _selectedIndex = 0;
+  MainBloc get mainBloc => context.read<MainBloc>();
+
+  @override
+  void initState() {
+    super.initState();
+    mainBloc.add(const MainEvent.checkUserInfo());
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // 앱바 구현
-      appBar: AppBar(
-        title: Text(AppConstants.appName),
-        actions: [
-          IconButton(icon: const Icon(Icons.notifications), onPressed: () {}),
-          IconButton(icon: const Icon(Icons.settings), onPressed: () {}),
-        ],
-      ),
-
-      // 메인 컨텐츠 영역
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              // 상단 카드 섹션
-              Container(
-                padding: const EdgeInsets.all(16),
-                child: Card(
-                  child: Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Row(
-                      children: [
-                        const CircleAvatar(
-                          radius: 30,
-                          child: Icon(Icons.person),
-                        ),
-                        const SizedBox(width: 16),
-                        const Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text('안녕하세요!', style: TextStyle(fontSize: 18)),
-                            Text('오늘도 좋은 하루 되세요'),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-
-              // 메뉴 그리드
-              GridView.count(
-                shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
-                crossAxisCount: 2,
-                padding: const EdgeInsets.all(16),
-                children: [
-                  _buildMenuCard(
-                    AppConstants.parkingMapMenuDisplayName,
-                    Icons.car_rental,
-                    onTap: () {
-                      AppNavigator.push(Routes.parkingMap);
-                    },
-                  ),
-                  _buildMenuCard(
-                    AppConstants.parkingMapMenuDisplayName,
-                    Icons.favorite,
-                  ),
-                  _buildMenuCard('메뉴 3', Icons.map),
-                  _buildMenuCard('메뉴 4', Icons.shopping_cart),
-                ],
-              ),
-            ],
-          ),
-        ),
-      ),
-
-      // 하단 네비게이션 바
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: _selectedIndex,
-        onTap: (index) {
-          setState(() {
-            _selectedIndex = index;
-          });
-        },
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: '홈'),
-          BottomNavigationBarItem(icon: Icon(Icons.explore), label: '탐색'),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: '프로필'),
-        ],
-      ),
+    return ExceptionSelector(
+      (exception) {
+        if (exception is AppException) {
+          return exception.when(
+            notFoundUserInfo: () => PostAddressSection(
+              onSubmit: (data) {
+                print(data.toJson());
+              },
+            ),
+            invalidUserInfo: () => ErrorView(error: exception),
+            userInfoSave: () => ErrorView(error: exception),
+            userInfoUpdate: () => ErrorView(error: exception),
+            webView: () => ErrorView(error: exception),
+            unknown: (message) => ErrorView(error: exception),
+          );
+        }
+        return const RegistrationSection();
+      },
     );
+    // return UserInfoSelector(
+    //   (userInfo) {
+    //     if (userInfo == null) {
+    //       return const RegistrationSection();
+    //     }
+    //     return const MainMenuSection();
+    //   },
+    // );
   }
+  //   return BlocBuilder<MainBloc, MainState>(
+  //     builder: (context, state) {
+  //       if (state.isLoading) {
+  //         return const Center(child: CircularProgressIndicator());
+  //       }
 
-  Widget _buildMenuCard(String title, IconData icon, {Function()? onTap}) {
-    return Card(
-      child: InkWell(
-        onTap: onTap,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(icon, size: 32),
-            const SizedBox(height: 8),
-            Text(title),
-          ],
-        ),
-      ),
-    );
-  }
+  //       if (state.error) {
+  //         return Center(
+  //           child: Column(
+  //             mainAxisAlignment: MainAxisAlignment.center,
+  //             children: [
+  //               const Text('오류가 발생했습니다'),
+  //               Text(state.errorMessage),
+  //               ElevatedButton(
+  //                 onPressed: () {
+  //                   context.read<MainBloc>().add(
+  //                         const MainEvent.checkUserInfo(),
+  //                       );
+  //                 },
+  //                 child: const Text('다시 시도'),
+  //               ),
+  //             ],
+  //           ),
+  //         );
+  //       }
+  //       if (state.userInfo == null) {
+  //         return const PostAddressSection();
+  //       } else {}
+
+  //       return state.userInfo == null
+  //           ? const RegistrationSection()
+  //           : const MainMenuSection();
+  //     },
+  //   );
+  // }
 }
