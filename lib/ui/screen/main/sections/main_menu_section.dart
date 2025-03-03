@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_home_parking/core/constants/app_constants.dart';
+import 'package:my_home_parking/model/user_info.dart';
 import 'package:my_home_parking/state/main/main_bloc.dart';
-import 'package:my_home_parking/state/main/main_event.dart';
 import 'package:my_home_parking/state/main/main_state.dart';
 
 class MainMenuSection extends StatelessWidget {
-  const MainMenuSection({super.key});
+  final void Function() navigateToCarNumberInput;
+
+  const MainMenuSection({super.key, required this.navigateToCarNumberInput});
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +19,7 @@ class MainMenuSection extends StatelessWidget {
 
         return Scaffold(
           appBar: AppBar(
-            title: const Text('마이 홈 파킹'),
+            title: Text(AppConstants.appName),
             actions: [
               IconButton(
                 icon: const Icon(Icons.edit),
@@ -30,26 +33,7 @@ class MainMenuSection extends StatelessWidget {
             child: Column(
               children: [
                 // 사용자 정보 카드
-                Card(
-                  margin: const EdgeInsets.all(16),
-                  child: Padding(
-                    padding: const EdgeInsets.all(16),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          '차량 번호: ${userInfo.carNumber}',
-                          style: Theme.of(context).textTheme.titleMedium,
-                        ),
-                        const SizedBox(height: 8),
-                        Text(
-                          '집 주소: ${userInfo.address}',
-                          style: Theme.of(context).textTheme.titleMedium,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+                _buildUserCard(context, userInfo),
 
                 // 메뉴 그리드
                 GridView.count(
@@ -99,6 +83,85 @@ class MainMenuSection extends StatelessWidget {
           ),
         );
       },
+    );
+  }
+
+  Widget _buildUserCard(
+    BuildContext context,
+    UserInfo userInfo,
+  ) {
+    return Card(
+      margin: const EdgeInsets.all(16),
+      child: Padding(
+        padding: const EdgeInsets.all(16),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.primaryContainer,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: const Icon(Icons.directions_car),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: userInfo.carNumber != null
+                      ? Text(
+                          userInfo.carNumber!,
+                          style:
+                              Theme.of(context).textTheme.titleMedium?.copyWith(
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                        )
+                      : TextButton(
+                          onPressed: () {
+                            navigateToCarNumberInput();
+                          },
+                          child: Text(
+                            '차량번호 입력하기',
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleMedium
+                                ?.copyWith(
+                                  fontWeight: FontWeight.bold,
+                                  color: Theme.of(context).colorScheme.primary,
+                                ),
+                          ),
+                        ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Container(
+                  padding: const EdgeInsets.all(8),
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.primaryContainer,
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  child: const Icon(Icons.home),
+                ),
+                const SizedBox(width: 12),
+                Expanded(
+                  child: Text(
+                    userInfo.address,
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
     );
   }
 

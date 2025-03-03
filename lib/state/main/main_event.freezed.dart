@@ -19,44 +19,44 @@ mixin _$MainEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() checkUserInfo,
-    required TResult Function(UserInfo userInfo) registerUserInfo,
-    required TResult Function(UserInfo userInfo) updateUserInfo,
+    required TResult Function() checkCarNumber,
+    required TResult Function(UserInfo userInfo) saveUserInfo,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? checkUserInfo,
-    TResult? Function(UserInfo userInfo)? registerUserInfo,
-    TResult? Function(UserInfo userInfo)? updateUserInfo,
+    TResult? Function()? checkCarNumber,
+    TResult? Function(UserInfo userInfo)? saveUserInfo,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? checkUserInfo,
-    TResult Function(UserInfo userInfo)? registerUserInfo,
-    TResult Function(UserInfo userInfo)? updateUserInfo,
+    TResult Function()? checkCarNumber,
+    TResult Function(UserInfo userInfo)? saveUserInfo,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_CheckUserInfo value) checkUserInfo,
-    required TResult Function(_RegisterUserInfo value) registerUserInfo,
-    required TResult Function(_UpdateUserInfo value) updateUserInfo,
+    required TResult Function(_CheckCarNumber value) checkCarNumber,
+    required TResult Function(_SaveUserInfo value) saveUserInfo,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_CheckUserInfo value)? checkUserInfo,
-    TResult? Function(_RegisterUserInfo value)? registerUserInfo,
-    TResult? Function(_UpdateUserInfo value)? updateUserInfo,
+    TResult? Function(_CheckCarNumber value)? checkCarNumber,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_CheckUserInfo value)? checkUserInfo,
-    TResult Function(_RegisterUserInfo value)? registerUserInfo,
-    TResult Function(_UpdateUserInfo value)? updateUserInfo,
+    TResult Function(_CheckCarNumber value)? checkCarNumber,
+    TResult Function(_SaveUserInfo value)? saveUserInfo,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -124,8 +124,8 @@ class _$CheckUserInfoImpl implements _CheckUserInfo {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() checkUserInfo,
-    required TResult Function(UserInfo userInfo) registerUserInfo,
-    required TResult Function(UserInfo userInfo) updateUserInfo,
+    required TResult Function() checkCarNumber,
+    required TResult Function(UserInfo userInfo) saveUserInfo,
   }) {
     return checkUserInfo();
   }
@@ -134,8 +134,8 @@ class _$CheckUserInfoImpl implements _CheckUserInfo {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? checkUserInfo,
-    TResult? Function(UserInfo userInfo)? registerUserInfo,
-    TResult? Function(UserInfo userInfo)? updateUserInfo,
+    TResult? Function()? checkCarNumber,
+    TResult? Function(UserInfo userInfo)? saveUserInfo,
   }) {
     return checkUserInfo?.call();
   }
@@ -144,8 +144,8 @@ class _$CheckUserInfoImpl implements _CheckUserInfo {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? checkUserInfo,
-    TResult Function(UserInfo userInfo)? registerUserInfo,
-    TResult Function(UserInfo userInfo)? updateUserInfo,
+    TResult Function()? checkCarNumber,
+    TResult Function(UserInfo userInfo)? saveUserInfo,
     required TResult orElse(),
   }) {
     if (checkUserInfo != null) {
@@ -158,8 +158,8 @@ class _$CheckUserInfoImpl implements _CheckUserInfo {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_CheckUserInfo value) checkUserInfo,
-    required TResult Function(_RegisterUserInfo value) registerUserInfo,
-    required TResult Function(_UpdateUserInfo value) updateUserInfo,
+    required TResult Function(_CheckCarNumber value) checkCarNumber,
+    required TResult Function(_SaveUserInfo value) saveUserInfo,
   }) {
     return checkUserInfo(this);
   }
@@ -168,8 +168,8 @@ class _$CheckUserInfoImpl implements _CheckUserInfo {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_CheckUserInfo value)? checkUserInfo,
-    TResult? Function(_RegisterUserInfo value)? registerUserInfo,
-    TResult? Function(_UpdateUserInfo value)? updateUserInfo,
+    TResult? Function(_CheckCarNumber value)? checkCarNumber,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
   }) {
     return checkUserInfo?.call(this);
   }
@@ -178,8 +178,8 @@ class _$CheckUserInfoImpl implements _CheckUserInfo {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_CheckUserInfo value)? checkUserInfo,
-    TResult Function(_RegisterUserInfo value)? registerUserInfo,
-    TResult Function(_UpdateUserInfo value)? updateUserInfo,
+    TResult Function(_CheckCarNumber value)? checkCarNumber,
+    TResult Function(_SaveUserInfo value)? saveUserInfo,
     required TResult orElse(),
   }) {
     if (checkUserInfo != null) {
@@ -194,10 +194,121 @@ abstract class _CheckUserInfo implements MainEvent {
 }
 
 /// @nodoc
-abstract class _$$RegisterUserInfoImplCopyWith<$Res> {
-  factory _$$RegisterUserInfoImplCopyWith(_$RegisterUserInfoImpl value,
-          $Res Function(_$RegisterUserInfoImpl) then) =
-      __$$RegisterUserInfoImplCopyWithImpl<$Res>;
+abstract class _$$CheckCarNumberImplCopyWith<$Res> {
+  factory _$$CheckCarNumberImplCopyWith(_$CheckCarNumberImpl value,
+          $Res Function(_$CheckCarNumberImpl) then) =
+      __$$CheckCarNumberImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$CheckCarNumberImplCopyWithImpl<$Res>
+    extends _$MainEventCopyWithImpl<$Res, _$CheckCarNumberImpl>
+    implements _$$CheckCarNumberImplCopyWith<$Res> {
+  __$$CheckCarNumberImplCopyWithImpl(
+      _$CheckCarNumberImpl _value, $Res Function(_$CheckCarNumberImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of MainEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$CheckCarNumberImpl implements _CheckCarNumber {
+  const _$CheckCarNumberImpl();
+
+  @override
+  String toString() {
+    return 'MainEvent.checkCarNumber()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$CheckCarNumberImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() checkUserInfo,
+    required TResult Function() checkCarNumber,
+    required TResult Function(UserInfo userInfo) saveUserInfo,
+  }) {
+    return checkCarNumber();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? checkUserInfo,
+    TResult? Function()? checkCarNumber,
+    TResult? Function(UserInfo userInfo)? saveUserInfo,
+  }) {
+    return checkCarNumber?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? checkUserInfo,
+    TResult Function()? checkCarNumber,
+    TResult Function(UserInfo userInfo)? saveUserInfo,
+    required TResult orElse(),
+  }) {
+    if (checkCarNumber != null) {
+      return checkCarNumber();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CheckUserInfo value) checkUserInfo,
+    required TResult Function(_CheckCarNumber value) checkCarNumber,
+    required TResult Function(_SaveUserInfo value) saveUserInfo,
+  }) {
+    return checkCarNumber(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CheckUserInfo value)? checkUserInfo,
+    TResult? Function(_CheckCarNumber value)? checkCarNumber,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+  }) {
+    return checkCarNumber?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CheckUserInfo value)? checkUserInfo,
+    TResult Function(_CheckCarNumber value)? checkCarNumber,
+    TResult Function(_SaveUserInfo value)? saveUserInfo,
+    required TResult orElse(),
+  }) {
+    if (checkCarNumber != null) {
+      return checkCarNumber(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CheckCarNumber implements MainEvent {
+  const factory _CheckCarNumber() = _$CheckCarNumberImpl;
+}
+
+/// @nodoc
+abstract class _$$SaveUserInfoImplCopyWith<$Res> {
+  factory _$$SaveUserInfoImplCopyWith(
+          _$SaveUserInfoImpl value, $Res Function(_$SaveUserInfoImpl) then) =
+      __$$SaveUserInfoImplCopyWithImpl<$Res>;
   @useResult
   $Res call({UserInfo userInfo});
 
@@ -205,11 +316,11 @@ abstract class _$$RegisterUserInfoImplCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$RegisterUserInfoImplCopyWithImpl<$Res>
-    extends _$MainEventCopyWithImpl<$Res, _$RegisterUserInfoImpl>
-    implements _$$RegisterUserInfoImplCopyWith<$Res> {
-  __$$RegisterUserInfoImplCopyWithImpl(_$RegisterUserInfoImpl _value,
-      $Res Function(_$RegisterUserInfoImpl) _then)
+class __$$SaveUserInfoImplCopyWithImpl<$Res>
+    extends _$MainEventCopyWithImpl<$Res, _$SaveUserInfoImpl>
+    implements _$$SaveUserInfoImplCopyWith<$Res> {
+  __$$SaveUserInfoImplCopyWithImpl(
+      _$SaveUserInfoImpl _value, $Res Function(_$SaveUserInfoImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of MainEvent
@@ -219,7 +330,7 @@ class __$$RegisterUserInfoImplCopyWithImpl<$Res>
   $Res call({
     Object? userInfo = null,
   }) {
-    return _then(_$RegisterUserInfoImpl(
+    return _then(_$SaveUserInfoImpl(
       null == userInfo
           ? _value.userInfo
           : userInfo // ignore: cast_nullable_to_non_nullable
@@ -240,22 +351,22 @@ class __$$RegisterUserInfoImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$RegisterUserInfoImpl implements _RegisterUserInfo {
-  const _$RegisterUserInfoImpl(this.userInfo);
+class _$SaveUserInfoImpl implements _SaveUserInfo {
+  const _$SaveUserInfoImpl(this.userInfo);
 
   @override
   final UserInfo userInfo;
 
   @override
   String toString() {
-    return 'MainEvent.registerUserInfo(userInfo: $userInfo)';
+    return 'MainEvent.saveUserInfo(userInfo: $userInfo)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$RegisterUserInfoImpl &&
+            other is _$SaveUserInfoImpl &&
             (identical(other.userInfo, userInfo) ||
                 other.userInfo == userInfo));
   }
@@ -268,40 +379,39 @@ class _$RegisterUserInfoImpl implements _RegisterUserInfo {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
-  _$$RegisterUserInfoImplCopyWith<_$RegisterUserInfoImpl> get copyWith =>
-      __$$RegisterUserInfoImplCopyWithImpl<_$RegisterUserInfoImpl>(
-          this, _$identity);
+  _$$SaveUserInfoImplCopyWith<_$SaveUserInfoImpl> get copyWith =>
+      __$$SaveUserInfoImplCopyWithImpl<_$SaveUserInfoImpl>(this, _$identity);
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() checkUserInfo,
-    required TResult Function(UserInfo userInfo) registerUserInfo,
-    required TResult Function(UserInfo userInfo) updateUserInfo,
+    required TResult Function() checkCarNumber,
+    required TResult Function(UserInfo userInfo) saveUserInfo,
   }) {
-    return registerUserInfo(userInfo);
+    return saveUserInfo(userInfo);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? checkUserInfo,
-    TResult? Function(UserInfo userInfo)? registerUserInfo,
-    TResult? Function(UserInfo userInfo)? updateUserInfo,
+    TResult? Function()? checkCarNumber,
+    TResult? Function(UserInfo userInfo)? saveUserInfo,
   }) {
-    return registerUserInfo?.call(userInfo);
+    return saveUserInfo?.call(userInfo);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? checkUserInfo,
-    TResult Function(UserInfo userInfo)? registerUserInfo,
-    TResult Function(UserInfo userInfo)? updateUserInfo,
+    TResult Function()? checkCarNumber,
+    TResult Function(UserInfo userInfo)? saveUserInfo,
     required TResult orElse(),
   }) {
-    if (registerUserInfo != null) {
-      return registerUserInfo(userInfo);
+    if (saveUserInfo != null) {
+      return saveUserInfo(userInfo);
     }
     return orElse();
   }
@@ -310,206 +420,45 @@ class _$RegisterUserInfoImpl implements _RegisterUserInfo {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_CheckUserInfo value) checkUserInfo,
-    required TResult Function(_RegisterUserInfo value) registerUserInfo,
-    required TResult Function(_UpdateUserInfo value) updateUserInfo,
+    required TResult Function(_CheckCarNumber value) checkCarNumber,
+    required TResult Function(_SaveUserInfo value) saveUserInfo,
   }) {
-    return registerUserInfo(this);
+    return saveUserInfo(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_CheckUserInfo value)? checkUserInfo,
-    TResult? Function(_RegisterUserInfo value)? registerUserInfo,
-    TResult? Function(_UpdateUserInfo value)? updateUserInfo,
+    TResult? Function(_CheckCarNumber value)? checkCarNumber,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
   }) {
-    return registerUserInfo?.call(this);
+    return saveUserInfo?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_CheckUserInfo value)? checkUserInfo,
-    TResult Function(_RegisterUserInfo value)? registerUserInfo,
-    TResult Function(_UpdateUserInfo value)? updateUserInfo,
+    TResult Function(_CheckCarNumber value)? checkCarNumber,
+    TResult Function(_SaveUserInfo value)? saveUserInfo,
     required TResult orElse(),
   }) {
-    if (registerUserInfo != null) {
-      return registerUserInfo(this);
+    if (saveUserInfo != null) {
+      return saveUserInfo(this);
     }
     return orElse();
   }
 }
 
-abstract class _RegisterUserInfo implements MainEvent {
-  const factory _RegisterUserInfo(final UserInfo userInfo) =
-      _$RegisterUserInfoImpl;
+abstract class _SaveUserInfo implements MainEvent {
+  const factory _SaveUserInfo(final UserInfo userInfo) = _$SaveUserInfoImpl;
 
   UserInfo get userInfo;
 
   /// Create a copy of MainEvent
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$RegisterUserInfoImplCopyWith<_$RegisterUserInfoImpl> get copyWith =>
-      throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$$UpdateUserInfoImplCopyWith<$Res> {
-  factory _$$UpdateUserInfoImplCopyWith(_$UpdateUserInfoImpl value,
-          $Res Function(_$UpdateUserInfoImpl) then) =
-      __$$UpdateUserInfoImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({UserInfo userInfo});
-
-  $UserInfoCopyWith<$Res> get userInfo;
-}
-
-/// @nodoc
-class __$$UpdateUserInfoImplCopyWithImpl<$Res>
-    extends _$MainEventCopyWithImpl<$Res, _$UpdateUserInfoImpl>
-    implements _$$UpdateUserInfoImplCopyWith<$Res> {
-  __$$UpdateUserInfoImplCopyWithImpl(
-      _$UpdateUserInfoImpl _value, $Res Function(_$UpdateUserInfoImpl) _then)
-      : super(_value, _then);
-
-  /// Create a copy of MainEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? userInfo = null,
-  }) {
-    return _then(_$UpdateUserInfoImpl(
-      null == userInfo
-          ? _value.userInfo
-          : userInfo // ignore: cast_nullable_to_non_nullable
-              as UserInfo,
-    ));
-  }
-
-  /// Create a copy of MainEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @override
-  @pragma('vm:prefer-inline')
-  $UserInfoCopyWith<$Res> get userInfo {
-    return $UserInfoCopyWith<$Res>(_value.userInfo, (value) {
-      return _then(_value.copyWith(userInfo: value));
-    });
-  }
-}
-
-/// @nodoc
-
-class _$UpdateUserInfoImpl implements _UpdateUserInfo {
-  const _$UpdateUserInfoImpl(this.userInfo);
-
-  @override
-  final UserInfo userInfo;
-
-  @override
-  String toString() {
-    return 'MainEvent.updateUserInfo(userInfo: $userInfo)';
-  }
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _$UpdateUserInfoImpl &&
-            (identical(other.userInfo, userInfo) ||
-                other.userInfo == userInfo));
-  }
-
-  @override
-  int get hashCode => Object.hash(runtimeType, userInfo);
-
-  /// Create a copy of MainEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$UpdateUserInfoImplCopyWith<_$UpdateUserInfoImpl> get copyWith =>
-      __$$UpdateUserInfoImplCopyWithImpl<_$UpdateUserInfoImpl>(
-          this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() checkUserInfo,
-    required TResult Function(UserInfo userInfo) registerUserInfo,
-    required TResult Function(UserInfo userInfo) updateUserInfo,
-  }) {
-    return updateUserInfo(userInfo);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? checkUserInfo,
-    TResult? Function(UserInfo userInfo)? registerUserInfo,
-    TResult? Function(UserInfo userInfo)? updateUserInfo,
-  }) {
-    return updateUserInfo?.call(userInfo);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? checkUserInfo,
-    TResult Function(UserInfo userInfo)? registerUserInfo,
-    TResult Function(UserInfo userInfo)? updateUserInfo,
-    required TResult orElse(),
-  }) {
-    if (updateUserInfo != null) {
-      return updateUserInfo(userInfo);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_CheckUserInfo value) checkUserInfo,
-    required TResult Function(_RegisterUserInfo value) registerUserInfo,
-    required TResult Function(_UpdateUserInfo value) updateUserInfo,
-  }) {
-    return updateUserInfo(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(_CheckUserInfo value)? checkUserInfo,
-    TResult? Function(_RegisterUserInfo value)? registerUserInfo,
-    TResult? Function(_UpdateUserInfo value)? updateUserInfo,
-  }) {
-    return updateUserInfo?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_CheckUserInfo value)? checkUserInfo,
-    TResult Function(_RegisterUserInfo value)? registerUserInfo,
-    TResult Function(_UpdateUserInfo value)? updateUserInfo,
-    required TResult orElse(),
-  }) {
-    if (updateUserInfo != null) {
-      return updateUserInfo(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _UpdateUserInfo implements MainEvent {
-  const factory _UpdateUserInfo(final UserInfo userInfo) = _$UpdateUserInfoImpl;
-
-  UserInfo get userInfo;
-
-  /// Create a copy of MainEvent
-  /// with the given fields replaced by the non-null parameter values.
-  @JsonKey(includeFromJson: false, includeToJson: false)
-  _$$UpdateUserInfoImplCopyWith<_$UpdateUserInfoImpl> get copyWith =>
+  _$$SaveUserInfoImplCopyWith<_$SaveUserInfoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

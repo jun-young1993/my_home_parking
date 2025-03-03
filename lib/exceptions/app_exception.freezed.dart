@@ -21,7 +21,7 @@ mixin _$AppException {
     required TResult Function() notFoundUserInfo,
     required TResult Function() invalidUserInfo,
     required TResult Function() userInfoSave,
-    required TResult Function() userInfoUpdate,
+    required TResult Function() notFoundCarNumber,
     required TResult Function() webView,
     required TResult Function(String message) unknown,
   }) =>
@@ -31,7 +31,7 @@ mixin _$AppException {
     TResult? Function()? notFoundUserInfo,
     TResult? Function()? invalidUserInfo,
     TResult? Function()? userInfoSave,
-    TResult? Function()? userInfoUpdate,
+    TResult? Function()? notFoundCarNumber,
     TResult? Function()? webView,
     TResult? Function(String message)? unknown,
   }) =>
@@ -41,7 +41,7 @@ mixin _$AppException {
     TResult Function()? notFoundUserInfo,
     TResult Function()? invalidUserInfo,
     TResult Function()? userInfoSave,
-    TResult Function()? userInfoUpdate,
+    TResult Function()? notFoundCarNumber,
     TResult Function()? webView,
     TResult Function(String message)? unknown,
     required TResult orElse(),
@@ -52,7 +52,8 @@ mixin _$AppException {
     required TResult Function(NotFoundUserInfoException value) notFoundUserInfo,
     required TResult Function(InvalidUserInfoException value) invalidUserInfo,
     required TResult Function(UserInfoSaveException value) userInfoSave,
-    required TResult Function(UserInfoUpdateException value) userInfoUpdate,
+    required TResult Function(NotFoundCarNumberException value)
+        notFoundCarNumber,
     required TResult Function(WebViewException value) webView,
     required TResult Function(UnknownException value) unknown,
   }) =>
@@ -62,7 +63,7 @@ mixin _$AppException {
     TResult? Function(NotFoundUserInfoException value)? notFoundUserInfo,
     TResult? Function(InvalidUserInfoException value)? invalidUserInfo,
     TResult? Function(UserInfoSaveException value)? userInfoSave,
-    TResult? Function(UserInfoUpdateException value)? userInfoUpdate,
+    TResult? Function(NotFoundCarNumberException value)? notFoundCarNumber,
     TResult? Function(WebViewException value)? webView,
     TResult? Function(UnknownException value)? unknown,
   }) =>
@@ -72,7 +73,7 @@ mixin _$AppException {
     TResult Function(NotFoundUserInfoException value)? notFoundUserInfo,
     TResult Function(InvalidUserInfoException value)? invalidUserInfo,
     TResult Function(UserInfoSaveException value)? userInfoSave,
-    TResult Function(UserInfoUpdateException value)? userInfoUpdate,
+    TResult Function(NotFoundCarNumberException value)? notFoundCarNumber,
     TResult Function(WebViewException value)? webView,
     TResult Function(UnknownException value)? unknown,
     required TResult orElse(),
@@ -148,7 +149,7 @@ class _$NotFoundUserInfoExceptionImpl implements NotFoundUserInfoException {
     required TResult Function() notFoundUserInfo,
     required TResult Function() invalidUserInfo,
     required TResult Function() userInfoSave,
-    required TResult Function() userInfoUpdate,
+    required TResult Function() notFoundCarNumber,
     required TResult Function() webView,
     required TResult Function(String message) unknown,
   }) {
@@ -161,7 +162,7 @@ class _$NotFoundUserInfoExceptionImpl implements NotFoundUserInfoException {
     TResult? Function()? notFoundUserInfo,
     TResult? Function()? invalidUserInfo,
     TResult? Function()? userInfoSave,
-    TResult? Function()? userInfoUpdate,
+    TResult? Function()? notFoundCarNumber,
     TResult? Function()? webView,
     TResult? Function(String message)? unknown,
   }) {
@@ -174,7 +175,7 @@ class _$NotFoundUserInfoExceptionImpl implements NotFoundUserInfoException {
     TResult Function()? notFoundUserInfo,
     TResult Function()? invalidUserInfo,
     TResult Function()? userInfoSave,
-    TResult Function()? userInfoUpdate,
+    TResult Function()? notFoundCarNumber,
     TResult Function()? webView,
     TResult Function(String message)? unknown,
     required TResult orElse(),
@@ -191,7 +192,8 @@ class _$NotFoundUserInfoExceptionImpl implements NotFoundUserInfoException {
     required TResult Function(NotFoundUserInfoException value) notFoundUserInfo,
     required TResult Function(InvalidUserInfoException value) invalidUserInfo,
     required TResult Function(UserInfoSaveException value) userInfoSave,
-    required TResult Function(UserInfoUpdateException value) userInfoUpdate,
+    required TResult Function(NotFoundCarNumberException value)
+        notFoundCarNumber,
     required TResult Function(WebViewException value) webView,
     required TResult Function(UnknownException value) unknown,
   }) {
@@ -204,7 +206,7 @@ class _$NotFoundUserInfoExceptionImpl implements NotFoundUserInfoException {
     TResult? Function(NotFoundUserInfoException value)? notFoundUserInfo,
     TResult? Function(InvalidUserInfoException value)? invalidUserInfo,
     TResult? Function(UserInfoSaveException value)? userInfoSave,
-    TResult? Function(UserInfoUpdateException value)? userInfoUpdate,
+    TResult? Function(NotFoundCarNumberException value)? notFoundCarNumber,
     TResult? Function(WebViewException value)? webView,
     TResult? Function(UnknownException value)? unknown,
   }) {
@@ -217,7 +219,7 @@ class _$NotFoundUserInfoExceptionImpl implements NotFoundUserInfoException {
     TResult Function(NotFoundUserInfoException value)? notFoundUserInfo,
     TResult Function(InvalidUserInfoException value)? invalidUserInfo,
     TResult Function(UserInfoSaveException value)? userInfoSave,
-    TResult Function(UserInfoUpdateException value)? userInfoUpdate,
+    TResult Function(NotFoundCarNumberException value)? notFoundCarNumber,
     TResult Function(WebViewException value)? webView,
     TResult Function(UnknownException value)? unknown,
     required TResult orElse(),
@@ -280,7 +282,7 @@ class _$InvalidUserInfoExceptionImpl implements InvalidUserInfoException {
     required TResult Function() notFoundUserInfo,
     required TResult Function() invalidUserInfo,
     required TResult Function() userInfoSave,
-    required TResult Function() userInfoUpdate,
+    required TResult Function() notFoundCarNumber,
     required TResult Function() webView,
     required TResult Function(String message) unknown,
   }) {
@@ -293,7 +295,7 @@ class _$InvalidUserInfoExceptionImpl implements InvalidUserInfoException {
     TResult? Function()? notFoundUserInfo,
     TResult? Function()? invalidUserInfo,
     TResult? Function()? userInfoSave,
-    TResult? Function()? userInfoUpdate,
+    TResult? Function()? notFoundCarNumber,
     TResult? Function()? webView,
     TResult? Function(String message)? unknown,
   }) {
@@ -306,7 +308,7 @@ class _$InvalidUserInfoExceptionImpl implements InvalidUserInfoException {
     TResult Function()? notFoundUserInfo,
     TResult Function()? invalidUserInfo,
     TResult Function()? userInfoSave,
-    TResult Function()? userInfoUpdate,
+    TResult Function()? notFoundCarNumber,
     TResult Function()? webView,
     TResult Function(String message)? unknown,
     required TResult orElse(),
@@ -323,7 +325,8 @@ class _$InvalidUserInfoExceptionImpl implements InvalidUserInfoException {
     required TResult Function(NotFoundUserInfoException value) notFoundUserInfo,
     required TResult Function(InvalidUserInfoException value) invalidUserInfo,
     required TResult Function(UserInfoSaveException value) userInfoSave,
-    required TResult Function(UserInfoUpdateException value) userInfoUpdate,
+    required TResult Function(NotFoundCarNumberException value)
+        notFoundCarNumber,
     required TResult Function(WebViewException value) webView,
     required TResult Function(UnknownException value) unknown,
   }) {
@@ -336,7 +339,7 @@ class _$InvalidUserInfoExceptionImpl implements InvalidUserInfoException {
     TResult? Function(NotFoundUserInfoException value)? notFoundUserInfo,
     TResult? Function(InvalidUserInfoException value)? invalidUserInfo,
     TResult? Function(UserInfoSaveException value)? userInfoSave,
-    TResult? Function(UserInfoUpdateException value)? userInfoUpdate,
+    TResult? Function(NotFoundCarNumberException value)? notFoundCarNumber,
     TResult? Function(WebViewException value)? webView,
     TResult? Function(UnknownException value)? unknown,
   }) {
@@ -349,7 +352,7 @@ class _$InvalidUserInfoExceptionImpl implements InvalidUserInfoException {
     TResult Function(NotFoundUserInfoException value)? notFoundUserInfo,
     TResult Function(InvalidUserInfoException value)? invalidUserInfo,
     TResult Function(UserInfoSaveException value)? userInfoSave,
-    TResult Function(UserInfoUpdateException value)? userInfoUpdate,
+    TResult Function(NotFoundCarNumberException value)? notFoundCarNumber,
     TResult Function(WebViewException value)? webView,
     TResult Function(UnknownException value)? unknown,
     required TResult orElse(),
@@ -411,7 +414,7 @@ class _$UserInfoSaveExceptionImpl implements UserInfoSaveException {
     required TResult Function() notFoundUserInfo,
     required TResult Function() invalidUserInfo,
     required TResult Function() userInfoSave,
-    required TResult Function() userInfoUpdate,
+    required TResult Function() notFoundCarNumber,
     required TResult Function() webView,
     required TResult Function(String message) unknown,
   }) {
@@ -424,7 +427,7 @@ class _$UserInfoSaveExceptionImpl implements UserInfoSaveException {
     TResult? Function()? notFoundUserInfo,
     TResult? Function()? invalidUserInfo,
     TResult? Function()? userInfoSave,
-    TResult? Function()? userInfoUpdate,
+    TResult? Function()? notFoundCarNumber,
     TResult? Function()? webView,
     TResult? Function(String message)? unknown,
   }) {
@@ -437,7 +440,7 @@ class _$UserInfoSaveExceptionImpl implements UserInfoSaveException {
     TResult Function()? notFoundUserInfo,
     TResult Function()? invalidUserInfo,
     TResult Function()? userInfoSave,
-    TResult Function()? userInfoUpdate,
+    TResult Function()? notFoundCarNumber,
     TResult Function()? webView,
     TResult Function(String message)? unknown,
     required TResult orElse(),
@@ -454,7 +457,8 @@ class _$UserInfoSaveExceptionImpl implements UserInfoSaveException {
     required TResult Function(NotFoundUserInfoException value) notFoundUserInfo,
     required TResult Function(InvalidUserInfoException value) invalidUserInfo,
     required TResult Function(UserInfoSaveException value) userInfoSave,
-    required TResult Function(UserInfoUpdateException value) userInfoUpdate,
+    required TResult Function(NotFoundCarNumberException value)
+        notFoundCarNumber,
     required TResult Function(WebViewException value) webView,
     required TResult Function(UnknownException value) unknown,
   }) {
@@ -467,7 +471,7 @@ class _$UserInfoSaveExceptionImpl implements UserInfoSaveException {
     TResult? Function(NotFoundUserInfoException value)? notFoundUserInfo,
     TResult? Function(InvalidUserInfoException value)? invalidUserInfo,
     TResult? Function(UserInfoSaveException value)? userInfoSave,
-    TResult? Function(UserInfoUpdateException value)? userInfoUpdate,
+    TResult? Function(NotFoundCarNumberException value)? notFoundCarNumber,
     TResult? Function(WebViewException value)? webView,
     TResult? Function(UnknownException value)? unknown,
   }) {
@@ -480,7 +484,7 @@ class _$UserInfoSaveExceptionImpl implements UserInfoSaveException {
     TResult Function(NotFoundUserInfoException value)? notFoundUserInfo,
     TResult Function(InvalidUserInfoException value)? invalidUserInfo,
     TResult Function(UserInfoSaveException value)? userInfoSave,
-    TResult Function(UserInfoUpdateException value)? userInfoUpdate,
+    TResult Function(NotFoundCarNumberException value)? notFoundCarNumber,
     TResult Function(WebViewException value)? webView,
     TResult Function(UnknownException value)? unknown,
     required TResult orElse(),
@@ -497,20 +501,20 @@ abstract class UserInfoSaveException implements AppException {
 }
 
 /// @nodoc
-abstract class _$$UserInfoUpdateExceptionImplCopyWith<$Res> {
-  factory _$$UserInfoUpdateExceptionImplCopyWith(
-          _$UserInfoUpdateExceptionImpl value,
-          $Res Function(_$UserInfoUpdateExceptionImpl) then) =
-      __$$UserInfoUpdateExceptionImplCopyWithImpl<$Res>;
+abstract class _$$NotFoundCarNumberExceptionImplCopyWith<$Res> {
+  factory _$$NotFoundCarNumberExceptionImplCopyWith(
+          _$NotFoundCarNumberExceptionImpl value,
+          $Res Function(_$NotFoundCarNumberExceptionImpl) then) =
+      __$$NotFoundCarNumberExceptionImplCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$$UserInfoUpdateExceptionImplCopyWithImpl<$Res>
-    extends _$AppExceptionCopyWithImpl<$Res, _$UserInfoUpdateExceptionImpl>
-    implements _$$UserInfoUpdateExceptionImplCopyWith<$Res> {
-  __$$UserInfoUpdateExceptionImplCopyWithImpl(
-      _$UserInfoUpdateExceptionImpl _value,
-      $Res Function(_$UserInfoUpdateExceptionImpl) _then)
+class __$$NotFoundCarNumberExceptionImplCopyWithImpl<$Res>
+    extends _$AppExceptionCopyWithImpl<$Res, _$NotFoundCarNumberExceptionImpl>
+    implements _$$NotFoundCarNumberExceptionImplCopyWith<$Res> {
+  __$$NotFoundCarNumberExceptionImplCopyWithImpl(
+      _$NotFoundCarNumberExceptionImpl _value,
+      $Res Function(_$NotFoundCarNumberExceptionImpl) _then)
       : super(_value, _then);
 
   /// Create a copy of AppException
@@ -519,19 +523,19 @@ class __$$UserInfoUpdateExceptionImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$UserInfoUpdateExceptionImpl implements UserInfoUpdateException {
-  const _$UserInfoUpdateExceptionImpl();
+class _$NotFoundCarNumberExceptionImpl implements NotFoundCarNumberException {
+  const _$NotFoundCarNumberExceptionImpl();
 
   @override
   String toString() {
-    return 'AppException.userInfoUpdate()';
+    return 'AppException.notFoundCarNumber()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$UserInfoUpdateExceptionImpl);
+            other is _$NotFoundCarNumberExceptionImpl);
   }
 
   @override
@@ -543,11 +547,11 @@ class _$UserInfoUpdateExceptionImpl implements UserInfoUpdateException {
     required TResult Function() notFoundUserInfo,
     required TResult Function() invalidUserInfo,
     required TResult Function() userInfoSave,
-    required TResult Function() userInfoUpdate,
+    required TResult Function() notFoundCarNumber,
     required TResult Function() webView,
     required TResult Function(String message) unknown,
   }) {
-    return userInfoUpdate();
+    return notFoundCarNumber();
   }
 
   @override
@@ -556,11 +560,11 @@ class _$UserInfoUpdateExceptionImpl implements UserInfoUpdateException {
     TResult? Function()? notFoundUserInfo,
     TResult? Function()? invalidUserInfo,
     TResult? Function()? userInfoSave,
-    TResult? Function()? userInfoUpdate,
+    TResult? Function()? notFoundCarNumber,
     TResult? Function()? webView,
     TResult? Function(String message)? unknown,
   }) {
-    return userInfoUpdate?.call();
+    return notFoundCarNumber?.call();
   }
 
   @override
@@ -569,13 +573,13 @@ class _$UserInfoUpdateExceptionImpl implements UserInfoUpdateException {
     TResult Function()? notFoundUserInfo,
     TResult Function()? invalidUserInfo,
     TResult Function()? userInfoSave,
-    TResult Function()? userInfoUpdate,
+    TResult Function()? notFoundCarNumber,
     TResult Function()? webView,
     TResult Function(String message)? unknown,
     required TResult orElse(),
   }) {
-    if (userInfoUpdate != null) {
-      return userInfoUpdate();
+    if (notFoundCarNumber != null) {
+      return notFoundCarNumber();
     }
     return orElse();
   }
@@ -586,11 +590,12 @@ class _$UserInfoUpdateExceptionImpl implements UserInfoUpdateException {
     required TResult Function(NotFoundUserInfoException value) notFoundUserInfo,
     required TResult Function(InvalidUserInfoException value) invalidUserInfo,
     required TResult Function(UserInfoSaveException value) userInfoSave,
-    required TResult Function(UserInfoUpdateException value) userInfoUpdate,
+    required TResult Function(NotFoundCarNumberException value)
+        notFoundCarNumber,
     required TResult Function(WebViewException value) webView,
     required TResult Function(UnknownException value) unknown,
   }) {
-    return userInfoUpdate(this);
+    return notFoundCarNumber(this);
   }
 
   @override
@@ -599,11 +604,11 @@ class _$UserInfoUpdateExceptionImpl implements UserInfoUpdateException {
     TResult? Function(NotFoundUserInfoException value)? notFoundUserInfo,
     TResult? Function(InvalidUserInfoException value)? invalidUserInfo,
     TResult? Function(UserInfoSaveException value)? userInfoSave,
-    TResult? Function(UserInfoUpdateException value)? userInfoUpdate,
+    TResult? Function(NotFoundCarNumberException value)? notFoundCarNumber,
     TResult? Function(WebViewException value)? webView,
     TResult? Function(UnknownException value)? unknown,
   }) {
-    return userInfoUpdate?.call(this);
+    return notFoundCarNumber?.call(this);
   }
 
   @override
@@ -612,20 +617,20 @@ class _$UserInfoUpdateExceptionImpl implements UserInfoUpdateException {
     TResult Function(NotFoundUserInfoException value)? notFoundUserInfo,
     TResult Function(InvalidUserInfoException value)? invalidUserInfo,
     TResult Function(UserInfoSaveException value)? userInfoSave,
-    TResult Function(UserInfoUpdateException value)? userInfoUpdate,
+    TResult Function(NotFoundCarNumberException value)? notFoundCarNumber,
     TResult Function(WebViewException value)? webView,
     TResult Function(UnknownException value)? unknown,
     required TResult orElse(),
   }) {
-    if (userInfoUpdate != null) {
-      return userInfoUpdate(this);
+    if (notFoundCarNumber != null) {
+      return notFoundCarNumber(this);
     }
     return orElse();
   }
 }
 
-abstract class UserInfoUpdateException implements AppException {
-  const factory UserInfoUpdateException() = _$UserInfoUpdateExceptionImpl;
+abstract class NotFoundCarNumberException implements AppException {
+  const factory NotFoundCarNumberException() = _$NotFoundCarNumberExceptionImpl;
 }
 
 /// @nodoc
@@ -672,7 +677,7 @@ class _$WebViewExceptionImpl implements WebViewException {
     required TResult Function() notFoundUserInfo,
     required TResult Function() invalidUserInfo,
     required TResult Function() userInfoSave,
-    required TResult Function() userInfoUpdate,
+    required TResult Function() notFoundCarNumber,
     required TResult Function() webView,
     required TResult Function(String message) unknown,
   }) {
@@ -685,7 +690,7 @@ class _$WebViewExceptionImpl implements WebViewException {
     TResult? Function()? notFoundUserInfo,
     TResult? Function()? invalidUserInfo,
     TResult? Function()? userInfoSave,
-    TResult? Function()? userInfoUpdate,
+    TResult? Function()? notFoundCarNumber,
     TResult? Function()? webView,
     TResult? Function(String message)? unknown,
   }) {
@@ -698,7 +703,7 @@ class _$WebViewExceptionImpl implements WebViewException {
     TResult Function()? notFoundUserInfo,
     TResult Function()? invalidUserInfo,
     TResult Function()? userInfoSave,
-    TResult Function()? userInfoUpdate,
+    TResult Function()? notFoundCarNumber,
     TResult Function()? webView,
     TResult Function(String message)? unknown,
     required TResult orElse(),
@@ -715,7 +720,8 @@ class _$WebViewExceptionImpl implements WebViewException {
     required TResult Function(NotFoundUserInfoException value) notFoundUserInfo,
     required TResult Function(InvalidUserInfoException value) invalidUserInfo,
     required TResult Function(UserInfoSaveException value) userInfoSave,
-    required TResult Function(UserInfoUpdateException value) userInfoUpdate,
+    required TResult Function(NotFoundCarNumberException value)
+        notFoundCarNumber,
     required TResult Function(WebViewException value) webView,
     required TResult Function(UnknownException value) unknown,
   }) {
@@ -728,7 +734,7 @@ class _$WebViewExceptionImpl implements WebViewException {
     TResult? Function(NotFoundUserInfoException value)? notFoundUserInfo,
     TResult? Function(InvalidUserInfoException value)? invalidUserInfo,
     TResult? Function(UserInfoSaveException value)? userInfoSave,
-    TResult? Function(UserInfoUpdateException value)? userInfoUpdate,
+    TResult? Function(NotFoundCarNumberException value)? notFoundCarNumber,
     TResult? Function(WebViewException value)? webView,
     TResult? Function(UnknownException value)? unknown,
   }) {
@@ -741,7 +747,7 @@ class _$WebViewExceptionImpl implements WebViewException {
     TResult Function(NotFoundUserInfoException value)? notFoundUserInfo,
     TResult Function(InvalidUserInfoException value)? invalidUserInfo,
     TResult Function(UserInfoSaveException value)? userInfoSave,
-    TResult Function(UserInfoUpdateException value)? userInfoUpdate,
+    TResult Function(NotFoundCarNumberException value)? notFoundCarNumber,
     TResult Function(WebViewException value)? webView,
     TResult Function(UnknownException value)? unknown,
     required TResult orElse(),
@@ -829,7 +835,7 @@ class _$UnknownExceptionImpl implements UnknownException {
     required TResult Function() notFoundUserInfo,
     required TResult Function() invalidUserInfo,
     required TResult Function() userInfoSave,
-    required TResult Function() userInfoUpdate,
+    required TResult Function() notFoundCarNumber,
     required TResult Function() webView,
     required TResult Function(String message) unknown,
   }) {
@@ -842,7 +848,7 @@ class _$UnknownExceptionImpl implements UnknownException {
     TResult? Function()? notFoundUserInfo,
     TResult? Function()? invalidUserInfo,
     TResult? Function()? userInfoSave,
-    TResult? Function()? userInfoUpdate,
+    TResult? Function()? notFoundCarNumber,
     TResult? Function()? webView,
     TResult? Function(String message)? unknown,
   }) {
@@ -855,7 +861,7 @@ class _$UnknownExceptionImpl implements UnknownException {
     TResult Function()? notFoundUserInfo,
     TResult Function()? invalidUserInfo,
     TResult Function()? userInfoSave,
-    TResult Function()? userInfoUpdate,
+    TResult Function()? notFoundCarNumber,
     TResult Function()? webView,
     TResult Function(String message)? unknown,
     required TResult orElse(),
@@ -872,7 +878,8 @@ class _$UnknownExceptionImpl implements UnknownException {
     required TResult Function(NotFoundUserInfoException value) notFoundUserInfo,
     required TResult Function(InvalidUserInfoException value) invalidUserInfo,
     required TResult Function(UserInfoSaveException value) userInfoSave,
-    required TResult Function(UserInfoUpdateException value) userInfoUpdate,
+    required TResult Function(NotFoundCarNumberException value)
+        notFoundCarNumber,
     required TResult Function(WebViewException value) webView,
     required TResult Function(UnknownException value) unknown,
   }) {
@@ -885,7 +892,7 @@ class _$UnknownExceptionImpl implements UnknownException {
     TResult? Function(NotFoundUserInfoException value)? notFoundUserInfo,
     TResult? Function(InvalidUserInfoException value)? invalidUserInfo,
     TResult? Function(UserInfoSaveException value)? userInfoSave,
-    TResult? Function(UserInfoUpdateException value)? userInfoUpdate,
+    TResult? Function(NotFoundCarNumberException value)? notFoundCarNumber,
     TResult? Function(WebViewException value)? webView,
     TResult? Function(UnknownException value)? unknown,
   }) {
@@ -898,7 +905,7 @@ class _$UnknownExceptionImpl implements UnknownException {
     TResult Function(NotFoundUserInfoException value)? notFoundUserInfo,
     TResult Function(InvalidUserInfoException value)? invalidUserInfo,
     TResult Function(UserInfoSaveException value)? userInfoSave,
-    TResult Function(UserInfoUpdateException value)? userInfoUpdate,
+    TResult Function(NotFoundCarNumberException value)? notFoundCarNumber,
     TResult Function(WebViewException value)? webView,
     TResult Function(UnknownException value)? unknown,
     required TResult orElse(),

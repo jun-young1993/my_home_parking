@@ -1,9 +1,12 @@
 import 'dart:convert';
+import 'package:my_home_parking/exceptions/app_exception.dart';
 import 'package:my_home_parking/model/user_info.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 abstract class MainRepository {
   Future<UserInfo?> getUserInfo();
+  Future<UserInfo> getUserInfoOrFail();
+  Future<UserInfo> getUserInfoOrFailWithCarNumber();
   Future<void> saveUserInfo(UserInfo userInfo);
   Future<void> clearUserInfo();
 }
@@ -19,6 +22,24 @@ class MainDefaultRepository extends MainRepository {
     final String? userInfoJson = _prefs.getString(_userInfoKey);
     if (userInfoJson == null) return null;
     return UserInfo.fromJson(jsonDecode(userInfoJson));
+  }
+
+  @override
+  Future<UserInfo> getUserInfoOrFail() async {
+    final userInfo = await getUserInfo();
+    if (userInfo == null) {
+      throw const AppException.notFoundUserInfo();
+    }
+    return userInfo;
+  }
+
+  @override
+  Future<UserInfo> getUserInfoOrFailWithCarNumber() async {
+    final userInfo = await getUserInfoOrFail();
+    if (userInfo.carNumber == null) {
+      throw const AppException.notFoundCarNumber();
+    }
+    return userInfo;
   }
 
   @override

@@ -15,28 +15,26 @@ class MainBloc extends Bloc<MainEvent, MainState> {
         checkUserInfo: (_) async => _handleEvent(
           emit,
           () async {
-            final userInfo = await _mainRepository.getUserInfo();
-            if (userInfo == null) {
-              throw const AppException.notFoundUserInfo();
-            }
+            final userInfo = await _mainRepository.getUserInfoOrFail();
             return userInfo;
           },
         ),
-        registerUserInfo: (event) async => _handleEvent(
+        checkCarNumber: (_) async => _handleEvent(
+          emit,
+          () async {
+            final userInfo =
+                await _mainRepository.getUserInfoOrFailWithCarNumber();
+
+            return userInfo;
+          },
+        ),
+        saveUserInfo: (event) async => _handleEvent(
           emit,
           () async {
             await _mainRepository.saveUserInfo(event.userInfo);
             return event.userInfo;
           },
           defaultError: const AppException.userInfoSave(),
-        ),
-        updateUserInfo: (event) async => _handleEvent(
-          emit,
-          () async {
-            await _mainRepository.saveUserInfo(event.userInfo);
-            return event.userInfo;
-          },
-          defaultError: const AppException.userInfoUpdate(),
         ),
       );
     });

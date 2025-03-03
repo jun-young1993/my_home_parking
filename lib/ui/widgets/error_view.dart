@@ -51,8 +51,7 @@ class ErrorView extends StatelessWidget {
     } else if (error is InvalidUserInfoException) {
       iconData = Icons.error_outline;
       iconColor = Colors.red;
-    } else if (error is UserInfoSaveException ||
-        error is UserInfoUpdateException) {
+    } else if (error is UserInfoSaveException) {
       iconData = Icons.cloud_off;
       iconColor = Colors.grey;
     } else {

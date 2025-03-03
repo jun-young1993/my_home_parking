@@ -33,10 +33,9 @@ class _RegistrationSectionState extends State<RegistrationSection> {
         address: _homeAddressController.text,
         zoneCode: _zoneCodeController.text,
         phoneNumber: _phoneNumberController.text,
-        isRegistered: true,
       );
 
-      context.read<MainBloc>().add(MainEvent.registerUserInfo(userInfo));
+      context.read<MainBloc>().add(MainEvent.saveUserInfo(userInfo));
     }
   }
 

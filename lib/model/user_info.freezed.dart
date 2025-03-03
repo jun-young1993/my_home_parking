@@ -20,11 +20,10 @@ UserInfo _$UserInfoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UserInfo {
-  String get carNumber => throw _privateConstructorUsedError;
-  String? get address => throw _privateConstructorUsedError;
-  String? get zoneCode => throw _privateConstructorUsedError;
+  String? get carNumber => throw _privateConstructorUsedError;
+  String get address => throw _privateConstructorUsedError;
+  String get zoneCode => throw _privateConstructorUsedError;
   String? get phoneNumber => throw _privateConstructorUsedError;
-  bool get isRegistered => throw _privateConstructorUsedError;
 
   /// Serializes this UserInfo to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -42,11 +41,10 @@ abstract class $UserInfoCopyWith<$Res> {
       _$UserInfoCopyWithImpl<$Res, UserInfo>;
   @useResult
   $Res call(
-      {String carNumber,
-      String? address,
-      String? zoneCode,
-      String? phoneNumber,
-      bool isRegistered});
+      {String? carNumber,
+      String address,
+      String zoneCode,
+      String? phoneNumber});
 }
 
 /// @nodoc
@@ -64,33 +62,28 @@ class _$UserInfoCopyWithImpl<$Res, $Val extends UserInfo>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? carNumber = null,
-    Object? address = freezed,
-    Object? zoneCode = freezed,
+    Object? carNumber = freezed,
+    Object? address = null,
+    Object? zoneCode = null,
     Object? phoneNumber = freezed,
-    Object? isRegistered = null,
   }) {
     return _then(_value.copyWith(
-      carNumber: null == carNumber
+      carNumber: freezed == carNumber
           ? _value.carNumber
           : carNumber // ignore: cast_nullable_to_non_nullable
-              as String,
-      address: freezed == address
+              as String?,
+      address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as String?,
-      zoneCode: freezed == zoneCode
+              as String,
+      zoneCode: null == zoneCode
           ? _value.zoneCode
           : zoneCode // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       phoneNumber: freezed == phoneNumber
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
               as String?,
-      isRegistered: null == isRegistered
-          ? _value.isRegistered
-          : isRegistered // ignore: cast_nullable_to_non_nullable
-              as bool,
     ) as $Val);
   }
 }
@@ -104,11 +97,10 @@ abstract class _$$UserInfoImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String carNumber,
-      String? address,
-      String? zoneCode,
-      String? phoneNumber,
-      bool isRegistered});
+      {String? carNumber,
+      String address,
+      String zoneCode,
+      String? phoneNumber});
 }
 
 /// @nodoc
@@ -124,33 +116,28 @@ class __$$UserInfoImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? carNumber = null,
-    Object? address = freezed,
-    Object? zoneCode = freezed,
+    Object? carNumber = freezed,
+    Object? address = null,
+    Object? zoneCode = null,
     Object? phoneNumber = freezed,
-    Object? isRegistered = null,
   }) {
     return _then(_$UserInfoImpl(
-      carNumber: null == carNumber
+      carNumber: freezed == carNumber
           ? _value.carNumber
           : carNumber // ignore: cast_nullable_to_non_nullable
-              as String,
-      address: freezed == address
+              as String?,
+      address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
-              as String?,
-      zoneCode: freezed == zoneCode
+              as String,
+      zoneCode: null == zoneCode
           ? _value.zoneCode
           : zoneCode // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as String,
       phoneNumber: freezed == phoneNumber
           ? _value.phoneNumber
           : phoneNumber // ignore: cast_nullable_to_non_nullable
               as String?,
-      isRegistered: null == isRegistered
-          ? _value.isRegistered
-          : isRegistered // ignore: cast_nullable_to_non_nullable
-              as bool,
     ));
   }
 }
@@ -159,30 +146,26 @@ class __$$UserInfoImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$UserInfoImpl implements _UserInfo {
   const _$UserInfoImpl(
-      {required this.carNumber,
+      {this.carNumber,
       required this.address,
       required this.zoneCode,
-      required this.phoneNumber,
-      this.isRegistered = false});
+      this.phoneNumber});
 
   factory _$UserInfoImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserInfoImplFromJson(json);
 
   @override
-  final String carNumber;
+  final String? carNumber;
   @override
-  final String? address;
+  final String address;
   @override
-  final String? zoneCode;
+  final String zoneCode;
   @override
   final String? phoneNumber;
-  @override
-  @JsonKey()
-  final bool isRegistered;
 
   @override
   String toString() {
-    return 'UserInfo(carNumber: $carNumber, address: $address, zoneCode: $zoneCode, phoneNumber: $phoneNumber, isRegistered: $isRegistered)';
+    return 'UserInfo(carNumber: $carNumber, address: $address, zoneCode: $zoneCode, phoneNumber: $phoneNumber)';
   }
 
   @override
@@ -196,15 +179,13 @@ class _$UserInfoImpl implements _UserInfo {
             (identical(other.zoneCode, zoneCode) ||
                 other.zoneCode == zoneCode) &&
             (identical(other.phoneNumber, phoneNumber) ||
-                other.phoneNumber == phoneNumber) &&
-            (identical(other.isRegistered, isRegistered) ||
-                other.isRegistered == isRegistered));
+                other.phoneNumber == phoneNumber));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, carNumber, address, zoneCode, phoneNumber, isRegistered);
+  int get hashCode =>
+      Object.hash(runtimeType, carNumber, address, zoneCode, phoneNumber);
 
   /// Create a copy of UserInfo
   /// with the given fields replaced by the non-null parameter values.
@@ -224,25 +205,22 @@ class _$UserInfoImpl implements _UserInfo {
 
 abstract class _UserInfo implements UserInfo {
   const factory _UserInfo(
-      {required final String carNumber,
-      required final String? address,
-      required final String? zoneCode,
-      required final String? phoneNumber,
-      final bool isRegistered}) = _$UserInfoImpl;
+      {final String? carNumber,
+      required final String address,
+      required final String zoneCode,
+      final String? phoneNumber}) = _$UserInfoImpl;
 
   factory _UserInfo.fromJson(Map<String, dynamic> json) =
       _$UserInfoImpl.fromJson;
 
   @override
-  String get carNumber;
+  String? get carNumber;
   @override
-  String? get address;
+  String get address;
   @override
-  String? get zoneCode;
+  String get zoneCode;
   @override
   String? get phoneNumber;
-  @override
-  bool get isRegistered;
 
   /// Create a copy of UserInfo
   /// with the given fields replaced by the non-null parameter values.
