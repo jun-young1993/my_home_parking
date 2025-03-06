@@ -42,16 +42,19 @@ class _MainScreenState extends State<MainScreen> {
                 ));
               },
             ),
-            notFoundCarNumber: () => const CarNumberSection(
-                // onSubmit: (data) {
-                //   print(data);
-                // mainBloc.add(MainEvent.saveUserInfo(
-                //   UserInfo(
-                //     carNumber: data.carNumber,
-                //   ),
-                // ));
-                // },
-                ),
+            notFoundCarNumber: () => CarNumberSection(
+              onBack: () {
+                mainBloc.add(const MainEvent.clearError());
+              },
+              // onSubmit: (data) {
+              //   print(data);
+              // mainBloc.add(MainEvent.saveUserInfo(
+              //   UserInfo(
+              //     carNumber: data.carNumber,
+              //   ),
+              // ));
+              // },
+            ),
             invalidUserInfo: () => ErrorView(error: exception),
             userInfoSave: () => ErrorView(error: exception),
             webView: () => ErrorView(error: exception),

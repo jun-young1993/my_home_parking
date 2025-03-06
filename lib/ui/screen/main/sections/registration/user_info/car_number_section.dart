@@ -5,8 +5,9 @@ import 'package:my_home_parking/state/main/main_bloc.dart';
 import 'package:my_home_parking/state/main/main_event.dart';
 
 class CarNumberSection extends StatefulWidget {
-  const CarNumberSection({super.key});
+  const CarNumberSection({super.key, required this.onBack});
 
+  final VoidCallback onBack;
   @override
   State<CarNumberSection> createState() => _CarNumberSectionState();
 }
@@ -38,7 +39,13 @@ class _CarNumberSectionState extends State<CarNumberSection> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('차량 번호 등록')),
+      appBar: AppBar(
+        title: const Text('차량 번호 등록'),
+        leading: IconButton(
+          onPressed: () => widget.onBack(),
+          icon: const Icon(Icons.arrow_back),
+        ),
+      ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Form(

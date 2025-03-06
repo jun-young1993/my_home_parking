@@ -16,7 +16,9 @@ class MainBloc extends Bloc<MainEvent, MainState> {
           emit,
           () async {
             final userInfo = await _mainRepository.getUserInfoOrFail();
-            return userInfo;
+            emit(state.copyWith(
+              userInfo: userInfo,
+            ));
           },
         ),
         checkCarNumber: (_) async => _handleEvent(
@@ -24,17 +26,26 @@ class MainBloc extends Bloc<MainEvent, MainState> {
           () async {
             final userInfo =
                 await _mainRepository.getUserInfoOrFailWithCarNumber();
-
-            return userInfo;
+            emit(state.copyWith(
+              userInfo: userInfo,
+            ));
           },
         ),
         saveUserInfo: (event) async => _handleEvent(
           emit,
           () async {
             await _mainRepository.saveUserInfo(event.userInfo);
-            return event.userInfo;
+            emit(state.copyWith(
+              userInfo: event.userInfo,
+            ));
           },
           defaultError: const AppException.userInfoSave(),
+        ),
+        clearError: (_) async => _handleEvent(
+          emit,
+          () async {
+            emit(state.copyWith(error: null));
+          },
         ),
       );
     });
@@ -47,10 +58,10 @@ class MainBloc extends Bloc<MainEvent, MainState> {
   }) async {
     emit(state.copyWith(isLoading: true));
     try {
-      final result = await action();
+      await action();
       emit(state.copyWith(
         isLoading: false,
-        userInfo: result is UserInfo ? result : state.userInfo,
+        // userInfo: result is UserInfo ? result : state.userInfo,
       ));
     } on AppException catch (e) {
       emit(state.copyWith(isLoading: false, error: e));
