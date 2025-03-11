@@ -8,7 +8,9 @@ part of 'user_info.dart';
 
 _$UserInfoImpl _$$UserInfoImplFromJson(Map<String, dynamic> json) =>
     _$UserInfoImpl(
-      carNumber: json['carNumber'] as String?,
+      carNumber: json['carNumber'] == null
+          ? null
+          : CarNumber.fromJson(json['carNumber'] as Map<String, dynamic>),
       address: json['address'] as String,
       zoneCode: json['zoneCode'] as String,
       phoneNumber: json['phoneNumber'] as String?,

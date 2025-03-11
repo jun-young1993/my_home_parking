@@ -112,7 +112,7 @@ class MainMenuSection extends StatelessWidget {
                 Expanded(
                   child: userInfo.carNumber != null
                       ? Text(
-                          userInfo.carNumber!,
+                          userInfo.carNumber.toString(),
                           style:
                               Theme.of(context).textTheme.titleMedium?.copyWith(
                                     fontWeight: FontWeight.bold,

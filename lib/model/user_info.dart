@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:my_home_parking/model/car_number.dart';
 
 part 'user_info.freezed.dart';
 part 'user_info.g.dart';
@@ -6,7 +7,7 @@ part 'user_info.g.dart';
 @freezed
 class UserInfo with _$UserInfo {
   const factory UserInfo({
-    String? carNumber,
+    CarNumber? carNumber,
     required String address,
     required String zoneCode,
     String? phoneNumber,

@@ -20,7 +20,7 @@ UserInfo _$UserInfoFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$UserInfo {
-  String? get carNumber => throw _privateConstructorUsedError;
+  CarNumber? get carNumber => throw _privateConstructorUsedError;
   String get address => throw _privateConstructorUsedError;
   String get zoneCode => throw _privateConstructorUsedError;
   String? get phoneNumber => throw _privateConstructorUsedError;
@@ -41,10 +41,12 @@ abstract class $UserInfoCopyWith<$Res> {
       _$UserInfoCopyWithImpl<$Res, UserInfo>;
   @useResult
   $Res call(
-      {String? carNumber,
+      {CarNumber? carNumber,
       String address,
       String zoneCode,
       String? phoneNumber});
+
+  $CarNumberCopyWith<$Res>? get carNumber;
 }
 
 /// @nodoc
@@ -71,7 +73,7 @@ class _$UserInfoCopyWithImpl<$Res, $Val extends UserInfo>
       carNumber: freezed == carNumber
           ? _value.carNumber
           : carNumber // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as CarNumber?,
       address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -86,6 +88,20 @@ class _$UserInfoCopyWithImpl<$Res, $Val extends UserInfo>
               as String?,
     ) as $Val);
   }
+
+  /// Create a copy of UserInfo
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $CarNumberCopyWith<$Res>? get carNumber {
+    if (_value.carNumber == null) {
+      return null;
+    }
+
+    return $CarNumberCopyWith<$Res>(_value.carNumber!, (value) {
+      return _then(_value.copyWith(carNumber: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -97,10 +113,13 @@ abstract class _$$UserInfoImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String? carNumber,
+      {CarNumber? carNumber,
       String address,
       String zoneCode,
       String? phoneNumber});
+
+  @override
+  $CarNumberCopyWith<$Res>? get carNumber;
 }
 
 /// @nodoc
@@ -125,7 +144,7 @@ class __$$UserInfoImplCopyWithImpl<$Res>
       carNumber: freezed == carNumber
           ? _value.carNumber
           : carNumber // ignore: cast_nullable_to_non_nullable
-              as String?,
+              as CarNumber?,
       address: null == address
           ? _value.address
           : address // ignore: cast_nullable_to_non_nullable
@@ -155,7 +174,7 @@ class _$UserInfoImpl implements _UserInfo {
       _$$UserInfoImplFromJson(json);
 
   @override
-  final String? carNumber;
+  final CarNumber? carNumber;
   @override
   final String address;
   @override
@@ -205,7 +224,7 @@ class _$UserInfoImpl implements _UserInfo {
 
 abstract class _UserInfo implements UserInfo {
   const factory _UserInfo(
-      {final String? carNumber,
+      {final CarNumber? carNumber,
       required final String address,
       required final String zoneCode,
       final String? phoneNumber}) = _$UserInfoImpl;
@@ -214,7 +233,7 @@ abstract class _UserInfo implements UserInfo {
       _$UserInfoImpl.fromJson;
 
   @override
-  String? get carNumber;
+  CarNumber? get carNumber;
   @override
   String get address;
   @override

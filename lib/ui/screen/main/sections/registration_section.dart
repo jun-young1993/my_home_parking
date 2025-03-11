@@ -14,14 +14,12 @@ class RegistrationSection extends StatefulWidget {
 
 class _RegistrationSectionState extends State<RegistrationSection> {
   final _formKey = GlobalKey<FormState>();
-  final _carNumberController = TextEditingController();
   final _homeAddressController = TextEditingController();
   final _zoneCodeController = TextEditingController();
   final _phoneNumberController = TextEditingController();
 
   @override
   void dispose() {
-    _carNumberController.dispose();
     _homeAddressController.dispose();
     super.dispose();
   }
@@ -29,7 +27,6 @@ class _RegistrationSectionState extends State<RegistrationSection> {
   void _submitForm() {
     if (_formKey.currentState?.validate() ?? false) {
       final userInfo = UserInfo(
-        carNumber: _carNumberController.text,
         address: _homeAddressController.text,
         zoneCode: _zoneCodeController.text,
         phoneNumber: _phoneNumberController.text,
@@ -50,33 +47,7 @@ class _RegistrationSectionState extends State<RegistrationSection> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              TextFormField(
-                controller: _carNumberController,
-                decoration: const InputDecoration(
-                  labelText: '차량 번호',
-                  hintText: '예: 12가 3456',
-                ),
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return '차량 번호를 입력해주세요';
-                  }
-                  return null;
-                },
-              ),
               const SizedBox(height: 16),
-              // TextFormField(
-              //   controller: _homeAddressController,
-              //   decoration: const InputDecoration(
-              //     labelText: '집 주소',
-              //     hintText: '예: 서울시 강남구 테헤란로 123',
-              //   ),
-              //   validator: (value) {
-              //     if (value == null || value.isEmpty) {
-              //       return '집 주소를 입력해주세요';
-              //     }
-              //     return null;
-              //   },
-              // ),
               SizedBox(
                 height: 300,
                 child: DaumPostcodeView(
