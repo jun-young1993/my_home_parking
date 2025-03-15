@@ -68,6 +68,5 @@ class ErrorView extends StatelessWidget {
 
   String _getErrorMessage() {
     return (error).message;
-    return error.toString();
   }
 }

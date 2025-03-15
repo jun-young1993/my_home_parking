@@ -26,6 +26,10 @@ class _MainScreenState extends State<MainScreen> {
     mainBloc.add(const MainEvent.checkUserInfo());
   }
 
+  void _onRetry() {
+    mainBloc.add(const MainEvent.clearError());
+  }
+
   @override
   Widget build(BuildContext context) {
     return ExceptionSelector(
@@ -33,6 +37,22 @@ class _MainScreenState extends State<MainScreen> {
         print("exception$exception");
         if (exception is AppException) {
           return exception.when(
+            timeout: () => ErrorView(error: exception, onRetry: _onRetry),
+            network: (message) =>
+                ErrorView(error: exception, onRetry: _onRetry),
+            badRequest: (message) =>
+                ErrorView(error: exception, onRetry: _onRetry),
+            unauthorized: () => ErrorView(error: exception, onRetry: _onRetry),
+            forbidden: () => ErrorView(error: exception, onRetry: _onRetry),
+            cancelled: () => ErrorView(error: exception, onRetry: _onRetry),
+            notFound: () => ErrorView(error: exception, onRetry: _onRetry),
+            server: (message) => ErrorView(error: exception, onRetry: _onRetry),
+            invalidUserInfo: () =>
+                ErrorView(error: exception, onRetry: _onRetry),
+            userInfoSave: () => ErrorView(error: exception, onRetry: _onRetry),
+            webView: () => ErrorView(error: exception, onRetry: _onRetry),
+            unknown: (message) =>
+                ErrorView(error: exception, onRetry: _onRetry),
             notFoundUserInfo: () => PostAddressSection(
               onSubmit: (data) {
                 mainBloc.add(MainEvent.saveUserInfo(
@@ -56,10 +76,6 @@ class _MainScreenState extends State<MainScreen> {
               // ));
               // },
             ),
-            invalidUserInfo: () => ErrorView(error: exception),
-            userInfoSave: () => ErrorView(error: exception),
-            webView: () => ErrorView(error: exception),
-            unknown: (message) => ErrorView(error: exception),
           );
         } else {
           return UserInfoSelector((userInfo) {

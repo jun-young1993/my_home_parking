@@ -55,10 +55,10 @@ class MainMenuSection extends StatelessWidget {
                     ),
                     _buildMenuCard(
                       context,
-                      '즐겨찾기',
-                      Icons.favorite,
+                      '주차 현황',
+                      Icons.local_parking,
                       onTap: () {
-                        // TODO: 즐겨찾기 화면으로 이동
+                        AppNavigator.push(Routes.parkingStatus);
                       },
                     ),
                     _buildMenuCard(
@@ -74,7 +74,7 @@ class MainMenuSection extends StatelessWidget {
                       '설정',
                       Icons.settings,
                       onTap: () {
-                        // TODO: 설정 화면으로 이동
+                        AppNavigator.push(Routes.setting);
                       },
                     ),
                   ],

@@ -35,10 +35,7 @@ class MainBloc extends Bloc<MainEvent, MainState> {
           emit,
           () async {
             await _mainRepository.saveUserInfo(event.userInfo);
-            final userInfo = await _mainRepository.getUserInfoOrFail();
-            emit(state.copyWith(
-              userInfo: userInfo,
-            ));
+            add(const MainEvent.checkUserInfo());
           },
           defaultError: const AppException.userInfoSave(),
         ),
@@ -46,16 +43,20 @@ class MainBloc extends Bloc<MainEvent, MainState> {
           emit,
           () async {
             await _mainRepository.updateCarNumber(event.carNumber);
-            final userInfo = await _mainRepository.getUserInfoOrFail();
-            emit(state.copyWith(
-              userInfo: userInfo,
-            ));
+            add(const MainEvent.checkUserInfo());
           },
         ),
         clearError: (_) async => _handleEvent(
           emit,
           () async {
             emit(state.copyWith(error: null));
+          },
+        ),
+        removeUserInfo: (_) async => _handleEvent(
+          emit,
+          () async {
+            await _mainRepository.removeUserInfo();
+            add(const MainEvent.checkUserInfo());
           },
         ),
       );

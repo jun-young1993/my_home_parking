@@ -1,29 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:my_home_parking/ui/screen/main/main_screen.dart';
 import 'package:my_home_parking/ui/screen/parking_map/parking_map_screen.dart';
+import 'package:my_home_parking/ui/screen/parking_status/parking_status_screen.dart';
+import 'package:my_home_parking/ui/screen/setting/setting_screen.dart';
 
 class FadeRoute extends PageRouteBuilder {
   FadeRoute({required this.page})
-    : super(
-        pageBuilder: (_, __, ___) => page,
-        transitionsBuilder:
-            (_, animation, __, child) => FadeTransition(
-              opacity: animation,
-              child: Scaffold(body: child),
-            ),
-      );
+      : super(
+          pageBuilder: (_, __, ___) => page,
+          transitionsBuilder: (_, animation, __, child) => FadeTransition(
+            opacity: animation,
+            child: Scaffold(body: child),
+          ),
+        );
 
   final Widget page;
 }
 
-enum Routes { main, parkingMap }
+enum Routes { main, parkingMap, setting, parkingStatus }
 
 class _Paths {
   static const String main = 'main';
   static const String parkingMap = 'parkingMap';
+  static const String setting = 'setting';
+  static const String parkingStatus = 'parkingStatus';
   static const Map<Routes, String> _pathMap = {
     Routes.main: _Paths.main,
     Routes.parkingMap: _Paths.parkingMap,
+    Routes.setting: _Paths.setting,
+    Routes.parkingStatus: _Paths.parkingStatus,
   };
 
   static String of(Routes route) => _pathMap[route] ?? main;
@@ -39,6 +44,10 @@ class AppNavigator {
         return FadeRoute(page: const MainScreen());
       case _Paths.parkingMap:
         return FadeRoute(page: const ParkingMapScreen());
+      case _Paths.setting:
+        return FadeRoute(page: const SettingScreen());
+      case _Paths.parkingStatus:
+        return FadeRoute(page: const ParkingStatusScreen());
       default:
         return FadeRoute(page: const MainScreen());
     }

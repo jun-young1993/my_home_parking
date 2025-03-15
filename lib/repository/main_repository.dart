@@ -1,8 +1,12 @@
 import 'dart:convert';
 import 'package:my_home_parking/exceptions/app_exception.dart';
+import 'package:my_home_parking/model/api/api_response.dart';
+import 'package:my_home_parking/model/api/parking_location_response.dart';
 import 'package:my_home_parking/model/car_number.dart';
 import 'package:my_home_parking/model/user_info.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:my_home_parking/core/network/dio_client.dart';
+import 'package:my_home_parking/core/constants/api_endpoints.dart';
 
 abstract class MainRepository {
   Future<UserInfo?> getUserInfo();
@@ -11,13 +15,15 @@ abstract class MainRepository {
   Future<void> saveUserInfo(UserInfo userInfo);
   Future<void> clearUserInfo();
   Future<void> updateCarNumber(CarNumber carNumber);
+  Future<void> removeUserInfo();
 }
 
 class MainDefaultRepository extends MainRepository {
   static const String _userInfoKey = 'user_info';
   final SharedPreferences _prefs;
+  final DioClient _dioClient;
 
-  MainDefaultRepository(this._prefs);
+  MainDefaultRepository(this._prefs) : _dioClient = DioClient();
 
   @override
   Future<UserInfo?> getUserInfo() async {
@@ -67,8 +73,24 @@ class MainDefaultRepository extends MainRepository {
   @override
   Future<void> updateCarNumber(CarNumber carNumber) async {
     final userInfo = await getUserInfoOrFail();
-
     final updatedUserInfo = userInfo.copyWith(carNumber: carNumber);
-    await saveUserInfo(updatedUserInfo);
+
+    try {
+      await _dioClient.post(
+        ApiEndpoints.parkingLocation,
+        data: updatedUserInfo.toJson(),
+      );
+      await saveUserInfo(updatedUserInfo);
+    } catch (e) {
+      if (e is AppException) {
+        rethrow;
+      }
+      throw AppException.unknown(e.toString());
+    }
+  }
+
+  @override
+  Future<void> removeUserInfo() async {
+    await _prefs.remove(_userInfoKey);
   }
 }

@@ -12,4 +12,5 @@ class MainEvent with _$MainEvent {
   const factory MainEvent.updateCarNumber(CarNumber carNumber) =
       _UpdateCarNumber;
   const factory MainEvent.clearError() = _ClearError;
+  const factory MainEvent.removeUserInfo() = _RemoveUserInfo;
 }

@@ -24,6 +24,14 @@ mixin _$AppException {
     required TResult Function() notFoundCarNumber,
     required TResult Function() webView,
     required TResult Function(String message) unknown,
+    required TResult Function() timeout,
+    required TResult Function(String message) network,
+    required TResult Function(String message) badRequest,
+    required TResult Function() unauthorized,
+    required TResult Function() forbidden,
+    required TResult Function() notFound,
+    required TResult Function(String message) server,
+    required TResult Function() cancelled,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,6 +42,14 @@ mixin _$AppException {
     TResult? Function()? notFoundCarNumber,
     TResult? Function()? webView,
     TResult? Function(String message)? unknown,
+    TResult? Function()? timeout,
+    TResult? Function(String message)? network,
+    TResult? Function(String message)? badRequest,
+    TResult? Function()? unauthorized,
+    TResult? Function()? forbidden,
+    TResult? Function()? notFound,
+    TResult? Function(String message)? server,
+    TResult? Function()? cancelled,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +60,14 @@ mixin _$AppException {
     TResult Function()? notFoundCarNumber,
     TResult Function()? webView,
     TResult Function(String message)? unknown,
+    TResult Function()? timeout,
+    TResult Function(String message)? network,
+    TResult Function(String message)? badRequest,
+    TResult Function()? unauthorized,
+    TResult Function()? forbidden,
+    TResult Function()? notFound,
+    TResult Function(String message)? server,
+    TResult Function()? cancelled,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -56,6 +80,14 @@ mixin _$AppException {
         notFoundCarNumber,
     required TResult Function(WebViewException value) webView,
     required TResult Function(UnknownException value) unknown,
+    required TResult Function(_Timeout value) timeout,
+    required TResult Function(_Network value) network,
+    required TResult Function(_BadRequest value) badRequest,
+    required TResult Function(_Unauthorized value) unauthorized,
+    required TResult Function(_Forbidden value) forbidden,
+    required TResult Function(_NotFound value) notFound,
+    required TResult Function(_Server value) server,
+    required TResult Function(_Cancelled value) cancelled,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -66,6 +98,14 @@ mixin _$AppException {
     TResult? Function(NotFoundCarNumberException value)? notFoundCarNumber,
     TResult? Function(WebViewException value)? webView,
     TResult? Function(UnknownException value)? unknown,
+    TResult? Function(_Timeout value)? timeout,
+    TResult? Function(_Network value)? network,
+    TResult? Function(_BadRequest value)? badRequest,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_Forbidden value)? forbidden,
+    TResult? Function(_NotFound value)? notFound,
+    TResult? Function(_Server value)? server,
+    TResult? Function(_Cancelled value)? cancelled,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -76,6 +116,14 @@ mixin _$AppException {
     TResult Function(NotFoundCarNumberException value)? notFoundCarNumber,
     TResult Function(WebViewException value)? webView,
     TResult Function(UnknownException value)? unknown,
+    TResult Function(_Timeout value)? timeout,
+    TResult Function(_Network value)? network,
+    TResult Function(_BadRequest value)? badRequest,
+    TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_Forbidden value)? forbidden,
+    TResult Function(_NotFound value)? notFound,
+    TResult Function(_Server value)? server,
+    TResult Function(_Cancelled value)? cancelled,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -152,6 +200,14 @@ class _$NotFoundUserInfoExceptionImpl implements NotFoundUserInfoException {
     required TResult Function() notFoundCarNumber,
     required TResult Function() webView,
     required TResult Function(String message) unknown,
+    required TResult Function() timeout,
+    required TResult Function(String message) network,
+    required TResult Function(String message) badRequest,
+    required TResult Function() unauthorized,
+    required TResult Function() forbidden,
+    required TResult Function() notFound,
+    required TResult Function(String message) server,
+    required TResult Function() cancelled,
   }) {
     return notFoundUserInfo();
   }
@@ -165,6 +221,14 @@ class _$NotFoundUserInfoExceptionImpl implements NotFoundUserInfoException {
     TResult? Function()? notFoundCarNumber,
     TResult? Function()? webView,
     TResult? Function(String message)? unknown,
+    TResult? Function()? timeout,
+    TResult? Function(String message)? network,
+    TResult? Function(String message)? badRequest,
+    TResult? Function()? unauthorized,
+    TResult? Function()? forbidden,
+    TResult? Function()? notFound,
+    TResult? Function(String message)? server,
+    TResult? Function()? cancelled,
   }) {
     return notFoundUserInfo?.call();
   }
@@ -178,6 +242,14 @@ class _$NotFoundUserInfoExceptionImpl implements NotFoundUserInfoException {
     TResult Function()? notFoundCarNumber,
     TResult Function()? webView,
     TResult Function(String message)? unknown,
+    TResult Function()? timeout,
+    TResult Function(String message)? network,
+    TResult Function(String message)? badRequest,
+    TResult Function()? unauthorized,
+    TResult Function()? forbidden,
+    TResult Function()? notFound,
+    TResult Function(String message)? server,
+    TResult Function()? cancelled,
     required TResult orElse(),
   }) {
     if (notFoundUserInfo != null) {
@@ -196,6 +268,14 @@ class _$NotFoundUserInfoExceptionImpl implements NotFoundUserInfoException {
         notFoundCarNumber,
     required TResult Function(WebViewException value) webView,
     required TResult Function(UnknownException value) unknown,
+    required TResult Function(_Timeout value) timeout,
+    required TResult Function(_Network value) network,
+    required TResult Function(_BadRequest value) badRequest,
+    required TResult Function(_Unauthorized value) unauthorized,
+    required TResult Function(_Forbidden value) forbidden,
+    required TResult Function(_NotFound value) notFound,
+    required TResult Function(_Server value) server,
+    required TResult Function(_Cancelled value) cancelled,
   }) {
     return notFoundUserInfo(this);
   }
@@ -209,6 +289,14 @@ class _$NotFoundUserInfoExceptionImpl implements NotFoundUserInfoException {
     TResult? Function(NotFoundCarNumberException value)? notFoundCarNumber,
     TResult? Function(WebViewException value)? webView,
     TResult? Function(UnknownException value)? unknown,
+    TResult? Function(_Timeout value)? timeout,
+    TResult? Function(_Network value)? network,
+    TResult? Function(_BadRequest value)? badRequest,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_Forbidden value)? forbidden,
+    TResult? Function(_NotFound value)? notFound,
+    TResult? Function(_Server value)? server,
+    TResult? Function(_Cancelled value)? cancelled,
   }) {
     return notFoundUserInfo?.call(this);
   }
@@ -222,6 +310,14 @@ class _$NotFoundUserInfoExceptionImpl implements NotFoundUserInfoException {
     TResult Function(NotFoundCarNumberException value)? notFoundCarNumber,
     TResult Function(WebViewException value)? webView,
     TResult Function(UnknownException value)? unknown,
+    TResult Function(_Timeout value)? timeout,
+    TResult Function(_Network value)? network,
+    TResult Function(_BadRequest value)? badRequest,
+    TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_Forbidden value)? forbidden,
+    TResult Function(_NotFound value)? notFound,
+    TResult Function(_Server value)? server,
+    TResult Function(_Cancelled value)? cancelled,
     required TResult orElse(),
   }) {
     if (notFoundUserInfo != null) {
@@ -285,6 +381,14 @@ class _$InvalidUserInfoExceptionImpl implements InvalidUserInfoException {
     required TResult Function() notFoundCarNumber,
     required TResult Function() webView,
     required TResult Function(String message) unknown,
+    required TResult Function() timeout,
+    required TResult Function(String message) network,
+    required TResult Function(String message) badRequest,
+    required TResult Function() unauthorized,
+    required TResult Function() forbidden,
+    required TResult Function() notFound,
+    required TResult Function(String message) server,
+    required TResult Function() cancelled,
   }) {
     return invalidUserInfo();
   }
@@ -298,6 +402,14 @@ class _$InvalidUserInfoExceptionImpl implements InvalidUserInfoException {
     TResult? Function()? notFoundCarNumber,
     TResult? Function()? webView,
     TResult? Function(String message)? unknown,
+    TResult? Function()? timeout,
+    TResult? Function(String message)? network,
+    TResult? Function(String message)? badRequest,
+    TResult? Function()? unauthorized,
+    TResult? Function()? forbidden,
+    TResult? Function()? notFound,
+    TResult? Function(String message)? server,
+    TResult? Function()? cancelled,
   }) {
     return invalidUserInfo?.call();
   }
@@ -311,6 +423,14 @@ class _$InvalidUserInfoExceptionImpl implements InvalidUserInfoException {
     TResult Function()? notFoundCarNumber,
     TResult Function()? webView,
     TResult Function(String message)? unknown,
+    TResult Function()? timeout,
+    TResult Function(String message)? network,
+    TResult Function(String message)? badRequest,
+    TResult Function()? unauthorized,
+    TResult Function()? forbidden,
+    TResult Function()? notFound,
+    TResult Function(String message)? server,
+    TResult Function()? cancelled,
     required TResult orElse(),
   }) {
     if (invalidUserInfo != null) {
@@ -329,6 +449,14 @@ class _$InvalidUserInfoExceptionImpl implements InvalidUserInfoException {
         notFoundCarNumber,
     required TResult Function(WebViewException value) webView,
     required TResult Function(UnknownException value) unknown,
+    required TResult Function(_Timeout value) timeout,
+    required TResult Function(_Network value) network,
+    required TResult Function(_BadRequest value) badRequest,
+    required TResult Function(_Unauthorized value) unauthorized,
+    required TResult Function(_Forbidden value) forbidden,
+    required TResult Function(_NotFound value) notFound,
+    required TResult Function(_Server value) server,
+    required TResult Function(_Cancelled value) cancelled,
   }) {
     return invalidUserInfo(this);
   }
@@ -342,6 +470,14 @@ class _$InvalidUserInfoExceptionImpl implements InvalidUserInfoException {
     TResult? Function(NotFoundCarNumberException value)? notFoundCarNumber,
     TResult? Function(WebViewException value)? webView,
     TResult? Function(UnknownException value)? unknown,
+    TResult? Function(_Timeout value)? timeout,
+    TResult? Function(_Network value)? network,
+    TResult? Function(_BadRequest value)? badRequest,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_Forbidden value)? forbidden,
+    TResult? Function(_NotFound value)? notFound,
+    TResult? Function(_Server value)? server,
+    TResult? Function(_Cancelled value)? cancelled,
   }) {
     return invalidUserInfo?.call(this);
   }
@@ -355,6 +491,14 @@ class _$InvalidUserInfoExceptionImpl implements InvalidUserInfoException {
     TResult Function(NotFoundCarNumberException value)? notFoundCarNumber,
     TResult Function(WebViewException value)? webView,
     TResult Function(UnknownException value)? unknown,
+    TResult Function(_Timeout value)? timeout,
+    TResult Function(_Network value)? network,
+    TResult Function(_BadRequest value)? badRequest,
+    TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_Forbidden value)? forbidden,
+    TResult Function(_NotFound value)? notFound,
+    TResult Function(_Server value)? server,
+    TResult Function(_Cancelled value)? cancelled,
     required TResult orElse(),
   }) {
     if (invalidUserInfo != null) {
@@ -417,6 +561,14 @@ class _$UserInfoSaveExceptionImpl implements UserInfoSaveException {
     required TResult Function() notFoundCarNumber,
     required TResult Function() webView,
     required TResult Function(String message) unknown,
+    required TResult Function() timeout,
+    required TResult Function(String message) network,
+    required TResult Function(String message) badRequest,
+    required TResult Function() unauthorized,
+    required TResult Function() forbidden,
+    required TResult Function() notFound,
+    required TResult Function(String message) server,
+    required TResult Function() cancelled,
   }) {
     return userInfoSave();
   }
@@ -430,6 +582,14 @@ class _$UserInfoSaveExceptionImpl implements UserInfoSaveException {
     TResult? Function()? notFoundCarNumber,
     TResult? Function()? webView,
     TResult? Function(String message)? unknown,
+    TResult? Function()? timeout,
+    TResult? Function(String message)? network,
+    TResult? Function(String message)? badRequest,
+    TResult? Function()? unauthorized,
+    TResult? Function()? forbidden,
+    TResult? Function()? notFound,
+    TResult? Function(String message)? server,
+    TResult? Function()? cancelled,
   }) {
     return userInfoSave?.call();
   }
@@ -443,6 +603,14 @@ class _$UserInfoSaveExceptionImpl implements UserInfoSaveException {
     TResult Function()? notFoundCarNumber,
     TResult Function()? webView,
     TResult Function(String message)? unknown,
+    TResult Function()? timeout,
+    TResult Function(String message)? network,
+    TResult Function(String message)? badRequest,
+    TResult Function()? unauthorized,
+    TResult Function()? forbidden,
+    TResult Function()? notFound,
+    TResult Function(String message)? server,
+    TResult Function()? cancelled,
     required TResult orElse(),
   }) {
     if (userInfoSave != null) {
@@ -461,6 +629,14 @@ class _$UserInfoSaveExceptionImpl implements UserInfoSaveException {
         notFoundCarNumber,
     required TResult Function(WebViewException value) webView,
     required TResult Function(UnknownException value) unknown,
+    required TResult Function(_Timeout value) timeout,
+    required TResult Function(_Network value) network,
+    required TResult Function(_BadRequest value) badRequest,
+    required TResult Function(_Unauthorized value) unauthorized,
+    required TResult Function(_Forbidden value) forbidden,
+    required TResult Function(_NotFound value) notFound,
+    required TResult Function(_Server value) server,
+    required TResult Function(_Cancelled value) cancelled,
   }) {
     return userInfoSave(this);
   }
@@ -474,6 +650,14 @@ class _$UserInfoSaveExceptionImpl implements UserInfoSaveException {
     TResult? Function(NotFoundCarNumberException value)? notFoundCarNumber,
     TResult? Function(WebViewException value)? webView,
     TResult? Function(UnknownException value)? unknown,
+    TResult? Function(_Timeout value)? timeout,
+    TResult? Function(_Network value)? network,
+    TResult? Function(_BadRequest value)? badRequest,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_Forbidden value)? forbidden,
+    TResult? Function(_NotFound value)? notFound,
+    TResult? Function(_Server value)? server,
+    TResult? Function(_Cancelled value)? cancelled,
   }) {
     return userInfoSave?.call(this);
   }
@@ -487,6 +671,14 @@ class _$UserInfoSaveExceptionImpl implements UserInfoSaveException {
     TResult Function(NotFoundCarNumberException value)? notFoundCarNumber,
     TResult Function(WebViewException value)? webView,
     TResult Function(UnknownException value)? unknown,
+    TResult Function(_Timeout value)? timeout,
+    TResult Function(_Network value)? network,
+    TResult Function(_BadRequest value)? badRequest,
+    TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_Forbidden value)? forbidden,
+    TResult Function(_NotFound value)? notFound,
+    TResult Function(_Server value)? server,
+    TResult Function(_Cancelled value)? cancelled,
     required TResult orElse(),
   }) {
     if (userInfoSave != null) {
@@ -550,6 +742,14 @@ class _$NotFoundCarNumberExceptionImpl implements NotFoundCarNumberException {
     required TResult Function() notFoundCarNumber,
     required TResult Function() webView,
     required TResult Function(String message) unknown,
+    required TResult Function() timeout,
+    required TResult Function(String message) network,
+    required TResult Function(String message) badRequest,
+    required TResult Function() unauthorized,
+    required TResult Function() forbidden,
+    required TResult Function() notFound,
+    required TResult Function(String message) server,
+    required TResult Function() cancelled,
   }) {
     return notFoundCarNumber();
   }
@@ -563,6 +763,14 @@ class _$NotFoundCarNumberExceptionImpl implements NotFoundCarNumberException {
     TResult? Function()? notFoundCarNumber,
     TResult? Function()? webView,
     TResult? Function(String message)? unknown,
+    TResult? Function()? timeout,
+    TResult? Function(String message)? network,
+    TResult? Function(String message)? badRequest,
+    TResult? Function()? unauthorized,
+    TResult? Function()? forbidden,
+    TResult? Function()? notFound,
+    TResult? Function(String message)? server,
+    TResult? Function()? cancelled,
   }) {
     return notFoundCarNumber?.call();
   }
@@ -576,6 +784,14 @@ class _$NotFoundCarNumberExceptionImpl implements NotFoundCarNumberException {
     TResult Function()? notFoundCarNumber,
     TResult Function()? webView,
     TResult Function(String message)? unknown,
+    TResult Function()? timeout,
+    TResult Function(String message)? network,
+    TResult Function(String message)? badRequest,
+    TResult Function()? unauthorized,
+    TResult Function()? forbidden,
+    TResult Function()? notFound,
+    TResult Function(String message)? server,
+    TResult Function()? cancelled,
     required TResult orElse(),
   }) {
     if (notFoundCarNumber != null) {
@@ -594,6 +810,14 @@ class _$NotFoundCarNumberExceptionImpl implements NotFoundCarNumberException {
         notFoundCarNumber,
     required TResult Function(WebViewException value) webView,
     required TResult Function(UnknownException value) unknown,
+    required TResult Function(_Timeout value) timeout,
+    required TResult Function(_Network value) network,
+    required TResult Function(_BadRequest value) badRequest,
+    required TResult Function(_Unauthorized value) unauthorized,
+    required TResult Function(_Forbidden value) forbidden,
+    required TResult Function(_NotFound value) notFound,
+    required TResult Function(_Server value) server,
+    required TResult Function(_Cancelled value) cancelled,
   }) {
     return notFoundCarNumber(this);
   }
@@ -607,6 +831,14 @@ class _$NotFoundCarNumberExceptionImpl implements NotFoundCarNumberException {
     TResult? Function(NotFoundCarNumberException value)? notFoundCarNumber,
     TResult? Function(WebViewException value)? webView,
     TResult? Function(UnknownException value)? unknown,
+    TResult? Function(_Timeout value)? timeout,
+    TResult? Function(_Network value)? network,
+    TResult? Function(_BadRequest value)? badRequest,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_Forbidden value)? forbidden,
+    TResult? Function(_NotFound value)? notFound,
+    TResult? Function(_Server value)? server,
+    TResult? Function(_Cancelled value)? cancelled,
   }) {
     return notFoundCarNumber?.call(this);
   }
@@ -620,6 +852,14 @@ class _$NotFoundCarNumberExceptionImpl implements NotFoundCarNumberException {
     TResult Function(NotFoundCarNumberException value)? notFoundCarNumber,
     TResult Function(WebViewException value)? webView,
     TResult Function(UnknownException value)? unknown,
+    TResult Function(_Timeout value)? timeout,
+    TResult Function(_Network value)? network,
+    TResult Function(_BadRequest value)? badRequest,
+    TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_Forbidden value)? forbidden,
+    TResult Function(_NotFound value)? notFound,
+    TResult Function(_Server value)? server,
+    TResult Function(_Cancelled value)? cancelled,
     required TResult orElse(),
   }) {
     if (notFoundCarNumber != null) {
@@ -680,6 +920,14 @@ class _$WebViewExceptionImpl implements WebViewException {
     required TResult Function() notFoundCarNumber,
     required TResult Function() webView,
     required TResult Function(String message) unknown,
+    required TResult Function() timeout,
+    required TResult Function(String message) network,
+    required TResult Function(String message) badRequest,
+    required TResult Function() unauthorized,
+    required TResult Function() forbidden,
+    required TResult Function() notFound,
+    required TResult Function(String message) server,
+    required TResult Function() cancelled,
   }) {
     return webView();
   }
@@ -693,6 +941,14 @@ class _$WebViewExceptionImpl implements WebViewException {
     TResult? Function()? notFoundCarNumber,
     TResult? Function()? webView,
     TResult? Function(String message)? unknown,
+    TResult? Function()? timeout,
+    TResult? Function(String message)? network,
+    TResult? Function(String message)? badRequest,
+    TResult? Function()? unauthorized,
+    TResult? Function()? forbidden,
+    TResult? Function()? notFound,
+    TResult? Function(String message)? server,
+    TResult? Function()? cancelled,
   }) {
     return webView?.call();
   }
@@ -706,6 +962,14 @@ class _$WebViewExceptionImpl implements WebViewException {
     TResult Function()? notFoundCarNumber,
     TResult Function()? webView,
     TResult Function(String message)? unknown,
+    TResult Function()? timeout,
+    TResult Function(String message)? network,
+    TResult Function(String message)? badRequest,
+    TResult Function()? unauthorized,
+    TResult Function()? forbidden,
+    TResult Function()? notFound,
+    TResult Function(String message)? server,
+    TResult Function()? cancelled,
     required TResult orElse(),
   }) {
     if (webView != null) {
@@ -724,6 +988,14 @@ class _$WebViewExceptionImpl implements WebViewException {
         notFoundCarNumber,
     required TResult Function(WebViewException value) webView,
     required TResult Function(UnknownException value) unknown,
+    required TResult Function(_Timeout value) timeout,
+    required TResult Function(_Network value) network,
+    required TResult Function(_BadRequest value) badRequest,
+    required TResult Function(_Unauthorized value) unauthorized,
+    required TResult Function(_Forbidden value) forbidden,
+    required TResult Function(_NotFound value) notFound,
+    required TResult Function(_Server value) server,
+    required TResult Function(_Cancelled value) cancelled,
   }) {
     return webView(this);
   }
@@ -737,6 +1009,14 @@ class _$WebViewExceptionImpl implements WebViewException {
     TResult? Function(NotFoundCarNumberException value)? notFoundCarNumber,
     TResult? Function(WebViewException value)? webView,
     TResult? Function(UnknownException value)? unknown,
+    TResult? Function(_Timeout value)? timeout,
+    TResult? Function(_Network value)? network,
+    TResult? Function(_BadRequest value)? badRequest,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_Forbidden value)? forbidden,
+    TResult? Function(_NotFound value)? notFound,
+    TResult? Function(_Server value)? server,
+    TResult? Function(_Cancelled value)? cancelled,
   }) {
     return webView?.call(this);
   }
@@ -750,6 +1030,14 @@ class _$WebViewExceptionImpl implements WebViewException {
     TResult Function(NotFoundCarNumberException value)? notFoundCarNumber,
     TResult Function(WebViewException value)? webView,
     TResult Function(UnknownException value)? unknown,
+    TResult Function(_Timeout value)? timeout,
+    TResult Function(_Network value)? network,
+    TResult Function(_BadRequest value)? badRequest,
+    TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_Forbidden value)? forbidden,
+    TResult Function(_NotFound value)? notFound,
+    TResult Function(_Server value)? server,
+    TResult Function(_Cancelled value)? cancelled,
     required TResult orElse(),
   }) {
     if (webView != null) {
@@ -838,6 +1126,14 @@ class _$UnknownExceptionImpl implements UnknownException {
     required TResult Function() notFoundCarNumber,
     required TResult Function() webView,
     required TResult Function(String message) unknown,
+    required TResult Function() timeout,
+    required TResult Function(String message) network,
+    required TResult Function(String message) badRequest,
+    required TResult Function() unauthorized,
+    required TResult Function() forbidden,
+    required TResult Function() notFound,
+    required TResult Function(String message) server,
+    required TResult Function() cancelled,
   }) {
     return unknown(message);
   }
@@ -851,6 +1147,14 @@ class _$UnknownExceptionImpl implements UnknownException {
     TResult? Function()? notFoundCarNumber,
     TResult? Function()? webView,
     TResult? Function(String message)? unknown,
+    TResult? Function()? timeout,
+    TResult? Function(String message)? network,
+    TResult? Function(String message)? badRequest,
+    TResult? Function()? unauthorized,
+    TResult? Function()? forbidden,
+    TResult? Function()? notFound,
+    TResult? Function(String message)? server,
+    TResult? Function()? cancelled,
   }) {
     return unknown?.call(message);
   }
@@ -864,6 +1168,14 @@ class _$UnknownExceptionImpl implements UnknownException {
     TResult Function()? notFoundCarNumber,
     TResult Function()? webView,
     TResult Function(String message)? unknown,
+    TResult Function()? timeout,
+    TResult Function(String message)? network,
+    TResult Function(String message)? badRequest,
+    TResult Function()? unauthorized,
+    TResult Function()? forbidden,
+    TResult Function()? notFound,
+    TResult Function(String message)? server,
+    TResult Function()? cancelled,
     required TResult orElse(),
   }) {
     if (unknown != null) {
@@ -882,6 +1194,14 @@ class _$UnknownExceptionImpl implements UnknownException {
         notFoundCarNumber,
     required TResult Function(WebViewException value) webView,
     required TResult Function(UnknownException value) unknown,
+    required TResult Function(_Timeout value) timeout,
+    required TResult Function(_Network value) network,
+    required TResult Function(_BadRequest value) badRequest,
+    required TResult Function(_Unauthorized value) unauthorized,
+    required TResult Function(_Forbidden value) forbidden,
+    required TResult Function(_NotFound value) notFound,
+    required TResult Function(_Server value) server,
+    required TResult Function(_Cancelled value) cancelled,
   }) {
     return unknown(this);
   }
@@ -895,6 +1215,14 @@ class _$UnknownExceptionImpl implements UnknownException {
     TResult? Function(NotFoundCarNumberException value)? notFoundCarNumber,
     TResult? Function(WebViewException value)? webView,
     TResult? Function(UnknownException value)? unknown,
+    TResult? Function(_Timeout value)? timeout,
+    TResult? Function(_Network value)? network,
+    TResult? Function(_BadRequest value)? badRequest,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_Forbidden value)? forbidden,
+    TResult? Function(_NotFound value)? notFound,
+    TResult? Function(_Server value)? server,
+    TResult? Function(_Cancelled value)? cancelled,
   }) {
     return unknown?.call(this);
   }
@@ -908,6 +1236,14 @@ class _$UnknownExceptionImpl implements UnknownException {
     TResult Function(NotFoundCarNumberException value)? notFoundCarNumber,
     TResult Function(WebViewException value)? webView,
     TResult Function(UnknownException value)? unknown,
+    TResult Function(_Timeout value)? timeout,
+    TResult Function(_Network value)? network,
+    TResult Function(_BadRequest value)? badRequest,
+    TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_Forbidden value)? forbidden,
+    TResult Function(_NotFound value)? notFound,
+    TResult Function(_Server value)? server,
+    TResult Function(_Cancelled value)? cancelled,
     required TResult orElse(),
   }) {
     if (unknown != null) {
@@ -927,4 +1263,1533 @@ abstract class UnknownException implements AppException {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UnknownExceptionImplCopyWith<_$UnknownExceptionImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$TimeoutImplCopyWith<$Res> {
+  factory _$$TimeoutImplCopyWith(
+          _$TimeoutImpl value, $Res Function(_$TimeoutImpl) then) =
+      __$$TimeoutImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$TimeoutImplCopyWithImpl<$Res>
+    extends _$AppExceptionCopyWithImpl<$Res, _$TimeoutImpl>
+    implements _$$TimeoutImplCopyWith<$Res> {
+  __$$TimeoutImplCopyWithImpl(
+      _$TimeoutImpl _value, $Res Function(_$TimeoutImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AppException
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$TimeoutImpl implements _Timeout {
+  const _$TimeoutImpl();
+
+  @override
+  String toString() {
+    return 'AppException.timeout()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$TimeoutImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() notFoundUserInfo,
+    required TResult Function() invalidUserInfo,
+    required TResult Function() userInfoSave,
+    required TResult Function() notFoundCarNumber,
+    required TResult Function() webView,
+    required TResult Function(String message) unknown,
+    required TResult Function() timeout,
+    required TResult Function(String message) network,
+    required TResult Function(String message) badRequest,
+    required TResult Function() unauthorized,
+    required TResult Function() forbidden,
+    required TResult Function() notFound,
+    required TResult Function(String message) server,
+    required TResult Function() cancelled,
+  }) {
+    return timeout();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? notFoundUserInfo,
+    TResult? Function()? invalidUserInfo,
+    TResult? Function()? userInfoSave,
+    TResult? Function()? notFoundCarNumber,
+    TResult? Function()? webView,
+    TResult? Function(String message)? unknown,
+    TResult? Function()? timeout,
+    TResult? Function(String message)? network,
+    TResult? Function(String message)? badRequest,
+    TResult? Function()? unauthorized,
+    TResult? Function()? forbidden,
+    TResult? Function()? notFound,
+    TResult? Function(String message)? server,
+    TResult? Function()? cancelled,
+  }) {
+    return timeout?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? notFoundUserInfo,
+    TResult Function()? invalidUserInfo,
+    TResult Function()? userInfoSave,
+    TResult Function()? notFoundCarNumber,
+    TResult Function()? webView,
+    TResult Function(String message)? unknown,
+    TResult Function()? timeout,
+    TResult Function(String message)? network,
+    TResult Function(String message)? badRequest,
+    TResult Function()? unauthorized,
+    TResult Function()? forbidden,
+    TResult Function()? notFound,
+    TResult Function(String message)? server,
+    TResult Function()? cancelled,
+    required TResult orElse(),
+  }) {
+    if (timeout != null) {
+      return timeout();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NotFoundUserInfoException value) notFoundUserInfo,
+    required TResult Function(InvalidUserInfoException value) invalidUserInfo,
+    required TResult Function(UserInfoSaveException value) userInfoSave,
+    required TResult Function(NotFoundCarNumberException value)
+        notFoundCarNumber,
+    required TResult Function(WebViewException value) webView,
+    required TResult Function(UnknownException value) unknown,
+    required TResult Function(_Timeout value) timeout,
+    required TResult Function(_Network value) network,
+    required TResult Function(_BadRequest value) badRequest,
+    required TResult Function(_Unauthorized value) unauthorized,
+    required TResult Function(_Forbidden value) forbidden,
+    required TResult Function(_NotFound value) notFound,
+    required TResult Function(_Server value) server,
+    required TResult Function(_Cancelled value) cancelled,
+  }) {
+    return timeout(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(NotFoundUserInfoException value)? notFoundUserInfo,
+    TResult? Function(InvalidUserInfoException value)? invalidUserInfo,
+    TResult? Function(UserInfoSaveException value)? userInfoSave,
+    TResult? Function(NotFoundCarNumberException value)? notFoundCarNumber,
+    TResult? Function(WebViewException value)? webView,
+    TResult? Function(UnknownException value)? unknown,
+    TResult? Function(_Timeout value)? timeout,
+    TResult? Function(_Network value)? network,
+    TResult? Function(_BadRequest value)? badRequest,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_Forbidden value)? forbidden,
+    TResult? Function(_NotFound value)? notFound,
+    TResult? Function(_Server value)? server,
+    TResult? Function(_Cancelled value)? cancelled,
+  }) {
+    return timeout?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NotFoundUserInfoException value)? notFoundUserInfo,
+    TResult Function(InvalidUserInfoException value)? invalidUserInfo,
+    TResult Function(UserInfoSaveException value)? userInfoSave,
+    TResult Function(NotFoundCarNumberException value)? notFoundCarNumber,
+    TResult Function(WebViewException value)? webView,
+    TResult Function(UnknownException value)? unknown,
+    TResult Function(_Timeout value)? timeout,
+    TResult Function(_Network value)? network,
+    TResult Function(_BadRequest value)? badRequest,
+    TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_Forbidden value)? forbidden,
+    TResult Function(_NotFound value)? notFound,
+    TResult Function(_Server value)? server,
+    TResult Function(_Cancelled value)? cancelled,
+    required TResult orElse(),
+  }) {
+    if (timeout != null) {
+      return timeout(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Timeout implements AppException {
+  const factory _Timeout() = _$TimeoutImpl;
+}
+
+/// @nodoc
+abstract class _$$NetworkImplCopyWith<$Res> {
+  factory _$$NetworkImplCopyWith(
+          _$NetworkImpl value, $Res Function(_$NetworkImpl) then) =
+      __$$NetworkImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$NetworkImplCopyWithImpl<$Res>
+    extends _$AppExceptionCopyWithImpl<$Res, _$NetworkImpl>
+    implements _$$NetworkImplCopyWith<$Res> {
+  __$$NetworkImplCopyWithImpl(
+      _$NetworkImpl _value, $Res Function(_$NetworkImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AppException
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$NetworkImpl(
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$NetworkImpl implements _Network {
+  const _$NetworkImpl(this.message);
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'AppException.network(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$NetworkImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  /// Create a copy of AppException
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$NetworkImplCopyWith<_$NetworkImpl> get copyWith =>
+      __$$NetworkImplCopyWithImpl<_$NetworkImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() notFoundUserInfo,
+    required TResult Function() invalidUserInfo,
+    required TResult Function() userInfoSave,
+    required TResult Function() notFoundCarNumber,
+    required TResult Function() webView,
+    required TResult Function(String message) unknown,
+    required TResult Function() timeout,
+    required TResult Function(String message) network,
+    required TResult Function(String message) badRequest,
+    required TResult Function() unauthorized,
+    required TResult Function() forbidden,
+    required TResult Function() notFound,
+    required TResult Function(String message) server,
+    required TResult Function() cancelled,
+  }) {
+    return network(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? notFoundUserInfo,
+    TResult? Function()? invalidUserInfo,
+    TResult? Function()? userInfoSave,
+    TResult? Function()? notFoundCarNumber,
+    TResult? Function()? webView,
+    TResult? Function(String message)? unknown,
+    TResult? Function()? timeout,
+    TResult? Function(String message)? network,
+    TResult? Function(String message)? badRequest,
+    TResult? Function()? unauthorized,
+    TResult? Function()? forbidden,
+    TResult? Function()? notFound,
+    TResult? Function(String message)? server,
+    TResult? Function()? cancelled,
+  }) {
+    return network?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? notFoundUserInfo,
+    TResult Function()? invalidUserInfo,
+    TResult Function()? userInfoSave,
+    TResult Function()? notFoundCarNumber,
+    TResult Function()? webView,
+    TResult Function(String message)? unknown,
+    TResult Function()? timeout,
+    TResult Function(String message)? network,
+    TResult Function(String message)? badRequest,
+    TResult Function()? unauthorized,
+    TResult Function()? forbidden,
+    TResult Function()? notFound,
+    TResult Function(String message)? server,
+    TResult Function()? cancelled,
+    required TResult orElse(),
+  }) {
+    if (network != null) {
+      return network(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NotFoundUserInfoException value) notFoundUserInfo,
+    required TResult Function(InvalidUserInfoException value) invalidUserInfo,
+    required TResult Function(UserInfoSaveException value) userInfoSave,
+    required TResult Function(NotFoundCarNumberException value)
+        notFoundCarNumber,
+    required TResult Function(WebViewException value) webView,
+    required TResult Function(UnknownException value) unknown,
+    required TResult Function(_Timeout value) timeout,
+    required TResult Function(_Network value) network,
+    required TResult Function(_BadRequest value) badRequest,
+    required TResult Function(_Unauthorized value) unauthorized,
+    required TResult Function(_Forbidden value) forbidden,
+    required TResult Function(_NotFound value) notFound,
+    required TResult Function(_Server value) server,
+    required TResult Function(_Cancelled value) cancelled,
+  }) {
+    return network(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(NotFoundUserInfoException value)? notFoundUserInfo,
+    TResult? Function(InvalidUserInfoException value)? invalidUserInfo,
+    TResult? Function(UserInfoSaveException value)? userInfoSave,
+    TResult? Function(NotFoundCarNumberException value)? notFoundCarNumber,
+    TResult? Function(WebViewException value)? webView,
+    TResult? Function(UnknownException value)? unknown,
+    TResult? Function(_Timeout value)? timeout,
+    TResult? Function(_Network value)? network,
+    TResult? Function(_BadRequest value)? badRequest,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_Forbidden value)? forbidden,
+    TResult? Function(_NotFound value)? notFound,
+    TResult? Function(_Server value)? server,
+    TResult? Function(_Cancelled value)? cancelled,
+  }) {
+    return network?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NotFoundUserInfoException value)? notFoundUserInfo,
+    TResult Function(InvalidUserInfoException value)? invalidUserInfo,
+    TResult Function(UserInfoSaveException value)? userInfoSave,
+    TResult Function(NotFoundCarNumberException value)? notFoundCarNumber,
+    TResult Function(WebViewException value)? webView,
+    TResult Function(UnknownException value)? unknown,
+    TResult Function(_Timeout value)? timeout,
+    TResult Function(_Network value)? network,
+    TResult Function(_BadRequest value)? badRequest,
+    TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_Forbidden value)? forbidden,
+    TResult Function(_NotFound value)? notFound,
+    TResult Function(_Server value)? server,
+    TResult Function(_Cancelled value)? cancelled,
+    required TResult orElse(),
+  }) {
+    if (network != null) {
+      return network(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Network implements AppException {
+  const factory _Network(final String message) = _$NetworkImpl;
+
+  String get message;
+
+  /// Create a copy of AppException
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$NetworkImplCopyWith<_$NetworkImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$BadRequestImplCopyWith<$Res> {
+  factory _$$BadRequestImplCopyWith(
+          _$BadRequestImpl value, $Res Function(_$BadRequestImpl) then) =
+      __$$BadRequestImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$BadRequestImplCopyWithImpl<$Res>
+    extends _$AppExceptionCopyWithImpl<$Res, _$BadRequestImpl>
+    implements _$$BadRequestImplCopyWith<$Res> {
+  __$$BadRequestImplCopyWithImpl(
+      _$BadRequestImpl _value, $Res Function(_$BadRequestImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AppException
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$BadRequestImpl(
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$BadRequestImpl implements _BadRequest {
+  const _$BadRequestImpl(this.message);
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'AppException.badRequest(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$BadRequestImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  /// Create a copy of AppException
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$BadRequestImplCopyWith<_$BadRequestImpl> get copyWith =>
+      __$$BadRequestImplCopyWithImpl<_$BadRequestImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() notFoundUserInfo,
+    required TResult Function() invalidUserInfo,
+    required TResult Function() userInfoSave,
+    required TResult Function() notFoundCarNumber,
+    required TResult Function() webView,
+    required TResult Function(String message) unknown,
+    required TResult Function() timeout,
+    required TResult Function(String message) network,
+    required TResult Function(String message) badRequest,
+    required TResult Function() unauthorized,
+    required TResult Function() forbidden,
+    required TResult Function() notFound,
+    required TResult Function(String message) server,
+    required TResult Function() cancelled,
+  }) {
+    return badRequest(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? notFoundUserInfo,
+    TResult? Function()? invalidUserInfo,
+    TResult? Function()? userInfoSave,
+    TResult? Function()? notFoundCarNumber,
+    TResult? Function()? webView,
+    TResult? Function(String message)? unknown,
+    TResult? Function()? timeout,
+    TResult? Function(String message)? network,
+    TResult? Function(String message)? badRequest,
+    TResult? Function()? unauthorized,
+    TResult? Function()? forbidden,
+    TResult? Function()? notFound,
+    TResult? Function(String message)? server,
+    TResult? Function()? cancelled,
+  }) {
+    return badRequest?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? notFoundUserInfo,
+    TResult Function()? invalidUserInfo,
+    TResult Function()? userInfoSave,
+    TResult Function()? notFoundCarNumber,
+    TResult Function()? webView,
+    TResult Function(String message)? unknown,
+    TResult Function()? timeout,
+    TResult Function(String message)? network,
+    TResult Function(String message)? badRequest,
+    TResult Function()? unauthorized,
+    TResult Function()? forbidden,
+    TResult Function()? notFound,
+    TResult Function(String message)? server,
+    TResult Function()? cancelled,
+    required TResult orElse(),
+  }) {
+    if (badRequest != null) {
+      return badRequest(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NotFoundUserInfoException value) notFoundUserInfo,
+    required TResult Function(InvalidUserInfoException value) invalidUserInfo,
+    required TResult Function(UserInfoSaveException value) userInfoSave,
+    required TResult Function(NotFoundCarNumberException value)
+        notFoundCarNumber,
+    required TResult Function(WebViewException value) webView,
+    required TResult Function(UnknownException value) unknown,
+    required TResult Function(_Timeout value) timeout,
+    required TResult Function(_Network value) network,
+    required TResult Function(_BadRequest value) badRequest,
+    required TResult Function(_Unauthorized value) unauthorized,
+    required TResult Function(_Forbidden value) forbidden,
+    required TResult Function(_NotFound value) notFound,
+    required TResult Function(_Server value) server,
+    required TResult Function(_Cancelled value) cancelled,
+  }) {
+    return badRequest(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(NotFoundUserInfoException value)? notFoundUserInfo,
+    TResult? Function(InvalidUserInfoException value)? invalidUserInfo,
+    TResult? Function(UserInfoSaveException value)? userInfoSave,
+    TResult? Function(NotFoundCarNumberException value)? notFoundCarNumber,
+    TResult? Function(WebViewException value)? webView,
+    TResult? Function(UnknownException value)? unknown,
+    TResult? Function(_Timeout value)? timeout,
+    TResult? Function(_Network value)? network,
+    TResult? Function(_BadRequest value)? badRequest,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_Forbidden value)? forbidden,
+    TResult? Function(_NotFound value)? notFound,
+    TResult? Function(_Server value)? server,
+    TResult? Function(_Cancelled value)? cancelled,
+  }) {
+    return badRequest?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NotFoundUserInfoException value)? notFoundUserInfo,
+    TResult Function(InvalidUserInfoException value)? invalidUserInfo,
+    TResult Function(UserInfoSaveException value)? userInfoSave,
+    TResult Function(NotFoundCarNumberException value)? notFoundCarNumber,
+    TResult Function(WebViewException value)? webView,
+    TResult Function(UnknownException value)? unknown,
+    TResult Function(_Timeout value)? timeout,
+    TResult Function(_Network value)? network,
+    TResult Function(_BadRequest value)? badRequest,
+    TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_Forbidden value)? forbidden,
+    TResult Function(_NotFound value)? notFound,
+    TResult Function(_Server value)? server,
+    TResult Function(_Cancelled value)? cancelled,
+    required TResult orElse(),
+  }) {
+    if (badRequest != null) {
+      return badRequest(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _BadRequest implements AppException {
+  const factory _BadRequest(final String message) = _$BadRequestImpl;
+
+  String get message;
+
+  /// Create a copy of AppException
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$BadRequestImplCopyWith<_$BadRequestImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UnauthorizedImplCopyWith<$Res> {
+  factory _$$UnauthorizedImplCopyWith(
+          _$UnauthorizedImpl value, $Res Function(_$UnauthorizedImpl) then) =
+      __$$UnauthorizedImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$UnauthorizedImplCopyWithImpl<$Res>
+    extends _$AppExceptionCopyWithImpl<$Res, _$UnauthorizedImpl>
+    implements _$$UnauthorizedImplCopyWith<$Res> {
+  __$$UnauthorizedImplCopyWithImpl(
+      _$UnauthorizedImpl _value, $Res Function(_$UnauthorizedImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AppException
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$UnauthorizedImpl implements _Unauthorized {
+  const _$UnauthorizedImpl();
+
+  @override
+  String toString() {
+    return 'AppException.unauthorized()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$UnauthorizedImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() notFoundUserInfo,
+    required TResult Function() invalidUserInfo,
+    required TResult Function() userInfoSave,
+    required TResult Function() notFoundCarNumber,
+    required TResult Function() webView,
+    required TResult Function(String message) unknown,
+    required TResult Function() timeout,
+    required TResult Function(String message) network,
+    required TResult Function(String message) badRequest,
+    required TResult Function() unauthorized,
+    required TResult Function() forbidden,
+    required TResult Function() notFound,
+    required TResult Function(String message) server,
+    required TResult Function() cancelled,
+  }) {
+    return unauthorized();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? notFoundUserInfo,
+    TResult? Function()? invalidUserInfo,
+    TResult? Function()? userInfoSave,
+    TResult? Function()? notFoundCarNumber,
+    TResult? Function()? webView,
+    TResult? Function(String message)? unknown,
+    TResult? Function()? timeout,
+    TResult? Function(String message)? network,
+    TResult? Function(String message)? badRequest,
+    TResult? Function()? unauthorized,
+    TResult? Function()? forbidden,
+    TResult? Function()? notFound,
+    TResult? Function(String message)? server,
+    TResult? Function()? cancelled,
+  }) {
+    return unauthorized?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? notFoundUserInfo,
+    TResult Function()? invalidUserInfo,
+    TResult Function()? userInfoSave,
+    TResult Function()? notFoundCarNumber,
+    TResult Function()? webView,
+    TResult Function(String message)? unknown,
+    TResult Function()? timeout,
+    TResult Function(String message)? network,
+    TResult Function(String message)? badRequest,
+    TResult Function()? unauthorized,
+    TResult Function()? forbidden,
+    TResult Function()? notFound,
+    TResult Function(String message)? server,
+    TResult Function()? cancelled,
+    required TResult orElse(),
+  }) {
+    if (unauthorized != null) {
+      return unauthorized();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NotFoundUserInfoException value) notFoundUserInfo,
+    required TResult Function(InvalidUserInfoException value) invalidUserInfo,
+    required TResult Function(UserInfoSaveException value) userInfoSave,
+    required TResult Function(NotFoundCarNumberException value)
+        notFoundCarNumber,
+    required TResult Function(WebViewException value) webView,
+    required TResult Function(UnknownException value) unknown,
+    required TResult Function(_Timeout value) timeout,
+    required TResult Function(_Network value) network,
+    required TResult Function(_BadRequest value) badRequest,
+    required TResult Function(_Unauthorized value) unauthorized,
+    required TResult Function(_Forbidden value) forbidden,
+    required TResult Function(_NotFound value) notFound,
+    required TResult Function(_Server value) server,
+    required TResult Function(_Cancelled value) cancelled,
+  }) {
+    return unauthorized(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(NotFoundUserInfoException value)? notFoundUserInfo,
+    TResult? Function(InvalidUserInfoException value)? invalidUserInfo,
+    TResult? Function(UserInfoSaveException value)? userInfoSave,
+    TResult? Function(NotFoundCarNumberException value)? notFoundCarNumber,
+    TResult? Function(WebViewException value)? webView,
+    TResult? Function(UnknownException value)? unknown,
+    TResult? Function(_Timeout value)? timeout,
+    TResult? Function(_Network value)? network,
+    TResult? Function(_BadRequest value)? badRequest,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_Forbidden value)? forbidden,
+    TResult? Function(_NotFound value)? notFound,
+    TResult? Function(_Server value)? server,
+    TResult? Function(_Cancelled value)? cancelled,
+  }) {
+    return unauthorized?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NotFoundUserInfoException value)? notFoundUserInfo,
+    TResult Function(InvalidUserInfoException value)? invalidUserInfo,
+    TResult Function(UserInfoSaveException value)? userInfoSave,
+    TResult Function(NotFoundCarNumberException value)? notFoundCarNumber,
+    TResult Function(WebViewException value)? webView,
+    TResult Function(UnknownException value)? unknown,
+    TResult Function(_Timeout value)? timeout,
+    TResult Function(_Network value)? network,
+    TResult Function(_BadRequest value)? badRequest,
+    TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_Forbidden value)? forbidden,
+    TResult Function(_NotFound value)? notFound,
+    TResult Function(_Server value)? server,
+    TResult Function(_Cancelled value)? cancelled,
+    required TResult orElse(),
+  }) {
+    if (unauthorized != null) {
+      return unauthorized(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Unauthorized implements AppException {
+  const factory _Unauthorized() = _$UnauthorizedImpl;
+}
+
+/// @nodoc
+abstract class _$$ForbiddenImplCopyWith<$Res> {
+  factory _$$ForbiddenImplCopyWith(
+          _$ForbiddenImpl value, $Res Function(_$ForbiddenImpl) then) =
+      __$$ForbiddenImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ForbiddenImplCopyWithImpl<$Res>
+    extends _$AppExceptionCopyWithImpl<$Res, _$ForbiddenImpl>
+    implements _$$ForbiddenImplCopyWith<$Res> {
+  __$$ForbiddenImplCopyWithImpl(
+      _$ForbiddenImpl _value, $Res Function(_$ForbiddenImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AppException
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$ForbiddenImpl implements _Forbidden {
+  const _$ForbiddenImpl();
+
+  @override
+  String toString() {
+    return 'AppException.forbidden()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$ForbiddenImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() notFoundUserInfo,
+    required TResult Function() invalidUserInfo,
+    required TResult Function() userInfoSave,
+    required TResult Function() notFoundCarNumber,
+    required TResult Function() webView,
+    required TResult Function(String message) unknown,
+    required TResult Function() timeout,
+    required TResult Function(String message) network,
+    required TResult Function(String message) badRequest,
+    required TResult Function() unauthorized,
+    required TResult Function() forbidden,
+    required TResult Function() notFound,
+    required TResult Function(String message) server,
+    required TResult Function() cancelled,
+  }) {
+    return forbidden();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? notFoundUserInfo,
+    TResult? Function()? invalidUserInfo,
+    TResult? Function()? userInfoSave,
+    TResult? Function()? notFoundCarNumber,
+    TResult? Function()? webView,
+    TResult? Function(String message)? unknown,
+    TResult? Function()? timeout,
+    TResult? Function(String message)? network,
+    TResult? Function(String message)? badRequest,
+    TResult? Function()? unauthorized,
+    TResult? Function()? forbidden,
+    TResult? Function()? notFound,
+    TResult? Function(String message)? server,
+    TResult? Function()? cancelled,
+  }) {
+    return forbidden?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? notFoundUserInfo,
+    TResult Function()? invalidUserInfo,
+    TResult Function()? userInfoSave,
+    TResult Function()? notFoundCarNumber,
+    TResult Function()? webView,
+    TResult Function(String message)? unknown,
+    TResult Function()? timeout,
+    TResult Function(String message)? network,
+    TResult Function(String message)? badRequest,
+    TResult Function()? unauthorized,
+    TResult Function()? forbidden,
+    TResult Function()? notFound,
+    TResult Function(String message)? server,
+    TResult Function()? cancelled,
+    required TResult orElse(),
+  }) {
+    if (forbidden != null) {
+      return forbidden();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NotFoundUserInfoException value) notFoundUserInfo,
+    required TResult Function(InvalidUserInfoException value) invalidUserInfo,
+    required TResult Function(UserInfoSaveException value) userInfoSave,
+    required TResult Function(NotFoundCarNumberException value)
+        notFoundCarNumber,
+    required TResult Function(WebViewException value) webView,
+    required TResult Function(UnknownException value) unknown,
+    required TResult Function(_Timeout value) timeout,
+    required TResult Function(_Network value) network,
+    required TResult Function(_BadRequest value) badRequest,
+    required TResult Function(_Unauthorized value) unauthorized,
+    required TResult Function(_Forbidden value) forbidden,
+    required TResult Function(_NotFound value) notFound,
+    required TResult Function(_Server value) server,
+    required TResult Function(_Cancelled value) cancelled,
+  }) {
+    return forbidden(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(NotFoundUserInfoException value)? notFoundUserInfo,
+    TResult? Function(InvalidUserInfoException value)? invalidUserInfo,
+    TResult? Function(UserInfoSaveException value)? userInfoSave,
+    TResult? Function(NotFoundCarNumberException value)? notFoundCarNumber,
+    TResult? Function(WebViewException value)? webView,
+    TResult? Function(UnknownException value)? unknown,
+    TResult? Function(_Timeout value)? timeout,
+    TResult? Function(_Network value)? network,
+    TResult? Function(_BadRequest value)? badRequest,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_Forbidden value)? forbidden,
+    TResult? Function(_NotFound value)? notFound,
+    TResult? Function(_Server value)? server,
+    TResult? Function(_Cancelled value)? cancelled,
+  }) {
+    return forbidden?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NotFoundUserInfoException value)? notFoundUserInfo,
+    TResult Function(InvalidUserInfoException value)? invalidUserInfo,
+    TResult Function(UserInfoSaveException value)? userInfoSave,
+    TResult Function(NotFoundCarNumberException value)? notFoundCarNumber,
+    TResult Function(WebViewException value)? webView,
+    TResult Function(UnknownException value)? unknown,
+    TResult Function(_Timeout value)? timeout,
+    TResult Function(_Network value)? network,
+    TResult Function(_BadRequest value)? badRequest,
+    TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_Forbidden value)? forbidden,
+    TResult Function(_NotFound value)? notFound,
+    TResult Function(_Server value)? server,
+    TResult Function(_Cancelled value)? cancelled,
+    required TResult orElse(),
+  }) {
+    if (forbidden != null) {
+      return forbidden(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Forbidden implements AppException {
+  const factory _Forbidden() = _$ForbiddenImpl;
+}
+
+/// @nodoc
+abstract class _$$NotFoundImplCopyWith<$Res> {
+  factory _$$NotFoundImplCopyWith(
+          _$NotFoundImpl value, $Res Function(_$NotFoundImpl) then) =
+      __$$NotFoundImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$NotFoundImplCopyWithImpl<$Res>
+    extends _$AppExceptionCopyWithImpl<$Res, _$NotFoundImpl>
+    implements _$$NotFoundImplCopyWith<$Res> {
+  __$$NotFoundImplCopyWithImpl(
+      _$NotFoundImpl _value, $Res Function(_$NotFoundImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AppException
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$NotFoundImpl implements _NotFound {
+  const _$NotFoundImpl();
+
+  @override
+  String toString() {
+    return 'AppException.notFound()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$NotFoundImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() notFoundUserInfo,
+    required TResult Function() invalidUserInfo,
+    required TResult Function() userInfoSave,
+    required TResult Function() notFoundCarNumber,
+    required TResult Function() webView,
+    required TResult Function(String message) unknown,
+    required TResult Function() timeout,
+    required TResult Function(String message) network,
+    required TResult Function(String message) badRequest,
+    required TResult Function() unauthorized,
+    required TResult Function() forbidden,
+    required TResult Function() notFound,
+    required TResult Function(String message) server,
+    required TResult Function() cancelled,
+  }) {
+    return notFound();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? notFoundUserInfo,
+    TResult? Function()? invalidUserInfo,
+    TResult? Function()? userInfoSave,
+    TResult? Function()? notFoundCarNumber,
+    TResult? Function()? webView,
+    TResult? Function(String message)? unknown,
+    TResult? Function()? timeout,
+    TResult? Function(String message)? network,
+    TResult? Function(String message)? badRequest,
+    TResult? Function()? unauthorized,
+    TResult? Function()? forbidden,
+    TResult? Function()? notFound,
+    TResult? Function(String message)? server,
+    TResult? Function()? cancelled,
+  }) {
+    return notFound?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? notFoundUserInfo,
+    TResult Function()? invalidUserInfo,
+    TResult Function()? userInfoSave,
+    TResult Function()? notFoundCarNumber,
+    TResult Function()? webView,
+    TResult Function(String message)? unknown,
+    TResult Function()? timeout,
+    TResult Function(String message)? network,
+    TResult Function(String message)? badRequest,
+    TResult Function()? unauthorized,
+    TResult Function()? forbidden,
+    TResult Function()? notFound,
+    TResult Function(String message)? server,
+    TResult Function()? cancelled,
+    required TResult orElse(),
+  }) {
+    if (notFound != null) {
+      return notFound();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NotFoundUserInfoException value) notFoundUserInfo,
+    required TResult Function(InvalidUserInfoException value) invalidUserInfo,
+    required TResult Function(UserInfoSaveException value) userInfoSave,
+    required TResult Function(NotFoundCarNumberException value)
+        notFoundCarNumber,
+    required TResult Function(WebViewException value) webView,
+    required TResult Function(UnknownException value) unknown,
+    required TResult Function(_Timeout value) timeout,
+    required TResult Function(_Network value) network,
+    required TResult Function(_BadRequest value) badRequest,
+    required TResult Function(_Unauthorized value) unauthorized,
+    required TResult Function(_Forbidden value) forbidden,
+    required TResult Function(_NotFound value) notFound,
+    required TResult Function(_Server value) server,
+    required TResult Function(_Cancelled value) cancelled,
+  }) {
+    return notFound(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(NotFoundUserInfoException value)? notFoundUserInfo,
+    TResult? Function(InvalidUserInfoException value)? invalidUserInfo,
+    TResult? Function(UserInfoSaveException value)? userInfoSave,
+    TResult? Function(NotFoundCarNumberException value)? notFoundCarNumber,
+    TResult? Function(WebViewException value)? webView,
+    TResult? Function(UnknownException value)? unknown,
+    TResult? Function(_Timeout value)? timeout,
+    TResult? Function(_Network value)? network,
+    TResult? Function(_BadRequest value)? badRequest,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_Forbidden value)? forbidden,
+    TResult? Function(_NotFound value)? notFound,
+    TResult? Function(_Server value)? server,
+    TResult? Function(_Cancelled value)? cancelled,
+  }) {
+    return notFound?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NotFoundUserInfoException value)? notFoundUserInfo,
+    TResult Function(InvalidUserInfoException value)? invalidUserInfo,
+    TResult Function(UserInfoSaveException value)? userInfoSave,
+    TResult Function(NotFoundCarNumberException value)? notFoundCarNumber,
+    TResult Function(WebViewException value)? webView,
+    TResult Function(UnknownException value)? unknown,
+    TResult Function(_Timeout value)? timeout,
+    TResult Function(_Network value)? network,
+    TResult Function(_BadRequest value)? badRequest,
+    TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_Forbidden value)? forbidden,
+    TResult Function(_NotFound value)? notFound,
+    TResult Function(_Server value)? server,
+    TResult Function(_Cancelled value)? cancelled,
+    required TResult orElse(),
+  }) {
+    if (notFound != null) {
+      return notFound(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _NotFound implements AppException {
+  const factory _NotFound() = _$NotFoundImpl;
+}
+
+/// @nodoc
+abstract class _$$ServerImplCopyWith<$Res> {
+  factory _$$ServerImplCopyWith(
+          _$ServerImpl value, $Res Function(_$ServerImpl) then) =
+      __$$ServerImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String message});
+}
+
+/// @nodoc
+class __$$ServerImplCopyWithImpl<$Res>
+    extends _$AppExceptionCopyWithImpl<$Res, _$ServerImpl>
+    implements _$$ServerImplCopyWith<$Res> {
+  __$$ServerImplCopyWithImpl(
+      _$ServerImpl _value, $Res Function(_$ServerImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AppException
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? message = null,
+  }) {
+    return _then(_$ServerImpl(
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ServerImpl implements _Server {
+  const _$ServerImpl(this.message);
+
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'AppException.server(message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ServerImpl &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, message);
+
+  /// Create a copy of AppException
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ServerImplCopyWith<_$ServerImpl> get copyWith =>
+      __$$ServerImplCopyWithImpl<_$ServerImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() notFoundUserInfo,
+    required TResult Function() invalidUserInfo,
+    required TResult Function() userInfoSave,
+    required TResult Function() notFoundCarNumber,
+    required TResult Function() webView,
+    required TResult Function(String message) unknown,
+    required TResult Function() timeout,
+    required TResult Function(String message) network,
+    required TResult Function(String message) badRequest,
+    required TResult Function() unauthorized,
+    required TResult Function() forbidden,
+    required TResult Function() notFound,
+    required TResult Function(String message) server,
+    required TResult Function() cancelled,
+  }) {
+    return server(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? notFoundUserInfo,
+    TResult? Function()? invalidUserInfo,
+    TResult? Function()? userInfoSave,
+    TResult? Function()? notFoundCarNumber,
+    TResult? Function()? webView,
+    TResult? Function(String message)? unknown,
+    TResult? Function()? timeout,
+    TResult? Function(String message)? network,
+    TResult? Function(String message)? badRequest,
+    TResult? Function()? unauthorized,
+    TResult? Function()? forbidden,
+    TResult? Function()? notFound,
+    TResult? Function(String message)? server,
+    TResult? Function()? cancelled,
+  }) {
+    return server?.call(message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? notFoundUserInfo,
+    TResult Function()? invalidUserInfo,
+    TResult Function()? userInfoSave,
+    TResult Function()? notFoundCarNumber,
+    TResult Function()? webView,
+    TResult Function(String message)? unknown,
+    TResult Function()? timeout,
+    TResult Function(String message)? network,
+    TResult Function(String message)? badRequest,
+    TResult Function()? unauthorized,
+    TResult Function()? forbidden,
+    TResult Function()? notFound,
+    TResult Function(String message)? server,
+    TResult Function()? cancelled,
+    required TResult orElse(),
+  }) {
+    if (server != null) {
+      return server(message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NotFoundUserInfoException value) notFoundUserInfo,
+    required TResult Function(InvalidUserInfoException value) invalidUserInfo,
+    required TResult Function(UserInfoSaveException value) userInfoSave,
+    required TResult Function(NotFoundCarNumberException value)
+        notFoundCarNumber,
+    required TResult Function(WebViewException value) webView,
+    required TResult Function(UnknownException value) unknown,
+    required TResult Function(_Timeout value) timeout,
+    required TResult Function(_Network value) network,
+    required TResult Function(_BadRequest value) badRequest,
+    required TResult Function(_Unauthorized value) unauthorized,
+    required TResult Function(_Forbidden value) forbidden,
+    required TResult Function(_NotFound value) notFound,
+    required TResult Function(_Server value) server,
+    required TResult Function(_Cancelled value) cancelled,
+  }) {
+    return server(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(NotFoundUserInfoException value)? notFoundUserInfo,
+    TResult? Function(InvalidUserInfoException value)? invalidUserInfo,
+    TResult? Function(UserInfoSaveException value)? userInfoSave,
+    TResult? Function(NotFoundCarNumberException value)? notFoundCarNumber,
+    TResult? Function(WebViewException value)? webView,
+    TResult? Function(UnknownException value)? unknown,
+    TResult? Function(_Timeout value)? timeout,
+    TResult? Function(_Network value)? network,
+    TResult? Function(_BadRequest value)? badRequest,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_Forbidden value)? forbidden,
+    TResult? Function(_NotFound value)? notFound,
+    TResult? Function(_Server value)? server,
+    TResult? Function(_Cancelled value)? cancelled,
+  }) {
+    return server?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NotFoundUserInfoException value)? notFoundUserInfo,
+    TResult Function(InvalidUserInfoException value)? invalidUserInfo,
+    TResult Function(UserInfoSaveException value)? userInfoSave,
+    TResult Function(NotFoundCarNumberException value)? notFoundCarNumber,
+    TResult Function(WebViewException value)? webView,
+    TResult Function(UnknownException value)? unknown,
+    TResult Function(_Timeout value)? timeout,
+    TResult Function(_Network value)? network,
+    TResult Function(_BadRequest value)? badRequest,
+    TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_Forbidden value)? forbidden,
+    TResult Function(_NotFound value)? notFound,
+    TResult Function(_Server value)? server,
+    TResult Function(_Cancelled value)? cancelled,
+    required TResult orElse(),
+  }) {
+    if (server != null) {
+      return server(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Server implements AppException {
+  const factory _Server(final String message) = _$ServerImpl;
+
+  String get message;
+
+  /// Create a copy of AppException
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$ServerImplCopyWith<_$ServerImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CancelledImplCopyWith<$Res> {
+  factory _$$CancelledImplCopyWith(
+          _$CancelledImpl value, $Res Function(_$CancelledImpl) then) =
+      __$$CancelledImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$CancelledImplCopyWithImpl<$Res>
+    extends _$AppExceptionCopyWithImpl<$Res, _$CancelledImpl>
+    implements _$$CancelledImplCopyWith<$Res> {
+  __$$CancelledImplCopyWithImpl(
+      _$CancelledImpl _value, $Res Function(_$CancelledImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AppException
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$CancelledImpl implements _Cancelled {
+  const _$CancelledImpl();
+
+  @override
+  String toString() {
+    return 'AppException.cancelled()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _$CancelledImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() notFoundUserInfo,
+    required TResult Function() invalidUserInfo,
+    required TResult Function() userInfoSave,
+    required TResult Function() notFoundCarNumber,
+    required TResult Function() webView,
+    required TResult Function(String message) unknown,
+    required TResult Function() timeout,
+    required TResult Function(String message) network,
+    required TResult Function(String message) badRequest,
+    required TResult Function() unauthorized,
+    required TResult Function() forbidden,
+    required TResult Function() notFound,
+    required TResult Function(String message) server,
+    required TResult Function() cancelled,
+  }) {
+    return cancelled();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? notFoundUserInfo,
+    TResult? Function()? invalidUserInfo,
+    TResult? Function()? userInfoSave,
+    TResult? Function()? notFoundCarNumber,
+    TResult? Function()? webView,
+    TResult? Function(String message)? unknown,
+    TResult? Function()? timeout,
+    TResult? Function(String message)? network,
+    TResult? Function(String message)? badRequest,
+    TResult? Function()? unauthorized,
+    TResult? Function()? forbidden,
+    TResult? Function()? notFound,
+    TResult? Function(String message)? server,
+    TResult? Function()? cancelled,
+  }) {
+    return cancelled?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? notFoundUserInfo,
+    TResult Function()? invalidUserInfo,
+    TResult Function()? userInfoSave,
+    TResult Function()? notFoundCarNumber,
+    TResult Function()? webView,
+    TResult Function(String message)? unknown,
+    TResult Function()? timeout,
+    TResult Function(String message)? network,
+    TResult Function(String message)? badRequest,
+    TResult Function()? unauthorized,
+    TResult Function()? forbidden,
+    TResult Function()? notFound,
+    TResult Function(String message)? server,
+    TResult Function()? cancelled,
+    required TResult orElse(),
+  }) {
+    if (cancelled != null) {
+      return cancelled();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NotFoundUserInfoException value) notFoundUserInfo,
+    required TResult Function(InvalidUserInfoException value) invalidUserInfo,
+    required TResult Function(UserInfoSaveException value) userInfoSave,
+    required TResult Function(NotFoundCarNumberException value)
+        notFoundCarNumber,
+    required TResult Function(WebViewException value) webView,
+    required TResult Function(UnknownException value) unknown,
+    required TResult Function(_Timeout value) timeout,
+    required TResult Function(_Network value) network,
+    required TResult Function(_BadRequest value) badRequest,
+    required TResult Function(_Unauthorized value) unauthorized,
+    required TResult Function(_Forbidden value) forbidden,
+    required TResult Function(_NotFound value) notFound,
+    required TResult Function(_Server value) server,
+    required TResult Function(_Cancelled value) cancelled,
+  }) {
+    return cancelled(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(NotFoundUserInfoException value)? notFoundUserInfo,
+    TResult? Function(InvalidUserInfoException value)? invalidUserInfo,
+    TResult? Function(UserInfoSaveException value)? userInfoSave,
+    TResult? Function(NotFoundCarNumberException value)? notFoundCarNumber,
+    TResult? Function(WebViewException value)? webView,
+    TResult? Function(UnknownException value)? unknown,
+    TResult? Function(_Timeout value)? timeout,
+    TResult? Function(_Network value)? network,
+    TResult? Function(_BadRequest value)? badRequest,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_Forbidden value)? forbidden,
+    TResult? Function(_NotFound value)? notFound,
+    TResult? Function(_Server value)? server,
+    TResult? Function(_Cancelled value)? cancelled,
+  }) {
+    return cancelled?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NotFoundUserInfoException value)? notFoundUserInfo,
+    TResult Function(InvalidUserInfoException value)? invalidUserInfo,
+    TResult Function(UserInfoSaveException value)? userInfoSave,
+    TResult Function(NotFoundCarNumberException value)? notFoundCarNumber,
+    TResult Function(WebViewException value)? webView,
+    TResult Function(UnknownException value)? unknown,
+    TResult Function(_Timeout value)? timeout,
+    TResult Function(_Network value)? network,
+    TResult Function(_BadRequest value)? badRequest,
+    TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_Forbidden value)? forbidden,
+    TResult Function(_NotFound value)? notFound,
+    TResult Function(_Server value)? server,
+    TResult Function(_Cancelled value)? cancelled,
+    required TResult orElse(),
+  }) {
+    if (cancelled != null) {
+      return cancelled(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _Cancelled implements AppException {
+  const factory _Cancelled() = _$CancelledImpl;
 }
