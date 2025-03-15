@@ -1,7 +1,6 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_home_parking/exceptions/app_exception.dart';
-import 'package:my_home_parking/model/user_info.dart';
 import 'package:my_home_parking/repository/main_repository.dart';
 import 'package:my_home_parking/state/main/main_event.dart';
 import 'package:my_home_parking/state/main/main_state.dart';
@@ -16,6 +15,7 @@ class MainBloc extends Bloc<MainEvent, MainState> {
           emit,
           () async {
             final userInfo = await _mainRepository.getUserInfoOrFail();
+
             emit(state.copyWith(
               userInfo: userInfo,
             ));
@@ -35,11 +35,22 @@ class MainBloc extends Bloc<MainEvent, MainState> {
           emit,
           () async {
             await _mainRepository.saveUserInfo(event.userInfo);
+            final userInfo = await _mainRepository.getUserInfoOrFail();
             emit(state.copyWith(
-              userInfo: event.userInfo,
+              userInfo: userInfo,
             ));
           },
           defaultError: const AppException.userInfoSave(),
+        ),
+        updateCarNumber: (event) async => _handleEvent(
+          emit,
+          () async {
+            await _mainRepository.updateCarNumber(event.carNumber);
+            final userInfo = await _mainRepository.getUserInfoOrFail();
+            emit(state.copyWith(
+              userInfo: userInfo,
+            ));
+          },
         ),
         clearError: (_) async => _handleEvent(
           emit,
@@ -61,7 +72,7 @@ class MainBloc extends Bloc<MainEvent, MainState> {
       await action();
       emit(state.copyWith(
         isLoading: false,
-        // userInfo: result is UserInfo ? result : state.userInfo,
+        error: null,
       ));
     } on AppException catch (e) {
       emit(state.copyWith(isLoading: false, error: e));

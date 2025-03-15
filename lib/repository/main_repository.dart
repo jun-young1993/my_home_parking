@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:my_home_parking/exceptions/app_exception.dart';
+import 'package:my_home_parking/model/car_number.dart';
 import 'package:my_home_parking/model/user_info.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -9,6 +10,7 @@ abstract class MainRepository {
   Future<UserInfo> getUserInfoOrFailWithCarNumber();
   Future<void> saveUserInfo(UserInfo userInfo);
   Future<void> clearUserInfo();
+  Future<void> updateCarNumber(CarNumber carNumber);
 }
 
 class MainDefaultRepository extends MainRepository {
@@ -30,6 +32,11 @@ class MainDefaultRepository extends MainRepository {
     if (userInfo == null) {
       throw const AppException.notFoundUserInfo();
     }
+
+    if (!userInfo.isValid) {
+      throw const AppException.notFoundUserInfo();
+    }
+
     return userInfo;
   }
 
@@ -39,6 +46,11 @@ class MainDefaultRepository extends MainRepository {
     if (userInfo.carNumber == null) {
       throw const AppException.notFoundCarNumber();
     }
+
+    if (!userInfo.carNumber!.isValid) {
+      throw const AppException.notFoundCarNumber();
+    }
+
     return userInfo;
   }
 
@@ -50,5 +62,13 @@ class MainDefaultRepository extends MainRepository {
   @override
   Future<void> clearUserInfo() async {
     await _prefs.remove(_userInfoKey);
+  }
+
+  @override
+  Future<void> updateCarNumber(CarNumber carNumber) async {
+    final userInfo = await getUserInfoOrFail();
+
+    final updatedUserInfo = userInfo.copyWith(carNumber: carNumber);
+    await saveUserInfo(updatedUserInfo);
   }
 }

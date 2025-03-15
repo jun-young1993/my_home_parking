@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_home_parking/core/constants/app_constants.dart';
 import 'package:my_home_parking/model/user_info.dart';
+import 'package:my_home_parking/routes.dart';
 import 'package:my_home_parking/state/main/main_bloc.dart';
 import 'package:my_home_parking/state/main/main_state.dart';
 
@@ -49,7 +50,7 @@ class MainMenuSection extends StatelessWidget {
                       '주차장 찾기',
                       Icons.map,
                       onTap: () {
-                        // TODO: 주차장 찾기 화면으로 이동
+                        AppNavigator.push(Routes.parkingMap);
                       },
                     ),
                     _buildMenuCard(
@@ -110,9 +111,9 @@ class MainMenuSection extends StatelessWidget {
                 ),
                 const SizedBox(width: 12),
                 Expanded(
-                  child: userInfo.carNumber != null
+                  child: userInfo.isCarNumberValid
                       ? Text(
-                          userInfo.carNumber.toString(),
+                          '${userInfo.carNumber!.region} ${userInfo.carNumber!.category} ${userInfo.carNumber!.number}',
                           style:
                               Theme.of(context).textTheme.titleMedium?.copyWith(
                                     fontWeight: FontWeight.bold,

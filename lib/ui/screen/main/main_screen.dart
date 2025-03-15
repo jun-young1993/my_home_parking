@@ -30,6 +30,7 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return ExceptionSelector(
       (exception) {
+        print("exception$exception");
         if (exception is AppException) {
           return exception.when(
             notFoundUserInfo: () => PostAddressSection(

@@ -163,12 +163,13 @@ class __$$UserInfoImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$UserInfoImpl implements _UserInfo {
+class _$UserInfoImpl extends _UserInfo {
   const _$UserInfoImpl(
       {this.carNumber,
       required this.address,
       required this.zoneCode,
-      this.phoneNumber});
+      this.phoneNumber})
+      : super._();
 
   factory _$UserInfoImpl.fromJson(Map<String, dynamic> json) =>
       _$$UserInfoImplFromJson(json);
@@ -222,12 +223,13 @@ class _$UserInfoImpl implements _UserInfo {
   }
 }
 
-abstract class _UserInfo implements UserInfo {
+abstract class _UserInfo extends UserInfo {
   const factory _UserInfo(
       {final CarNumber? carNumber,
       required final String address,
       required final String zoneCode,
       final String? phoneNumber}) = _$UserInfoImpl;
+  const _UserInfo._() : super._();
 
   factory _UserInfo.fromJson(Map<String, dynamic> json) =
       _$UserInfoImpl.fromJson;

@@ -30,15 +30,11 @@ class _CarNumberSectionState extends State<CarNumberSection> {
   void _submitForm() {
     if (_formKey.currentState?.validate() ?? false) {
       context.read<MainBloc>().add(
-            MainEvent.saveUserInfo(
-              UserInfo(
-                carNumber: CarNumber(
-                  region: _regionController.text,
-                  category: _categoryController.text,
-                  number: _numberController.text,
-                ),
-                address: '', // 기존 주소 정보 유지
-                zoneCode: '', // 기존 우편번호 유지
+            MainEvent.updateCarNumber(
+              CarNumber(
+                region: _regionController.text,
+                category: _categoryController.text,
+                number: _numberController.text,
               ),
             ),
           );
@@ -87,7 +83,7 @@ class _CarNumberSectionState extends State<CarNumberSection> {
                       controller: _categoryController,
                       decoration: const InputDecoration(
                         labelText: '분류',
-                        hintText: '예: 조',
+                        hintText: '예: 가',
                       ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
@@ -104,7 +100,7 @@ class _CarNumberSectionState extends State<CarNumberSection> {
                       controller: _numberController,
                       decoration: const InputDecoration(
                         labelText: '번호',
-                        hintText: '예: 7833',
+                        hintText: '예: 1234',
                       ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {

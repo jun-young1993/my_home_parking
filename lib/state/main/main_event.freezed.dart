@@ -21,6 +21,7 @@ mixin _$MainEvent {
     required TResult Function() checkUserInfo,
     required TResult Function() checkCarNumber,
     required TResult Function(UserInfo userInfo) saveUserInfo,
+    required TResult Function(CarNumber carNumber) updateCarNumber,
     required TResult Function() clearError,
   }) =>
       throw _privateConstructorUsedError;
@@ -29,6 +30,7 @@ mixin _$MainEvent {
     TResult? Function()? checkUserInfo,
     TResult? Function()? checkCarNumber,
     TResult? Function(UserInfo userInfo)? saveUserInfo,
+    TResult? Function(CarNumber carNumber)? updateCarNumber,
     TResult? Function()? clearError,
   }) =>
       throw _privateConstructorUsedError;
@@ -37,6 +39,7 @@ mixin _$MainEvent {
     TResult Function()? checkUserInfo,
     TResult Function()? checkCarNumber,
     TResult Function(UserInfo userInfo)? saveUserInfo,
+    TResult Function(CarNumber carNumber)? updateCarNumber,
     TResult Function()? clearError,
     required TResult orElse(),
   }) =>
@@ -46,6 +49,7 @@ mixin _$MainEvent {
     required TResult Function(_CheckUserInfo value) checkUserInfo,
     required TResult Function(_CheckCarNumber value) checkCarNumber,
     required TResult Function(_SaveUserInfo value) saveUserInfo,
+    required TResult Function(_UpdateCarNumber value) updateCarNumber,
     required TResult Function(_ClearError value) clearError,
   }) =>
       throw _privateConstructorUsedError;
@@ -54,6 +58,7 @@ mixin _$MainEvent {
     TResult? Function(_CheckUserInfo value)? checkUserInfo,
     TResult? Function(_CheckCarNumber value)? checkCarNumber,
     TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_UpdateCarNumber value)? updateCarNumber,
     TResult? Function(_ClearError value)? clearError,
   }) =>
       throw _privateConstructorUsedError;
@@ -62,6 +67,7 @@ mixin _$MainEvent {
     TResult Function(_CheckUserInfo value)? checkUserInfo,
     TResult Function(_CheckCarNumber value)? checkCarNumber,
     TResult Function(_SaveUserInfo value)? saveUserInfo,
+    TResult Function(_UpdateCarNumber value)? updateCarNumber,
     TResult Function(_ClearError value)? clearError,
     required TResult orElse(),
   }) =>
@@ -132,6 +138,7 @@ class _$CheckUserInfoImpl implements _CheckUserInfo {
     required TResult Function() checkUserInfo,
     required TResult Function() checkCarNumber,
     required TResult Function(UserInfo userInfo) saveUserInfo,
+    required TResult Function(CarNumber carNumber) updateCarNumber,
     required TResult Function() clearError,
   }) {
     return checkUserInfo();
@@ -143,6 +150,7 @@ class _$CheckUserInfoImpl implements _CheckUserInfo {
     TResult? Function()? checkUserInfo,
     TResult? Function()? checkCarNumber,
     TResult? Function(UserInfo userInfo)? saveUserInfo,
+    TResult? Function(CarNumber carNumber)? updateCarNumber,
     TResult? Function()? clearError,
   }) {
     return checkUserInfo?.call();
@@ -154,6 +162,7 @@ class _$CheckUserInfoImpl implements _CheckUserInfo {
     TResult Function()? checkUserInfo,
     TResult Function()? checkCarNumber,
     TResult Function(UserInfo userInfo)? saveUserInfo,
+    TResult Function(CarNumber carNumber)? updateCarNumber,
     TResult Function()? clearError,
     required TResult orElse(),
   }) {
@@ -169,6 +178,7 @@ class _$CheckUserInfoImpl implements _CheckUserInfo {
     required TResult Function(_CheckUserInfo value) checkUserInfo,
     required TResult Function(_CheckCarNumber value) checkCarNumber,
     required TResult Function(_SaveUserInfo value) saveUserInfo,
+    required TResult Function(_UpdateCarNumber value) updateCarNumber,
     required TResult Function(_ClearError value) clearError,
   }) {
     return checkUserInfo(this);
@@ -180,6 +190,7 @@ class _$CheckUserInfoImpl implements _CheckUserInfo {
     TResult? Function(_CheckUserInfo value)? checkUserInfo,
     TResult? Function(_CheckCarNumber value)? checkCarNumber,
     TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_UpdateCarNumber value)? updateCarNumber,
     TResult? Function(_ClearError value)? clearError,
   }) {
     return checkUserInfo?.call(this);
@@ -191,6 +202,7 @@ class _$CheckUserInfoImpl implements _CheckUserInfo {
     TResult Function(_CheckUserInfo value)? checkUserInfo,
     TResult Function(_CheckCarNumber value)? checkCarNumber,
     TResult Function(_SaveUserInfo value)? saveUserInfo,
+    TResult Function(_UpdateCarNumber value)? updateCarNumber,
     TResult Function(_ClearError value)? clearError,
     required TResult orElse(),
   }) {
@@ -249,6 +261,7 @@ class _$CheckCarNumberImpl implements _CheckCarNumber {
     required TResult Function() checkUserInfo,
     required TResult Function() checkCarNumber,
     required TResult Function(UserInfo userInfo) saveUserInfo,
+    required TResult Function(CarNumber carNumber) updateCarNumber,
     required TResult Function() clearError,
   }) {
     return checkCarNumber();
@@ -260,6 +273,7 @@ class _$CheckCarNumberImpl implements _CheckCarNumber {
     TResult? Function()? checkUserInfo,
     TResult? Function()? checkCarNumber,
     TResult? Function(UserInfo userInfo)? saveUserInfo,
+    TResult? Function(CarNumber carNumber)? updateCarNumber,
     TResult? Function()? clearError,
   }) {
     return checkCarNumber?.call();
@@ -271,6 +285,7 @@ class _$CheckCarNumberImpl implements _CheckCarNumber {
     TResult Function()? checkUserInfo,
     TResult Function()? checkCarNumber,
     TResult Function(UserInfo userInfo)? saveUserInfo,
+    TResult Function(CarNumber carNumber)? updateCarNumber,
     TResult Function()? clearError,
     required TResult orElse(),
   }) {
@@ -286,6 +301,7 @@ class _$CheckCarNumberImpl implements _CheckCarNumber {
     required TResult Function(_CheckUserInfo value) checkUserInfo,
     required TResult Function(_CheckCarNumber value) checkCarNumber,
     required TResult Function(_SaveUserInfo value) saveUserInfo,
+    required TResult Function(_UpdateCarNumber value) updateCarNumber,
     required TResult Function(_ClearError value) clearError,
   }) {
     return checkCarNumber(this);
@@ -297,6 +313,7 @@ class _$CheckCarNumberImpl implements _CheckCarNumber {
     TResult? Function(_CheckUserInfo value)? checkUserInfo,
     TResult? Function(_CheckCarNumber value)? checkCarNumber,
     TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_UpdateCarNumber value)? updateCarNumber,
     TResult? Function(_ClearError value)? clearError,
   }) {
     return checkCarNumber?.call(this);
@@ -308,6 +325,7 @@ class _$CheckCarNumberImpl implements _CheckCarNumber {
     TResult Function(_CheckUserInfo value)? checkUserInfo,
     TResult Function(_CheckCarNumber value)? checkCarNumber,
     TResult Function(_SaveUserInfo value)? saveUserInfo,
+    TResult Function(_UpdateCarNumber value)? updateCarNumber,
     TResult Function(_ClearError value)? clearError,
     required TResult orElse(),
   }) {
@@ -406,6 +424,7 @@ class _$SaveUserInfoImpl implements _SaveUserInfo {
     required TResult Function() checkUserInfo,
     required TResult Function() checkCarNumber,
     required TResult Function(UserInfo userInfo) saveUserInfo,
+    required TResult Function(CarNumber carNumber) updateCarNumber,
     required TResult Function() clearError,
   }) {
     return saveUserInfo(userInfo);
@@ -417,6 +436,7 @@ class _$SaveUserInfoImpl implements _SaveUserInfo {
     TResult? Function()? checkUserInfo,
     TResult? Function()? checkCarNumber,
     TResult? Function(UserInfo userInfo)? saveUserInfo,
+    TResult? Function(CarNumber carNumber)? updateCarNumber,
     TResult? Function()? clearError,
   }) {
     return saveUserInfo?.call(userInfo);
@@ -428,6 +448,7 @@ class _$SaveUserInfoImpl implements _SaveUserInfo {
     TResult Function()? checkUserInfo,
     TResult Function()? checkCarNumber,
     TResult Function(UserInfo userInfo)? saveUserInfo,
+    TResult Function(CarNumber carNumber)? updateCarNumber,
     TResult Function()? clearError,
     required TResult orElse(),
   }) {
@@ -443,6 +464,7 @@ class _$SaveUserInfoImpl implements _SaveUserInfo {
     required TResult Function(_CheckUserInfo value) checkUserInfo,
     required TResult Function(_CheckCarNumber value) checkCarNumber,
     required TResult Function(_SaveUserInfo value) saveUserInfo,
+    required TResult Function(_UpdateCarNumber value) updateCarNumber,
     required TResult Function(_ClearError value) clearError,
   }) {
     return saveUserInfo(this);
@@ -454,6 +476,7 @@ class _$SaveUserInfoImpl implements _SaveUserInfo {
     TResult? Function(_CheckUserInfo value)? checkUserInfo,
     TResult? Function(_CheckCarNumber value)? checkCarNumber,
     TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_UpdateCarNumber value)? updateCarNumber,
     TResult? Function(_ClearError value)? clearError,
   }) {
     return saveUserInfo?.call(this);
@@ -465,6 +488,7 @@ class _$SaveUserInfoImpl implements _SaveUserInfo {
     TResult Function(_CheckUserInfo value)? checkUserInfo,
     TResult Function(_CheckCarNumber value)? checkCarNumber,
     TResult Function(_SaveUserInfo value)? saveUserInfo,
+    TResult Function(_UpdateCarNumber value)? updateCarNumber,
     TResult Function(_ClearError value)? clearError,
     required TResult orElse(),
   }) {
@@ -484,6 +508,179 @@ abstract class _SaveUserInfo implements MainEvent {
   /// with the given fields replaced by the non-null parameter values.
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$SaveUserInfoImplCopyWith<_$SaveUserInfoImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$UpdateCarNumberImplCopyWith<$Res> {
+  factory _$$UpdateCarNumberImplCopyWith(_$UpdateCarNumberImpl value,
+          $Res Function(_$UpdateCarNumberImpl) then) =
+      __$$UpdateCarNumberImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({CarNumber carNumber});
+
+  $CarNumberCopyWith<$Res> get carNumber;
+}
+
+/// @nodoc
+class __$$UpdateCarNumberImplCopyWithImpl<$Res>
+    extends _$MainEventCopyWithImpl<$Res, _$UpdateCarNumberImpl>
+    implements _$$UpdateCarNumberImplCopyWith<$Res> {
+  __$$UpdateCarNumberImplCopyWithImpl(
+      _$UpdateCarNumberImpl _value, $Res Function(_$UpdateCarNumberImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of MainEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? carNumber = null,
+  }) {
+    return _then(_$UpdateCarNumberImpl(
+      null == carNumber
+          ? _value.carNumber
+          : carNumber // ignore: cast_nullable_to_non_nullable
+              as CarNumber,
+    ));
+  }
+
+  /// Create a copy of MainEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $CarNumberCopyWith<$Res> get carNumber {
+    return $CarNumberCopyWith<$Res>(_value.carNumber, (value) {
+      return _then(_value.copyWith(carNumber: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$UpdateCarNumberImpl implements _UpdateCarNumber {
+  const _$UpdateCarNumberImpl(this.carNumber);
+
+  @override
+  final CarNumber carNumber;
+
+  @override
+  String toString() {
+    return 'MainEvent.updateCarNumber(carNumber: $carNumber)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$UpdateCarNumberImpl &&
+            (identical(other.carNumber, carNumber) ||
+                other.carNumber == carNumber));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, carNumber);
+
+  /// Create a copy of MainEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$UpdateCarNumberImplCopyWith<_$UpdateCarNumberImpl> get copyWith =>
+      __$$UpdateCarNumberImplCopyWithImpl<_$UpdateCarNumberImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() checkUserInfo,
+    required TResult Function() checkCarNumber,
+    required TResult Function(UserInfo userInfo) saveUserInfo,
+    required TResult Function(CarNumber carNumber) updateCarNumber,
+    required TResult Function() clearError,
+  }) {
+    return updateCarNumber(carNumber);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? checkUserInfo,
+    TResult? Function()? checkCarNumber,
+    TResult? Function(UserInfo userInfo)? saveUserInfo,
+    TResult? Function(CarNumber carNumber)? updateCarNumber,
+    TResult? Function()? clearError,
+  }) {
+    return updateCarNumber?.call(carNumber);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? checkUserInfo,
+    TResult Function()? checkCarNumber,
+    TResult Function(UserInfo userInfo)? saveUserInfo,
+    TResult Function(CarNumber carNumber)? updateCarNumber,
+    TResult Function()? clearError,
+    required TResult orElse(),
+  }) {
+    if (updateCarNumber != null) {
+      return updateCarNumber(carNumber);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CheckUserInfo value) checkUserInfo,
+    required TResult Function(_CheckCarNumber value) checkCarNumber,
+    required TResult Function(_SaveUserInfo value) saveUserInfo,
+    required TResult Function(_UpdateCarNumber value) updateCarNumber,
+    required TResult Function(_ClearError value) clearError,
+  }) {
+    return updateCarNumber(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CheckUserInfo value)? checkUserInfo,
+    TResult? Function(_CheckCarNumber value)? checkCarNumber,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_UpdateCarNumber value)? updateCarNumber,
+    TResult? Function(_ClearError value)? clearError,
+  }) {
+    return updateCarNumber?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CheckUserInfo value)? checkUserInfo,
+    TResult Function(_CheckCarNumber value)? checkCarNumber,
+    TResult Function(_SaveUserInfo value)? saveUserInfo,
+    TResult Function(_UpdateCarNumber value)? updateCarNumber,
+    TResult Function(_ClearError value)? clearError,
+    required TResult orElse(),
+  }) {
+    if (updateCarNumber != null) {
+      return updateCarNumber(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _UpdateCarNumber implements MainEvent {
+  const factory _UpdateCarNumber(final CarNumber carNumber) =
+      _$UpdateCarNumberImpl;
+
+  CarNumber get carNumber;
+
+  /// Create a copy of MainEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$UpdateCarNumberImplCopyWith<_$UpdateCarNumberImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -531,6 +728,7 @@ class _$ClearErrorImpl implements _ClearError {
     required TResult Function() checkUserInfo,
     required TResult Function() checkCarNumber,
     required TResult Function(UserInfo userInfo) saveUserInfo,
+    required TResult Function(CarNumber carNumber) updateCarNumber,
     required TResult Function() clearError,
   }) {
     return clearError();
@@ -542,6 +740,7 @@ class _$ClearErrorImpl implements _ClearError {
     TResult? Function()? checkUserInfo,
     TResult? Function()? checkCarNumber,
     TResult? Function(UserInfo userInfo)? saveUserInfo,
+    TResult? Function(CarNumber carNumber)? updateCarNumber,
     TResult? Function()? clearError,
   }) {
     return clearError?.call();
@@ -553,6 +752,7 @@ class _$ClearErrorImpl implements _ClearError {
     TResult Function()? checkUserInfo,
     TResult Function()? checkCarNumber,
     TResult Function(UserInfo userInfo)? saveUserInfo,
+    TResult Function(CarNumber carNumber)? updateCarNumber,
     TResult Function()? clearError,
     required TResult orElse(),
   }) {
@@ -568,6 +768,7 @@ class _$ClearErrorImpl implements _ClearError {
     required TResult Function(_CheckUserInfo value) checkUserInfo,
     required TResult Function(_CheckCarNumber value) checkCarNumber,
     required TResult Function(_SaveUserInfo value) saveUserInfo,
+    required TResult Function(_UpdateCarNumber value) updateCarNumber,
     required TResult Function(_ClearError value) clearError,
   }) {
     return clearError(this);
@@ -579,6 +780,7 @@ class _$ClearErrorImpl implements _ClearError {
     TResult? Function(_CheckUserInfo value)? checkUserInfo,
     TResult? Function(_CheckCarNumber value)? checkCarNumber,
     TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_UpdateCarNumber value)? updateCarNumber,
     TResult? Function(_ClearError value)? clearError,
   }) {
     return clearError?.call(this);
@@ -590,6 +792,7 @@ class _$ClearErrorImpl implements _ClearError {
     TResult Function(_CheckUserInfo value)? checkUserInfo,
     TResult Function(_CheckCarNumber value)? checkCarNumber,
     TResult Function(_SaveUserInfo value)? saveUserInfo,
+    TResult Function(_UpdateCarNumber value)? updateCarNumber,
     TResult Function(_ClearError value)? clearError,
     required TResult orElse(),
   }) {

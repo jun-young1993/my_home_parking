@@ -125,9 +125,10 @@ class __$$CarNumberImplCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$CarNumberImpl implements _CarNumber {
+class _$CarNumberImpl extends _CarNumber {
   const _$CarNumberImpl(
-      {required this.region, required this.category, required this.number});
+      {required this.region, required this.category, required this.number})
+      : super._();
 
   factory _$CarNumberImpl.fromJson(Map<String, dynamic> json) =>
       _$$CarNumberImplFromJson(json);
@@ -177,11 +178,12 @@ class _$CarNumberImpl implements _CarNumber {
   }
 }
 
-abstract class _CarNumber implements CarNumber {
+abstract class _CarNumber extends CarNumber {
   const factory _CarNumber(
       {required final String region,
       required final String category,
       required final String number}) = _$CarNumberImpl;
+  const _CarNumber._() : super._();
 
   factory _CarNumber.fromJson(Map<String, dynamic> json) =
       _$CarNumberImpl.fromJson;

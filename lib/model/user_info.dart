@@ -6,6 +6,8 @@ part 'user_info.g.dart';
 
 @freezed
 class UserInfo with _$UserInfo {
+  const UserInfo._();
+
   const factory UserInfo({
     CarNumber? carNumber,
     required String address,
@@ -15,4 +17,8 @@ class UserInfo with _$UserInfo {
 
   factory UserInfo.fromJson(Map<String, dynamic> json) =>
       _$UserInfoFromJson(json);
+
+  bool get isValid => address.isNotEmpty && zoneCode.isNotEmpty;
+
+  bool get isCarNumberValid => carNumber != null && carNumber!.isValid;
 }
