@@ -59,6 +59,17 @@ class MainBloc extends Bloc<MainEvent, MainState> {
             add(const MainEvent.checkUserInfo());
           },
         ),
+        getParkingLocationZone: (event) async => _handleEvent(
+          emit,
+          () async {
+            final userInfo = await _mainRepository.getUserInfoOrFail();
+            final parkingLocationZone =
+                await _mainRepository.getParkingLocationZone(userInfo.zoneCode);
+            emit(state.copyWith(
+              parkingLocationZone: parkingLocationZone,
+            ));
+          },
+        ),
       );
     });
   }

@@ -19,6 +19,8 @@ mixin _$MainState {
   bool get isLoading => throw _privateConstructorUsedError;
   UserInfo? get userInfo => throw _privateConstructorUsedError;
   AppException? get error => throw _privateConstructorUsedError;
+  ParkingLocationZoneResponse? get parkingLocationZone =>
+      throw _privateConstructorUsedError;
 
   /// Create a copy of MainState
   /// with the given fields replaced by the non-null parameter values.
@@ -32,10 +34,15 @@ abstract class $MainStateCopyWith<$Res> {
   factory $MainStateCopyWith(MainState value, $Res Function(MainState) then) =
       _$MainStateCopyWithImpl<$Res, MainState>;
   @useResult
-  $Res call({bool isLoading, UserInfo? userInfo, AppException? error});
+  $Res call(
+      {bool isLoading,
+      UserInfo? userInfo,
+      AppException? error,
+      ParkingLocationZoneResponse? parkingLocationZone});
 
   $UserInfoCopyWith<$Res>? get userInfo;
   $AppExceptionCopyWith<$Res>? get error;
+  $ParkingLocationZoneResponseCopyWith<$Res>? get parkingLocationZone;
 }
 
 /// @nodoc
@@ -56,6 +63,7 @@ class _$MainStateCopyWithImpl<$Res, $Val extends MainState>
     Object? isLoading = null,
     Object? userInfo = freezed,
     Object? error = freezed,
+    Object? parkingLocationZone = freezed,
   }) {
     return _then(_value.copyWith(
       isLoading: null == isLoading
@@ -70,6 +78,10 @@ class _$MainStateCopyWithImpl<$Res, $Val extends MainState>
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as AppException?,
+      parkingLocationZone: freezed == parkingLocationZone
+          ? _value.parkingLocationZone
+          : parkingLocationZone // ignore: cast_nullable_to_non_nullable
+              as ParkingLocationZoneResponse?,
     ) as $Val);
   }
 
@@ -100,6 +112,21 @@ class _$MainStateCopyWithImpl<$Res, $Val extends MainState>
       return _then(_value.copyWith(error: value) as $Val);
     });
   }
+
+  /// Create a copy of MainState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $ParkingLocationZoneResponseCopyWith<$Res>? get parkingLocationZone {
+    if (_value.parkingLocationZone == null) {
+      return null;
+    }
+
+    return $ParkingLocationZoneResponseCopyWith<$Res>(
+        _value.parkingLocationZone!, (value) {
+      return _then(_value.copyWith(parkingLocationZone: value) as $Val);
+    });
+  }
 }
 
 /// @nodoc
@@ -110,12 +137,18 @@ abstract class _$$MainStateImplCopyWith<$Res>
       __$$MainStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({bool isLoading, UserInfo? userInfo, AppException? error});
+  $Res call(
+      {bool isLoading,
+      UserInfo? userInfo,
+      AppException? error,
+      ParkingLocationZoneResponse? parkingLocationZone});
 
   @override
   $UserInfoCopyWith<$Res>? get userInfo;
   @override
   $AppExceptionCopyWith<$Res>? get error;
+  @override
+  $ParkingLocationZoneResponseCopyWith<$Res>? get parkingLocationZone;
 }
 
 /// @nodoc
@@ -134,6 +167,7 @@ class __$$MainStateImplCopyWithImpl<$Res>
     Object? isLoading = null,
     Object? userInfo = freezed,
     Object? error = freezed,
+    Object? parkingLocationZone = freezed,
   }) {
     return _then(_$MainStateImpl(
       isLoading: null == isLoading
@@ -148,6 +182,10 @@ class __$$MainStateImplCopyWithImpl<$Res>
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
               as AppException?,
+      parkingLocationZone: freezed == parkingLocationZone
+          ? _value.parkingLocationZone
+          : parkingLocationZone // ignore: cast_nullable_to_non_nullable
+              as ParkingLocationZoneResponse?,
     ));
   }
 }
@@ -156,7 +194,10 @@ class __$$MainStateImplCopyWithImpl<$Res>
 
 class _$MainStateImpl implements _MainState {
   const _$MainStateImpl(
-      {this.isLoading = false, this.userInfo = null, this.error = null});
+      {this.isLoading = false,
+      this.userInfo = null,
+      this.error = null,
+      this.parkingLocationZone = null});
 
   @override
   @JsonKey()
@@ -167,10 +208,13 @@ class _$MainStateImpl implements _MainState {
   @override
   @JsonKey()
   final AppException? error;
+  @override
+  @JsonKey()
+  final ParkingLocationZoneResponse? parkingLocationZone;
 
   @override
   String toString() {
-    return 'MainState(isLoading: $isLoading, userInfo: $userInfo, error: $error)';
+    return 'MainState(isLoading: $isLoading, userInfo: $userInfo, error: $error, parkingLocationZone: $parkingLocationZone)';
   }
 
   @override
@@ -182,11 +226,14 @@ class _$MainStateImpl implements _MainState {
                 other.isLoading == isLoading) &&
             (identical(other.userInfo, userInfo) ||
                 other.userInfo == userInfo) &&
-            (identical(other.error, error) || other.error == error));
+            (identical(other.error, error) || other.error == error) &&
+            (identical(other.parkingLocationZone, parkingLocationZone) ||
+                other.parkingLocationZone == parkingLocationZone));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isLoading, userInfo, error);
+  int get hashCode =>
+      Object.hash(runtimeType, isLoading, userInfo, error, parkingLocationZone);
 
   /// Create a copy of MainState
   /// with the given fields replaced by the non-null parameter values.
@@ -199,9 +246,11 @@ class _$MainStateImpl implements _MainState {
 
 abstract class _MainState implements MainState {
   const factory _MainState(
-      {final bool isLoading,
-      final UserInfo? userInfo,
-      final AppException? error}) = _$MainStateImpl;
+          {final bool isLoading,
+          final UserInfo? userInfo,
+          final AppException? error,
+          final ParkingLocationZoneResponse? parkingLocationZone}) =
+      _$MainStateImpl;
 
   @override
   bool get isLoading;
@@ -209,6 +258,8 @@ abstract class _MainState implements MainState {
   UserInfo? get userInfo;
   @override
   AppException? get error;
+  @override
+  ParkingLocationZoneResponse? get parkingLocationZone;
 
   /// Create a copy of MainState
   /// with the given fields replaced by the non-null parameter values.

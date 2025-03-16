@@ -30,13 +30,11 @@ class _CarNumberSectionState extends State<CarNumberSection> {
   void _submitForm() {
     if (_formKey.currentState?.validate() ?? false) {
       context.read<MainBloc>().add(
-            MainEvent.updateCarNumber(
-              CarNumber(
+            MainEvent.updateCarNumber(CarNumber(
                 region: _regionController.text,
                 category: _categoryController.text,
                 number: _numberController.text,
-              ),
-            ),
+                isParked: true)),
           );
     }
   }

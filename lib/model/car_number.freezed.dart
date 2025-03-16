@@ -20,9 +20,11 @@ CarNumber _$CarNumberFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$CarNumber {
+  String? get id => throw _privateConstructorUsedError;
   String get region => throw _privateConstructorUsedError; // 지역 (예: "30")
   String get category => throw _privateConstructorUsedError; // 분류 (예: "조")
-  String get number => throw _privateConstructorUsedError;
+  String get number => throw _privateConstructorUsedError; // 번호 (예: "7833")
+  bool get isParked => throw _privateConstructorUsedError;
 
   /// Serializes this CarNumber to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -39,7 +41,12 @@ abstract class $CarNumberCopyWith<$Res> {
   factory $CarNumberCopyWith(CarNumber value, $Res Function(CarNumber) then) =
       _$CarNumberCopyWithImpl<$Res, CarNumber>;
   @useResult
-  $Res call({String region, String category, String number});
+  $Res call(
+      {String? id,
+      String region,
+      String category,
+      String number,
+      bool isParked});
 }
 
 /// @nodoc
@@ -57,11 +64,17 @@ class _$CarNumberCopyWithImpl<$Res, $Val extends CarNumber>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? region = null,
     Object? category = null,
     Object? number = null,
+    Object? isParked = null,
   }) {
     return _then(_value.copyWith(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       region: null == region
           ? _value.region
           : region // ignore: cast_nullable_to_non_nullable
@@ -74,6 +87,10 @@ class _$CarNumberCopyWithImpl<$Res, $Val extends CarNumber>
           ? _value.number
           : number // ignore: cast_nullable_to_non_nullable
               as String,
+      isParked: null == isParked
+          ? _value.isParked
+          : isParked // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -86,7 +103,12 @@ abstract class _$$CarNumberImplCopyWith<$Res>
       __$$CarNumberImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String region, String category, String number});
+  $Res call(
+      {String? id,
+      String region,
+      String category,
+      String number,
+      bool isParked});
 }
 
 /// @nodoc
@@ -102,11 +124,17 @@ class __$$CarNumberImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? id = freezed,
     Object? region = null,
     Object? category = null,
     Object? number = null,
+    Object? isParked = null,
   }) {
     return _then(_$CarNumberImpl(
+      id: freezed == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String?,
       region: null == region
           ? _value.region
           : region // ignore: cast_nullable_to_non_nullable
@@ -119,6 +147,10 @@ class __$$CarNumberImplCopyWithImpl<$Res>
           ? _value.number
           : number // ignore: cast_nullable_to_non_nullable
               as String,
+      isParked: null == isParked
+          ? _value.isParked
+          : isParked // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -127,12 +159,18 @@ class __$$CarNumberImplCopyWithImpl<$Res>
 @JsonSerializable()
 class _$CarNumberImpl extends _CarNumber {
   const _$CarNumberImpl(
-      {required this.region, required this.category, required this.number})
+      {this.id,
+      required this.region,
+      required this.category,
+      required this.number,
+      required this.isParked})
       : super._();
 
   factory _$CarNumberImpl.fromJson(Map<String, dynamic> json) =>
       _$$CarNumberImplFromJson(json);
 
+  @override
+  final String? id;
   @override
   final String region;
 // 지역 (예: "30")
@@ -141,26 +179,28 @@ class _$CarNumberImpl extends _CarNumber {
 // 분류 (예: "조")
   @override
   final String number;
-
+// 번호 (예: "7833")
   @override
-  String toString() {
-    return 'CarNumber(region: $region, category: $category, number: $number)';
-  }
+  final bool isParked;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$CarNumberImpl &&
+            (identical(other.id, id) || other.id == id) &&
             (identical(other.region, region) || other.region == region) &&
             (identical(other.category, category) ||
                 other.category == category) &&
-            (identical(other.number, number) || other.number == number));
+            (identical(other.number, number) || other.number == number) &&
+            (identical(other.isParked, isParked) ||
+                other.isParked == isParked));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, region, category, number);
+  int get hashCode =>
+      Object.hash(runtimeType, id, region, category, number, isParked);
 
   /// Create a copy of CarNumber
   /// with the given fields replaced by the non-null parameter values.
@@ -180,20 +220,26 @@ class _$CarNumberImpl extends _CarNumber {
 
 abstract class _CarNumber extends CarNumber {
   const factory _CarNumber(
-      {required final String region,
+      {final String? id,
+      required final String region,
       required final String category,
-      required final String number}) = _$CarNumberImpl;
+      required final String number,
+      required final bool isParked}) = _$CarNumberImpl;
   const _CarNumber._() : super._();
 
   factory _CarNumber.fromJson(Map<String, dynamic> json) =
       _$CarNumberImpl.fromJson;
 
   @override
+  String? get id;
+  @override
   String get region; // 지역 (예: "30")
   @override
   String get category; // 분류 (예: "조")
   @override
-  String get number;
+  String get number; // 번호 (예: "7833")
+  @override
+  bool get isParked;
 
   /// Create a copy of CarNumber
   /// with the given fields replaced by the non-null parameter values.

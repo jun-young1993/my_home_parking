@@ -1,4 +1,4 @@
 class ApiEndpoints {
   static const String parkingLocation = '/parking-location';
-  // 다른 엔드포인트들...
+  static const String parkingLocationZone = '/parking-location/zone';
 }

@@ -7,9 +7,11 @@ part 'car_number.g.dart';
 class CarNumber with _$CarNumber {
   const CarNumber._();
   const factory CarNumber({
+    String? id,
     required String region, // 지역 (예: "30")
     required String category, // 분류 (예: "조")
     required String number, // 번호 (예: "7833")
+    required bool isParked,
   }) = _CarNumber;
 
   factory CarNumber.fromJson(Map<String, dynamic> json) =>
@@ -17,4 +19,7 @@ class CarNumber with _$CarNumber {
 
   bool get isValid =>
       region.isNotEmpty && category.isNotEmpty && number.isNotEmpty;
+
+  @override
+  String toString() => '$region $category $number';
 }

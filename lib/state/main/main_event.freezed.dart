@@ -24,6 +24,7 @@ mixin _$MainEvent {
     required TResult Function(CarNumber carNumber) updateCarNumber,
     required TResult Function() clearError,
     required TResult Function() removeUserInfo,
+    required TResult Function() getParkingLocationZone,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -34,6 +35,7 @@ mixin _$MainEvent {
     TResult? Function(CarNumber carNumber)? updateCarNumber,
     TResult? Function()? clearError,
     TResult? Function()? removeUserInfo,
+    TResult? Function()? getParkingLocationZone,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -44,6 +46,7 @@ mixin _$MainEvent {
     TResult Function(CarNumber carNumber)? updateCarNumber,
     TResult Function()? clearError,
     TResult Function()? removeUserInfo,
+    TResult Function()? getParkingLocationZone,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -55,6 +58,8 @@ mixin _$MainEvent {
     required TResult Function(_UpdateCarNumber value) updateCarNumber,
     required TResult Function(_ClearError value) clearError,
     required TResult Function(_RemoveUserInfo value) removeUserInfo,
+    required TResult Function(_GetParkingLocationZone value)
+        getParkingLocationZone,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -65,6 +70,7 @@ mixin _$MainEvent {
     TResult? Function(_UpdateCarNumber value)? updateCarNumber,
     TResult? Function(_ClearError value)? clearError,
     TResult? Function(_RemoveUserInfo value)? removeUserInfo,
+    TResult? Function(_GetParkingLocationZone value)? getParkingLocationZone,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,6 +81,7 @@ mixin _$MainEvent {
     TResult Function(_UpdateCarNumber value)? updateCarNumber,
     TResult Function(_ClearError value)? clearError,
     TResult Function(_RemoveUserInfo value)? removeUserInfo,
+    TResult Function(_GetParkingLocationZone value)? getParkingLocationZone,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -147,6 +154,7 @@ class _$CheckUserInfoImpl implements _CheckUserInfo {
     required TResult Function(CarNumber carNumber) updateCarNumber,
     required TResult Function() clearError,
     required TResult Function() removeUserInfo,
+    required TResult Function() getParkingLocationZone,
   }) {
     return checkUserInfo();
   }
@@ -160,6 +168,7 @@ class _$CheckUserInfoImpl implements _CheckUserInfo {
     TResult? Function(CarNumber carNumber)? updateCarNumber,
     TResult? Function()? clearError,
     TResult? Function()? removeUserInfo,
+    TResult? Function()? getParkingLocationZone,
   }) {
     return checkUserInfo?.call();
   }
@@ -173,6 +182,7 @@ class _$CheckUserInfoImpl implements _CheckUserInfo {
     TResult Function(CarNumber carNumber)? updateCarNumber,
     TResult Function()? clearError,
     TResult Function()? removeUserInfo,
+    TResult Function()? getParkingLocationZone,
     required TResult orElse(),
   }) {
     if (checkUserInfo != null) {
@@ -190,6 +200,8 @@ class _$CheckUserInfoImpl implements _CheckUserInfo {
     required TResult Function(_UpdateCarNumber value) updateCarNumber,
     required TResult Function(_ClearError value) clearError,
     required TResult Function(_RemoveUserInfo value) removeUserInfo,
+    required TResult Function(_GetParkingLocationZone value)
+        getParkingLocationZone,
   }) {
     return checkUserInfo(this);
   }
@@ -203,6 +215,7 @@ class _$CheckUserInfoImpl implements _CheckUserInfo {
     TResult? Function(_UpdateCarNumber value)? updateCarNumber,
     TResult? Function(_ClearError value)? clearError,
     TResult? Function(_RemoveUserInfo value)? removeUserInfo,
+    TResult? Function(_GetParkingLocationZone value)? getParkingLocationZone,
   }) {
     return checkUserInfo?.call(this);
   }
@@ -216,6 +229,7 @@ class _$CheckUserInfoImpl implements _CheckUserInfo {
     TResult Function(_UpdateCarNumber value)? updateCarNumber,
     TResult Function(_ClearError value)? clearError,
     TResult Function(_RemoveUserInfo value)? removeUserInfo,
+    TResult Function(_GetParkingLocationZone value)? getParkingLocationZone,
     required TResult orElse(),
   }) {
     if (checkUserInfo != null) {
@@ -276,6 +290,7 @@ class _$CheckCarNumberImpl implements _CheckCarNumber {
     required TResult Function(CarNumber carNumber) updateCarNumber,
     required TResult Function() clearError,
     required TResult Function() removeUserInfo,
+    required TResult Function() getParkingLocationZone,
   }) {
     return checkCarNumber();
   }
@@ -289,6 +304,7 @@ class _$CheckCarNumberImpl implements _CheckCarNumber {
     TResult? Function(CarNumber carNumber)? updateCarNumber,
     TResult? Function()? clearError,
     TResult? Function()? removeUserInfo,
+    TResult? Function()? getParkingLocationZone,
   }) {
     return checkCarNumber?.call();
   }
@@ -302,6 +318,7 @@ class _$CheckCarNumberImpl implements _CheckCarNumber {
     TResult Function(CarNumber carNumber)? updateCarNumber,
     TResult Function()? clearError,
     TResult Function()? removeUserInfo,
+    TResult Function()? getParkingLocationZone,
     required TResult orElse(),
   }) {
     if (checkCarNumber != null) {
@@ -319,6 +336,8 @@ class _$CheckCarNumberImpl implements _CheckCarNumber {
     required TResult Function(_UpdateCarNumber value) updateCarNumber,
     required TResult Function(_ClearError value) clearError,
     required TResult Function(_RemoveUserInfo value) removeUserInfo,
+    required TResult Function(_GetParkingLocationZone value)
+        getParkingLocationZone,
   }) {
     return checkCarNumber(this);
   }
@@ -332,6 +351,7 @@ class _$CheckCarNumberImpl implements _CheckCarNumber {
     TResult? Function(_UpdateCarNumber value)? updateCarNumber,
     TResult? Function(_ClearError value)? clearError,
     TResult? Function(_RemoveUserInfo value)? removeUserInfo,
+    TResult? Function(_GetParkingLocationZone value)? getParkingLocationZone,
   }) {
     return checkCarNumber?.call(this);
   }
@@ -345,6 +365,7 @@ class _$CheckCarNumberImpl implements _CheckCarNumber {
     TResult Function(_UpdateCarNumber value)? updateCarNumber,
     TResult Function(_ClearError value)? clearError,
     TResult Function(_RemoveUserInfo value)? removeUserInfo,
+    TResult Function(_GetParkingLocationZone value)? getParkingLocationZone,
     required TResult orElse(),
   }) {
     if (checkCarNumber != null) {
@@ -445,6 +466,7 @@ class _$SaveUserInfoImpl implements _SaveUserInfo {
     required TResult Function(CarNumber carNumber) updateCarNumber,
     required TResult Function() clearError,
     required TResult Function() removeUserInfo,
+    required TResult Function() getParkingLocationZone,
   }) {
     return saveUserInfo(userInfo);
   }
@@ -458,6 +480,7 @@ class _$SaveUserInfoImpl implements _SaveUserInfo {
     TResult? Function(CarNumber carNumber)? updateCarNumber,
     TResult? Function()? clearError,
     TResult? Function()? removeUserInfo,
+    TResult? Function()? getParkingLocationZone,
   }) {
     return saveUserInfo?.call(userInfo);
   }
@@ -471,6 +494,7 @@ class _$SaveUserInfoImpl implements _SaveUserInfo {
     TResult Function(CarNumber carNumber)? updateCarNumber,
     TResult Function()? clearError,
     TResult Function()? removeUserInfo,
+    TResult Function()? getParkingLocationZone,
     required TResult orElse(),
   }) {
     if (saveUserInfo != null) {
@@ -488,6 +512,8 @@ class _$SaveUserInfoImpl implements _SaveUserInfo {
     required TResult Function(_UpdateCarNumber value) updateCarNumber,
     required TResult Function(_ClearError value) clearError,
     required TResult Function(_RemoveUserInfo value) removeUserInfo,
+    required TResult Function(_GetParkingLocationZone value)
+        getParkingLocationZone,
   }) {
     return saveUserInfo(this);
   }
@@ -501,6 +527,7 @@ class _$SaveUserInfoImpl implements _SaveUserInfo {
     TResult? Function(_UpdateCarNumber value)? updateCarNumber,
     TResult? Function(_ClearError value)? clearError,
     TResult? Function(_RemoveUserInfo value)? removeUserInfo,
+    TResult? Function(_GetParkingLocationZone value)? getParkingLocationZone,
   }) {
     return saveUserInfo?.call(this);
   }
@@ -514,6 +541,7 @@ class _$SaveUserInfoImpl implements _SaveUserInfo {
     TResult Function(_UpdateCarNumber value)? updateCarNumber,
     TResult Function(_ClearError value)? clearError,
     TResult Function(_RemoveUserInfo value)? removeUserInfo,
+    TResult Function(_GetParkingLocationZone value)? getParkingLocationZone,
     required TResult orElse(),
   }) {
     if (saveUserInfo != null) {
@@ -623,6 +651,7 @@ class _$UpdateCarNumberImpl implements _UpdateCarNumber {
     required TResult Function(CarNumber carNumber) updateCarNumber,
     required TResult Function() clearError,
     required TResult Function() removeUserInfo,
+    required TResult Function() getParkingLocationZone,
   }) {
     return updateCarNumber(carNumber);
   }
@@ -636,6 +665,7 @@ class _$UpdateCarNumberImpl implements _UpdateCarNumber {
     TResult? Function(CarNumber carNumber)? updateCarNumber,
     TResult? Function()? clearError,
     TResult? Function()? removeUserInfo,
+    TResult? Function()? getParkingLocationZone,
   }) {
     return updateCarNumber?.call(carNumber);
   }
@@ -649,6 +679,7 @@ class _$UpdateCarNumberImpl implements _UpdateCarNumber {
     TResult Function(CarNumber carNumber)? updateCarNumber,
     TResult Function()? clearError,
     TResult Function()? removeUserInfo,
+    TResult Function()? getParkingLocationZone,
     required TResult orElse(),
   }) {
     if (updateCarNumber != null) {
@@ -666,6 +697,8 @@ class _$UpdateCarNumberImpl implements _UpdateCarNumber {
     required TResult Function(_UpdateCarNumber value) updateCarNumber,
     required TResult Function(_ClearError value) clearError,
     required TResult Function(_RemoveUserInfo value) removeUserInfo,
+    required TResult Function(_GetParkingLocationZone value)
+        getParkingLocationZone,
   }) {
     return updateCarNumber(this);
   }
@@ -679,6 +712,7 @@ class _$UpdateCarNumberImpl implements _UpdateCarNumber {
     TResult? Function(_UpdateCarNumber value)? updateCarNumber,
     TResult? Function(_ClearError value)? clearError,
     TResult? Function(_RemoveUserInfo value)? removeUserInfo,
+    TResult? Function(_GetParkingLocationZone value)? getParkingLocationZone,
   }) {
     return updateCarNumber?.call(this);
   }
@@ -692,6 +726,7 @@ class _$UpdateCarNumberImpl implements _UpdateCarNumber {
     TResult Function(_UpdateCarNumber value)? updateCarNumber,
     TResult Function(_ClearError value)? clearError,
     TResult Function(_RemoveUserInfo value)? removeUserInfo,
+    TResult Function(_GetParkingLocationZone value)? getParkingLocationZone,
     required TResult orElse(),
   }) {
     if (updateCarNumber != null) {
@@ -761,6 +796,7 @@ class _$ClearErrorImpl implements _ClearError {
     required TResult Function(CarNumber carNumber) updateCarNumber,
     required TResult Function() clearError,
     required TResult Function() removeUserInfo,
+    required TResult Function() getParkingLocationZone,
   }) {
     return clearError();
   }
@@ -774,6 +810,7 @@ class _$ClearErrorImpl implements _ClearError {
     TResult? Function(CarNumber carNumber)? updateCarNumber,
     TResult? Function()? clearError,
     TResult? Function()? removeUserInfo,
+    TResult? Function()? getParkingLocationZone,
   }) {
     return clearError?.call();
   }
@@ -787,6 +824,7 @@ class _$ClearErrorImpl implements _ClearError {
     TResult Function(CarNumber carNumber)? updateCarNumber,
     TResult Function()? clearError,
     TResult Function()? removeUserInfo,
+    TResult Function()? getParkingLocationZone,
     required TResult orElse(),
   }) {
     if (clearError != null) {
@@ -804,6 +842,8 @@ class _$ClearErrorImpl implements _ClearError {
     required TResult Function(_UpdateCarNumber value) updateCarNumber,
     required TResult Function(_ClearError value) clearError,
     required TResult Function(_RemoveUserInfo value) removeUserInfo,
+    required TResult Function(_GetParkingLocationZone value)
+        getParkingLocationZone,
   }) {
     return clearError(this);
   }
@@ -817,6 +857,7 @@ class _$ClearErrorImpl implements _ClearError {
     TResult? Function(_UpdateCarNumber value)? updateCarNumber,
     TResult? Function(_ClearError value)? clearError,
     TResult? Function(_RemoveUserInfo value)? removeUserInfo,
+    TResult? Function(_GetParkingLocationZone value)? getParkingLocationZone,
   }) {
     return clearError?.call(this);
   }
@@ -830,6 +871,7 @@ class _$ClearErrorImpl implements _ClearError {
     TResult Function(_UpdateCarNumber value)? updateCarNumber,
     TResult Function(_ClearError value)? clearError,
     TResult Function(_RemoveUserInfo value)? removeUserInfo,
+    TResult Function(_GetParkingLocationZone value)? getParkingLocationZone,
     required TResult orElse(),
   }) {
     if (clearError != null) {
@@ -890,6 +932,7 @@ class _$RemoveUserInfoImpl implements _RemoveUserInfo {
     required TResult Function(CarNumber carNumber) updateCarNumber,
     required TResult Function() clearError,
     required TResult Function() removeUserInfo,
+    required TResult Function() getParkingLocationZone,
   }) {
     return removeUserInfo();
   }
@@ -903,6 +946,7 @@ class _$RemoveUserInfoImpl implements _RemoveUserInfo {
     TResult? Function(CarNumber carNumber)? updateCarNumber,
     TResult? Function()? clearError,
     TResult? Function()? removeUserInfo,
+    TResult? Function()? getParkingLocationZone,
   }) {
     return removeUserInfo?.call();
   }
@@ -916,6 +960,7 @@ class _$RemoveUserInfoImpl implements _RemoveUserInfo {
     TResult Function(CarNumber carNumber)? updateCarNumber,
     TResult Function()? clearError,
     TResult Function()? removeUserInfo,
+    TResult Function()? getParkingLocationZone,
     required TResult orElse(),
   }) {
     if (removeUserInfo != null) {
@@ -933,6 +978,8 @@ class _$RemoveUserInfoImpl implements _RemoveUserInfo {
     required TResult Function(_UpdateCarNumber value) updateCarNumber,
     required TResult Function(_ClearError value) clearError,
     required TResult Function(_RemoveUserInfo value) removeUserInfo,
+    required TResult Function(_GetParkingLocationZone value)
+        getParkingLocationZone,
   }) {
     return removeUserInfo(this);
   }
@@ -946,6 +993,7 @@ class _$RemoveUserInfoImpl implements _RemoveUserInfo {
     TResult? Function(_UpdateCarNumber value)? updateCarNumber,
     TResult? Function(_ClearError value)? clearError,
     TResult? Function(_RemoveUserInfo value)? removeUserInfo,
+    TResult? Function(_GetParkingLocationZone value)? getParkingLocationZone,
   }) {
     return removeUserInfo?.call(this);
   }
@@ -959,6 +1007,7 @@ class _$RemoveUserInfoImpl implements _RemoveUserInfo {
     TResult Function(_UpdateCarNumber value)? updateCarNumber,
     TResult Function(_ClearError value)? clearError,
     TResult Function(_RemoveUserInfo value)? removeUserInfo,
+    TResult Function(_GetParkingLocationZone value)? getParkingLocationZone,
     required TResult orElse(),
   }) {
     if (removeUserInfo != null) {
@@ -970,4 +1019,143 @@ class _$RemoveUserInfoImpl implements _RemoveUserInfo {
 
 abstract class _RemoveUserInfo implements MainEvent {
   const factory _RemoveUserInfo() = _$RemoveUserInfoImpl;
+}
+
+/// @nodoc
+abstract class _$$GetParkingLocationZoneImplCopyWith<$Res> {
+  factory _$$GetParkingLocationZoneImplCopyWith(
+          _$GetParkingLocationZoneImpl value,
+          $Res Function(_$GetParkingLocationZoneImpl) then) =
+      __$$GetParkingLocationZoneImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$GetParkingLocationZoneImplCopyWithImpl<$Res>
+    extends _$MainEventCopyWithImpl<$Res, _$GetParkingLocationZoneImpl>
+    implements _$$GetParkingLocationZoneImplCopyWith<$Res> {
+  __$$GetParkingLocationZoneImplCopyWithImpl(
+      _$GetParkingLocationZoneImpl _value,
+      $Res Function(_$GetParkingLocationZoneImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of MainEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$GetParkingLocationZoneImpl implements _GetParkingLocationZone {
+  const _$GetParkingLocationZoneImpl();
+
+  @override
+  String toString() {
+    return 'MainEvent.getParkingLocationZone()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetParkingLocationZoneImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() checkUserInfo,
+    required TResult Function() checkCarNumber,
+    required TResult Function(UserInfo userInfo) saveUserInfo,
+    required TResult Function(CarNumber carNumber) updateCarNumber,
+    required TResult Function() clearError,
+    required TResult Function() removeUserInfo,
+    required TResult Function() getParkingLocationZone,
+  }) {
+    return getParkingLocationZone();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? checkUserInfo,
+    TResult? Function()? checkCarNumber,
+    TResult? Function(UserInfo userInfo)? saveUserInfo,
+    TResult? Function(CarNumber carNumber)? updateCarNumber,
+    TResult? Function()? clearError,
+    TResult? Function()? removeUserInfo,
+    TResult? Function()? getParkingLocationZone,
+  }) {
+    return getParkingLocationZone?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? checkUserInfo,
+    TResult Function()? checkCarNumber,
+    TResult Function(UserInfo userInfo)? saveUserInfo,
+    TResult Function(CarNumber carNumber)? updateCarNumber,
+    TResult Function()? clearError,
+    TResult Function()? removeUserInfo,
+    TResult Function()? getParkingLocationZone,
+    required TResult orElse(),
+  }) {
+    if (getParkingLocationZone != null) {
+      return getParkingLocationZone();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CheckUserInfo value) checkUserInfo,
+    required TResult Function(_CheckCarNumber value) checkCarNumber,
+    required TResult Function(_SaveUserInfo value) saveUserInfo,
+    required TResult Function(_UpdateCarNumber value) updateCarNumber,
+    required TResult Function(_ClearError value) clearError,
+    required TResult Function(_RemoveUserInfo value) removeUserInfo,
+    required TResult Function(_GetParkingLocationZone value)
+        getParkingLocationZone,
+  }) {
+    return getParkingLocationZone(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CheckUserInfo value)? checkUserInfo,
+    TResult? Function(_CheckCarNumber value)? checkCarNumber,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_UpdateCarNumber value)? updateCarNumber,
+    TResult? Function(_ClearError value)? clearError,
+    TResult? Function(_RemoveUserInfo value)? removeUserInfo,
+    TResult? Function(_GetParkingLocationZone value)? getParkingLocationZone,
+  }) {
+    return getParkingLocationZone?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CheckUserInfo value)? checkUserInfo,
+    TResult Function(_CheckCarNumber value)? checkCarNumber,
+    TResult Function(_SaveUserInfo value)? saveUserInfo,
+    TResult Function(_UpdateCarNumber value)? updateCarNumber,
+    TResult Function(_ClearError value)? clearError,
+    TResult Function(_RemoveUserInfo value)? removeUserInfo,
+    TResult Function(_GetParkingLocationZone value)? getParkingLocationZone,
+    required TResult orElse(),
+  }) {
+    if (getParkingLocationZone != null) {
+      return getParkingLocationZone(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetParkingLocationZone implements MainEvent {
+  const factory _GetParkingLocationZone() = _$GetParkingLocationZoneImpl;
 }

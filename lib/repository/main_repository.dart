@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'package:my_home_parking/exceptions/app_exception.dart';
-import 'package:my_home_parking/model/api/api_response.dart';
-import 'package:my_home_parking/model/api/parking_location_response.dart';
+import 'package:my_home_parking/model/api/response/parking_location/parking_location_zone.dart';
 import 'package:my_home_parking/model/car_number.dart';
 import 'package:my_home_parking/model/user_info.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -16,6 +15,7 @@ abstract class MainRepository {
   Future<void> clearUserInfo();
   Future<void> updateCarNumber(CarNumber carNumber);
   Future<void> removeUserInfo();
+  Future<ParkingLocationZoneResponse> getParkingLocationZone(String zoneCode);
 }
 
 class MainDefaultRepository extends MainRepository {
@@ -73,7 +73,9 @@ class MainDefaultRepository extends MainRepository {
   @override
   Future<void> updateCarNumber(CarNumber carNumber) async {
     final userInfo = await getUserInfoOrFail();
-    final updatedUserInfo = userInfo.copyWith(carNumber: carNumber);
+    final updatedUserInfo = userInfo.copyWith(
+      carNumber: carNumber,
+    );
 
     try {
       await _dioClient.post(
@@ -92,5 +94,14 @@ class MainDefaultRepository extends MainRepository {
   @override
   Future<void> removeUserInfo() async {
     await _prefs.remove(_userInfoKey);
+  }
+
+  @override
+  Future<ParkingLocationZoneResponse> getParkingLocationZone(
+      String zoneCode) async {
+    final response = await _dioClient.get(
+      '${ApiEndpoints.parkingLocationZone}/$zoneCode',
+    );
+    return ParkingLocationZoneResponse.fromJson(response.data);
   }
 }
