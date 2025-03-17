@@ -5,7 +5,6 @@ part 'car_number.g.dart';
 
 @freezed
 class CarNumber with _$CarNumber {
-  const CarNumber._();
   const factory CarNumber({
     String? id,
     required String region, // 지역 (예: "30")
@@ -13,6 +12,17 @@ class CarNumber with _$CarNumber {
     required String number, // 번호 (예: "7833")
     required bool isParked,
   }) = _CarNumber;
+
+  const CarNumber._(); // private constructor
+
+  // id를 제외한 요청용 JSON 생성
+  Map<String, dynamic> toRequestJson() => {
+        'region': region,
+        'category': category,
+        'number': number,
+        'isParked': isParked,
+        // id와 parkingLocationId는 제외
+      };
 
   factory CarNumber.fromJson(Map<String, dynamic> json) =>
       _$CarNumberFromJson(json);

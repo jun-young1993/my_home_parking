@@ -1,14 +1,18 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_home_parking/exceptions/app_exception.dart';
+import 'package:my_home_parking/model/car_number.dart';
 import 'package:my_home_parking/repository/main_repository.dart';
+import 'package:my_home_parking/repository/my_car_repository.dart';
 import 'package:my_home_parking/state/main/main_event.dart';
 import 'package:my_home_parking/state/main/main_state.dart';
 
 class MainBloc extends Bloc<MainEvent, MainState> {
   final MainRepository _mainRepository;
+  final MyCarRepository _myCarRepository;
 
-  MainBloc(this._mainRepository) : super(MainState.initialize()) {
+  MainBloc(this._mainRepository, this._myCarRepository)
+      : super(MainState.initialize()) {
     on<MainEvent>((event, emit) async {
       await event.map(
         checkUserInfo: (_) async => _handleEvent(
@@ -39,7 +43,7 @@ class MainBloc extends Bloc<MainEvent, MainState> {
           },
           defaultError: const AppException.userInfoSave(),
         ),
-        updateCarNumber: (event) async => _handleEvent(
+        createCarNumber: (event) async => _handleEvent(
           emit,
           () async {
             await _mainRepository.updateCarNumber(event.carNumber);
@@ -68,6 +72,18 @@ class MainBloc extends Bloc<MainEvent, MainState> {
             emit(state.copyWith(
               parkingLocationZone: parkingLocationZone,
             ));
+          },
+        ),
+        updateCarNumber: (event) async => _handleEvent(
+          emit,
+          () async {
+            final catNumber =
+                await _myCarRepository.updateCarNumber(event.carNumber);
+            final userInfo = await _mainRepository.getUserInfoOrFail();
+            final updatedUserInfo = userInfo.copyWith(carNumber: catNumber);
+            await _mainRepository.saveUserInfo(updatedUserInfo);
+            add(const MainEvent.checkUserInfo());
+            add(const MainEvent.getParkingLocationZone());
           },
         ),
       );

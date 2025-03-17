@@ -50,6 +50,8 @@ class _MainScreenState extends State<MainScreen> {
             invalidUserInfo: () =>
                 ErrorView(error: exception, onRetry: _onRetry),
             userInfoSave: () => ErrorView(error: exception, onRetry: _onRetry),
+            invalidCarNumber: () =>
+                ErrorView(error: exception, onRetry: _onRetry),
             webView: () => ErrorView(error: exception, onRetry: _onRetry),
             unknown: (message) =>
                 ErrorView(error: exception, onRetry: _onRetry),

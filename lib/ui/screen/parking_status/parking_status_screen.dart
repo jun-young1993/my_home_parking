@@ -62,8 +62,12 @@ class _ParkingStatusScreenState extends State<ParkingStatusScreen> {
                 child: ParkingStatusListSection(
                   parkingLocationZone: parkingLocationZone,
                   userInfo: userInfo!,
-                  isParked: false,
-                  onParkingChanged: (isParked) {},
+                  isParked: userInfo.carNumber!.isParked,
+                  onParkingChanged: (isParked) {
+                    mainBloc.add(MainEvent.updateCarNumber(
+                      userInfo.carNumber!.copyWith(isParked: isParked),
+                    ));
+                  },
                 ),
               ),
             ],

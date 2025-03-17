@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_home_parking/model/car_number.dart';
-import 'package:my_home_parking/model/user_info.dart';
 import 'package:my_home_parking/state/main/main_bloc.dart';
 import 'package:my_home_parking/state/main/main_event.dart';
 
@@ -30,7 +29,7 @@ class _CarNumberSectionState extends State<CarNumberSection> {
   void _submitForm() {
     if (_formKey.currentState?.validate() ?? false) {
       context.read<MainBloc>().add(
-            MainEvent.updateCarNumber(CarNumber(
+            MainEvent.createCarNumber(CarNumber(
                 region: _regionController.text,
                 category: _categoryController.text,
                 number: _numberController.text,

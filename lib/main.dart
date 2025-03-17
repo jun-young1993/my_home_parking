@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:my_home_parking/app.dart';
 import 'package:my_home_parking/repository/main_repository.dart';
+import 'package:my_home_parking/repository/my_car_repository.dart';
 import 'package:my_home_parking/repository/parking_map_repository.dart';
 import 'package:my_home_parking/state/main/main_bloc.dart';
 import 'package:my_home_parking/core/constants/app_constants.dart';
@@ -39,11 +40,17 @@ Future<void> main() async {
         RepositoryProvider<ParkingMapRepository>(
           create: (context) => ParkingMapDefaultRepository(),
         ),
+        RepositoryProvider<MyCarRepository>(
+          create: (context) => MyCarDefaultRepository(),
+        ),
       ],
       child: MultiBlocProvider(
         providers: [
           BlocProvider(
-            create: (context) => MainBloc(context.read<MainRepository>()),
+            create: (context) => MainBloc(
+              context.read<MainRepository>(),
+              context.read<MyCarRepository>(),
+            ),
           ),
           BlocProvider(
             create: (context) =>

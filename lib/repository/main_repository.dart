@@ -78,11 +78,14 @@ class MainDefaultRepository extends MainRepository {
     );
 
     try {
-      await _dioClient.post(
+      final response = await _dioClient.post(
         ApiEndpoints.parkingLocation,
-        data: updatedUserInfo.toJson(),
+        data: updatedUserInfo.toRequestJson(),
       );
-      await saveUserInfo(updatedUserInfo);
+
+      final updateCarnumber = CarNumber.fromJson(response.data);
+
+      await saveUserInfo(userInfo.copyWith(carNumber: updateCarnumber));
     } catch (e) {
       if (e is AppException) {
         rethrow;

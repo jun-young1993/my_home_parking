@@ -9,6 +9,7 @@ class AppException with _$AppException implements Exception {
   const factory AppException.invalidUserInfo() = InvalidUserInfoException;
   const factory AppException.userInfoSave() = UserInfoSaveException;
   const factory AppException.notFoundCarNumber() = NotFoundCarNumberException;
+  const factory AppException.invalidCarNumber() = InvalidCarNumberException;
 
   // 플랫폼 관련 예외
   const factory AppException.webView() = WebViewException;
@@ -31,6 +32,7 @@ extension AppExceptionMessage on AppException {
         invalidUserInfo: () => '잘못된 사용자 정보입니다.',
         userInfoSave: () => '사용자 정보 저장에 실패했습니다.',
         webView: () => '주소 검색 기능을 불러오는데 실패했습니다.',
+        invalidCarNumber: () => '차량번호가 잘못되었습니다.',
         unknown: (message) => message,
         timeout: () => '요청 시간이 초과되었습니다.',
         network: (message) => message,

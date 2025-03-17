@@ -15,6 +15,13 @@ class UserInfo with _$UserInfo {
     String? phoneNumber,
   }) = _UserInfo;
 
+  Map<String, dynamic> toRequestJson() => {
+        'carNumber': carNumber?.toRequestJson(),
+        'address': address,
+        'zoneCode': zoneCode,
+        'phoneNumber': phoneNumber,
+      };
+
   factory UserInfo.fromJson(Map<String, dynamic> json) =>
       _$UserInfoFromJson(json);
 

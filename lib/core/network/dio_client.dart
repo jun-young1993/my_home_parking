@@ -76,6 +76,26 @@ class DioClient {
     }
   }
 
+  Future<Response<T>> put<T>(
+    String path, {
+    dynamic data,
+    Map<String, dynamic>? queryParameters,
+    Options? options,
+    CancelToken? cancelToken,
+  }) async {
+    try {
+      return await _dio.put(
+        path,
+        data: data,
+        queryParameters: queryParameters,
+        options: options,
+        cancelToken: cancelToken,
+      );
+    } on DioException catch (e) {
+      throw _handleError(e);
+    }
+  }
+
   Exception _handleError(DioException error) {
     switch (error.type) {
       case DioExceptionType.connectionTimeout:
