@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_home_parking/routes.dart';
-import 'package:my_home_parking/ui/screen/main/main_screen.dart';
+import 'package:my_home_parking/ui/screen/home/home_screen.dart';
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const Scaffold(body: MainScreen()),
+      home: const HomeScreen(),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_home_parking/model/user_info.dart';
+import 'package:my_home_parking/ui/widgets/button/parking_change_button.dart';
 
 class MyCarSection extends StatelessWidget {
   final UserInfo userInfo;
@@ -72,34 +73,9 @@ class MyCarSection extends StatelessWidget {
                 ],
               ),
             ),
-            FilledButton(
-              onPressed: () => onParkingChanged(!isParked),
-              style: FilledButton.styleFrom(
-                backgroundColor:
-                    isParked ? Colors.red.shade50 : Colors.green.shade50,
-                foregroundColor: isParked ? Colors.red : Colors.green,
-                elevation: 0,
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 16,
-                  vertical: 12,
-                ),
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(
-                    isParked ? Icons.logout : Icons.login,
-                    size: 18,
-                  ),
-                  const SizedBox(width: 4),
-                  Text(
-                    isParked ? '출차' : '입차',
-                    style: const TextStyle(
-                      fontWeight: FontWeight.w600,
-                    ),
-                  ),
-                ],
-              ),
+            ParkingChangeButton(
+              isParked: isParked,
+              onParkingChanged: onParkingChanged,
             ),
           ],
         ),

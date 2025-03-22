@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_home_parking/core/constants/app_constants.dart';
 import 'package:my_home_parking/exceptions/app_exception.dart';
 import 'package:my_home_parking/model/user_info.dart';
 import 'package:my_home_parking/state/main/main_bloc.dart';
@@ -32,63 +33,67 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return ExceptionSelector(
-      (exception) {
-        print("exception$exception");
-        if (exception is AppException) {
-          return exception.when(
-            timeout: () => ErrorView(error: exception, onRetry: _onRetry),
-            network: (message) =>
-                ErrorView(error: exception, onRetry: _onRetry),
-            badRequest: (message) =>
-                ErrorView(error: exception, onRetry: _onRetry),
-            unauthorized: () => ErrorView(error: exception, onRetry: _onRetry),
-            forbidden: () => ErrorView(error: exception, onRetry: _onRetry),
-            cancelled: () => ErrorView(error: exception, onRetry: _onRetry),
-            notFound: () => ErrorView(error: exception, onRetry: _onRetry),
-            server: (message) => ErrorView(error: exception, onRetry: _onRetry),
-            invalidUserInfo: () =>
-                ErrorView(error: exception, onRetry: _onRetry),
-            userInfoSave: () => ErrorView(error: exception, onRetry: _onRetry),
-            invalidCarNumber: () =>
-                ErrorView(error: exception, onRetry: _onRetry),
-            webView: () => ErrorView(error: exception, onRetry: _onRetry),
-            unknown: (message) =>
-                ErrorView(error: exception, onRetry: _onRetry),
-            notFoundUserInfo: () => PostAddressSection(
-              onSubmit: (data) {
-                mainBloc.add(MainEvent.saveUserInfo(
-                  UserInfo(
-                    address: data.address,
-                    zoneCode: data.zoneCode,
-                  ),
-                ));
-              },
-            ),
-            notFoundCarNumber: () => CarNumberSection(
-              onBack: () {
-                mainBloc.add(const MainEvent.clearError());
-              },
-              // onSubmit: (data) {
-              //   print(data);
-              // mainBloc.add(MainEvent.saveUserInfo(
-              //   UserInfo(
-              //     carNumber: data.carNumber,
-              //   ),
-              // ));
-              // },
-            ),
-          );
-        } else {
-          return UserInfoSelector((userInfo) {
-            return MainMenuSection(
-              navigateToCarNumberInput: () {
-                mainBloc.add(const MainEvent.checkCarNumber());
-              },
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(AppConstants.appName),
+      ),
+      body: ExceptionSelector(
+        (exception) {
+          print("exception$exception");
+          if (exception is AppException) {
+            return exception.when(
+              timeout: () => ErrorView(error: exception, onRetry: _onRetry),
+              network: (message) =>
+                  ErrorView(error: exception, onRetry: _onRetry),
+              badRequest: (message) =>
+                  ErrorView(error: exception, onRetry: _onRetry),
+              unauthorized: () =>
+                  ErrorView(error: exception, onRetry: _onRetry),
+              forbidden: () => ErrorView(error: exception, onRetry: _onRetry),
+              cancelled: () => ErrorView(error: exception, onRetry: _onRetry),
+              notFound: () => ErrorView(error: exception, onRetry: _onRetry),
+              server: (message) =>
+                  ErrorView(error: exception, onRetry: _onRetry),
+              invalidUserInfo: () =>
+                  ErrorView(error: exception, onRetry: _onRetry),
+              userInfoSave: () =>
+                  ErrorView(error: exception, onRetry: _onRetry),
+              invalidCarNumber: () =>
+                  ErrorView(error: exception, onRetry: _onRetry),
+              webView: () => ErrorView(error: exception, onRetry: _onRetry),
+              unknown: (message) =>
+                  ErrorView(error: exception, onRetry: _onRetry),
+              notFoundUserInfo: () => PostAddressSection(
+                onSubmit: (data) {
+                  mainBloc.add(MainEvent.saveUserInfo(
+                    UserInfo(
+                      address: data.address,
+                      zoneCode: data.zoneCode,
+                    ),
+                  ));
+                },
+              ),
+              notFoundCarNumber: () => CarNumberSection(
+                onBack: () {
+                  mainBloc.add(const MainEvent.clearError());
+                },
+                // onSubmit: (data) {
+                //   print(data);
+                // mainBloc.add(MainEvent.saveUserInfo(
+                //   UserInfo(
+                //     carNumber: data.carNumber,
+                //   ),
+                // ));
+                // },
+              ),
             );
-          });
-        }
-      },
+          } else {
+            return UserInfoSelector((userInfo) {
+              return const MainMenuSection();
+            });
+          }
+        },
+      ),
     );
   }
 }

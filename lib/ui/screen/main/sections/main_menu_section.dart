@@ -1,90 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_home_parking/core/constants/app_constants.dart';
 import 'package:my_home_parking/model/user_info.dart';
-import 'package:my_home_parking/routes.dart';
 import 'package:my_home_parking/state/main/main_bloc.dart';
-import 'package:my_home_parking/state/main/main_state.dart';
+import 'package:my_home_parking/state/main/main_event.dart';
+import 'package:my_home_parking/state/main/main_selector.dart';
+import 'package:my_home_parking/ui/widgets/button/parking_change_button.dart';
 
-class MainMenuSection extends StatelessWidget {
-  final void Function() navigateToCarNumberInput;
-
-  const MainMenuSection({super.key, required this.navigateToCarNumberInput});
+class MainMenuSection extends StatefulWidget {
+  const MainMenuSection({
+    super.key,
+  });
 
   @override
+  State<MainMenuSection> createState() => _MainMenuSectionState();
+}
+
+class _MainMenuSectionState extends State<MainMenuSection> {
+  MainBloc get mainBloc => context.read<MainBloc>();
+  @override
   Widget build(BuildContext context) {
-    return BlocBuilder<MainBloc, MainState>(
-      builder: (context, state) {
-        final userInfo = state.userInfo;
-        if (userInfo == null) return const SizedBox.shrink();
+    return UserInfoSelector((userInfo) {
+      if (userInfo == null) return const SizedBox.shrink();
+      print('rerender ${userInfo.carNumber?.isParked}');
+      return SingleChildScrollView(
+        child: Column(
+          children: [
+            // 사용자 정보 카드
+            _buildUserCard(context, userInfo),
 
-        return Scaffold(
-          appBar: AppBar(
-            title: Text(AppConstants.appName),
-            actions: [
-              IconButton(
-                icon: const Icon(Icons.edit),
-                onPressed: () {
-                  // TODO: 사용자 정보 수정 화면으로 이동
-                },
-              ),
-            ],
-          ),
-          body: SingleChildScrollView(
-            child: Column(
-              children: [
-                // 사용자 정보 카드
-                _buildUserCard(context, userInfo),
-
-                // 메뉴 그리드
-                GridView.count(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  crossAxisCount: 2,
-                  padding: const EdgeInsets.all(16),
-                  mainAxisSpacing: 16,
-                  crossAxisSpacing: 16,
-                  children: [
-                    _buildMenuCard(
-                      context,
-                      '주차장 찾기',
-                      Icons.map,
-                      onTap: () {
-                        AppNavigator.push(Routes.parkingMap);
-                      },
-                    ),
-                    _buildMenuCard(
-                      context,
-                      '주차 현황',
-                      Icons.local_parking,
-                      onTap: () {
-                        AppNavigator.push(Routes.parkingStatus);
-                      },
-                    ),
-                    _buildMenuCard(
-                      context,
-                      '주차 내역',
-                      Icons.history,
-                      onTap: () {
-                        // TODO: 주차 내역 화면으로 이동
-                      },
-                    ),
-                    _buildMenuCard(
-                      context,
-                      '설정',
-                      Icons.settings,
-                      onTap: () {
-                        AppNavigator.push(Routes.setting);
-                      },
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-        );
-      },
-    );
+            // 추가 정보 또는 콘텐츠 (중간 공간)
+            _buildContentSection(context),
+          ],
+        ),
+      );
+    });
   }
 
   Widget _buildUserCard(
@@ -107,21 +56,65 @@ class MainMenuSection extends StatelessWidget {
                     color: Theme.of(context).colorScheme.primaryContainer,
                     borderRadius: BorderRadius.circular(8),
                   ),
-                  child: const Icon(Icons.directions_car),
+                  child: const Icon(
+                    Icons.directions_car,
+                  ),
                 ),
                 const SizedBox(width: 12),
                 Expanded(
                   child: userInfo.isCarNumberValid
-                      ? Text(
-                          '${userInfo.carNumber!.region} ${userInfo.carNumber!.category} ${userInfo.carNumber!.number}',
-                          style:
-                              Theme.of(context).textTheme.titleMedium?.copyWith(
-                                    fontWeight: FontWeight.bold,
+                      ? Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                Text(
+                                  userInfo.carNumber.toString(),
+                                  style: Theme.of(context)
+                                      .textTheme
+                                      .titleMedium
+                                      ?.copyWith(
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                ),
+                                const SizedBox(width: 8),
+                                Container(
+                                  width: 8,
+                                  height: 8,
+                                  decoration: BoxDecoration(
+                                    color: userInfo.carNumber?.isParked ?? false
+                                        ? Colors.green
+                                        : Colors.red,
+                                    shape: BoxShape.circle,
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: (userInfo.carNumber?.isParked ??
+                                                    false
+                                                ? Colors.green
+                                                : Colors.red)
+                                            .withOpacity(0.5),
+                                        blurRadius: 4,
+                                        spreadRadius: 1,
+                                      ),
+                                    ],
                                   ),
+                                )
+                              ],
+                            ),
+                            ParkingChangeButton(
+                              isParked: userInfo.carNumber?.isParked ?? false,
+                              onParkingChanged: (isParked) {
+                                mainBloc.add(MainEvent.updateCarNumber(
+                                  userInfo.carNumber!
+                                      .copyWith(isParked: isParked),
+                                ));
+                              },
+                            ),
+                          ],
                         )
                       : TextButton(
                           onPressed: () {
-                            navigateToCarNumberInput();
+                            mainBloc.add(const MainEvent.checkCarNumber());
                           },
                           child: Text(
                             '차량번호 입력하기',
@@ -166,27 +159,36 @@ class MainMenuSection extends StatelessWidget {
     );
   }
 
-  Widget _buildMenuCard(
-    BuildContext context,
-    String title,
-    IconData icon, {
-    VoidCallback? onTap,
-  }) {
-    return Card(
-      child: InkWell(
-        onTap: onTap,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Icon(icon, size: 32),
-            const SizedBox(height: 8),
-            Text(
-              title,
-              style: Theme.of(context).textTheme.titleMedium,
-              textAlign: TextAlign.center,
+  Widget _buildContentSection(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            '최근 알림',
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
+          const SizedBox(height: 16),
+          const Card(
+            child: Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Text('아직 알림이 없습니다.'),
             ),
-          ],
-        ),
+          ),
+          const SizedBox(height: 24),
+          Text(
+            '주변 정보',
+            style: Theme.of(context).textTheme.titleLarge,
+          ),
+          const SizedBox(height: 16),
+          const Card(
+            child: Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Text('주변 정보를 불러오는 중입니다...'),
+            ),
+          ),
+        ],
       ),
     );
   }

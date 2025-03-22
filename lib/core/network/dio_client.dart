@@ -22,7 +22,7 @@ class DioClient {
       ),
     );
 
-    if (kDebugMode) {
+    if (kDebugMode && false) {
       _dio.interceptors.add(LogInterceptor(
         requestBody: true,
         responseBody: true,

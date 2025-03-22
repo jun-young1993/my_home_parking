@@ -92,9 +92,6 @@ class _PostAddressSectionState extends State<PostAddressSection> {
                       const SizedBox(width: 16),
                       ElevatedButton(
                         onPressed: () {
-                          print("onPressed");
-                          print(_address);
-                          print(_zonecode);
                           if (_address != null && _zonecode != null) {
                             widget.onSubmit(AddressInfo(
                               address: _address!,
