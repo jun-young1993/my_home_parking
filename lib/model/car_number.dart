@@ -11,6 +11,7 @@ class CarNumber with _$CarNumber {
     required String category, // 분류 (예: "조")
     required String number, // 번호 (예: "7833")
     required bool isParked,
+    required DateTime? updatedAt,
   }) = _CarNumber;
 
   const CarNumber._(); // private constructor

@@ -48,29 +48,27 @@ class MyCarSection extends StatelessWidget {
                       fontWeight: FontWeight.w600,
                     ),
                   ),
-                  if (isParked) ...[
-                    const SizedBox(height: 4),
-                    Row(
-                      children: [
-                        Container(
-                          width: 8,
-                          height: 8,
-                          decoration: const BoxDecoration(
-                            color: Colors.green,
-                            shape: BoxShape.circle,
-                          ),
+                  const SizedBox(height: 4),
+                  Row(
+                    children: [
+                      Container(
+                        width: 8,
+                        height: 8,
+                        decoration: BoxDecoration(
+                          color: isParked ? Colors.green : Colors.red,
+                          shape: BoxShape.circle,
                         ),
-                        const SizedBox(width: 4),
-                        const Text(
-                          '주차중',
-                          style: TextStyle(
-                            color: Colors.green,
-                            fontSize: 13,
-                          ),
+                      ),
+                      const SizedBox(width: 4),
+                      Text(
+                        isParked ? '주차중' : '출차중',
+                        style: TextStyle(
+                          color: isParked ? Colors.green : Colors.red,
+                          fontSize: 13,
                         ),
-                      ],
-                    ),
-                  ],
+                      ),
+                    ],
+                  ),
                 ],
               ),
             ),

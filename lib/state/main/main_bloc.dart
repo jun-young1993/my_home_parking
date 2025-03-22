@@ -69,6 +69,7 @@ class MainBloc extends Bloc<MainEvent, MainState> {
             final userInfo = await _mainRepository.getUserInfoOrFail();
             final parkingLocationZone =
                 await _mainRepository.getParkingLocationZone(userInfo.zoneCode);
+
             emit(state.copyWith(
               parkingLocationZone: parkingLocationZone,
             ));
@@ -109,7 +110,17 @@ class MainBloc extends Bloc<MainEvent, MainState> {
         isLoading: false,
         error: const AppException.webView(),
       ));
-    } catch (e) {
+    } catch (e, stackTrace) {
+      print('🔴 예상치 못한 에러 발생:');
+      print('에러 타입: ${e.runtimeType}');
+      print('에러 메시지: $e');
+      print('스택 트레이스:');
+      print(stackTrace);
+
+      // 디버깅용 컨텍스트 정보 추가
+      print('현재 상태: $state');
+      print('에러 발생 시간: ${DateTime.now()}');
+
       emit(state.copyWith(
         isLoading: false,
         error: defaultError ?? AppException.unknown(e.toString()),

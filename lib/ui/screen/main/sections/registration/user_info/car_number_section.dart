@@ -33,6 +33,7 @@ class _CarNumberSectionState extends State<CarNumberSection> {
                 region: _regionController.text,
                 category: _categoryController.text,
                 number: _numberController.text,
+                updatedAt: DateTime.now(),
                 isParked: true)),
           );
     }

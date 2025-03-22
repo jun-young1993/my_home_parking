@@ -3,13 +3,13 @@ import 'package:flutter/material.dart';
 class ParkingCarItem extends StatelessWidget {
   final String carNumber;
   final String entryTime;
-  final bool isResident;
+  final bool isParked;
 
   const ParkingCarItem({
     super.key,
     required this.carNumber,
     required this.entryTime,
-    required this.isResident,
+    required this.isParked,
   });
 
   @override
@@ -33,7 +33,7 @@ class ParkingCarItem extends StatelessWidget {
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    '입차: $entryTime',
+                    entryTime,
                     style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                           color: Colors.grey[600],
                         ),
@@ -42,24 +42,23 @@ class ParkingCarItem extends StatelessWidget {
               ),
             ),
             // 거주자 여부 표시
-            if (isResident)
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 12,
-                  vertical: 6,
-                ),
-                decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
-                  borderRadius: BorderRadius.circular(20),
-                ),
-                child: Text(
-                  '거주자',
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.primary,
-                    fontWeight: FontWeight.w500,
-                  ),
+            Container(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 12,
+                vertical: 6,
+              ),
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.primary.withOpacity(0.1),
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Text(
+                isParked ? '주차중' : '출차중',
+                style: TextStyle(
+                  color: isParked ? Colors.green : Colors.red,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
+            ),
           ],
         ),
       ),

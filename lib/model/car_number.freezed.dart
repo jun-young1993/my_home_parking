@@ -25,6 +25,7 @@ mixin _$CarNumber {
   String get category => throw _privateConstructorUsedError; // 분류 (예: "조")
   String get number => throw _privateConstructorUsedError; // 번호 (예: "7833")
   bool get isParked => throw _privateConstructorUsedError;
+  DateTime? get updatedAt => throw _privateConstructorUsedError;
 
   /// Serializes this CarNumber to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -46,7 +47,8 @@ abstract class $CarNumberCopyWith<$Res> {
       String region,
       String category,
       String number,
-      bool isParked});
+      bool isParked,
+      DateTime? updatedAt});
 }
 
 /// @nodoc
@@ -69,6 +71,7 @@ class _$CarNumberCopyWithImpl<$Res, $Val extends CarNumber>
     Object? category = null,
     Object? number = null,
     Object? isParked = null,
+    Object? updatedAt = freezed,
   }) {
     return _then(_value.copyWith(
       id: freezed == id
@@ -91,6 +94,10 @@ class _$CarNumberCopyWithImpl<$Res, $Val extends CarNumber>
           ? _value.isParked
           : isParked // ignore: cast_nullable_to_non_nullable
               as bool,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ) as $Val);
   }
 }
@@ -108,7 +115,8 @@ abstract class _$$CarNumberImplCopyWith<$Res>
       String region,
       String category,
       String number,
-      bool isParked});
+      bool isParked,
+      DateTime? updatedAt});
 }
 
 /// @nodoc
@@ -129,6 +137,7 @@ class __$$CarNumberImplCopyWithImpl<$Res>
     Object? category = null,
     Object? number = null,
     Object? isParked = null,
+    Object? updatedAt = freezed,
   }) {
     return _then(_$CarNumberImpl(
       id: freezed == id
@@ -151,6 +160,10 @@ class __$$CarNumberImplCopyWithImpl<$Res>
           ? _value.isParked
           : isParked // ignore: cast_nullable_to_non_nullable
               as bool,
+      updatedAt: freezed == updatedAt
+          ? _value.updatedAt
+          : updatedAt // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
     ));
   }
 }
@@ -163,7 +176,8 @@ class _$CarNumberImpl extends _CarNumber {
       required this.region,
       required this.category,
       required this.number,
-      required this.isParked})
+      required this.isParked,
+      required this.updatedAt})
       : super._();
 
   factory _$CarNumberImpl.fromJson(Map<String, dynamic> json) =>
@@ -182,6 +196,8 @@ class _$CarNumberImpl extends _CarNumber {
 // 번호 (예: "7833")
   @override
   final bool isParked;
+  @override
+  final DateTime? updatedAt;
 
   @override
   bool operator ==(Object other) {
@@ -194,13 +210,15 @@ class _$CarNumberImpl extends _CarNumber {
                 other.category == category) &&
             (identical(other.number, number) || other.number == number) &&
             (identical(other.isParked, isParked) ||
-                other.isParked == isParked));
+                other.isParked == isParked) &&
+            (identical(other.updatedAt, updatedAt) ||
+                other.updatedAt == updatedAt));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, id, region, category, number, isParked);
+  int get hashCode => Object.hash(
+      runtimeType, id, region, category, number, isParked, updatedAt);
 
   /// Create a copy of CarNumber
   /// with the given fields replaced by the non-null parameter values.
@@ -224,7 +242,8 @@ abstract class _CarNumber extends CarNumber {
       required final String region,
       required final String category,
       required final String number,
-      required final bool isParked}) = _$CarNumberImpl;
+      required final bool isParked,
+      required final DateTime? updatedAt}) = _$CarNumberImpl;
   const _CarNumber._() : super._();
 
   factory _CarNumber.fromJson(Map<String, dynamic> json) =
@@ -240,6 +259,8 @@ abstract class _CarNumber extends CarNumber {
   String get number; // 번호 (예: "7833")
   @override
   bool get isParked;
+  @override
+  DateTime? get updatedAt;
 
   /// Create a copy of CarNumber
   /// with the given fields replaced by the non-null parameter values.

@@ -3,9 +3,10 @@ import 'package:my_home_parking/model/api/response/parking_location/parking_loca
 import 'package:my_home_parking/model/user_info.dart';
 import 'package:my_home_parking/ui/screen/parking_status/sections/my_car_section.dart';
 import 'package:my_home_parking/ui/screen/parking_status/widgets/parking_car_item.dart';
+import 'package:intl/intl.dart';
 
 class ParkingStatusListSection extends StatelessWidget {
-  const ParkingStatusListSection({
+  ParkingStatusListSection({
     super.key,
     required this.parkingLocationZone,
     required this.userInfo,
@@ -17,6 +18,7 @@ class ParkingStatusListSection extends StatelessWidget {
   final UserInfo userInfo;
   final bool isParked;
   final ValueChanged<bool> onParkingChanged;
+  final dateFormatter = DateFormat('yyyy-MM-dd HH:mm');
 
   @override
   Widget build(BuildContext context) {
@@ -35,8 +37,12 @@ class ParkingStatusListSection extends StatelessWidget {
             itemBuilder: (context, index) {
               return ParkingCarItem(
                 carNumber: parkingLocationZone.carNumbers[index].toString(),
-                entryTime: '2024-03-15 16:30',
-                isResident: true,
+                entryTime:
+                    parkingLocationZone.carNumbers[index].updatedAt != null
+                        ? dateFormatter.format(
+                            parkingLocationZone.carNumbers[index].updatedAt!)
+                        : '-',
+                isParked: parkingLocationZone.carNumbers[index].isParked,
               );
             },
           ),

@@ -21,8 +21,6 @@ class MyCarDefaultRepository extends MyCarRepository {
       '${ApiEndpoints.myCar}/${carNumber.id}',
       data: carNumber.toRequestJson(),
     );
-    print('PUT ${ApiEndpoints.myCar}/${carNumber.id}');
-    print(response.data);
 
     return CarNumber.fromJson(response.data);
   }

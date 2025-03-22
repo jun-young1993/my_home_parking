@@ -13,6 +13,9 @@ _$CarNumberImpl _$$CarNumberImplFromJson(Map<String, dynamic> json) =>
       category: json['category'] as String,
       number: json['number'] as String,
       isParked: json['isParked'] as bool,
+      updatedAt: json['updatedAt'] == null
+          ? null
+          : DateTime.parse(json['updatedAt'] as String),
     );
 
 Map<String, dynamic> _$$CarNumberImplToJson(_$CarNumberImpl instance) =>
@@ -22,4 +25,5 @@ Map<String, dynamic> _$$CarNumberImplToJson(_$CarNumberImpl instance) =>
       'category': instance.category,
       'number': instance.number,
       'isParked': instance.isParked,
+      'updatedAt': instance.updatedAt?.toIso8601String(),
     };

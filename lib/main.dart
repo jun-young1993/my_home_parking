@@ -18,7 +18,6 @@ final InAppLocalhostServer localhostServer = InAppLocalhostServer(
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
   // SharedPreferences 인스턴스 초기화
   final prefs = await SharedPreferences.getInstance();
 
