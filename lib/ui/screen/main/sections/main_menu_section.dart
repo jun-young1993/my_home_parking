@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_home_parking/model/user_info.dart';
+import 'package:my_home_parking/routes.dart';
 import 'package:my_home_parking/state/main/main_bloc.dart';
 import 'package:my_home_parking/state/main/main_event.dart';
 import 'package:my_home_parking/state/main/main_selector.dart';
@@ -27,7 +28,7 @@ class _MainMenuSectionState extends State<MainMenuSection> {
           children: [
             // 사용자 정보 카드
             _buildUserCard(context, userInfo),
-
+            _buildParkingNoticeSection(context),
             // 추가 정보 또는 콘텐츠 (중간 공간)
             _buildContentSection(context),
           ],
@@ -189,6 +190,58 @@ class _MainMenuSectionState extends State<MainMenuSection> {
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _buildParkingNoticeSection(BuildContext context) {
+    return Card(
+      margin: const EdgeInsets.all(16),
+      child: InkWell(
+        onTap: () {
+          AppNavigator.push(Routes.parkingNotice);
+        },
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // 제목 영역
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    '주차장 게시판',
+                    style: Theme.of(context).textTheme.titleMedium?.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
+                  ),
+                  const Icon(
+                    Icons.chevron_right,
+                    size: 20,
+                  ),
+                ],
+              ),
+
+              // 구분선
+              const SizedBox(height: 12),
+              Divider(
+                color: Colors.grey.shade200,
+              ),
+              const SizedBox(height: 12),
+
+              // 최신 게시글 제목
+              Text(
+                '[공지] 주차장 이용 안내', // 실제 데이터로 교체 필요
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: TextStyle(
+                  color: Colors.grey.shade600,
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

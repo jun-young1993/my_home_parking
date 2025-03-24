@@ -77,7 +77,7 @@ class _MainScreenState extends State<MainScreen> {
                 onBack: () {
                   mainBloc.add(const MainEvent.clearError());
                 },
-                // onSubmit: (data) {
+                // onSubmit: (d_buildParkingNoticeSectionata) {
                 //   print(data);
                 // mainBloc.add(MainEvent.saveUserInfo(
                 //   UserInfo(
