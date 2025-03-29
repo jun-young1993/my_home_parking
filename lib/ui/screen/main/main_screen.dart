@@ -74,9 +74,7 @@ class _MainScreenState extends State<MainScreen> {
                 },
               ),
               notFoundCarNumber: () => CarNumberSection(
-                onBack: () {
-                  mainBloc.add(const MainEvent.clearError());
-                },
+                onBack: _onRetry,
                 // onSubmit: (d_buildParkingNoticeSectionata) {
                 //   print(data);
                 // mainBloc.add(MainEvent.saveUserInfo(

@@ -3,7 +3,7 @@ import 'package:my_home_parking/core/network/dio_client.dart';
 import 'package:my_home_parking/model/notice/notice.dart';
 
 abstract class NoticeRepository {
-  Future<List<Notice>> getNotices();
+  Future<List<Notice>> getNotices(String zoneCode);
 }
 
 class NoticeDefaultRepository extends NoticeRepository {
@@ -12,8 +12,12 @@ class NoticeDefaultRepository extends NoticeRepository {
   NoticeDefaultRepository() : _dioClient = DioClient();
 
   @override
-  Future<List<Notice>> getNotices() async {
-    final response = await _dioClient.get(ApiEndpoints.notice);
-    return response.data.map((e) => Notice.fromJson(e)).toList();
+  Future<List<Notice>> getNotices(String zoneCode) async {
+    final response =
+        await _dioClient.get('${ApiEndpoints.parkingLocationNotice}/$zoneCode');
+    final List<dynamic> jsonList = response.data;
+    return jsonList
+        .map((json) => Notice.fromJson(json as Map<String, dynamic>))
+        .toList();
   }
 }

@@ -9,7 +9,8 @@ class Notice with _$Notice {
     required String id,
     required String title,
     required String content,
-    required String createdAt,
+    required String userName,
+    required DateTime createdAt,
   }) = _Notice;
 
   const Notice._();
