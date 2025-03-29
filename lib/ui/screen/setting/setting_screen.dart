@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_home_parking/routes.dart';
 import 'package:my_home_parking/state/main/main_bloc.dart';
 import 'package:my_home_parking/state/main/main_event.dart';
 
@@ -27,7 +28,7 @@ class _SettingScreenState extends State<SettingScreen> {
             TextButton(
               onPressed: () {
                 mainBloc.add(const MainEvent.removeUserInfo());
-                Navigator.of(context).pop();
+                Navigator.of(context).pop(() => AppNavigator.push(Routes.main));
               },
               style: TextButton.styleFrom(
                 foregroundColor: Colors.red,
