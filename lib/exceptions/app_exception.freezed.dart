@@ -25,6 +25,7 @@ mixin _$AppException {
     required TResult Function() invalidCarNumber,
     required TResult Function() webView,
     required TResult Function(String message) unknown,
+    required TResult Function() notFoundNotice,
     required TResult Function() timeout,
     required TResult Function(String message) network,
     required TResult Function(String message) badRequest,
@@ -44,6 +45,7 @@ mixin _$AppException {
     TResult? Function()? invalidCarNumber,
     TResult? Function()? webView,
     TResult? Function(String message)? unknown,
+    TResult? Function()? notFoundNotice,
     TResult? Function()? timeout,
     TResult? Function(String message)? network,
     TResult? Function(String message)? badRequest,
@@ -63,6 +65,7 @@ mixin _$AppException {
     TResult Function()? invalidCarNumber,
     TResult Function()? webView,
     TResult Function(String message)? unknown,
+    TResult Function()? notFoundNotice,
     TResult Function()? timeout,
     TResult Function(String message)? network,
     TResult Function(String message)? badRequest,
@@ -84,6 +87,7 @@ mixin _$AppException {
     required TResult Function(InvalidCarNumberException value) invalidCarNumber,
     required TResult Function(WebViewException value) webView,
     required TResult Function(UnknownException value) unknown,
+    required TResult Function(NotFoundNoticeException value) notFoundNotice,
     required TResult Function(_Timeout value) timeout,
     required TResult Function(_Network value) network,
     required TResult Function(_BadRequest value) badRequest,
@@ -103,6 +107,7 @@ mixin _$AppException {
     TResult? Function(InvalidCarNumberException value)? invalidCarNumber,
     TResult? Function(WebViewException value)? webView,
     TResult? Function(UnknownException value)? unknown,
+    TResult? Function(NotFoundNoticeException value)? notFoundNotice,
     TResult? Function(_Timeout value)? timeout,
     TResult? Function(_Network value)? network,
     TResult? Function(_BadRequest value)? badRequest,
@@ -122,6 +127,7 @@ mixin _$AppException {
     TResult Function(InvalidCarNumberException value)? invalidCarNumber,
     TResult Function(WebViewException value)? webView,
     TResult Function(UnknownException value)? unknown,
+    TResult Function(NotFoundNoticeException value)? notFoundNotice,
     TResult Function(_Timeout value)? timeout,
     TResult Function(_Network value)? network,
     TResult Function(_BadRequest value)? badRequest,
@@ -207,6 +213,7 @@ class _$NotFoundUserInfoExceptionImpl implements NotFoundUserInfoException {
     required TResult Function() invalidCarNumber,
     required TResult Function() webView,
     required TResult Function(String message) unknown,
+    required TResult Function() notFoundNotice,
     required TResult Function() timeout,
     required TResult Function(String message) network,
     required TResult Function(String message) badRequest,
@@ -229,6 +236,7 @@ class _$NotFoundUserInfoExceptionImpl implements NotFoundUserInfoException {
     TResult? Function()? invalidCarNumber,
     TResult? Function()? webView,
     TResult? Function(String message)? unknown,
+    TResult? Function()? notFoundNotice,
     TResult? Function()? timeout,
     TResult? Function(String message)? network,
     TResult? Function(String message)? badRequest,
@@ -251,6 +259,7 @@ class _$NotFoundUserInfoExceptionImpl implements NotFoundUserInfoException {
     TResult Function()? invalidCarNumber,
     TResult Function()? webView,
     TResult Function(String message)? unknown,
+    TResult Function()? notFoundNotice,
     TResult Function()? timeout,
     TResult Function(String message)? network,
     TResult Function(String message)? badRequest,
@@ -278,6 +287,7 @@ class _$NotFoundUserInfoExceptionImpl implements NotFoundUserInfoException {
     required TResult Function(InvalidCarNumberException value) invalidCarNumber,
     required TResult Function(WebViewException value) webView,
     required TResult Function(UnknownException value) unknown,
+    required TResult Function(NotFoundNoticeException value) notFoundNotice,
     required TResult Function(_Timeout value) timeout,
     required TResult Function(_Network value) network,
     required TResult Function(_BadRequest value) badRequest,
@@ -300,6 +310,7 @@ class _$NotFoundUserInfoExceptionImpl implements NotFoundUserInfoException {
     TResult? Function(InvalidCarNumberException value)? invalidCarNumber,
     TResult? Function(WebViewException value)? webView,
     TResult? Function(UnknownException value)? unknown,
+    TResult? Function(NotFoundNoticeException value)? notFoundNotice,
     TResult? Function(_Timeout value)? timeout,
     TResult? Function(_Network value)? network,
     TResult? Function(_BadRequest value)? badRequest,
@@ -322,6 +333,7 @@ class _$NotFoundUserInfoExceptionImpl implements NotFoundUserInfoException {
     TResult Function(InvalidCarNumberException value)? invalidCarNumber,
     TResult Function(WebViewException value)? webView,
     TResult Function(UnknownException value)? unknown,
+    TResult Function(NotFoundNoticeException value)? notFoundNotice,
     TResult Function(_Timeout value)? timeout,
     TResult Function(_Network value)? network,
     TResult Function(_BadRequest value)? badRequest,
@@ -394,6 +406,7 @@ class _$InvalidUserInfoExceptionImpl implements InvalidUserInfoException {
     required TResult Function() invalidCarNumber,
     required TResult Function() webView,
     required TResult Function(String message) unknown,
+    required TResult Function() notFoundNotice,
     required TResult Function() timeout,
     required TResult Function(String message) network,
     required TResult Function(String message) badRequest,
@@ -416,6 +429,7 @@ class _$InvalidUserInfoExceptionImpl implements InvalidUserInfoException {
     TResult? Function()? invalidCarNumber,
     TResult? Function()? webView,
     TResult? Function(String message)? unknown,
+    TResult? Function()? notFoundNotice,
     TResult? Function()? timeout,
     TResult? Function(String message)? network,
     TResult? Function(String message)? badRequest,
@@ -438,6 +452,7 @@ class _$InvalidUserInfoExceptionImpl implements InvalidUserInfoException {
     TResult Function()? invalidCarNumber,
     TResult Function()? webView,
     TResult Function(String message)? unknown,
+    TResult Function()? notFoundNotice,
     TResult Function()? timeout,
     TResult Function(String message)? network,
     TResult Function(String message)? badRequest,
@@ -465,6 +480,7 @@ class _$InvalidUserInfoExceptionImpl implements InvalidUserInfoException {
     required TResult Function(InvalidCarNumberException value) invalidCarNumber,
     required TResult Function(WebViewException value) webView,
     required TResult Function(UnknownException value) unknown,
+    required TResult Function(NotFoundNoticeException value) notFoundNotice,
     required TResult Function(_Timeout value) timeout,
     required TResult Function(_Network value) network,
     required TResult Function(_BadRequest value) badRequest,
@@ -487,6 +503,7 @@ class _$InvalidUserInfoExceptionImpl implements InvalidUserInfoException {
     TResult? Function(InvalidCarNumberException value)? invalidCarNumber,
     TResult? Function(WebViewException value)? webView,
     TResult? Function(UnknownException value)? unknown,
+    TResult? Function(NotFoundNoticeException value)? notFoundNotice,
     TResult? Function(_Timeout value)? timeout,
     TResult? Function(_Network value)? network,
     TResult? Function(_BadRequest value)? badRequest,
@@ -509,6 +526,7 @@ class _$InvalidUserInfoExceptionImpl implements InvalidUserInfoException {
     TResult Function(InvalidCarNumberException value)? invalidCarNumber,
     TResult Function(WebViewException value)? webView,
     TResult Function(UnknownException value)? unknown,
+    TResult Function(NotFoundNoticeException value)? notFoundNotice,
     TResult Function(_Timeout value)? timeout,
     TResult Function(_Network value)? network,
     TResult Function(_BadRequest value)? badRequest,
@@ -580,6 +598,7 @@ class _$UserInfoSaveExceptionImpl implements UserInfoSaveException {
     required TResult Function() invalidCarNumber,
     required TResult Function() webView,
     required TResult Function(String message) unknown,
+    required TResult Function() notFoundNotice,
     required TResult Function() timeout,
     required TResult Function(String message) network,
     required TResult Function(String message) badRequest,
@@ -602,6 +621,7 @@ class _$UserInfoSaveExceptionImpl implements UserInfoSaveException {
     TResult? Function()? invalidCarNumber,
     TResult? Function()? webView,
     TResult? Function(String message)? unknown,
+    TResult? Function()? notFoundNotice,
     TResult? Function()? timeout,
     TResult? Function(String message)? network,
     TResult? Function(String message)? badRequest,
@@ -624,6 +644,7 @@ class _$UserInfoSaveExceptionImpl implements UserInfoSaveException {
     TResult Function()? invalidCarNumber,
     TResult Function()? webView,
     TResult Function(String message)? unknown,
+    TResult Function()? notFoundNotice,
     TResult Function()? timeout,
     TResult Function(String message)? network,
     TResult Function(String message)? badRequest,
@@ -651,6 +672,7 @@ class _$UserInfoSaveExceptionImpl implements UserInfoSaveException {
     required TResult Function(InvalidCarNumberException value) invalidCarNumber,
     required TResult Function(WebViewException value) webView,
     required TResult Function(UnknownException value) unknown,
+    required TResult Function(NotFoundNoticeException value) notFoundNotice,
     required TResult Function(_Timeout value) timeout,
     required TResult Function(_Network value) network,
     required TResult Function(_BadRequest value) badRequest,
@@ -673,6 +695,7 @@ class _$UserInfoSaveExceptionImpl implements UserInfoSaveException {
     TResult? Function(InvalidCarNumberException value)? invalidCarNumber,
     TResult? Function(WebViewException value)? webView,
     TResult? Function(UnknownException value)? unknown,
+    TResult? Function(NotFoundNoticeException value)? notFoundNotice,
     TResult? Function(_Timeout value)? timeout,
     TResult? Function(_Network value)? network,
     TResult? Function(_BadRequest value)? badRequest,
@@ -695,6 +718,7 @@ class _$UserInfoSaveExceptionImpl implements UserInfoSaveException {
     TResult Function(InvalidCarNumberException value)? invalidCarNumber,
     TResult Function(WebViewException value)? webView,
     TResult Function(UnknownException value)? unknown,
+    TResult Function(NotFoundNoticeException value)? notFoundNotice,
     TResult Function(_Timeout value)? timeout,
     TResult Function(_Network value)? network,
     TResult Function(_BadRequest value)? badRequest,
@@ -767,6 +791,7 @@ class _$NotFoundCarNumberExceptionImpl implements NotFoundCarNumberException {
     required TResult Function() invalidCarNumber,
     required TResult Function() webView,
     required TResult Function(String message) unknown,
+    required TResult Function() notFoundNotice,
     required TResult Function() timeout,
     required TResult Function(String message) network,
     required TResult Function(String message) badRequest,
@@ -789,6 +814,7 @@ class _$NotFoundCarNumberExceptionImpl implements NotFoundCarNumberException {
     TResult? Function()? invalidCarNumber,
     TResult? Function()? webView,
     TResult? Function(String message)? unknown,
+    TResult? Function()? notFoundNotice,
     TResult? Function()? timeout,
     TResult? Function(String message)? network,
     TResult? Function(String message)? badRequest,
@@ -811,6 +837,7 @@ class _$NotFoundCarNumberExceptionImpl implements NotFoundCarNumberException {
     TResult Function()? invalidCarNumber,
     TResult Function()? webView,
     TResult Function(String message)? unknown,
+    TResult Function()? notFoundNotice,
     TResult Function()? timeout,
     TResult Function(String message)? network,
     TResult Function(String message)? badRequest,
@@ -838,6 +865,7 @@ class _$NotFoundCarNumberExceptionImpl implements NotFoundCarNumberException {
     required TResult Function(InvalidCarNumberException value) invalidCarNumber,
     required TResult Function(WebViewException value) webView,
     required TResult Function(UnknownException value) unknown,
+    required TResult Function(NotFoundNoticeException value) notFoundNotice,
     required TResult Function(_Timeout value) timeout,
     required TResult Function(_Network value) network,
     required TResult Function(_BadRequest value) badRequest,
@@ -860,6 +888,7 @@ class _$NotFoundCarNumberExceptionImpl implements NotFoundCarNumberException {
     TResult? Function(InvalidCarNumberException value)? invalidCarNumber,
     TResult? Function(WebViewException value)? webView,
     TResult? Function(UnknownException value)? unknown,
+    TResult? Function(NotFoundNoticeException value)? notFoundNotice,
     TResult? Function(_Timeout value)? timeout,
     TResult? Function(_Network value)? network,
     TResult? Function(_BadRequest value)? badRequest,
@@ -882,6 +911,7 @@ class _$NotFoundCarNumberExceptionImpl implements NotFoundCarNumberException {
     TResult Function(InvalidCarNumberException value)? invalidCarNumber,
     TResult Function(WebViewException value)? webView,
     TResult Function(UnknownException value)? unknown,
+    TResult Function(NotFoundNoticeException value)? notFoundNotice,
     TResult Function(_Timeout value)? timeout,
     TResult Function(_Network value)? network,
     TResult Function(_BadRequest value)? badRequest,
@@ -954,6 +984,7 @@ class _$InvalidCarNumberExceptionImpl implements InvalidCarNumberException {
     required TResult Function() invalidCarNumber,
     required TResult Function() webView,
     required TResult Function(String message) unknown,
+    required TResult Function() notFoundNotice,
     required TResult Function() timeout,
     required TResult Function(String message) network,
     required TResult Function(String message) badRequest,
@@ -976,6 +1007,7 @@ class _$InvalidCarNumberExceptionImpl implements InvalidCarNumberException {
     TResult? Function()? invalidCarNumber,
     TResult? Function()? webView,
     TResult? Function(String message)? unknown,
+    TResult? Function()? notFoundNotice,
     TResult? Function()? timeout,
     TResult? Function(String message)? network,
     TResult? Function(String message)? badRequest,
@@ -998,6 +1030,7 @@ class _$InvalidCarNumberExceptionImpl implements InvalidCarNumberException {
     TResult Function()? invalidCarNumber,
     TResult Function()? webView,
     TResult Function(String message)? unknown,
+    TResult Function()? notFoundNotice,
     TResult Function()? timeout,
     TResult Function(String message)? network,
     TResult Function(String message)? badRequest,
@@ -1025,6 +1058,7 @@ class _$InvalidCarNumberExceptionImpl implements InvalidCarNumberException {
     required TResult Function(InvalidCarNumberException value) invalidCarNumber,
     required TResult Function(WebViewException value) webView,
     required TResult Function(UnknownException value) unknown,
+    required TResult Function(NotFoundNoticeException value) notFoundNotice,
     required TResult Function(_Timeout value) timeout,
     required TResult Function(_Network value) network,
     required TResult Function(_BadRequest value) badRequest,
@@ -1047,6 +1081,7 @@ class _$InvalidCarNumberExceptionImpl implements InvalidCarNumberException {
     TResult? Function(InvalidCarNumberException value)? invalidCarNumber,
     TResult? Function(WebViewException value)? webView,
     TResult? Function(UnknownException value)? unknown,
+    TResult? Function(NotFoundNoticeException value)? notFoundNotice,
     TResult? Function(_Timeout value)? timeout,
     TResult? Function(_Network value)? network,
     TResult? Function(_BadRequest value)? badRequest,
@@ -1069,6 +1104,7 @@ class _$InvalidCarNumberExceptionImpl implements InvalidCarNumberException {
     TResult Function(InvalidCarNumberException value)? invalidCarNumber,
     TResult Function(WebViewException value)? webView,
     TResult Function(UnknownException value)? unknown,
+    TResult Function(NotFoundNoticeException value)? notFoundNotice,
     TResult Function(_Timeout value)? timeout,
     TResult Function(_Network value)? network,
     TResult Function(_BadRequest value)? badRequest,
@@ -1138,6 +1174,7 @@ class _$WebViewExceptionImpl implements WebViewException {
     required TResult Function() invalidCarNumber,
     required TResult Function() webView,
     required TResult Function(String message) unknown,
+    required TResult Function() notFoundNotice,
     required TResult Function() timeout,
     required TResult Function(String message) network,
     required TResult Function(String message) badRequest,
@@ -1160,6 +1197,7 @@ class _$WebViewExceptionImpl implements WebViewException {
     TResult? Function()? invalidCarNumber,
     TResult? Function()? webView,
     TResult? Function(String message)? unknown,
+    TResult? Function()? notFoundNotice,
     TResult? Function()? timeout,
     TResult? Function(String message)? network,
     TResult? Function(String message)? badRequest,
@@ -1182,6 +1220,7 @@ class _$WebViewExceptionImpl implements WebViewException {
     TResult Function()? invalidCarNumber,
     TResult Function()? webView,
     TResult Function(String message)? unknown,
+    TResult Function()? notFoundNotice,
     TResult Function()? timeout,
     TResult Function(String message)? network,
     TResult Function(String message)? badRequest,
@@ -1209,6 +1248,7 @@ class _$WebViewExceptionImpl implements WebViewException {
     required TResult Function(InvalidCarNumberException value) invalidCarNumber,
     required TResult Function(WebViewException value) webView,
     required TResult Function(UnknownException value) unknown,
+    required TResult Function(NotFoundNoticeException value) notFoundNotice,
     required TResult Function(_Timeout value) timeout,
     required TResult Function(_Network value) network,
     required TResult Function(_BadRequest value) badRequest,
@@ -1231,6 +1271,7 @@ class _$WebViewExceptionImpl implements WebViewException {
     TResult? Function(InvalidCarNumberException value)? invalidCarNumber,
     TResult? Function(WebViewException value)? webView,
     TResult? Function(UnknownException value)? unknown,
+    TResult? Function(NotFoundNoticeException value)? notFoundNotice,
     TResult? Function(_Timeout value)? timeout,
     TResult? Function(_Network value)? network,
     TResult? Function(_BadRequest value)? badRequest,
@@ -1253,6 +1294,7 @@ class _$WebViewExceptionImpl implements WebViewException {
     TResult Function(InvalidCarNumberException value)? invalidCarNumber,
     TResult Function(WebViewException value)? webView,
     TResult Function(UnknownException value)? unknown,
+    TResult Function(NotFoundNoticeException value)? notFoundNotice,
     TResult Function(_Timeout value)? timeout,
     TResult Function(_Network value)? network,
     TResult Function(_BadRequest value)? badRequest,
@@ -1350,6 +1392,7 @@ class _$UnknownExceptionImpl implements UnknownException {
     required TResult Function() invalidCarNumber,
     required TResult Function() webView,
     required TResult Function(String message) unknown,
+    required TResult Function() notFoundNotice,
     required TResult Function() timeout,
     required TResult Function(String message) network,
     required TResult Function(String message) badRequest,
@@ -1372,6 +1415,7 @@ class _$UnknownExceptionImpl implements UnknownException {
     TResult? Function()? invalidCarNumber,
     TResult? Function()? webView,
     TResult? Function(String message)? unknown,
+    TResult? Function()? notFoundNotice,
     TResult? Function()? timeout,
     TResult? Function(String message)? network,
     TResult? Function(String message)? badRequest,
@@ -1394,6 +1438,7 @@ class _$UnknownExceptionImpl implements UnknownException {
     TResult Function()? invalidCarNumber,
     TResult Function()? webView,
     TResult Function(String message)? unknown,
+    TResult Function()? notFoundNotice,
     TResult Function()? timeout,
     TResult Function(String message)? network,
     TResult Function(String message)? badRequest,
@@ -1421,6 +1466,7 @@ class _$UnknownExceptionImpl implements UnknownException {
     required TResult Function(InvalidCarNumberException value) invalidCarNumber,
     required TResult Function(WebViewException value) webView,
     required TResult Function(UnknownException value) unknown,
+    required TResult Function(NotFoundNoticeException value) notFoundNotice,
     required TResult Function(_Timeout value) timeout,
     required TResult Function(_Network value) network,
     required TResult Function(_BadRequest value) badRequest,
@@ -1443,6 +1489,7 @@ class _$UnknownExceptionImpl implements UnknownException {
     TResult? Function(InvalidCarNumberException value)? invalidCarNumber,
     TResult? Function(WebViewException value)? webView,
     TResult? Function(UnknownException value)? unknown,
+    TResult? Function(NotFoundNoticeException value)? notFoundNotice,
     TResult? Function(_Timeout value)? timeout,
     TResult? Function(_Network value)? network,
     TResult? Function(_BadRequest value)? badRequest,
@@ -1465,6 +1512,7 @@ class _$UnknownExceptionImpl implements UnknownException {
     TResult Function(InvalidCarNumberException value)? invalidCarNumber,
     TResult Function(WebViewException value)? webView,
     TResult Function(UnknownException value)? unknown,
+    TResult Function(NotFoundNoticeException value)? notFoundNotice,
     TResult Function(_Timeout value)? timeout,
     TResult Function(_Network value)? network,
     TResult Function(_BadRequest value)? badRequest,
@@ -1492,6 +1540,199 @@ abstract class UnknownException implements AppException {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UnknownExceptionImplCopyWith<_$UnknownExceptionImpl> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$NotFoundNoticeExceptionImplCopyWith<$Res> {
+  factory _$$NotFoundNoticeExceptionImplCopyWith(
+          _$NotFoundNoticeExceptionImpl value,
+          $Res Function(_$NotFoundNoticeExceptionImpl) then) =
+      __$$NotFoundNoticeExceptionImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$NotFoundNoticeExceptionImplCopyWithImpl<$Res>
+    extends _$AppExceptionCopyWithImpl<$Res, _$NotFoundNoticeExceptionImpl>
+    implements _$$NotFoundNoticeExceptionImplCopyWith<$Res> {
+  __$$NotFoundNoticeExceptionImplCopyWithImpl(
+      _$NotFoundNoticeExceptionImpl _value,
+      $Res Function(_$NotFoundNoticeExceptionImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of AppException
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$NotFoundNoticeExceptionImpl implements NotFoundNoticeException {
+  const _$NotFoundNoticeExceptionImpl();
+
+  @override
+  String toString() {
+    return 'AppException.notFoundNotice()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$NotFoundNoticeExceptionImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() notFoundUserInfo,
+    required TResult Function() invalidUserInfo,
+    required TResult Function() userInfoSave,
+    required TResult Function() notFoundCarNumber,
+    required TResult Function() invalidCarNumber,
+    required TResult Function() webView,
+    required TResult Function(String message) unknown,
+    required TResult Function() notFoundNotice,
+    required TResult Function() timeout,
+    required TResult Function(String message) network,
+    required TResult Function(String message) badRequest,
+    required TResult Function() unauthorized,
+    required TResult Function() forbidden,
+    required TResult Function() notFound,
+    required TResult Function(String message) server,
+    required TResult Function() cancelled,
+  }) {
+    return notFoundNotice();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? notFoundUserInfo,
+    TResult? Function()? invalidUserInfo,
+    TResult? Function()? userInfoSave,
+    TResult? Function()? notFoundCarNumber,
+    TResult? Function()? invalidCarNumber,
+    TResult? Function()? webView,
+    TResult? Function(String message)? unknown,
+    TResult? Function()? notFoundNotice,
+    TResult? Function()? timeout,
+    TResult? Function(String message)? network,
+    TResult? Function(String message)? badRequest,
+    TResult? Function()? unauthorized,
+    TResult? Function()? forbidden,
+    TResult? Function()? notFound,
+    TResult? Function(String message)? server,
+    TResult? Function()? cancelled,
+  }) {
+    return notFoundNotice?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? notFoundUserInfo,
+    TResult Function()? invalidUserInfo,
+    TResult Function()? userInfoSave,
+    TResult Function()? notFoundCarNumber,
+    TResult Function()? invalidCarNumber,
+    TResult Function()? webView,
+    TResult Function(String message)? unknown,
+    TResult Function()? notFoundNotice,
+    TResult Function()? timeout,
+    TResult Function(String message)? network,
+    TResult Function(String message)? badRequest,
+    TResult Function()? unauthorized,
+    TResult Function()? forbidden,
+    TResult Function()? notFound,
+    TResult Function(String message)? server,
+    TResult Function()? cancelled,
+    required TResult orElse(),
+  }) {
+    if (notFoundNotice != null) {
+      return notFoundNotice();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(NotFoundUserInfoException value) notFoundUserInfo,
+    required TResult Function(InvalidUserInfoException value) invalidUserInfo,
+    required TResult Function(UserInfoSaveException value) userInfoSave,
+    required TResult Function(NotFoundCarNumberException value)
+        notFoundCarNumber,
+    required TResult Function(InvalidCarNumberException value) invalidCarNumber,
+    required TResult Function(WebViewException value) webView,
+    required TResult Function(UnknownException value) unknown,
+    required TResult Function(NotFoundNoticeException value) notFoundNotice,
+    required TResult Function(_Timeout value) timeout,
+    required TResult Function(_Network value) network,
+    required TResult Function(_BadRequest value) badRequest,
+    required TResult Function(_Unauthorized value) unauthorized,
+    required TResult Function(_Forbidden value) forbidden,
+    required TResult Function(_NotFound value) notFound,
+    required TResult Function(_Server value) server,
+    required TResult Function(_Cancelled value) cancelled,
+  }) {
+    return notFoundNotice(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(NotFoundUserInfoException value)? notFoundUserInfo,
+    TResult? Function(InvalidUserInfoException value)? invalidUserInfo,
+    TResult? Function(UserInfoSaveException value)? userInfoSave,
+    TResult? Function(NotFoundCarNumberException value)? notFoundCarNumber,
+    TResult? Function(InvalidCarNumberException value)? invalidCarNumber,
+    TResult? Function(WebViewException value)? webView,
+    TResult? Function(UnknownException value)? unknown,
+    TResult? Function(NotFoundNoticeException value)? notFoundNotice,
+    TResult? Function(_Timeout value)? timeout,
+    TResult? Function(_Network value)? network,
+    TResult? Function(_BadRequest value)? badRequest,
+    TResult? Function(_Unauthorized value)? unauthorized,
+    TResult? Function(_Forbidden value)? forbidden,
+    TResult? Function(_NotFound value)? notFound,
+    TResult? Function(_Server value)? server,
+    TResult? Function(_Cancelled value)? cancelled,
+  }) {
+    return notFoundNotice?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(NotFoundUserInfoException value)? notFoundUserInfo,
+    TResult Function(InvalidUserInfoException value)? invalidUserInfo,
+    TResult Function(UserInfoSaveException value)? userInfoSave,
+    TResult Function(NotFoundCarNumberException value)? notFoundCarNumber,
+    TResult Function(InvalidCarNumberException value)? invalidCarNumber,
+    TResult Function(WebViewException value)? webView,
+    TResult Function(UnknownException value)? unknown,
+    TResult Function(NotFoundNoticeException value)? notFoundNotice,
+    TResult Function(_Timeout value)? timeout,
+    TResult Function(_Network value)? network,
+    TResult Function(_BadRequest value)? badRequest,
+    TResult Function(_Unauthorized value)? unauthorized,
+    TResult Function(_Forbidden value)? forbidden,
+    TResult Function(_NotFound value)? notFound,
+    TResult Function(_Server value)? server,
+    TResult Function(_Cancelled value)? cancelled,
+    required TResult orElse(),
+  }) {
+    if (notFoundNotice != null) {
+      return notFoundNotice(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class NotFoundNoticeException implements AppException {
+  const factory NotFoundNoticeException() = _$NotFoundNoticeExceptionImpl;
 }
 
 /// @nodoc
@@ -1542,6 +1783,7 @@ class _$TimeoutImpl implements _Timeout {
     required TResult Function() invalidCarNumber,
     required TResult Function() webView,
     required TResult Function(String message) unknown,
+    required TResult Function() notFoundNotice,
     required TResult Function() timeout,
     required TResult Function(String message) network,
     required TResult Function(String message) badRequest,
@@ -1564,6 +1806,7 @@ class _$TimeoutImpl implements _Timeout {
     TResult? Function()? invalidCarNumber,
     TResult? Function()? webView,
     TResult? Function(String message)? unknown,
+    TResult? Function()? notFoundNotice,
     TResult? Function()? timeout,
     TResult? Function(String message)? network,
     TResult? Function(String message)? badRequest,
@@ -1586,6 +1829,7 @@ class _$TimeoutImpl implements _Timeout {
     TResult Function()? invalidCarNumber,
     TResult Function()? webView,
     TResult Function(String message)? unknown,
+    TResult Function()? notFoundNotice,
     TResult Function()? timeout,
     TResult Function(String message)? network,
     TResult Function(String message)? badRequest,
@@ -1613,6 +1857,7 @@ class _$TimeoutImpl implements _Timeout {
     required TResult Function(InvalidCarNumberException value) invalidCarNumber,
     required TResult Function(WebViewException value) webView,
     required TResult Function(UnknownException value) unknown,
+    required TResult Function(NotFoundNoticeException value) notFoundNotice,
     required TResult Function(_Timeout value) timeout,
     required TResult Function(_Network value) network,
     required TResult Function(_BadRequest value) badRequest,
@@ -1635,6 +1880,7 @@ class _$TimeoutImpl implements _Timeout {
     TResult? Function(InvalidCarNumberException value)? invalidCarNumber,
     TResult? Function(WebViewException value)? webView,
     TResult? Function(UnknownException value)? unknown,
+    TResult? Function(NotFoundNoticeException value)? notFoundNotice,
     TResult? Function(_Timeout value)? timeout,
     TResult? Function(_Network value)? network,
     TResult? Function(_BadRequest value)? badRequest,
@@ -1657,6 +1903,7 @@ class _$TimeoutImpl implements _Timeout {
     TResult Function(InvalidCarNumberException value)? invalidCarNumber,
     TResult Function(WebViewException value)? webView,
     TResult Function(UnknownException value)? unknown,
+    TResult Function(NotFoundNoticeException value)? notFoundNotice,
     TResult Function(_Timeout value)? timeout,
     TResult Function(_Network value)? network,
     TResult Function(_BadRequest value)? badRequest,
@@ -1753,6 +2000,7 @@ class _$NetworkImpl implements _Network {
     required TResult Function() invalidCarNumber,
     required TResult Function() webView,
     required TResult Function(String message) unknown,
+    required TResult Function() notFoundNotice,
     required TResult Function() timeout,
     required TResult Function(String message) network,
     required TResult Function(String message) badRequest,
@@ -1775,6 +2023,7 @@ class _$NetworkImpl implements _Network {
     TResult? Function()? invalidCarNumber,
     TResult? Function()? webView,
     TResult? Function(String message)? unknown,
+    TResult? Function()? notFoundNotice,
     TResult? Function()? timeout,
     TResult? Function(String message)? network,
     TResult? Function(String message)? badRequest,
@@ -1797,6 +2046,7 @@ class _$NetworkImpl implements _Network {
     TResult Function()? invalidCarNumber,
     TResult Function()? webView,
     TResult Function(String message)? unknown,
+    TResult Function()? notFoundNotice,
     TResult Function()? timeout,
     TResult Function(String message)? network,
     TResult Function(String message)? badRequest,
@@ -1824,6 +2074,7 @@ class _$NetworkImpl implements _Network {
     required TResult Function(InvalidCarNumberException value) invalidCarNumber,
     required TResult Function(WebViewException value) webView,
     required TResult Function(UnknownException value) unknown,
+    required TResult Function(NotFoundNoticeException value) notFoundNotice,
     required TResult Function(_Timeout value) timeout,
     required TResult Function(_Network value) network,
     required TResult Function(_BadRequest value) badRequest,
@@ -1846,6 +2097,7 @@ class _$NetworkImpl implements _Network {
     TResult? Function(InvalidCarNumberException value)? invalidCarNumber,
     TResult? Function(WebViewException value)? webView,
     TResult? Function(UnknownException value)? unknown,
+    TResult? Function(NotFoundNoticeException value)? notFoundNotice,
     TResult? Function(_Timeout value)? timeout,
     TResult? Function(_Network value)? network,
     TResult? Function(_BadRequest value)? badRequest,
@@ -1868,6 +2120,7 @@ class _$NetworkImpl implements _Network {
     TResult Function(InvalidCarNumberException value)? invalidCarNumber,
     TResult Function(WebViewException value)? webView,
     TResult Function(UnknownException value)? unknown,
+    TResult Function(NotFoundNoticeException value)? notFoundNotice,
     TResult Function(_Timeout value)? timeout,
     TResult Function(_Network value)? network,
     TResult Function(_BadRequest value)? badRequest,
@@ -1972,6 +2225,7 @@ class _$BadRequestImpl implements _BadRequest {
     required TResult Function() invalidCarNumber,
     required TResult Function() webView,
     required TResult Function(String message) unknown,
+    required TResult Function() notFoundNotice,
     required TResult Function() timeout,
     required TResult Function(String message) network,
     required TResult Function(String message) badRequest,
@@ -1994,6 +2248,7 @@ class _$BadRequestImpl implements _BadRequest {
     TResult? Function()? invalidCarNumber,
     TResult? Function()? webView,
     TResult? Function(String message)? unknown,
+    TResult? Function()? notFoundNotice,
     TResult? Function()? timeout,
     TResult? Function(String message)? network,
     TResult? Function(String message)? badRequest,
@@ -2016,6 +2271,7 @@ class _$BadRequestImpl implements _BadRequest {
     TResult Function()? invalidCarNumber,
     TResult Function()? webView,
     TResult Function(String message)? unknown,
+    TResult Function()? notFoundNotice,
     TResult Function()? timeout,
     TResult Function(String message)? network,
     TResult Function(String message)? badRequest,
@@ -2043,6 +2299,7 @@ class _$BadRequestImpl implements _BadRequest {
     required TResult Function(InvalidCarNumberException value) invalidCarNumber,
     required TResult Function(WebViewException value) webView,
     required TResult Function(UnknownException value) unknown,
+    required TResult Function(NotFoundNoticeException value) notFoundNotice,
     required TResult Function(_Timeout value) timeout,
     required TResult Function(_Network value) network,
     required TResult Function(_BadRequest value) badRequest,
@@ -2065,6 +2322,7 @@ class _$BadRequestImpl implements _BadRequest {
     TResult? Function(InvalidCarNumberException value)? invalidCarNumber,
     TResult? Function(WebViewException value)? webView,
     TResult? Function(UnknownException value)? unknown,
+    TResult? Function(NotFoundNoticeException value)? notFoundNotice,
     TResult? Function(_Timeout value)? timeout,
     TResult? Function(_Network value)? network,
     TResult? Function(_BadRequest value)? badRequest,
@@ -2087,6 +2345,7 @@ class _$BadRequestImpl implements _BadRequest {
     TResult Function(InvalidCarNumberException value)? invalidCarNumber,
     TResult Function(WebViewException value)? webView,
     TResult Function(UnknownException value)? unknown,
+    TResult Function(NotFoundNoticeException value)? notFoundNotice,
     TResult Function(_Timeout value)? timeout,
     TResult Function(_Network value)? network,
     TResult Function(_BadRequest value)? badRequest,
@@ -2164,6 +2423,7 @@ class _$UnauthorizedImpl implements _Unauthorized {
     required TResult Function() invalidCarNumber,
     required TResult Function() webView,
     required TResult Function(String message) unknown,
+    required TResult Function() notFoundNotice,
     required TResult Function() timeout,
     required TResult Function(String message) network,
     required TResult Function(String message) badRequest,
@@ -2186,6 +2446,7 @@ class _$UnauthorizedImpl implements _Unauthorized {
     TResult? Function()? invalidCarNumber,
     TResult? Function()? webView,
     TResult? Function(String message)? unknown,
+    TResult? Function()? notFoundNotice,
     TResult? Function()? timeout,
     TResult? Function(String message)? network,
     TResult? Function(String message)? badRequest,
@@ -2208,6 +2469,7 @@ class _$UnauthorizedImpl implements _Unauthorized {
     TResult Function()? invalidCarNumber,
     TResult Function()? webView,
     TResult Function(String message)? unknown,
+    TResult Function()? notFoundNotice,
     TResult Function()? timeout,
     TResult Function(String message)? network,
     TResult Function(String message)? badRequest,
@@ -2235,6 +2497,7 @@ class _$UnauthorizedImpl implements _Unauthorized {
     required TResult Function(InvalidCarNumberException value) invalidCarNumber,
     required TResult Function(WebViewException value) webView,
     required TResult Function(UnknownException value) unknown,
+    required TResult Function(NotFoundNoticeException value) notFoundNotice,
     required TResult Function(_Timeout value) timeout,
     required TResult Function(_Network value) network,
     required TResult Function(_BadRequest value) badRequest,
@@ -2257,6 +2520,7 @@ class _$UnauthorizedImpl implements _Unauthorized {
     TResult? Function(InvalidCarNumberException value)? invalidCarNumber,
     TResult? Function(WebViewException value)? webView,
     TResult? Function(UnknownException value)? unknown,
+    TResult? Function(NotFoundNoticeException value)? notFoundNotice,
     TResult? Function(_Timeout value)? timeout,
     TResult? Function(_Network value)? network,
     TResult? Function(_BadRequest value)? badRequest,
@@ -2279,6 +2543,7 @@ class _$UnauthorizedImpl implements _Unauthorized {
     TResult Function(InvalidCarNumberException value)? invalidCarNumber,
     TResult Function(WebViewException value)? webView,
     TResult Function(UnknownException value)? unknown,
+    TResult Function(NotFoundNoticeException value)? notFoundNotice,
     TResult Function(_Timeout value)? timeout,
     TResult Function(_Network value)? network,
     TResult Function(_BadRequest value)? badRequest,
@@ -2348,6 +2613,7 @@ class _$ForbiddenImpl implements _Forbidden {
     required TResult Function() invalidCarNumber,
     required TResult Function() webView,
     required TResult Function(String message) unknown,
+    required TResult Function() notFoundNotice,
     required TResult Function() timeout,
     required TResult Function(String message) network,
     required TResult Function(String message) badRequest,
@@ -2370,6 +2636,7 @@ class _$ForbiddenImpl implements _Forbidden {
     TResult? Function()? invalidCarNumber,
     TResult? Function()? webView,
     TResult? Function(String message)? unknown,
+    TResult? Function()? notFoundNotice,
     TResult? Function()? timeout,
     TResult? Function(String message)? network,
     TResult? Function(String message)? badRequest,
@@ -2392,6 +2659,7 @@ class _$ForbiddenImpl implements _Forbidden {
     TResult Function()? invalidCarNumber,
     TResult Function()? webView,
     TResult Function(String message)? unknown,
+    TResult Function()? notFoundNotice,
     TResult Function()? timeout,
     TResult Function(String message)? network,
     TResult Function(String message)? badRequest,
@@ -2419,6 +2687,7 @@ class _$ForbiddenImpl implements _Forbidden {
     required TResult Function(InvalidCarNumberException value) invalidCarNumber,
     required TResult Function(WebViewException value) webView,
     required TResult Function(UnknownException value) unknown,
+    required TResult Function(NotFoundNoticeException value) notFoundNotice,
     required TResult Function(_Timeout value) timeout,
     required TResult Function(_Network value) network,
     required TResult Function(_BadRequest value) badRequest,
@@ -2441,6 +2710,7 @@ class _$ForbiddenImpl implements _Forbidden {
     TResult? Function(InvalidCarNumberException value)? invalidCarNumber,
     TResult? Function(WebViewException value)? webView,
     TResult? Function(UnknownException value)? unknown,
+    TResult? Function(NotFoundNoticeException value)? notFoundNotice,
     TResult? Function(_Timeout value)? timeout,
     TResult? Function(_Network value)? network,
     TResult? Function(_BadRequest value)? badRequest,
@@ -2463,6 +2733,7 @@ class _$ForbiddenImpl implements _Forbidden {
     TResult Function(InvalidCarNumberException value)? invalidCarNumber,
     TResult Function(WebViewException value)? webView,
     TResult Function(UnknownException value)? unknown,
+    TResult Function(NotFoundNoticeException value)? notFoundNotice,
     TResult Function(_Timeout value)? timeout,
     TResult Function(_Network value)? network,
     TResult Function(_BadRequest value)? badRequest,
@@ -2532,6 +2803,7 @@ class _$NotFoundImpl implements _NotFound {
     required TResult Function() invalidCarNumber,
     required TResult Function() webView,
     required TResult Function(String message) unknown,
+    required TResult Function() notFoundNotice,
     required TResult Function() timeout,
     required TResult Function(String message) network,
     required TResult Function(String message) badRequest,
@@ -2554,6 +2826,7 @@ class _$NotFoundImpl implements _NotFound {
     TResult? Function()? invalidCarNumber,
     TResult? Function()? webView,
     TResult? Function(String message)? unknown,
+    TResult? Function()? notFoundNotice,
     TResult? Function()? timeout,
     TResult? Function(String message)? network,
     TResult? Function(String message)? badRequest,
@@ -2576,6 +2849,7 @@ class _$NotFoundImpl implements _NotFound {
     TResult Function()? invalidCarNumber,
     TResult Function()? webView,
     TResult Function(String message)? unknown,
+    TResult Function()? notFoundNotice,
     TResult Function()? timeout,
     TResult Function(String message)? network,
     TResult Function(String message)? badRequest,
@@ -2603,6 +2877,7 @@ class _$NotFoundImpl implements _NotFound {
     required TResult Function(InvalidCarNumberException value) invalidCarNumber,
     required TResult Function(WebViewException value) webView,
     required TResult Function(UnknownException value) unknown,
+    required TResult Function(NotFoundNoticeException value) notFoundNotice,
     required TResult Function(_Timeout value) timeout,
     required TResult Function(_Network value) network,
     required TResult Function(_BadRequest value) badRequest,
@@ -2625,6 +2900,7 @@ class _$NotFoundImpl implements _NotFound {
     TResult? Function(InvalidCarNumberException value)? invalidCarNumber,
     TResult? Function(WebViewException value)? webView,
     TResult? Function(UnknownException value)? unknown,
+    TResult? Function(NotFoundNoticeException value)? notFoundNotice,
     TResult? Function(_Timeout value)? timeout,
     TResult? Function(_Network value)? network,
     TResult? Function(_BadRequest value)? badRequest,
@@ -2647,6 +2923,7 @@ class _$NotFoundImpl implements _NotFound {
     TResult Function(InvalidCarNumberException value)? invalidCarNumber,
     TResult Function(WebViewException value)? webView,
     TResult Function(UnknownException value)? unknown,
+    TResult Function(NotFoundNoticeException value)? notFoundNotice,
     TResult Function(_Timeout value)? timeout,
     TResult Function(_Network value)? network,
     TResult Function(_BadRequest value)? badRequest,
@@ -2743,6 +3020,7 @@ class _$ServerImpl implements _Server {
     required TResult Function() invalidCarNumber,
     required TResult Function() webView,
     required TResult Function(String message) unknown,
+    required TResult Function() notFoundNotice,
     required TResult Function() timeout,
     required TResult Function(String message) network,
     required TResult Function(String message) badRequest,
@@ -2765,6 +3043,7 @@ class _$ServerImpl implements _Server {
     TResult? Function()? invalidCarNumber,
     TResult? Function()? webView,
     TResult? Function(String message)? unknown,
+    TResult? Function()? notFoundNotice,
     TResult? Function()? timeout,
     TResult? Function(String message)? network,
     TResult? Function(String message)? badRequest,
@@ -2787,6 +3066,7 @@ class _$ServerImpl implements _Server {
     TResult Function()? invalidCarNumber,
     TResult Function()? webView,
     TResult Function(String message)? unknown,
+    TResult Function()? notFoundNotice,
     TResult Function()? timeout,
     TResult Function(String message)? network,
     TResult Function(String message)? badRequest,
@@ -2814,6 +3094,7 @@ class _$ServerImpl implements _Server {
     required TResult Function(InvalidCarNumberException value) invalidCarNumber,
     required TResult Function(WebViewException value) webView,
     required TResult Function(UnknownException value) unknown,
+    required TResult Function(NotFoundNoticeException value) notFoundNotice,
     required TResult Function(_Timeout value) timeout,
     required TResult Function(_Network value) network,
     required TResult Function(_BadRequest value) badRequest,
@@ -2836,6 +3117,7 @@ class _$ServerImpl implements _Server {
     TResult? Function(InvalidCarNumberException value)? invalidCarNumber,
     TResult? Function(WebViewException value)? webView,
     TResult? Function(UnknownException value)? unknown,
+    TResult? Function(NotFoundNoticeException value)? notFoundNotice,
     TResult? Function(_Timeout value)? timeout,
     TResult? Function(_Network value)? network,
     TResult? Function(_BadRequest value)? badRequest,
@@ -2858,6 +3140,7 @@ class _$ServerImpl implements _Server {
     TResult Function(InvalidCarNumberException value)? invalidCarNumber,
     TResult Function(WebViewException value)? webView,
     TResult Function(UnknownException value)? unknown,
+    TResult Function(NotFoundNoticeException value)? notFoundNotice,
     TResult Function(_Timeout value)? timeout,
     TResult Function(_Network value)? network,
     TResult Function(_BadRequest value)? badRequest,
@@ -2935,6 +3218,7 @@ class _$CancelledImpl implements _Cancelled {
     required TResult Function() invalidCarNumber,
     required TResult Function() webView,
     required TResult Function(String message) unknown,
+    required TResult Function() notFoundNotice,
     required TResult Function() timeout,
     required TResult Function(String message) network,
     required TResult Function(String message) badRequest,
@@ -2957,6 +3241,7 @@ class _$CancelledImpl implements _Cancelled {
     TResult? Function()? invalidCarNumber,
     TResult? Function()? webView,
     TResult? Function(String message)? unknown,
+    TResult? Function()? notFoundNotice,
     TResult? Function()? timeout,
     TResult? Function(String message)? network,
     TResult? Function(String message)? badRequest,
@@ -2979,6 +3264,7 @@ class _$CancelledImpl implements _Cancelled {
     TResult Function()? invalidCarNumber,
     TResult Function()? webView,
     TResult Function(String message)? unknown,
+    TResult Function()? notFoundNotice,
     TResult Function()? timeout,
     TResult Function(String message)? network,
     TResult Function(String message)? badRequest,
@@ -3006,6 +3292,7 @@ class _$CancelledImpl implements _Cancelled {
     required TResult Function(InvalidCarNumberException value) invalidCarNumber,
     required TResult Function(WebViewException value) webView,
     required TResult Function(UnknownException value) unknown,
+    required TResult Function(NotFoundNoticeException value) notFoundNotice,
     required TResult Function(_Timeout value) timeout,
     required TResult Function(_Network value) network,
     required TResult Function(_BadRequest value) badRequest,
@@ -3028,6 +3315,7 @@ class _$CancelledImpl implements _Cancelled {
     TResult? Function(InvalidCarNumberException value)? invalidCarNumber,
     TResult? Function(WebViewException value)? webView,
     TResult? Function(UnknownException value)? unknown,
+    TResult? Function(NotFoundNoticeException value)? notFoundNotice,
     TResult? Function(_Timeout value)? timeout,
     TResult? Function(_Network value)? network,
     TResult? Function(_BadRequest value)? badRequest,
@@ -3050,6 +3338,7 @@ class _$CancelledImpl implements _Cancelled {
     TResult Function(InvalidCarNumberException value)? invalidCarNumber,
     TResult Function(WebViewException value)? webView,
     TResult Function(UnknownException value)? unknown,
+    TResult Function(NotFoundNoticeException value)? notFoundNotice,
     TResult Function(_Timeout value)? timeout,
     TResult Function(_Network value)? network,
     TResult Function(_BadRequest value)? badRequest,

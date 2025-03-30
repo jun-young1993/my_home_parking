@@ -42,6 +42,8 @@ class _MainScreenState extends State<MainScreen> {
           print("exception$exception");
           if (exception is AppException) {
             return exception.when(
+              notFoundNotice: () =>
+                  ErrorView(error: exception, onRetry: _onRetry),
               timeout: () => ErrorView(error: exception, onRetry: _onRetry),
               network: (message) =>
                   ErrorView(error: exception, onRetry: _onRetry),

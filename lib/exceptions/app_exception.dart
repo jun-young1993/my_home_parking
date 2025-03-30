@@ -15,8 +15,16 @@ class AppException with _$AppException implements Exception {
   const factory AppException.webView() = WebViewException;
   const factory AppException.unknown(String message) = UnknownException;
 
+  // 주차장 게시판 예외
+  const factory AppException.notFoundNotice() = NotFoundNoticeException;
+
+  // 타임아웃
   const factory AppException.timeout() = _Timeout;
+
+  // 네트워크 예외
   const factory AppException.network(String message) = _Network;
+
+  // 잘못된 요청
   const factory AppException.badRequest(String message) = _BadRequest;
   const factory AppException.unauthorized() = _Unauthorized;
   const factory AppException.forbidden() = _Forbidden;
@@ -27,6 +35,7 @@ class AppException with _$AppException implements Exception {
 
 extension AppExceptionMessage on AppException {
   String get message => when(
+        notFoundNotice: () => '주차장 게시판을 찾을 수 없습니다.',
         notFoundUserInfo: () => '사용자 정보를 찾을 수 없습니다.',
         notFoundCarNumber: () => '차량번호를 찾을 수 없습니다.',
         invalidUserInfo: () => '잘못된 사용자 정보입니다.',

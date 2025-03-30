@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:my_home_parking/model/notice/notice_reply.dart';
 
 part 'notice.freezed.dart';
 part 'notice.g.dart';
@@ -9,8 +10,10 @@ class Notice with _$Notice {
     required String id,
     required String title,
     required String content,
+    required String type,
     required String userName,
     required DateTime createdAt,
+    @Default([]) List<NoticeReply>? noticeReplies,
   }) = _Notice;
 
   const Notice._();

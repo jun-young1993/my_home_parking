@@ -45,9 +45,11 @@ class NoticeListSection extends StatelessWidget {
                           borderRadius: BorderRadius.circular(4),
                         ),
                         child: Text(
-                          index == 0 ? '공지' : '일반',
+                          notice.type == 'NOTICE' ? '공지' : '일반',
                           style: TextStyle(
-                            color: index == 0 ? Colors.red : Colors.blue,
+                            color: notice.type == 'NOTICE'
+                                ? Colors.red
+                                : Colors.blue,
                             fontSize: 12,
                             fontWeight: FontWeight.bold,
                           ),

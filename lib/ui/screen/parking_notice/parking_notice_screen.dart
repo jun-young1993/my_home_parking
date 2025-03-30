@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
+import 'package:my_home_parking/core/constants/app_constants.dart';
 import 'package:my_home_parking/routes.dart';
 import 'package:my_home_parking/state/notice/notice_bloc.dart';
 import 'package:my_home_parking/state/notice/notice_event.dart';
 import 'package:my_home_parking/state/notice/notice_selector.dart';
+import 'package:my_home_parking/ui/screen/parking_notice/sections/notice_create_section.dart';
 import 'package:my_home_parking/ui/screen/parking_notice/sections/notice_list_section.dart';
 import 'package:my_home_parking/ui/widgets/error_view.dart';
+import 'package:my_home_parking/ui/widgets/loading_overlay.dart';
 
 class ParkingNoticeScreen extends StatefulWidget {
   const ParkingNoticeScreen({super.key});
@@ -18,6 +21,7 @@ class ParkingNoticeScreen extends StatefulWidget {
 class _ParkingNoticeScreenState extends State<ParkingNoticeScreen> {
   NoticeBloc get noticeBloc => context.read<NoticeBloc>();
   final dateFormatter = DateFormat('yyyy-MM-dd HH:mm');
+
   @override
   void initState() {
     super.initState();
@@ -33,7 +37,7 @@ class _ParkingNoticeScreenState extends State<ParkingNoticeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: const Text('주차장 게시판'),
+          title: Text(AppConstants.parkingNoticeMenuDisplayName),
         ),
         body: NoticeExceptionSelector((exception) {
           if (exception != null) {
@@ -42,20 +46,24 @@ class _ParkingNoticeScreenState extends State<ParkingNoticeScreen> {
               onRetry: _onRetry,
             );
           }
-          return NoticesSelector((notices) => NoticeListSection(
-                notices: notices,
-                onNoticeTap: (notice) {
-                  
-                },
-              ));
+          return NoticeLoadingSelector((isLoading) {
+            return LoadingOverlay(
+                isLoading: isLoading,
+                child: NoticesSelector((notices) => NoticeListSection(
+                      notices: notices,
+                      onNoticeTap: (notice) {
+                        AppNavigator.push<String>(
+                            Routes.parkingNoticeDetail, notice.id);
+                      },
+                    )));
+          });
         }),
         // 글쓰기 버튼
-        floatingActionButton: FloatingActionButton.extended(
+        floatingActionButton: FloatingActionButton(
           onPressed: () {
-            // TODO: 글쓰기 화면으로 이동
+            AppNavigator.push(Routes.parkingNoticeCreate);
           },
-          icon: const Icon(Icons.edit),
-          label: const Text('글쓰기'),
+          child: const Icon(Icons.edit),
         ));
   }
 }

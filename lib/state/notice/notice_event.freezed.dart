@@ -19,18 +19,29 @@ mixin _$NoticeEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getNotices,
+    required TResult Function(String noticeId) getNotice,
+    required TResult Function(String noticeId, String content)
+        createNoticeReply,
+    required TResult Function(String content, String title, String type)
+        createNotice,
     required TResult Function() clearError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getNotices,
+    TResult? Function(String noticeId)? getNotice,
+    TResult? Function(String noticeId, String content)? createNoticeReply,
+    TResult? Function(String content, String title, String type)? createNotice,
     TResult? Function()? clearError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getNotices,
+    TResult Function(String noticeId)? getNotice,
+    TResult Function(String noticeId, String content)? createNoticeReply,
+    TResult Function(String content, String title, String type)? createNotice,
     TResult Function()? clearError,
     required TResult orElse(),
   }) =>
@@ -38,18 +49,27 @@ mixin _$NoticeEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetNotices value) getNotices,
+    required TResult Function(_GetNotice value) getNotice,
+    required TResult Function(_CreateNoticeReply value) createNoticeReply,
+    required TResult Function(_CreateNotice value) createNotice,
     required TResult Function(_ClearError value) clearError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetNotices value)? getNotices,
+    TResult? Function(_GetNotice value)? getNotice,
+    TResult? Function(_CreateNoticeReply value)? createNoticeReply,
+    TResult? Function(_CreateNotice value)? createNotice,
     TResult? Function(_ClearError value)? clearError,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetNotices value)? getNotices,
+    TResult Function(_GetNotice value)? getNotice,
+    TResult Function(_CreateNoticeReply value)? createNoticeReply,
+    TResult Function(_CreateNotice value)? createNotice,
     TResult Function(_ClearError value)? clearError,
     required TResult orElse(),
   }) =>
@@ -119,6 +139,11 @@ class _$GetNoticesImpl implements _GetNotices {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getNotices,
+    required TResult Function(String noticeId) getNotice,
+    required TResult Function(String noticeId, String content)
+        createNoticeReply,
+    required TResult Function(String content, String title, String type)
+        createNotice,
     required TResult Function() clearError,
   }) {
     return getNotices();
@@ -128,6 +153,9 @@ class _$GetNoticesImpl implements _GetNotices {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getNotices,
+    TResult? Function(String noticeId)? getNotice,
+    TResult? Function(String noticeId, String content)? createNoticeReply,
+    TResult? Function(String content, String title, String type)? createNotice,
     TResult? Function()? clearError,
   }) {
     return getNotices?.call();
@@ -137,6 +165,9 @@ class _$GetNoticesImpl implements _GetNotices {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getNotices,
+    TResult Function(String noticeId)? getNotice,
+    TResult Function(String noticeId, String content)? createNoticeReply,
+    TResult Function(String content, String title, String type)? createNotice,
     TResult Function()? clearError,
     required TResult orElse(),
   }) {
@@ -150,6 +181,9 @@ class _$GetNoticesImpl implements _GetNotices {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetNotices value) getNotices,
+    required TResult Function(_GetNotice value) getNotice,
+    required TResult Function(_CreateNoticeReply value) createNoticeReply,
+    required TResult Function(_CreateNotice value) createNotice,
     required TResult Function(_ClearError value) clearError,
   }) {
     return getNotices(this);
@@ -159,6 +193,9 @@ class _$GetNoticesImpl implements _GetNotices {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetNotices value)? getNotices,
+    TResult? Function(_GetNotice value)? getNotice,
+    TResult? Function(_CreateNoticeReply value)? createNoticeReply,
+    TResult? Function(_CreateNotice value)? createNotice,
     TResult? Function(_ClearError value)? clearError,
   }) {
     return getNotices?.call(this);
@@ -168,6 +205,9 @@ class _$GetNoticesImpl implements _GetNotices {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetNotices value)? getNotices,
+    TResult Function(_GetNotice value)? getNotice,
+    TResult Function(_CreateNoticeReply value)? createNoticeReply,
+    TResult Function(_CreateNotice value)? createNotice,
     TResult Function(_ClearError value)? clearError,
     required TResult orElse(),
   }) {
@@ -180,6 +220,519 @@ class _$GetNoticesImpl implements _GetNotices {
 
 abstract class _GetNotices implements NoticeEvent {
   const factory _GetNotices() = _$GetNoticesImpl;
+}
+
+/// @nodoc
+abstract class _$$GetNoticeImplCopyWith<$Res> {
+  factory _$$GetNoticeImplCopyWith(
+          _$GetNoticeImpl value, $Res Function(_$GetNoticeImpl) then) =
+      __$$GetNoticeImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String noticeId});
+}
+
+/// @nodoc
+class __$$GetNoticeImplCopyWithImpl<$Res>
+    extends _$NoticeEventCopyWithImpl<$Res, _$GetNoticeImpl>
+    implements _$$GetNoticeImplCopyWith<$Res> {
+  __$$GetNoticeImplCopyWithImpl(
+      _$GetNoticeImpl _value, $Res Function(_$GetNoticeImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of NoticeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? noticeId = null,
+  }) {
+    return _then(_$GetNoticeImpl(
+      null == noticeId
+          ? _value.noticeId
+          : noticeId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$GetNoticeImpl implements _GetNotice {
+  const _$GetNoticeImpl(this.noticeId);
+
+  @override
+  final String noticeId;
+
+  @override
+  String toString() {
+    return 'NoticeEvent.getNotice(noticeId: $noticeId)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$GetNoticeImpl &&
+            (identical(other.noticeId, noticeId) ||
+                other.noticeId == noticeId));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, noticeId);
+
+  /// Create a copy of NoticeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$GetNoticeImplCopyWith<_$GetNoticeImpl> get copyWith =>
+      __$$GetNoticeImplCopyWithImpl<_$GetNoticeImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getNotices,
+    required TResult Function(String noticeId) getNotice,
+    required TResult Function(String noticeId, String content)
+        createNoticeReply,
+    required TResult Function(String content, String title, String type)
+        createNotice,
+    required TResult Function() clearError,
+  }) {
+    return getNotice(noticeId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getNotices,
+    TResult? Function(String noticeId)? getNotice,
+    TResult? Function(String noticeId, String content)? createNoticeReply,
+    TResult? Function(String content, String title, String type)? createNotice,
+    TResult? Function()? clearError,
+  }) {
+    return getNotice?.call(noticeId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getNotices,
+    TResult Function(String noticeId)? getNotice,
+    TResult Function(String noticeId, String content)? createNoticeReply,
+    TResult Function(String content, String title, String type)? createNotice,
+    TResult Function()? clearError,
+    required TResult orElse(),
+  }) {
+    if (getNotice != null) {
+      return getNotice(noticeId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetNotices value) getNotices,
+    required TResult Function(_GetNotice value) getNotice,
+    required TResult Function(_CreateNoticeReply value) createNoticeReply,
+    required TResult Function(_CreateNotice value) createNotice,
+    required TResult Function(_ClearError value) clearError,
+  }) {
+    return getNotice(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetNotices value)? getNotices,
+    TResult? Function(_GetNotice value)? getNotice,
+    TResult? Function(_CreateNoticeReply value)? createNoticeReply,
+    TResult? Function(_CreateNotice value)? createNotice,
+    TResult? Function(_ClearError value)? clearError,
+  }) {
+    return getNotice?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetNotices value)? getNotices,
+    TResult Function(_GetNotice value)? getNotice,
+    TResult Function(_CreateNoticeReply value)? createNoticeReply,
+    TResult Function(_CreateNotice value)? createNotice,
+    TResult Function(_ClearError value)? clearError,
+    required TResult orElse(),
+  }) {
+    if (getNotice != null) {
+      return getNotice(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _GetNotice implements NoticeEvent {
+  const factory _GetNotice(final String noticeId) = _$GetNoticeImpl;
+
+  String get noticeId;
+
+  /// Create a copy of NoticeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$GetNoticeImplCopyWith<_$GetNoticeImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CreateNoticeReplyImplCopyWith<$Res> {
+  factory _$$CreateNoticeReplyImplCopyWith(_$CreateNoticeReplyImpl value,
+          $Res Function(_$CreateNoticeReplyImpl) then) =
+      __$$CreateNoticeReplyImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String noticeId, String content});
+}
+
+/// @nodoc
+class __$$CreateNoticeReplyImplCopyWithImpl<$Res>
+    extends _$NoticeEventCopyWithImpl<$Res, _$CreateNoticeReplyImpl>
+    implements _$$CreateNoticeReplyImplCopyWith<$Res> {
+  __$$CreateNoticeReplyImplCopyWithImpl(_$CreateNoticeReplyImpl _value,
+      $Res Function(_$CreateNoticeReplyImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of NoticeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? noticeId = null,
+    Object? content = null,
+  }) {
+    return _then(_$CreateNoticeReplyImpl(
+      null == noticeId
+          ? _value.noticeId
+          : noticeId // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == content
+          ? _value.content
+          : content // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CreateNoticeReplyImpl implements _CreateNoticeReply {
+  const _$CreateNoticeReplyImpl(this.noticeId, this.content);
+
+  @override
+  final String noticeId;
+  @override
+  final String content;
+
+  @override
+  String toString() {
+    return 'NoticeEvent.createNoticeReply(noticeId: $noticeId, content: $content)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CreateNoticeReplyImpl &&
+            (identical(other.noticeId, noticeId) ||
+                other.noticeId == noticeId) &&
+            (identical(other.content, content) || other.content == content));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, noticeId, content);
+
+  /// Create a copy of NoticeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CreateNoticeReplyImplCopyWith<_$CreateNoticeReplyImpl> get copyWith =>
+      __$$CreateNoticeReplyImplCopyWithImpl<_$CreateNoticeReplyImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getNotices,
+    required TResult Function(String noticeId) getNotice,
+    required TResult Function(String noticeId, String content)
+        createNoticeReply,
+    required TResult Function(String content, String title, String type)
+        createNotice,
+    required TResult Function() clearError,
+  }) {
+    return createNoticeReply(noticeId, content);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getNotices,
+    TResult? Function(String noticeId)? getNotice,
+    TResult? Function(String noticeId, String content)? createNoticeReply,
+    TResult? Function(String content, String title, String type)? createNotice,
+    TResult? Function()? clearError,
+  }) {
+    return createNoticeReply?.call(noticeId, content);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getNotices,
+    TResult Function(String noticeId)? getNotice,
+    TResult Function(String noticeId, String content)? createNoticeReply,
+    TResult Function(String content, String title, String type)? createNotice,
+    TResult Function()? clearError,
+    required TResult orElse(),
+  }) {
+    if (createNoticeReply != null) {
+      return createNoticeReply(noticeId, content);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetNotices value) getNotices,
+    required TResult Function(_GetNotice value) getNotice,
+    required TResult Function(_CreateNoticeReply value) createNoticeReply,
+    required TResult Function(_CreateNotice value) createNotice,
+    required TResult Function(_ClearError value) clearError,
+  }) {
+    return createNoticeReply(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetNotices value)? getNotices,
+    TResult? Function(_GetNotice value)? getNotice,
+    TResult? Function(_CreateNoticeReply value)? createNoticeReply,
+    TResult? Function(_CreateNotice value)? createNotice,
+    TResult? Function(_ClearError value)? clearError,
+  }) {
+    return createNoticeReply?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetNotices value)? getNotices,
+    TResult Function(_GetNotice value)? getNotice,
+    TResult Function(_CreateNoticeReply value)? createNoticeReply,
+    TResult Function(_CreateNotice value)? createNotice,
+    TResult Function(_ClearError value)? clearError,
+    required TResult orElse(),
+  }) {
+    if (createNoticeReply != null) {
+      return createNoticeReply(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CreateNoticeReply implements NoticeEvent {
+  const factory _CreateNoticeReply(
+      final String noticeId, final String content) = _$CreateNoticeReplyImpl;
+
+  String get noticeId;
+  String get content;
+
+  /// Create a copy of NoticeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$CreateNoticeReplyImplCopyWith<_$CreateNoticeReplyImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$CreateNoticeImplCopyWith<$Res> {
+  factory _$$CreateNoticeImplCopyWith(
+          _$CreateNoticeImpl value, $Res Function(_$CreateNoticeImpl) then) =
+      __$$CreateNoticeImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String content, String title, String type});
+}
+
+/// @nodoc
+class __$$CreateNoticeImplCopyWithImpl<$Res>
+    extends _$NoticeEventCopyWithImpl<$Res, _$CreateNoticeImpl>
+    implements _$$CreateNoticeImplCopyWith<$Res> {
+  __$$CreateNoticeImplCopyWithImpl(
+      _$CreateNoticeImpl _value, $Res Function(_$CreateNoticeImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of NoticeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? content = null,
+    Object? title = null,
+    Object? type = null,
+  }) {
+    return _then(_$CreateNoticeImpl(
+      null == content
+          ? _value.content
+          : content // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == title
+          ? _value.title
+          : title // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == type
+          ? _value.type
+          : type // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$CreateNoticeImpl implements _CreateNotice {
+  const _$CreateNoticeImpl(this.content, this.title, this.type);
+
+  @override
+  final String content;
+  @override
+  final String title;
+  @override
+  final String type;
+
+  @override
+  String toString() {
+    return 'NoticeEvent.createNotice(content: $content, title: $title, type: $type)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$CreateNoticeImpl &&
+            (identical(other.content, content) || other.content == content) &&
+            (identical(other.title, title) || other.title == title) &&
+            (identical(other.type, type) || other.type == type));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, content, title, type);
+
+  /// Create a copy of NoticeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$CreateNoticeImplCopyWith<_$CreateNoticeImpl> get copyWith =>
+      __$$CreateNoticeImplCopyWithImpl<_$CreateNoticeImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getNotices,
+    required TResult Function(String noticeId) getNotice,
+    required TResult Function(String noticeId, String content)
+        createNoticeReply,
+    required TResult Function(String content, String title, String type)
+        createNotice,
+    required TResult Function() clearError,
+  }) {
+    return createNotice(content, title, type);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? getNotices,
+    TResult? Function(String noticeId)? getNotice,
+    TResult? Function(String noticeId, String content)? createNoticeReply,
+    TResult? Function(String content, String title, String type)? createNotice,
+    TResult? Function()? clearError,
+  }) {
+    return createNotice?.call(content, title, type);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getNotices,
+    TResult Function(String noticeId)? getNotice,
+    TResult Function(String noticeId, String content)? createNoticeReply,
+    TResult Function(String content, String title, String type)? createNotice,
+    TResult Function()? clearError,
+    required TResult orElse(),
+  }) {
+    if (createNotice != null) {
+      return createNotice(content, title, type);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_GetNotices value) getNotices,
+    required TResult Function(_GetNotice value) getNotice,
+    required TResult Function(_CreateNoticeReply value) createNoticeReply,
+    required TResult Function(_CreateNotice value) createNotice,
+    required TResult Function(_ClearError value) clearError,
+  }) {
+    return createNotice(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_GetNotices value)? getNotices,
+    TResult? Function(_GetNotice value)? getNotice,
+    TResult? Function(_CreateNoticeReply value)? createNoticeReply,
+    TResult? Function(_CreateNotice value)? createNotice,
+    TResult? Function(_ClearError value)? clearError,
+  }) {
+    return createNotice?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_GetNotices value)? getNotices,
+    TResult Function(_GetNotice value)? getNotice,
+    TResult Function(_CreateNoticeReply value)? createNoticeReply,
+    TResult Function(_CreateNotice value)? createNotice,
+    TResult Function(_ClearError value)? clearError,
+    required TResult orElse(),
+  }) {
+    if (createNotice != null) {
+      return createNotice(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _CreateNotice implements NoticeEvent {
+  const factory _CreateNotice(
+          final String content, final String title, final String type) =
+      _$CreateNoticeImpl;
+
+  String get content;
+  String get title;
+  String get type;
+
+  /// Create a copy of NoticeEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$CreateNoticeImplCopyWith<_$CreateNoticeImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -224,6 +777,11 @@ class _$ClearErrorImpl implements _ClearError {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() getNotices,
+    required TResult Function(String noticeId) getNotice,
+    required TResult Function(String noticeId, String content)
+        createNoticeReply,
+    required TResult Function(String content, String title, String type)
+        createNotice,
     required TResult Function() clearError,
   }) {
     return clearError();
@@ -233,6 +791,9 @@ class _$ClearErrorImpl implements _ClearError {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? getNotices,
+    TResult? Function(String noticeId)? getNotice,
+    TResult? Function(String noticeId, String content)? createNoticeReply,
+    TResult? Function(String content, String title, String type)? createNotice,
     TResult? Function()? clearError,
   }) {
     return clearError?.call();
@@ -242,6 +803,9 @@ class _$ClearErrorImpl implements _ClearError {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getNotices,
+    TResult Function(String noticeId)? getNotice,
+    TResult Function(String noticeId, String content)? createNoticeReply,
+    TResult Function(String content, String title, String type)? createNotice,
     TResult Function()? clearError,
     required TResult orElse(),
   }) {
@@ -255,6 +819,9 @@ class _$ClearErrorImpl implements _ClearError {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_GetNotices value) getNotices,
+    required TResult Function(_GetNotice value) getNotice,
+    required TResult Function(_CreateNoticeReply value) createNoticeReply,
+    required TResult Function(_CreateNotice value) createNotice,
     required TResult Function(_ClearError value) clearError,
   }) {
     return clearError(this);
@@ -264,6 +831,9 @@ class _$ClearErrorImpl implements _ClearError {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_GetNotices value)? getNotices,
+    TResult? Function(_GetNotice value)? getNotice,
+    TResult? Function(_CreateNoticeReply value)? createNoticeReply,
+    TResult? Function(_CreateNotice value)? createNotice,
     TResult? Function(_ClearError value)? clearError,
   }) {
     return clearError?.call(this);
@@ -273,6 +843,9 @@ class _$ClearErrorImpl implements _ClearError {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_GetNotices value)? getNotices,
+    TResult Function(_GetNotice value)? getNotice,
+    TResult Function(_CreateNoticeReply value)? createNoticeReply,
+    TResult Function(_CreateNotice value)? createNotice,
     TResult Function(_ClearError value)? clearError,
     required TResult orElse(),
   }) {

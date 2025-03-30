@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_home_parking/ui/screen/main/main_screen.dart';
 import 'package:my_home_parking/ui/screen/parking_map/parking_map_screen.dart';
+import 'package:my_home_parking/ui/screen/parking_notice/parking_notice_create_screen.dart';
 import 'package:my_home_parking/ui/screen/parking_notice/parking_notice_detail_screen.dart';
 import 'package:my_home_parking/ui/screen/parking_notice/parking_notice_screen.dart';
 import 'package:my_home_parking/ui/screen/parking_status/parking_status_screen.dart';
@@ -25,7 +26,8 @@ enum Routes {
   setting,
   parkingStatus,
   parkingNotice,
-  parkingNoticeDetail
+  parkingNoticeDetail,
+  parkingNoticeCreate,
 }
 
 class _Paths {
@@ -35,6 +37,7 @@ class _Paths {
   static const String parkingStatus = 'parkingStatus';
   static const String parkingNotice = 'parkingNotice';
   static const String parkingNoticeDetail = 'parkingNoticeDetail';
+  static const String parkingNoticeCreate = 'parkingNoticeCreate';
   static const Map<Routes, String> _pathMap = {
     Routes.main: _Paths.main,
     Routes.parkingMap: _Paths.parkingMap,
@@ -42,6 +45,7 @@ class _Paths {
     Routes.parkingStatus: _Paths.parkingStatus,
     Routes.parkingNotice: _Paths.parkingNotice,
     Routes.parkingNoticeDetail: _Paths.parkingNoticeDetail,
+    Routes.parkingNoticeCreate: _Paths.parkingNoticeCreate,
   };
 
   static String of(Routes route) => _pathMap[route] ?? main;
@@ -64,7 +68,11 @@ class AppNavigator {
       case _Paths.parkingNotice:
         return FadeRoute(page: const ParkingNoticeScreen());
       case _Paths.parkingNoticeDetail:
-        return FadeRoute(page: const ParkingNoticeDetailScreen());
+        return FadeRoute(
+            page: ParkingNoticeDetailScreen(
+                noticeId: settings.arguments as String));
+      case _Paths.parkingNoticeCreate:
+        return FadeRoute(page: const ParkingNoticeCreateScreen());
       default:
         return FadeRoute(page: const MainScreen());
     }

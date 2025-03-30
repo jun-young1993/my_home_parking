@@ -53,7 +53,7 @@ class MainBloc extends Bloc<MainEvent, MainState> {
           clearError: (_) async => _handleEvent(
             emit,
             () async {
-              emit(state.copyWith(error: null));
+              emit(state.copyWith(error: null, isLoading: false));
             },
           ),
           removeUserInfo: (_) async => _handleEvent(

@@ -28,14 +28,52 @@ class NoticeBloc extends Bloc<NoticeEvent, NoticeState> {
               emit(state.copyWith(notices: notices));
             },
           ),
+          getNotice: (event) async => _handleEvent(
+            emit,
+            () async {
+              final notice = await _noticeRepository.getNotice(event.noticeId);
+              emit(state.copyWith(notice: notice));
+            },
+          ),
+          createNoticeReply: (event) async => _handleEvent(
+            emit,
+            () async {
+              final mainState = _mainBloc.state;
+              final carNumber = mainState.userInfo?.carNumber;
+              if (carNumber == null) {
+                throw const AppException.unknown('carNumber is null');
+              }
+              await _noticeRepository.createNoticeReply(
+                  event.noticeId, event.content, carNumber.toString());
+              final notice = await _noticeRepository.getNotice(event.noticeId);
+              emit(state.copyWith(notice: notice));
+            },
+          ),
+          createNotice: (event) async => _handleEvent(
+            emit,
+            () async {
+              final mainState = _mainBloc.state;
+              final zoneCode = mainState.userInfo?.zoneCode;
+              if (zoneCode == null) {
+                throw const AppException.unknown('zoneCode is null');
+              }
+              final carNumber = mainState.userInfo?.carNumber;
+              if (carNumber == null) {
+                throw const AppException.unknown('carNumber is null');
+              }
+              await _noticeRepository.createNotice(zoneCode,
+                  carNumber.toString(), event.content, event.title, event.type);
+              add(const NoticeEvent.getNotices());
+            },
+          ),
           clearError: (_) async => _handleEvent(
             emit,
             () async {
-              emit(state.copyWith(error: null));
+              emit(state.copyWith(error: null, isLoading: false));
             },
           ),
         );
-      } catch (e, stackTrace) {
+      } catch (e) {
         _handleEvent(
           emit,
           () async {},

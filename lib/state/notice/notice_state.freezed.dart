@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$NoticeState {
   List<Notice> get notices => throw _privateConstructorUsedError;
+  Notice? get notice => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
   AppException? get error => throw _privateConstructorUsedError;
 
@@ -33,8 +34,13 @@ abstract class $NoticeStateCopyWith<$Res> {
           NoticeState value, $Res Function(NoticeState) then) =
       _$NoticeStateCopyWithImpl<$Res, NoticeState>;
   @useResult
-  $Res call({List<Notice> notices, bool isLoading, AppException? error});
+  $Res call(
+      {List<Notice> notices,
+      Notice? notice,
+      bool isLoading,
+      AppException? error});
 
+  $NoticeCopyWith<$Res>? get notice;
   $AppExceptionCopyWith<$Res>? get error;
 }
 
@@ -54,6 +60,7 @@ class _$NoticeStateCopyWithImpl<$Res, $Val extends NoticeState>
   @override
   $Res call({
     Object? notices = null,
+    Object? notice = freezed,
     Object? isLoading = null,
     Object? error = freezed,
   }) {
@@ -62,6 +69,10 @@ class _$NoticeStateCopyWithImpl<$Res, $Val extends NoticeState>
           ? _value.notices
           : notices // ignore: cast_nullable_to_non_nullable
               as List<Notice>,
+      notice: freezed == notice
+          ? _value.notice
+          : notice // ignore: cast_nullable_to_non_nullable
+              as Notice?,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -71,6 +82,20 @@ class _$NoticeStateCopyWithImpl<$Res, $Val extends NoticeState>
           : error // ignore: cast_nullable_to_non_nullable
               as AppException?,
     ) as $Val);
+  }
+
+  /// Create a copy of NoticeState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @pragma('vm:prefer-inline')
+  $NoticeCopyWith<$Res>? get notice {
+    if (_value.notice == null) {
+      return null;
+    }
+
+    return $NoticeCopyWith<$Res>(_value.notice!, (value) {
+      return _then(_value.copyWith(notice: value) as $Val);
+    });
   }
 
   /// Create a copy of NoticeState
@@ -96,8 +121,14 @@ abstract class _$$NoticeStateImplCopyWith<$Res>
       __$$NoticeStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({List<Notice> notices, bool isLoading, AppException? error});
+  $Res call(
+      {List<Notice> notices,
+      Notice? notice,
+      bool isLoading,
+      AppException? error});
 
+  @override
+  $NoticeCopyWith<$Res>? get notice;
   @override
   $AppExceptionCopyWith<$Res>? get error;
 }
@@ -116,6 +147,7 @@ class __$$NoticeStateImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? notices = null,
+    Object? notice = freezed,
     Object? isLoading = null,
     Object? error = freezed,
   }) {
@@ -124,6 +156,10 @@ class __$$NoticeStateImplCopyWithImpl<$Res>
           ? _value._notices
           : notices // ignore: cast_nullable_to_non_nullable
               as List<Notice>,
+      notice: freezed == notice
+          ? _value.notice
+          : notice // ignore: cast_nullable_to_non_nullable
+              as Notice?,
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
@@ -141,6 +177,7 @@ class __$$NoticeStateImplCopyWithImpl<$Res>
 class _$NoticeStateImpl implements _NoticeState {
   const _$NoticeStateImpl(
       {final List<Notice> notices = const [],
+      this.notice = null,
       this.isLoading = false,
       this.error = null})
       : _notices = notices;
@@ -156,6 +193,9 @@ class _$NoticeStateImpl implements _NoticeState {
 
   @override
   @JsonKey()
+  final Notice? notice;
+  @override
+  @JsonKey()
   final bool isLoading;
   @override
   @JsonKey()
@@ -163,7 +203,7 @@ class _$NoticeStateImpl implements _NoticeState {
 
   @override
   String toString() {
-    return 'NoticeState(notices: $notices, isLoading: $isLoading, error: $error)';
+    return 'NoticeState(notices: $notices, notice: $notice, isLoading: $isLoading, error: $error)';
   }
 
   @override
@@ -172,6 +212,7 @@ class _$NoticeStateImpl implements _NoticeState {
         (other.runtimeType == runtimeType &&
             other is _$NoticeStateImpl &&
             const DeepCollectionEquality().equals(other._notices, _notices) &&
+            (identical(other.notice, notice) || other.notice == notice) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
             (identical(other.error, error) || other.error == error));
@@ -179,7 +220,7 @@ class _$NoticeStateImpl implements _NoticeState {
 
   @override
   int get hashCode => Object.hash(runtimeType,
-      const DeepCollectionEquality().hash(_notices), isLoading, error);
+      const DeepCollectionEquality().hash(_notices), notice, isLoading, error);
 
   /// Create a copy of NoticeState
   /// with the given fields replaced by the non-null parameter values.
@@ -193,11 +234,14 @@ class _$NoticeStateImpl implements _NoticeState {
 abstract class _NoticeState implements NoticeState {
   const factory _NoticeState(
       {final List<Notice> notices,
+      final Notice? notice,
       final bool isLoading,
       final AppException? error}) = _$NoticeStateImpl;
 
   @override
   List<Notice> get notices;
+  @override
+  Notice? get notice;
   @override
   bool get isLoading;
   @override

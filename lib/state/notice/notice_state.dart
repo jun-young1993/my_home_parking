@@ -8,6 +8,7 @@ part 'notice_state.freezed.dart';
 class NoticeState with _$NoticeState {
   const factory NoticeState({
     @Default([]) List<Notice> notices,
+    @Default(null) Notice? notice,
     @Default(false) bool isLoading,
     @Default(null) AppException? error,
   }) = _NoticeState;

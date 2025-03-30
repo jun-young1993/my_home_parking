@@ -1,31 +1,25 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'notice.dart';
+part of 'notice_reply.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$NoticeImpl _$$NoticeImplFromJson(Map<String, dynamic> json) => _$NoticeImpl(
+_$NoticeReplyImpl _$$NoticeReplyImplFromJson(Map<String, dynamic> json) =>
+    _$NoticeReplyImpl(
       id: json['id'] as String,
-      title: json['title'] as String,
       content: json['content'] as String,
-      type: json['type'] as String,
+      noticeId: json['noticeId'] as String,
       userName: json['userName'] as String,
       createdAt: DateTime.parse(json['createdAt'] as String),
-      noticeReplies: (json['noticeReplies'] as List<dynamic>?)
-              ?.map((e) => NoticeReply.fromJson(e as Map<String, dynamic>))
-              .toList() ??
-          const [],
     );
 
-Map<String, dynamic> _$$NoticeImplToJson(_$NoticeImpl instance) =>
+Map<String, dynamic> _$$NoticeReplyImplToJson(_$NoticeReplyImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
-      'title': instance.title,
       'content': instance.content,
-      'type': instance.type,
+      'noticeId': instance.noticeId,
       'userName': instance.userName,
       'createdAt': instance.createdAt.toIso8601String(),
-      'noticeReplies': instance.noticeReplies,
     };

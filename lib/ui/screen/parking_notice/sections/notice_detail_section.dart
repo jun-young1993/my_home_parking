@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:my_home_parking/model/notice/notice.dart';
+import 'package:my_home_parking/state/notice/notice_event.dart';
+import 'package:my_home_parking/ui/screen/parking_notice/sections/notice_reply_section.dart';
+import 'package:my_home_parking/ui/screen/parking_notice/sections/notice_reply_wrap_section.dart';
 
 class NoticeDetailSection extends StatelessWidget {
   final Notice notice;
   final dateFormatter = DateFormat('yyyy-MM-dd HH:mm');
-
+  final Function(String) onSubmitReply;
   NoticeDetailSection({
     super.key,
     required this.notice,
+    required this.onSubmitReply,
   });
 
   @override
@@ -41,10 +45,12 @@ class NoticeDetailSection extends StatelessWidget {
                         color: Colors.blue.shade50,
                         borderRadius: BorderRadius.circular(4),
                       ),
-                      child: const Text(
-                        '일반',
+                      child: Text(
+                        notice.type == 'NOTICE' ? '공지' : '일반',
                         style: TextStyle(
-                          color: Colors.blue,
+                          color: notice.type == 'NOTICE'
+                              ? Colors.red
+                              : Colors.blue,
                           fontSize: 12,
                           fontWeight: FontWeight.bold,
                         ),
@@ -113,18 +119,63 @@ class NoticeDetailSection extends StatelessWidget {
 
           const SizedBox(height: 24),
 
-          // 내용
-          Text(
-            notice.content,
-            style: const TextStyle(
-              fontSize: 16,
-              height: 1.6,
+          // 내용 영역 스타일링 추가
+          Container(
+            width: double.infinity,
+            padding: const EdgeInsets.all(16),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(8),
+              border: Border.all(
+                color: Colors.grey.shade200,
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.shade100,
+                  blurRadius: 4,
+                  offset: const Offset(0, 2),
+                ),
+              ],
+            ),
+            child: Text(
+              notice.content,
+              style: const TextStyle(
+                fontSize: 16,
+                height: 1.6,
+              ),
             ),
           ),
 
           const SizedBox(height: 32),
 
-          // 첨부파일이 있다면 여기에 추가
+          // 댓글 섹션 추가
+          if (notice.noticeReplies?.isNotEmpty ?? false) ...[
+            NoticeReplyWrapSection(
+              replies: notice.noticeReplies ?? [],
+              onSubmitReply: onSubmitReply,
+            )
+          ] else ...[
+            // 댓글이 없는 경우
+            Center(
+              child: Column(
+                children: [
+                  const SizedBox(height: 16),
+                  Icon(
+                    Icons.chat_bubble_outline,
+                    size: 48,
+                    color: Colors.grey.shade300,
+                  ),
+                  const SizedBox(height: 8),
+                  Text(
+                    '아직 댓글이 없습니다',
+                    style: TextStyle(
+                      color: Colors.grey.shade600,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
         ],
       ),
     );

@@ -37,3 +37,19 @@ class NoticeExceptionSelector extends NoticeSelector<AppException?> {
           builder: (context, error) => builder(error),
         );
 }
+
+class NoticeDetailSelector extends NoticeSelector<Notice?> {
+  NoticeDetailSelector(Widget Function(Notice? notice) builder, {super.key})
+      : super(
+          selector: (state) => state.notice,
+          builder: (context, notice) => builder(notice),
+        );
+}
+
+class NoticeLoadingSelector extends NoticeSelector<bool> {
+  NoticeLoadingSelector(Widget Function(bool isLoading) builder, {super.key})
+      : super(
+          selector: (state) => state.isLoading,
+          builder: (context, isLoading) => builder(isLoading),
+        );
+}

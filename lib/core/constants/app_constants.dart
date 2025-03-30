@@ -7,4 +7,5 @@ class AppConstants {
 
   static String get appName => '우리집 주차장';
   static String get parkingMapMenuDisplayName => '주차장';
+  static String get parkingNoticeMenuDisplayName => '주차장 게시판';
 }
