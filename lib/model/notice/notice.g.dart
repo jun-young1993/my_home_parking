@@ -13,6 +13,7 @@ _$NoticeImpl _$$NoticeImplFromJson(Map<String, dynamic> json) => _$NoticeImpl(
       type: json['type'] as String,
       userName: json['userName'] as String,
       createdAt: DateTime.parse(json['createdAt'] as String),
+      viewCount: (json['viewCount'] as num).toInt(),
       noticeReplies: (json['noticeReplies'] as List<dynamic>?)
               ?.map((e) => NoticeReply.fromJson(e as Map<String, dynamic>))
               .toList() ??
@@ -27,5 +28,6 @@ Map<String, dynamic> _$$NoticeImplToJson(_$NoticeImpl instance) =>
       'type': instance.type,
       'userName': instance.userName,
       'createdAt': instance.createdAt.toIso8601String(),
+      'viewCount': instance.viewCount,
       'noticeReplies': instance.noticeReplies,
     };

@@ -57,9 +57,7 @@ class NoticeDetailSection extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      notice.createdAt != null
-                          ? dateFormatter.format(notice.createdAt)
-                          : '-',
+                      dateFormatter.format(notice.createdAt),
                       style: TextStyle(
                         color: Colors.grey.shade600,
                         fontSize: 12,
@@ -105,7 +103,7 @@ class NoticeDetailSection extends StatelessWidget {
                     ),
                     const SizedBox(width: 4),
                     Text(
-                      '0', // view counter
+                      notice.viewCount.toString(), // view counter
                       style: TextStyle(
                         color: Colors.grey.shade600,
                         fontSize: 12,
@@ -147,35 +145,11 @@ class NoticeDetailSection extends StatelessWidget {
           ),
 
           const SizedBox(height: 32),
-
+          NoticeReplyWrapSection(
+            replies: notice.noticeReplies ?? [],
+            onSubmitReply: onSubmitReply,
+          ),
           // 댓글 섹션 추가
-          if (notice.noticeReplies?.isNotEmpty ?? false) ...[
-            NoticeReplyWrapSection(
-              replies: notice.noticeReplies ?? [],
-              onSubmitReply: onSubmitReply,
-            )
-          ] else ...[
-            // 댓글이 없는 경우
-            Center(
-              child: Column(
-                children: [
-                  const SizedBox(height: 16),
-                  Icon(
-                    Icons.chat_bubble_outline,
-                    size: 48,
-                    color: Colors.grey.shade300,
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    '아직 댓글이 없습니다',
-                    style: TextStyle(
-                      color: Colors.grey.shade600,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ],
         ],
       ),
     );

@@ -38,10 +38,10 @@ class _ParkingNoticeCreateScreenState extends State<ParkingNoticeCreateScreen> {
             return LoadingOverlay(
                 isLoading: isLoading,
                 child: NoticeCreateSection(
-                  onSubmit: (content, title, type) {
+                  onSubmit: (title, content, type) {
                     // TODO: 게시판 작성 로직 추가
                     noticeBloc
-                        .add(NoticeEvent.createNotice(content, title, type));
+                        .add(NoticeEvent.createNotice(title, content, type));
                     AppNavigator.pop();
                   },
                 ));

@@ -13,6 +13,7 @@ class Notice with _$Notice {
     required String type,
     required String userName,
     required DateTime createdAt,
+    required int viewCount,
     @Default([]) List<NoticeReply>? noticeReplies,
   }) = _Notice;
 

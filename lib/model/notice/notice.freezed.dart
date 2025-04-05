@@ -26,6 +26,7 @@ mixin _$Notice {
   String get type => throw _privateConstructorUsedError;
   String get userName => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
+  int get viewCount => throw _privateConstructorUsedError;
   List<NoticeReply>? get noticeReplies => throw _privateConstructorUsedError;
 
   /// Serializes this Notice to a JSON map.
@@ -49,6 +50,7 @@ abstract class $NoticeCopyWith<$Res> {
       String type,
       String userName,
       DateTime createdAt,
+      int viewCount,
       List<NoticeReply>? noticeReplies});
 }
 
@@ -73,6 +75,7 @@ class _$NoticeCopyWithImpl<$Res, $Val extends Notice>
     Object? type = null,
     Object? userName = null,
     Object? createdAt = null,
+    Object? viewCount = null,
     Object? noticeReplies = freezed,
   }) {
     return _then(_value.copyWith(
@@ -100,6 +103,10 @@ class _$NoticeCopyWithImpl<$Res, $Val extends Notice>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      viewCount: null == viewCount
+          ? _value.viewCount
+          : viewCount // ignore: cast_nullable_to_non_nullable
+              as int,
       noticeReplies: freezed == noticeReplies
           ? _value.noticeReplies
           : noticeReplies // ignore: cast_nullable_to_non_nullable
@@ -122,6 +129,7 @@ abstract class _$$NoticeImplCopyWith<$Res> implements $NoticeCopyWith<$Res> {
       String type,
       String userName,
       DateTime createdAt,
+      int viewCount,
       List<NoticeReply>? noticeReplies});
 }
 
@@ -144,6 +152,7 @@ class __$$NoticeImplCopyWithImpl<$Res>
     Object? type = null,
     Object? userName = null,
     Object? createdAt = null,
+    Object? viewCount = null,
     Object? noticeReplies = freezed,
   }) {
     return _then(_$NoticeImpl(
@@ -171,6 +180,10 @@ class __$$NoticeImplCopyWithImpl<$Res>
           ? _value.createdAt
           : createdAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
+      viewCount: null == viewCount
+          ? _value.viewCount
+          : viewCount // ignore: cast_nullable_to_non_nullable
+              as int,
       noticeReplies: freezed == noticeReplies
           ? _value._noticeReplies
           : noticeReplies // ignore: cast_nullable_to_non_nullable
@@ -189,6 +202,7 @@ class _$NoticeImpl extends _Notice {
       required this.type,
       required this.userName,
       required this.createdAt,
+      required this.viewCount,
       final List<NoticeReply>? noticeReplies = const []})
       : _noticeReplies = noticeReplies,
         super._();
@@ -208,6 +222,8 @@ class _$NoticeImpl extends _Notice {
   final String userName;
   @override
   final DateTime createdAt;
+  @override
+  final int viewCount;
   final List<NoticeReply>? _noticeReplies;
   @override
   @JsonKey()
@@ -221,7 +237,7 @@ class _$NoticeImpl extends _Notice {
 
   @override
   String toString() {
-    return 'Notice(id: $id, title: $title, content: $content, type: $type, userName: $userName, createdAt: $createdAt, noticeReplies: $noticeReplies)';
+    return 'Notice(id: $id, title: $title, content: $content, type: $type, userName: $userName, createdAt: $createdAt, viewCount: $viewCount, noticeReplies: $noticeReplies)';
   }
 
   @override
@@ -237,14 +253,24 @@ class _$NoticeImpl extends _Notice {
                 other.userName == userName) &&
             (identical(other.createdAt, createdAt) ||
                 other.createdAt == createdAt) &&
+            (identical(other.viewCount, viewCount) ||
+                other.viewCount == viewCount) &&
             const DeepCollectionEquality()
                 .equals(other._noticeReplies, _noticeReplies));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, title, content, type,
-      userName, createdAt, const DeepCollectionEquality().hash(_noticeReplies));
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      title,
+      content,
+      type,
+      userName,
+      createdAt,
+      viewCount,
+      const DeepCollectionEquality().hash(_noticeReplies));
 
   /// Create a copy of Notice
   /// with the given fields replaced by the non-null parameter values.
@@ -270,6 +296,7 @@ abstract class _Notice extends Notice {
       required final String type,
       required final String userName,
       required final DateTime createdAt,
+      required final int viewCount,
       final List<NoticeReply>? noticeReplies}) = _$NoticeImpl;
   const _Notice._() : super._();
 
@@ -287,6 +314,8 @@ abstract class _Notice extends Notice {
   String get userName;
   @override
   DateTime get createdAt;
+  @override
+  int get viewCount;
   @override
   List<NoticeReply>? get noticeReplies;
 

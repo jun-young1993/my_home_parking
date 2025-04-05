@@ -56,9 +56,7 @@ class NoticeListSection extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        notice.createdAt != null
-                            ? dateFormatter.format(notice.createdAt)
-                            : '-',
+                        dateFormatter.format(notice.createdAt),
                         style: TextStyle(
                           color: Colors.grey.shade600,
                           fontSize: 12,
@@ -117,7 +115,7 @@ class NoticeListSection extends StatelessWidget {
                       ),
                       const SizedBox(width: 4),
                       Text(
-                        '0', // view counter
+                        notice.viewCount.toString(),
                         style: TextStyle(
                           color: Colors.grey.shade600,
                           fontSize: 12,

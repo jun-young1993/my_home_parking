@@ -32,7 +32,19 @@ class NoticeBloc extends Bloc<NoticeEvent, NoticeState> {
             emit,
             () async {
               final notice = await _noticeRepository.getNotice(event.noticeId);
-              emit(state.copyWith(notice: notice));
+
+              // 기존 notices 리스트에서 같은 id를 가진 notice 업데이트
+              final updatedNotices = state.notices.map((existingNotice) {
+                if (existingNotice.id == notice.id) {
+                  return notice; // 새로 받아온 notice로 교체
+                }
+                return existingNotice;
+              }).toList();
+
+              emit(state.copyWith(
+                notice: notice,
+                notices: updatedNotices,
+              ));
             },
           ),
           createNoticeReply: (event) async => _handleEvent(
