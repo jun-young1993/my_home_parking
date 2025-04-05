@@ -53,3 +53,12 @@ class NoticeLoadingSelector extends NoticeSelector<bool> {
           builder: (context, isLoading) => builder(isLoading),
         );
 }
+
+class NoticeFirstSelector extends NoticeSelector<Notice?> {
+  NoticeFirstSelector(Widget Function(Notice? notice) builder, {super.key})
+      : super(
+          selector: (state) =>
+              state.notices.isNotEmpty ? state.notices[0] : null,
+          builder: (context, notice) => builder(notice),
+        );
+}

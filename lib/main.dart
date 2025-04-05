@@ -3,15 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:my_home_parking/app.dart';
+import 'package:my_home_parking/repository/log_repository.dart';
 import 'package:my_home_parking/repository/main_repository.dart';
 import 'package:my_home_parking/repository/my_car_repository.dart';
 import 'package:my_home_parking/repository/notice_repository.dart';
 import 'package:my_home_parking/repository/parking_map_repository.dart';
+import 'package:my_home_parking/state/log/log_bloc.dart';
 import 'package:my_home_parking/state/main/main_bloc.dart';
 import 'package:my_home_parking/core/constants/app_constants.dart';
 import 'package:my_home_parking/state/notice/notice_bloc.dart';
 import 'package:my_home_parking/state/parking_map/parking_map_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:timeago/timeago.dart' as timeago;
 
 final InAppLocalhostServer localhostServer = InAppLocalhostServer(
   documentRoot: 'assets/web',
@@ -22,6 +25,9 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   // SharedPreferences 인스턴스 초기화
   final prefs = await SharedPreferences.getInstance();
+
+  // timeago 한국어 설정 초기화
+  timeago.setLocaleMessages('ko', timeago.KoMessages());
 
   if (!kIsWeb) {
     // start the localhost server
@@ -47,6 +53,9 @@ Future<void> main() async {
         RepositoryProvider<NoticeRepository>(
           create: (context) => NoticeDefaultRepository(),
         ),
+        RepositoryProvider<LogRepository>(
+          create: (context) => LogDefaultRepository(),
+        ),
       ],
       child: MultiBlocProvider(
         providers: [
@@ -63,6 +72,12 @@ Future<void> main() async {
           BlocProvider(
             create: (context) => NoticeBloc(
               context.read<NoticeRepository>(),
+              context.read<MainBloc>(),
+            ),
+          ),
+          BlocProvider(
+            create: (context) => LogBloc(
+              context.read<LogRepository>(),
               context.read<MainBloc>(),
             ),
           ),

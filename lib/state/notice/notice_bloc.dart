@@ -20,6 +20,7 @@ class NoticeBloc extends Bloc<NoticeEvent, NoticeState> {
             () async {
               final mainState = _mainBloc.state;
               final zoneCode = mainState.userInfo?.zoneCode;
+
               if (zoneCode == null) {
                 throw const AppException.unknown('zoneCode is null');
               }

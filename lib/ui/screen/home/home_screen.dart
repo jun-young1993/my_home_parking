@@ -39,22 +39,22 @@ class _HomeScreenState extends State<HomeScreen> {
         type: BottomNavigationBarType.fixed,
         selectedItemColor: Theme.of(context).colorScheme.primary,
         unselectedItemColor: Colors.grey,
-        items: const [
+        items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: '홈',
+            icon: const Icon(Icons.home),
+            label: AppConstants.parkingMainMenuHome,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.map),
-            label: '주차장 찾기',
+            icon: const Icon(Icons.map),
+            label: AppConstants.parkingMainMenuParkingMap,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.local_parking),
-            label: '주차 현황',
+            icon: const Icon(Icons.local_parking),
+            label: AppConstants.parkingMainMenuParkingStatus,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: '설정',
+            icon: const Icon(Icons.settings),
+            label: AppConstants.parkingMainMenuSetting,
           ),
         ],
       ),

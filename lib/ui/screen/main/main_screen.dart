@@ -89,6 +89,11 @@ class _MainScreenState extends State<MainScreen> {
             );
           } else {
             return UserInfoSelector((userInfo) {
+              if (userInfo == null) {
+                return ErrorView(
+                    error: const AppException.notFoundUserInfo(),
+                    onRetry: _onRetry);
+              }
               return const MainMenuSection();
             });
           }

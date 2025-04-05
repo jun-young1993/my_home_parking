@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_home_parking/core/constants/app_constants.dart';
 import 'package:my_home_parking/model/user_info.dart';
 import 'package:my_home_parking/routes.dart';
+import 'package:my_home_parking/state/log/log_bloc.dart';
+import 'package:my_home_parking/state/log/log_event.dart';
+import 'package:my_home_parking/state/log/log_selector.dart';
 import 'package:my_home_parking/state/main/main_bloc.dart';
 import 'package:my_home_parking/state/main/main_event.dart';
 import 'package:my_home_parking/state/main/main_selector.dart';
+import 'package:my_home_parking/state/notice/notice_bloc.dart';
+import 'package:my_home_parking/state/notice/notice_event.dart';
+import 'package:my_home_parking/state/notice/notice_selector.dart';
 import 'package:my_home_parking/ui/widgets/button/parking_change_button.dart';
+import 'package:my_home_parking/ui/widgets/log/log_item_widget.dart';
 
 class MainMenuSection extends StatefulWidget {
   const MainMenuSection({
@@ -18,19 +26,28 @@ class MainMenuSection extends StatefulWidget {
 
 class _MainMenuSectionState extends State<MainMenuSection> {
   MainBloc get mainBloc => context.read<MainBloc>();
+  NoticeBloc get noticeBloc => context.read<NoticeBloc>();
+  LogBloc get logBloc => context.read<LogBloc>();
+
+  @override
+  void initState() {
+    super.initState();
+    noticeBloc.add(const NoticeEvent.getNotices());
+    logBloc.add(const LogEvent.getLogs());
+  }
+
   @override
   Widget build(BuildContext context) {
     return UserInfoSelector((userInfo) {
       if (userInfo == null) return const SizedBox.shrink();
-      print('rerender ${userInfo.carNumber?.isParked}');
       return SingleChildScrollView(
         child: Column(
           children: [
             // 사용자 정보 카드
             _buildUserCard(context, userInfo),
+            _buildLogSection(context),
             _buildParkingNoticeSection(context),
             // 추가 정보 또는 콘텐츠 (중간 공간)
-            _buildContentSection(context),
           ],
         ),
       );
@@ -160,47 +177,57 @@ class _MainMenuSectionState extends State<MainMenuSection> {
     );
   }
 
-  Widget _buildContentSection(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(16.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+  Widget _buildLogSection(BuildContext context) {
+    return _buildCardContainer(
+        context: context,
+        title: AppConstants.parkingLogMenuDisplayName,
+        onTap: () {
+          AppNavigator.push(Routes.parkingLog);
+        },
         children: [
-          Text(
-            '최근 알림',
-            style: Theme.of(context).textTheme.titleLarge,
-          ),
-          const SizedBox(height: 16),
-          const Card(
-            child: Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Text('아직 알림이 없습니다.'),
-            ),
-          ),
-          const SizedBox(height: 24),
-          Text(
-            '주변 정보',
-            style: Theme.of(context).textTheme.titleLarge,
-          ),
-          const SizedBox(height: 16),
-          const Card(
-            child: Padding(
-              padding: EdgeInsets.all(16.0),
-              child: Text('주변 정보를 불러오는 중입니다...'),
-            ),
-          ),
-        ],
-      ),
-    );
+          LogFirstSelector((log) {
+            if (log == null) {
+              return Text(AppConstants.parkingEmptySpaceMenuDisplayName);
+            }
+            return LogItemWidget(log: log);
+          })
+        ]);
   }
 
   Widget _buildParkingNoticeSection(BuildContext context) {
-    return Card(
-      margin: const EdgeInsets.all(16),
-      child: InkWell(
+    return _buildCardContainer(
+        context: context,
+        title: AppConstants.parkingNoticeMenuDisplayName,
         onTap: () {
           AppNavigator.push(Routes.parkingNotice);
         },
+        children: [
+          NoticeFirstSelector((notice) {
+            if (notice == null) {
+              return Text(AppConstants.parkingEmptySpaceMenuDisplayName);
+            }
+            return Text(
+              notice.title,
+              maxLines: 1,
+              overflow: TextOverflow.ellipsis,
+              style: TextStyle(
+                color: Colors.grey.shade600,
+              ),
+            );
+          })
+        ]);
+  }
+
+  Widget _buildCardContainer({
+    required BuildContext context,
+    required String title,
+    required VoidCallback onTap,
+    required List<Widget> children,
+  }) {
+    return Card(
+      margin: const EdgeInsets.all(16),
+      child: InkWell(
+        onTap: onTap,
         child: Padding(
           padding: const EdgeInsets.all(16),
           child: Column(
@@ -211,7 +238,7 @@ class _MainMenuSectionState extends State<MainMenuSection> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    '주차장 게시판',
+                    title,
                     style: Theme.of(context).textTheme.titleMedium?.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
@@ -229,16 +256,7 @@ class _MainMenuSectionState extends State<MainMenuSection> {
                 color: Colors.grey.shade200,
               ),
               const SizedBox(height: 12),
-
-              // 최신 게시글 제목
-              Text(
-                '[공지] 주차장 이용 안내', // 실제 데이터로 교체 필요
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(
-                  color: Colors.grey.shade600,
-                ),
-              ),
+              ...children,
             ],
           ),
         ),
