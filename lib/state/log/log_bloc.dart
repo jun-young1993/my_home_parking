@@ -3,32 +3,27 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_home_parking/exceptions/app_exception.dart';
 import 'package:my_home_parking/repository/log_repository.dart';
 import 'package:my_home_parking/state/log/log_event.dart';
-
 import 'package:my_home_parking/state/log/log_state.dart';
-import 'package:my_home_parking/state/main/main_bloc.dart';
-import 'package:my_home_parking/state/main/main_event.dart';
+import 'package:my_home_parking/state/main/main_state.dart';
 
 class LogBloc extends Bloc<LogEvent, LogState> {
   final LogRepository _logRepository;
-  final MainBloc _mainBloc;
+  final MainState _mainState;
 
-  LogBloc(this._logRepository, this._mainBloc) : super(LogState.initialize()) {
+  LogBloc(this._logRepository, this._mainState) : super(LogState.initialize()) {
     on<LogEvent>((event, emit) async {
       try {
         await event.map(
           getLogs: (_) async => _handleEvent(
             emit,
             () async {
-              _mainBloc.add(const MainEvent.checkUserInfo());
-              final mainState = _mainBloc.state;
-              final zoneCode = mainState.userInfo?.zoneCode;
+              final zoneCode = _mainState.userInfo?.zoneCode;
 
               if (zoneCode == null) {
                 throw const AppException.unknown('zoneCode is null');
               }
 
               final logs = await _logRepository.getLogs(zoneCode);
-
               emit(state.copyWith(logs: logs));
             },
           ),
@@ -38,6 +33,7 @@ class LogBloc extends Bloc<LogEvent, LogState> {
       }
     });
   }
+
   Future<void> _handleEvent<T>(
     Emitter<LogState> emit,
     Future<T> Function() action, {

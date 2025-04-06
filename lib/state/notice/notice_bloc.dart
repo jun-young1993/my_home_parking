@@ -2,15 +2,15 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_home_parking/exceptions/app_exception.dart';
 import 'package:my_home_parking/repository/notice_repository.dart';
-import 'package:my_home_parking/state/main/main_bloc.dart';
+import 'package:my_home_parking/state/main/main_state.dart';
 import 'package:my_home_parking/state/notice/notice_event.dart';
 import 'package:my_home_parking/state/notice/notice_state.dart';
 
 class NoticeBloc extends Bloc<NoticeEvent, NoticeState> {
   final NoticeRepository _noticeRepository;
-  final MainBloc _mainBloc;
+  final MainState _mainState;
 
-  NoticeBloc(this._noticeRepository, this._mainBloc)
+  NoticeBloc(this._noticeRepository, this._mainState)
       : super(NoticeState.initialize()) {
     on<NoticeEvent>((event, emit) async {
       try {
@@ -18,8 +18,7 @@ class NoticeBloc extends Bloc<NoticeEvent, NoticeState> {
           getNotices: (_) async => _handleEvent(
             emit,
             () async {
-              final mainState = _mainBloc.state;
-              final zoneCode = mainState.userInfo?.zoneCode;
+              final zoneCode = _mainState.userInfo?.zoneCode;
 
               if (zoneCode == null) {
                 throw const AppException.unknown('zoneCode is null');
@@ -51,8 +50,7 @@ class NoticeBloc extends Bloc<NoticeEvent, NoticeState> {
           createNoticeReply: (event) async => _handleEvent(
             emit,
             () async {
-              final mainState = _mainBloc.state;
-              final carNumber = mainState.userInfo?.carNumber;
+              final carNumber = _mainState.userInfo?.carNumber;
               if (carNumber == null) {
                 throw const AppException.unknown('carNumber is null');
               }
@@ -65,12 +63,11 @@ class NoticeBloc extends Bloc<NoticeEvent, NoticeState> {
           createNotice: (event) async => _handleEvent(
             emit,
             () async {
-              final mainState = _mainBloc.state;
-              final zoneCode = mainState.userInfo?.zoneCode;
+              final zoneCode = _mainState.userInfo?.zoneCode;
               if (zoneCode == null) {
                 throw const AppException.unknown('zoneCode is null');
               }
-              final carNumber = mainState.userInfo?.carNumber;
+              final carNumber = _mainState.userInfo?.carNumber;
               if (carNumber == null) {
                 throw const AppException.unknown('carNumber is null');
               }

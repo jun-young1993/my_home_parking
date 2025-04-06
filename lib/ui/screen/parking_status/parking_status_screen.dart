@@ -64,8 +64,13 @@ class _ParkingStatusScreenState extends State<ParkingStatusScreen> {
                   userInfo: userInfo!,
                   isParked: userInfo.carNumber!.isParked,
                   onParkingChanged: (isParked) {
-                    mainBloc.add(MainEvent.updateCarNumber(
+                    mainBloc.add(MainEvent.updateParkingCarNumber(
                       userInfo.carNumber!.copyWith(isParked: isParked),
+                    ));
+                  },
+                  onMessageChanged: (String message) {
+                    mainBloc.add(MainEvent.updateMessageCarNumber(
+                      userInfo.carNumber!.copyWith(message: message),
                     ));
                   },
                 ),

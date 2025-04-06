@@ -11,6 +11,7 @@ class CarNumber with _$CarNumber {
     required String category, // 분류 (예: "조")
     required String number, // 번호 (예: "7833")
     required bool isParked,
+    String? message,
     required DateTime? updatedAt,
   }) = _CarNumber;
 
@@ -22,6 +23,7 @@ class CarNumber with _$CarNumber {
         'category': category,
         'number': number,
         'isParked': isParked,
+        'message': message,
         // id와 parkingLocationId는 제외
       };
 

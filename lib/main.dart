@@ -9,8 +9,10 @@ import 'package:my_home_parking/repository/my_car_repository.dart';
 import 'package:my_home_parking/repository/notice_repository.dart';
 import 'package:my_home_parking/repository/parking_map_repository.dart';
 import 'package:my_home_parking/state/log/log_bloc.dart';
+import 'package:my_home_parking/state/log/log_event.dart';
 import 'package:my_home_parking/state/main/main_bloc.dart';
 import 'package:my_home_parking/core/constants/app_constants.dart';
+import 'package:my_home_parking/state/main/main_state.dart';
 import 'package:my_home_parking/state/notice/notice_bloc.dart';
 import 'package:my_home_parking/state/parking_map/parking_map_bloc.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -57,32 +59,43 @@ Future<void> main() async {
           create: (context) => LogDefaultRepository(),
         ),
       ],
-      child: MultiBlocProvider(
-        providers: [
-          BlocProvider(
-            create: (context) => MainBloc(
-              context.read<MainRepository>(),
-              context.read<MyCarRepository>(),
+      child: Builder(
+        builder: (context) => MultiBlocProvider(
+          providers: [
+            BlocProvider(
+              create: (context) => MainBloc(
+                context.read<MainRepository>(),
+                context.read<MyCarRepository>(),
+              ),
             ),
-          ),
-          BlocProvider(
-            create: (context) =>
-                ParkingMapBloc(context.read<ParkingMapRepository>()),
-          ),
-          BlocProvider(
-            create: (context) => NoticeBloc(
-              context.read<NoticeRepository>(),
-              context.read<MainBloc>(),
+            BlocProvider(
+              create: (context) =>
+                  ParkingMapBloc(context.read<ParkingMapRepository>()),
             ),
-          ),
-          BlocProvider(
-            create: (context) => LogBloc(
-              context.read<LogRepository>(),
-              context.read<MainBloc>(),
+            BlocProvider(
+              create: (context) => NoticeBloc(
+                context.read<NoticeRepository>(),
+                context.read<MainBloc>().state,
+              ),
             ),
-          ),
-        ],
-        child: const MyApp(),
+            BlocProvider(
+              create: (context) => LogBloc(
+                context.read<LogRepository>(),
+                context.read<MainBloc>().state,
+              ),
+            ),
+          ],
+          child: MultiBlocListener(listeners: [
+            BlocListener<MainBloc, MainState>(
+              listenWhen: (previous, current) =>
+                  previous.userInfo?.carNumber?.isParked !=
+                  current.userInfo?.carNumber?.isParked,
+              listener: (context, state) {
+                context.read<LogBloc>().add(const LogEvent.getLogs());
+              },
+            )
+          ], child: const MyApp()),
+        ),
       ),
     ),
   );

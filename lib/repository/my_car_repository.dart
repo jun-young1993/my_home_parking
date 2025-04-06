@@ -4,7 +4,8 @@ import 'package:my_home_parking/exceptions/app_exception.dart';
 import 'package:my_home_parking/model/car_number.dart';
 
 abstract class MyCarRepository {
-  Future<CarNumber> updateCarNumber(CarNumber carNumber);
+  Future<CarNumber> updateParkingCarNumber(CarNumber carNumber);
+  Future<CarNumber> updateMessageCarNumber(CarNumber carNumber);
 }
 
 class MyCarDefaultRepository extends MyCarRepository {
@@ -13,12 +14,25 @@ class MyCarDefaultRepository extends MyCarRepository {
   MyCarDefaultRepository() : _dioClient = DioClient();
 
   @override
-  Future<CarNumber> updateCarNumber(CarNumber carNumber) async {
+  Future<CarNumber> updateParkingCarNumber(CarNumber carNumber) async {
     if (carNumber.id == null) {
       throw const AppException.invalidCarNumber();
     }
     final response = await _dioClient.put(
-      '${ApiEndpoints.myCar}/${carNumber.id}',
+      '${ApiEndpoints.myCar}/parking/${carNumber.id}',
+      data: carNumber.toRequestJson(),
+    );
+
+    return CarNumber.fromJson(response.data);
+  }
+
+  @override
+  Future<CarNumber> updateMessageCarNumber(CarNumber carNumber) async {
+    if (carNumber.id == null) {
+      throw const AppException.invalidCarNumber();
+    }
+    final response = await _dioClient.put(
+      '${ApiEndpoints.myCar}/message/${carNumber.id}',
       data: carNumber.toRequestJson(),
     );
 

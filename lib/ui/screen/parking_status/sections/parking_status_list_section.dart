@@ -12,12 +12,14 @@ class ParkingStatusListSection extends StatelessWidget {
     required this.userInfo,
     required this.isParked,
     required this.onParkingChanged,
+    required this.onMessageChanged,
   });
 
   final ParkingLocationZoneResponse parkingLocationZone;
   final UserInfo userInfo;
   final bool isParked;
   final ValueChanged<bool> onParkingChanged;
+  final ValueChanged<String> onMessageChanged;
   final dateFormatter = DateFormat('yyyy-MM-dd HH:mm');
 
   @override
@@ -27,7 +29,9 @@ class ParkingStatusListSection extends StatelessWidget {
         MyCarSection(
           userInfo: userInfo,
           isParked: isParked,
+          parkingMessage: userInfo.carNumber?.message,
           onParkingChanged: onParkingChanged,
+          onMessageChanged: onMessageChanged,
         ),
         Expanded(
           child: ListView.separated(
@@ -43,6 +47,7 @@ class ParkingStatusListSection extends StatelessWidget {
                             parkingLocationZone.carNumbers[index].updatedAt!)
                         : '-',
                 isParked: parkingLocationZone.carNumbers[index].isParked,
+                parkingMessage: parkingLocationZone.carNumbers[index].message,
               );
             },
           ),

@@ -1,8 +1,11 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_home_parking/exceptions/app_exception.dart';
 import 'package:my_home_parking/repository/main_repository.dart';
 import 'package:my_home_parking/repository/my_car_repository.dart';
+import 'package:my_home_parking/state/log/log_bloc.dart';
+import 'package:my_home_parking/state/log/log_event.dart';
 import 'package:my_home_parking/state/main/main_event.dart';
 import 'package:my_home_parking/state/main/main_state.dart';
 
@@ -10,8 +13,10 @@ class MainBloc extends Bloc<MainEvent, MainState> {
   final MainRepository _mainRepository;
   final MyCarRepository _myCarRepository;
 
-  MainBloc(this._mainRepository, this._myCarRepository)
-      : super(MainState.initialize()) {
+  MainBloc(
+    this._mainRepository,
+    this._myCarRepository,
+  ) : super(MainState.initialize()) {
     on<MainEvent>((event, emit) async {
       try {
         await event.map(
@@ -75,11 +80,23 @@ class MainBloc extends Bloc<MainEvent, MainState> {
               ));
             },
           ),
-          updateCarNumber: (event) async => _handleEvent(
+          updateParkingCarNumber: (event) async => _handleEvent(
             emit,
             () async {
-              final catNumber =
-                  await _myCarRepository.updateCarNumber(event.carNumber);
+              final catNumber = await _myCarRepository
+                  .updateParkingCarNumber(event.carNumber);
+              final userInfo = await _mainRepository.getUserInfoOrFail();
+              final updatedUserInfo = userInfo.copyWith(carNumber: catNumber);
+              await _mainRepository.saveUserInfo(updatedUserInfo);
+              add(const MainEvent.checkUserInfo());
+              add(const MainEvent.getParkingLocationZone());
+            },
+          ),
+          updateMessageCarNumber: (event) async => _handleEvent(
+            emit,
+            () async {
+              final catNumber = await _myCarRepository
+                  .updateMessageCarNumber(event.carNumber);
               final userInfo = await _mainRepository.getUserInfoOrFail();
               final updatedUserInfo = userInfo.copyWith(carNumber: catNumber);
               await _mainRepository.saveUserInfo(updatedUserInfo);

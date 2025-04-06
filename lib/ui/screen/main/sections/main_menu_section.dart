@@ -122,7 +122,7 @@ class _MainMenuSectionState extends State<MainMenuSection> {
                             ParkingChangeButton(
                               isParked: userInfo.carNumber?.isParked ?? false,
                               onParkingChanged: (isParked) {
-                                mainBloc.add(MainEvent.updateCarNumber(
+                                mainBloc.add(MainEvent.updateParkingCarNumber(
                                   userInfo.carNumber!
                                       .copyWith(isParked: isParked),
                                 ));

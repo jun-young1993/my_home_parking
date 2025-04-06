@@ -25,6 +25,7 @@ mixin _$CarNumber {
   String get category => throw _privateConstructorUsedError; // 분류 (예: "조")
   String get number => throw _privateConstructorUsedError; // 번호 (예: "7833")
   bool get isParked => throw _privateConstructorUsedError;
+  String? get message => throw _privateConstructorUsedError;
   DateTime? get updatedAt => throw _privateConstructorUsedError;
 
   /// Serializes this CarNumber to a JSON map.
@@ -48,6 +49,7 @@ abstract class $CarNumberCopyWith<$Res> {
       String category,
       String number,
       bool isParked,
+      String? message,
       DateTime? updatedAt});
 }
 
@@ -71,6 +73,7 @@ class _$CarNumberCopyWithImpl<$Res, $Val extends CarNumber>
     Object? category = null,
     Object? number = null,
     Object? isParked = null,
+    Object? message = freezed,
     Object? updatedAt = freezed,
   }) {
     return _then(_value.copyWith(
@@ -94,6 +97,10 @@ class _$CarNumberCopyWithImpl<$Res, $Val extends CarNumber>
           ? _value.isParked
           : isParked // ignore: cast_nullable_to_non_nullable
               as bool,
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
       updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
@@ -116,6 +123,7 @@ abstract class _$$CarNumberImplCopyWith<$Res>
       String category,
       String number,
       bool isParked,
+      String? message,
       DateTime? updatedAt});
 }
 
@@ -137,6 +145,7 @@ class __$$CarNumberImplCopyWithImpl<$Res>
     Object? category = null,
     Object? number = null,
     Object? isParked = null,
+    Object? message = freezed,
     Object? updatedAt = freezed,
   }) {
     return _then(_$CarNumberImpl(
@@ -160,6 +169,10 @@ class __$$CarNumberImplCopyWithImpl<$Res>
           ? _value.isParked
           : isParked // ignore: cast_nullable_to_non_nullable
               as bool,
+      message: freezed == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String?,
       updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
@@ -177,6 +190,7 @@ class _$CarNumberImpl extends _CarNumber {
       required this.category,
       required this.number,
       required this.isParked,
+      this.message,
       required this.updatedAt})
       : super._();
 
@@ -197,6 +211,8 @@ class _$CarNumberImpl extends _CarNumber {
   @override
   final bool isParked;
   @override
+  final String? message;
+  @override
   final DateTime? updatedAt;
 
   @override
@@ -211,6 +227,7 @@ class _$CarNumberImpl extends _CarNumber {
             (identical(other.number, number) || other.number == number) &&
             (identical(other.isParked, isParked) ||
                 other.isParked == isParked) &&
+            (identical(other.message, message) || other.message == message) &&
             (identical(other.updatedAt, updatedAt) ||
                 other.updatedAt == updatedAt));
   }
@@ -218,7 +235,7 @@ class _$CarNumberImpl extends _CarNumber {
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
-      runtimeType, id, region, category, number, isParked, updatedAt);
+      runtimeType, id, region, category, number, isParked, message, updatedAt);
 
   /// Create a copy of CarNumber
   /// with the given fields replaced by the non-null parameter values.
@@ -243,6 +260,7 @@ abstract class _CarNumber extends CarNumber {
       required final String category,
       required final String number,
       required final bool isParked,
+      final String? message,
       required final DateTime? updatedAt}) = _$CarNumberImpl;
   const _CarNumber._() : super._();
 
@@ -259,6 +277,8 @@ abstract class _CarNumber extends CarNumber {
   String get number; // 번호 (예: "7833")
   @override
   bool get isParked;
+  @override
+  String? get message;
   @override
   DateTime? get updatedAt;
 
