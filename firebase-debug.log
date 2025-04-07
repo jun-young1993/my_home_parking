@@ -1,0 +1,64 @@
+[debug] [2025-04-07T13:47:32.118Z] ----------------------------------------------------------------------
+[debug] [2025-04-07T13:47:32.120Z] Command:       /Users/junyoungkim/.nvm/versions/node/v23.0.0/bin/node /Users/junyoungkim/.nvm/versions/node/v23.0.0/bin/firebase init
+[debug] [2025-04-07T13:47:32.120Z] CLI Version:   14.1.0
+[debug] [2025-04-07T13:47:32.120Z] Platform:      darwin
+[debug] [2025-04-07T13:47:32.121Z] Node Version:  v23.0.0
+[debug] [2025-04-07T13:47:32.121Z] Time:          Mon Apr 07 2025 22:47:32 GMT+0900 (대한민국 표준시)
+[debug] [2025-04-07T13:47:32.121Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-04-07T13:47:32.124Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-04-07T13:47:32.125Z] > authorizing via signed-in user (juny3738@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  /Users/junyoungkim/Desktop/junyoung/app/source/my_home_parking
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  If you want to create a project in a Google Cloud organization or folder, please use "firebase projects:create" instead, and return to this command when you've created the project. 
+[debug] [2025-04-07T13:48:01.862Z] Checked if tokens are valid: true, expires at: 1744036529507
+[debug] [2025-04-07T13:48:01.862Z] Checked if tokens are valid: true, expires at: 1744036529507
+[debug] [2025-04-07T13:48:01.863Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects [none]
+[debug] [2025-04-07T13:48:01.863Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"projectId":"my-home-parking","name":"my-home-parking"}
+[debug] [2025-04-07T13:48:02.850Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects 200
+[debug] [2025-04-07T13:48:02.850Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"name":"operations/create_project.global.6884602610658087923"}
+[debug] [2025-04-07T13:48:02.851Z] Checked if tokens are valid: true, expires at: 1744036529507
+[debug] [2025-04-07T13:48:02.851Z] Checked if tokens are valid: true, expires at: 1744036529507
+[debug] [2025-04-07T13:48:02.852Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.6884602610658087923 [none]
+[debug] [2025-04-07T13:48:03.587Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.6884602610658087923 200
+[debug] [2025-04-07T13:48:03.587Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.6884602610658087923 {"name":"operations/create_project.global.6884602610658087923"}
+[debug] [2025-04-07T13:48:04.088Z] [Project Creation Poller] Retrying task index 0
+[debug] [2025-04-07T13:48:04.090Z] Checked if tokens are valid: true, expires at: 1744036529507
+[debug] [2025-04-07T13:48:04.090Z] Checked if tokens are valid: true, expires at: 1744036529507
+[debug] [2025-04-07T13:48:04.090Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.6884602610658087923 [none]
+[debug] [2025-04-07T13:48:04.307Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.6884602610658087923 200
+[debug] [2025-04-07T13:48:04.307Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.6884602610658087923 {"name":"operations/create_project.global.6884602610658087923"}
+[debug] [2025-04-07T13:48:05.308Z] [Project Creation Poller] Retrying task index 0
+[debug] [2025-04-07T13:48:05.309Z] Checked if tokens are valid: true, expires at: 1744036529507
+[debug] [2025-04-07T13:48:05.309Z] Checked if tokens are valid: true, expires at: 1744036529507
+[debug] [2025-04-07T13:48:05.309Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.6884602610658087923 [none]
+[debug] [2025-04-07T13:48:05.542Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.6884602610658087923 200
+[debug] [2025-04-07T13:48:05.543Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.6884602610658087923 {"name":"operations/create_project.global.6884602610658087923","metadata":{"@type":"type.googleapis.com/google.cloudresourcemanager.v1.ProjectCreationStatus","gettable":true,"ready":true},"done":true,"response":{"@type":"type.googleapis.com/google.cloudresourcemanager.v1.Project","projectNumber":"22085798617","projectId":"my-home-parking","lifecycleState":"ACTIVE","name":"my-home-parking","createTime":"2025-04-07T13:48:03.602787Z"}}
+[debug] [2025-04-07T13:48:05.545Z] Checked if tokens are valid: true, expires at: 1744036529507
+[debug] [2025-04-07T13:48:05.545Z] Checked if tokens are valid: true, expires at: 1744036529507
+[debug] [2025-04-07T13:48:05.545Z] >>> [apiv2][query] POST https://firebase.googleapis.com/v1beta1/projects/my-home-parking:addFirebase [none]
+[debug] [2025-04-07T13:48:06.782Z] <<< [apiv2][status] POST https://firebase.googleapis.com/v1beta1/projects/my-home-parking:addFirebase 403
+[debug] [2025-04-07T13:48:06.782Z] <<< [apiv2][body] POST https://firebase.googleapis.com/v1beta1/projects/my-home-parking:addFirebase {"error":{"code":403,"message":"The caller does not have permission","status":"PERMISSION_DENIED"}}
+[debug] [2025-04-07T13:48:06.784Z] Request to https://firebase.googleapis.com/v1beta1/projects/my-home-parking:addFirebase had HTTP Error: 403, The caller does not have permission
+[debug] [2025-04-07T13:48:06.987Z] FirebaseError: Request to https://firebase.googleapis.com/v1beta1/projects/my-home-parking:addFirebase had HTTP Error: 403, The caller does not have permission
+    at responseToError (/Users/junyoungkim/.nvm/versions/node/v23.0.0/lib/node_modules/firebase-tools/lib/responseToError.js:52:12)
+    at RetryOperation._fn (/Users/junyoungkim/.nvm/versions/node/v23.0.0/lib/node_modules/firebase-tools/lib/apiv2.js:312:77)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+[error] 
+[error] Error: Failed to add Firebase to Google Cloud Platform project. See firebase-debug.log for more info.
