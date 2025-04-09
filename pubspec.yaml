@@ -47,6 +47,10 @@ dependencies:
   intl: ^0.20.2
   timeago: ^3.2.2
   equatable: ^2.0.7
+  firebase_core: ^3.13.0
+  firebase_messaging: ^15.2.5
+  googleapis_auth: ^2.0.0
+  flutter_local_notifications: ^19.0.0
 
 dev_dependencies:
   flutter_test:
@@ -77,6 +81,7 @@ flutter:
     - assets/web/
     - assets/web/index.html
     - assets/web/assets/
+    - assets/data/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

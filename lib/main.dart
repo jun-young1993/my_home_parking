@@ -1,8 +1,13 @@
+import 'dart:convert';
+
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:my_home_parking/app.dart';
+import 'package:my_home_parking/firebase_options.dart';
 import 'package:my_home_parking/repository/log_repository.dart';
 import 'package:my_home_parking/repository/main_repository.dart';
 import 'package:my_home_parking/repository/my_car_repository.dart';
@@ -22,9 +27,22 @@ final InAppLocalhostServer localhostServer = InAppLocalhostServer(
   documentRoot: 'assets/web',
   port: AppConstants.localPort,
 );
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
+  print('onBackgroundMessage: $message');
+}
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
+  FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+    String payloadData = jsonEncode(message.data);
+    print('onMessage: $payloadData');
+  });
+  final fcmToken = await FirebaseMessaging.instance.getToken();
+  print('fcmToken: $fcmToken');
   // SharedPreferences 인스턴스 초기화
   final prefs = await SharedPreferences.getInstance();
 
