@@ -6,6 +6,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:my_home_parking/app.dart';
 import 'package:my_home_parking/firebase_options.dart';
 import 'package:my_home_parking/repository/log_repository.dart';
@@ -20,6 +21,7 @@ import 'package:my_home_parking/core/constants/app_constants.dart';
 import 'package:my_home_parking/state/main/main_state.dart';
 import 'package:my_home_parking/state/notice/notice_bloc.dart';
 import 'package:my_home_parking/state/parking_map/parking_map_bloc.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:timeago/timeago.dart' as timeago;
 
@@ -58,6 +60,7 @@ Future<void> main() async {
   if (!kIsWeb && defaultTargetPlatform == TargetPlatform.android) {
     await InAppWebViewController.setWebContentsDebuggingEnabled(kDebugMode);
   }
+  _initializeLocalNotifications();
   runApp(
     MultiRepositoryProvider(
       providers: [
@@ -117,4 +120,24 @@ Future<void> main() async {
       ),
     ),
   );
+}
+
+void _initializeLocalNotifications() async {
+  if (await Permission.notification.isDenied &&
+      !await Permission.notification.isPermanentlyDenied) {
+    await [Permission.notification].request();
+  }
+
+  final FlutterLocalNotificationsPlugin _local =
+      FlutterLocalNotificationsPlugin();
+  AndroidInitializationSettings android =
+      const AndroidInitializationSettings("@mipmap/ic_launcher");
+  DarwinInitializationSettings ios = const DarwinInitializationSettings(
+    requestSoundPermission: false,
+    requestBadgePermission: false,
+    requestAlertPermission: false,
+  );
+  InitializationSettings settings =
+      InitializationSettings(android: android, iOS: ios);
+  await _local.initialize(settings);
 }
