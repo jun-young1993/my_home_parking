@@ -22,7 +22,7 @@ class DioClient {
       ),
     );
 
-    if (kDebugMode && false) {
+    if (kDebugMode) {
       _dio.interceptors.add(LogInterceptor(
         requestBody: true,
         responseBody: true,
@@ -32,6 +32,7 @@ class DioClient {
 
   String _getBaseUrl() {
     if (kDebugMode) {
+      return 'http://192.0.0.2:3000';
       return 'http://127.0.0.1:3000';
     }
     // TODO: 실제 운영 서버 URL로 변경

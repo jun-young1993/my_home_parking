@@ -58,9 +58,9 @@ class _PostAddressSectionState extends State<PostAddressSection> {
                                   setState(() {
                                     _address =
                                         '${model.address} ${model.buildingName}';
-                                    _zonecode = model.zonecode;
+                                    _zonecode = model.buildingCode;
                                     _homeAddressController.text =
-                                        '$_address, $_zonecode';
+                                        '$_address, ${model.zonecode}';
                                   });
                                 },
                                 options: const DaumPostcodeOptions(

@@ -43,10 +43,10 @@ Future<void> main() async {
     String payloadData = jsonEncode(message.data);
     print('onMessage: $payloadData');
   });
-  final fcmToken = await FirebaseMessaging.instance.getToken();
+  final String? fcmToken = await FirebaseMessaging.instance.getToken();
   print('fcmToken: $fcmToken');
   // SharedPreferences 인스턴스 초기화
-  final prefs = await SharedPreferences.getInstance();
+  final SharedPreferences prefs = await SharedPreferences.getInstance();
 
   // timeago 한국어 설정 초기화
   timeago.setLocaleMessages('ko', timeago.KoMessages());
@@ -128,7 +128,7 @@ void _initializeLocalNotifications() async {
     await [Permission.notification].request();
   }
 
-  final FlutterLocalNotificationsPlugin _local =
+  final FlutterLocalNotificationsPlugin local =
       FlutterLocalNotificationsPlugin();
   AndroidInitializationSettings android =
       const AndroidInitializationSettings("@mipmap/ic_launcher");
@@ -139,5 +139,5 @@ void _initializeLocalNotifications() async {
   );
   InitializationSettings settings =
       InitializationSettings(android: android, iOS: ios);
-  await _local.initialize(settings);
+  await local.initialize(settings);
 }
