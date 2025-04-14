@@ -28,8 +28,22 @@ class MainDefaultRepository extends MainRepository {
   @override
   Future<UserInfo?> getUserInfo() async {
     final String? userInfoJson = _prefs.getString(_userInfoKey);
+    print('[get user info userInfoJson] $userInfoJson');
     if (userInfoJson == null) return null;
-    return UserInfo.fromJson(jsonDecode(userInfoJson));
+    final decodedUserInfo = jsonDecode(userInfoJson);
+    final response = await _dioClient.get(
+      '${ApiEndpoints.myCar}/${decodedUserInfo['carNumber']['id']}',
+    );
+
+    if (response.statusCode == 200) {
+      final carNumber = CarNumber.fromJson(response.data);
+
+      return UserInfo.fromJson({
+        ...decodedUserInfo,
+        'carNumber': carNumber.toJson(),
+      });
+    }
+    return UserInfo.fromJson(decodedUserInfo);
   }
 
   @override

@@ -14,6 +14,7 @@ _$CarNumberImpl _$$CarNumberImplFromJson(Map<String, dynamic> json) =>
       number: json['number'] as String,
       isParked: json['isParked'] as bool,
       message: json['message'] as String?,
+      fcmToken: json['fcmToken'] as String,
       updatedAt: json['updatedAt'] == null
           ? null
           : DateTime.parse(json['updatedAt'] as String),
@@ -27,5 +28,6 @@ Map<String, dynamic> _$$CarNumberImplToJson(_$CarNumberImpl instance) =>
       'number': instance.number,
       'isParked': instance.isParked,
       'message': instance.message,
+      'fcmToken': instance.fcmToken,
       'updatedAt': instance.updatedAt?.toIso8601String(),
     };

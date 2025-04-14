@@ -32,8 +32,9 @@ class DioClient {
 
   String _getBaseUrl() {
     if (kDebugMode) {
-      return 'http://192.0.0.2:3000';
-      return 'http://127.0.0.1:3000';
+      return 'http://192.168.45.229:3000';
+      // return 'http://192.0.0.2:3000';
+      // return 'http://127.0.0.1:3000';
     }
     // TODO: 실제 운영 서버 URL로 변경
     return 'https://api.your-production-server.com';

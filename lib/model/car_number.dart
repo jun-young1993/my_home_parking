@@ -12,6 +12,7 @@ class CarNumber with _$CarNumber {
     required String number, // 번호 (예: "7833")
     required bool isParked,
     String? message,
+    required String fcmToken,
     required DateTime? updatedAt,
   }) = _CarNumber;
 
@@ -24,6 +25,7 @@ class CarNumber with _$CarNumber {
         'number': number,
         'isParked': isParked,
         'message': message,
+        'fcmToken': fcmToken,
         // id와 parkingLocationId는 제외
       };
 

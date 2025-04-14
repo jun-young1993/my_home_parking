@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_home_parking/core/di/fcm_sender.dart';
 import 'package:my_home_parking/model/car_number.dart';
 import 'package:my_home_parking/state/main/main_bloc.dart';
 import 'package:my_home_parking/state/main/main_event.dart';
@@ -26,14 +27,17 @@ class _CarNumberSectionState extends State<CarNumberSection> {
     super.dispose();
   }
 
-  void _submitForm() {
+  Future<void> _submitForm() async {
     if (_formKey.currentState?.validate() ?? false) {
+      final fcmToken = await FCMSender.getToken();
+
       context.read<MainBloc>().add(
             MainEvent.createCarNumber(CarNumber(
                 region: _regionController.text,
                 category: _categoryController.text,
                 number: _numberController.text,
                 updatedAt: DateTime.now(),
+                fcmToken: fcmToken,
                 isParked: true)),
           );
     }

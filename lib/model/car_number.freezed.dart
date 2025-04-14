@@ -26,6 +26,7 @@ mixin _$CarNumber {
   String get number => throw _privateConstructorUsedError; // 번호 (예: "7833")
   bool get isParked => throw _privateConstructorUsedError;
   String? get message => throw _privateConstructorUsedError;
+  String get fcmToken => throw _privateConstructorUsedError;
   DateTime? get updatedAt => throw _privateConstructorUsedError;
 
   /// Serializes this CarNumber to a JSON map.
@@ -50,6 +51,7 @@ abstract class $CarNumberCopyWith<$Res> {
       String number,
       bool isParked,
       String? message,
+      String fcmToken,
       DateTime? updatedAt});
 }
 
@@ -74,6 +76,7 @@ class _$CarNumberCopyWithImpl<$Res, $Val extends CarNumber>
     Object? number = null,
     Object? isParked = null,
     Object? message = freezed,
+    Object? fcmToken = null,
     Object? updatedAt = freezed,
   }) {
     return _then(_value.copyWith(
@@ -101,6 +104,10 @@ class _$CarNumberCopyWithImpl<$Res, $Val extends CarNumber>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
+      fcmToken: null == fcmToken
+          ? _value.fcmToken
+          : fcmToken // ignore: cast_nullable_to_non_nullable
+              as String,
       updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
@@ -124,6 +131,7 @@ abstract class _$$CarNumberImplCopyWith<$Res>
       String number,
       bool isParked,
       String? message,
+      String fcmToken,
       DateTime? updatedAt});
 }
 
@@ -146,6 +154,7 @@ class __$$CarNumberImplCopyWithImpl<$Res>
     Object? number = null,
     Object? isParked = null,
     Object? message = freezed,
+    Object? fcmToken = null,
     Object? updatedAt = freezed,
   }) {
     return _then(_$CarNumberImpl(
@@ -173,6 +182,10 @@ class __$$CarNumberImplCopyWithImpl<$Res>
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as String?,
+      fcmToken: null == fcmToken
+          ? _value.fcmToken
+          : fcmToken // ignore: cast_nullable_to_non_nullable
+              as String,
       updatedAt: freezed == updatedAt
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
@@ -191,6 +204,7 @@ class _$CarNumberImpl extends _CarNumber {
       required this.number,
       required this.isParked,
       this.message,
+      required this.fcmToken,
       required this.updatedAt})
       : super._();
 
@@ -213,6 +227,8 @@ class _$CarNumberImpl extends _CarNumber {
   @override
   final String? message;
   @override
+  final String fcmToken;
+  @override
   final DateTime? updatedAt;
 
   @override
@@ -228,14 +244,16 @@ class _$CarNumberImpl extends _CarNumber {
             (identical(other.isParked, isParked) ||
                 other.isParked == isParked) &&
             (identical(other.message, message) || other.message == message) &&
+            (identical(other.fcmToken, fcmToken) ||
+                other.fcmToken == fcmToken) &&
             (identical(other.updatedAt, updatedAt) ||
                 other.updatedAt == updatedAt));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(
-      runtimeType, id, region, category, number, isParked, message, updatedAt);
+  int get hashCode => Object.hash(runtimeType, id, region, category, number,
+      isParked, message, fcmToken, updatedAt);
 
   /// Create a copy of CarNumber
   /// with the given fields replaced by the non-null parameter values.
@@ -261,6 +279,7 @@ abstract class _CarNumber extends CarNumber {
       required final String number,
       required final bool isParked,
       final String? message,
+      required final String fcmToken,
       required final DateTime? updatedAt}) = _$CarNumberImpl;
   const _CarNumber._() : super._();
 
@@ -279,6 +298,8 @@ abstract class _CarNumber extends CarNumber {
   bool get isParked;
   @override
   String? get message;
+  @override
+  String get fcmToken;
   @override
   DateTime? get updatedAt;
 
