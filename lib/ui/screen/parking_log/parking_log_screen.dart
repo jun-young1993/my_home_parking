@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_home_parking/core/constants/app_constants.dart';
 import 'package:my_home_parking/state/log/log_selector.dart';
+import 'package:my_home_parking/ui/widgets/empty_screen.dart';
 import 'package:my_home_parking/ui/widgets/log/log_item_widget.dart';
 
 class ParkingLogScreen extends StatefulWidget {
@@ -51,31 +52,10 @@ class _ParkingLogScreenState extends State<ParkingLogScreen> {
     required String title,
     required String description,
   }) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            Icons.history,
-            size: 64,
-            color: Colors.grey[400],
-          ),
-          const SizedBox(height: 16),
-          Text(
-            title,
-            style: Theme.of(context).textTheme.titleMedium?.copyWith(
-                  color: Colors.grey[600],
-                ),
-          ),
-          const SizedBox(height: 8),
-          Text(
-            description,
-            style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                  color: Colors.grey[500],
-                ),
-          ),
-        ],
-      ),
+    return EmptyScreen(
+      title: title,
+      description: description,
+      context: context,
     );
   }
 }
