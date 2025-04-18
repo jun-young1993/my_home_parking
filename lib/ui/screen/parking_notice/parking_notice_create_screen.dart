@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_home_parking/core/constants/app_constants.dart';
 import 'package:my_home_parking/routes.dart';
 import 'package:my_home_parking/state/notice/notice_bloc.dart';
 import 'package:my_home_parking/state/notice/notice_event.dart';
@@ -27,7 +28,7 @@ class _ParkingNoticeCreateScreenState extends State<ParkingNoticeCreateScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('주차장 게시판 작성'),
+        title: Text(AppConstants.parkingNoticeWriteButtonTitle),
       ),
       body: NoticeExceptionSelector(
         (exception) {

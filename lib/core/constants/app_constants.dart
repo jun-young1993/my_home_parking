@@ -8,6 +8,9 @@ class AppConstants {
   static String get appName => '우리집 주차장';
   static String get parkingMapMenuDisplayName => '주차장';
   static String get parkingNoticeMenuDisplayName => '주차장 게시판';
+  static String get parkingNoticeEmptyTitle => '주차장 게시판에 게시글이 없습니다.';
+  static String get parkingNoticeEmptyDescription => '주차장 게시판에 게시글을 작성해주세요.';
+  static String get parkingNoticeWriteButtonTitle => '게시글 작성';
 
   // 주차장 알림 화면 메뉴
   static String get parkingLogMenuDisplayName => '최근 알림';

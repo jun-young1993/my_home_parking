@@ -6,8 +6,8 @@ import 'package:my_home_parking/routes.dart';
 import 'package:my_home_parking/state/notice/notice_bloc.dart';
 import 'package:my_home_parking/state/notice/notice_event.dart';
 import 'package:my_home_parking/state/notice/notice_selector.dart';
-import 'package:my_home_parking/ui/screen/parking_notice/sections/notice_create_section.dart';
 import 'package:my_home_parking/ui/screen/parking_notice/sections/notice_list_section.dart';
+import 'package:my_home_parking/ui/widgets/empty_screen.dart';
 import 'package:my_home_parking/ui/widgets/error_view.dart';
 import 'package:my_home_parking/ui/widgets/loading_overlay.dart';
 
@@ -49,13 +49,22 @@ class _ParkingNoticeScreenState extends State<ParkingNoticeScreen> {
           return NoticeLoadingSelector((isLoading) {
             return LoadingOverlay(
                 isLoading: isLoading,
-                child: NoticesSelector((notices) => NoticeListSection(
-                      notices: notices,
-                      onNoticeTap: (notice) {
-                        AppNavigator.push<String>(
-                            Routes.parkingNoticeDetail, notice.id);
-                      },
-                    )));
+                child: NoticesSelector((notices) {
+                  if (notices.isEmpty) {
+                    return EmptyScreen(
+                      title: AppConstants.parkingNoticeEmptyTitle,
+                      description: AppConstants.parkingNoticeEmptyDescription,
+                      context: context,
+                    );
+                  }
+                  return NoticeListSection(
+                    notices: notices,
+                    onNoticeTap: (notice) {
+                      AppNavigator.push<String>(
+                          Routes.parkingNoticeDetail, notice.id);
+                    },
+                  );
+                }));
           });
         }),
         // 글쓰기 버튼

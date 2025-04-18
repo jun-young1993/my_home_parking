@@ -80,6 +80,7 @@ class _NoticeCreateSectionState extends State<NoticeCreateSection> {
             ),
             const SizedBox(height: 8),
             _buildNoticeTypeDropdown(),
+            const SizedBox(height: 8),
             Expanded(
               child: TextFormField(
                 controller: _contentController,
@@ -106,6 +107,7 @@ class _NoticeCreateSectionState extends State<NoticeCreateSection> {
               ),
             ),
             // 등록 버튼
+            const SizedBox(height: 8),
             SizedBox(
               width: double.infinity,
               height: 56,
