@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:my_home_parking/core/constants/app_constants.dart';
 import 'package:my_home_parking/ui/screen/main/main_screen.dart';
-import 'package:my_home_parking/ui/screen/parking_map/parking_map_screen.dart';
+// import 'package:my_home_parking/ui/screen/parking_map/parking_map_screen.dart';
 import 'package:my_home_parking/ui/screen/parking_status/parking_status_screen.dart';
 import 'package:my_home_parking/ui/screen/setting/setting_screen.dart';
 
@@ -17,7 +17,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   final List<Widget> _screens = [
     const MainScreen(),
-    const ParkingMapScreen(),
+    // const ParkingMapScreen(),
     const ParkingStatusScreen(),
     const SettingScreen(),
   ];
@@ -44,10 +44,10 @@ class _HomeScreenState extends State<HomeScreen> {
             icon: const Icon(Icons.home),
             label: AppConstants.parkingMainMenuHome,
           ),
-          BottomNavigationBarItem(
-            icon: const Icon(Icons.map),
-            label: AppConstants.parkingMainMenuParkingMap,
-          ),
+          // BottomNavigationBarItem(
+          //   icon: const Icon(Icons.map),
+          //   label: AppConstants.parkingMainMenuParkingMap,
+          // ),
           BottomNavigationBarItem(
             icon: const Icon(Icons.local_parking),
             label: AppConstants.parkingMainMenuParkingStatus,
