@@ -12,12 +12,13 @@ _$CarNumberImpl _$$CarNumberImplFromJson(Map<String, dynamic> json) =>
       region: json['region'] as String,
       category: json['category'] as String,
       number: json['number'] as String,
-      isParked: json['isParked'] as bool,
+      isParked: json['isParked'] as bool? ?? true,
       message: json['message'] as String?,
       fcmToken: json['fcmToken'] as String,
       updatedAt: json['updatedAt'] == null
           ? null
           : DateTime.parse(json['updatedAt'] as String),
+      allowFcmNotification: json['allowFcmNotification'] as bool? ?? true,
     );
 
 Map<String, dynamic> _$$CarNumberImplToJson(_$CarNumberImpl instance) =>
@@ -30,4 +31,5 @@ Map<String, dynamic> _$$CarNumberImplToJson(_$CarNumberImpl instance) =>
       'message': instance.message,
       'fcmToken': instance.fcmToken,
       'updatedAt': instance.updatedAt?.toIso8601String(),
+      'allowFcmNotification': instance.allowFcmNotification,
     };

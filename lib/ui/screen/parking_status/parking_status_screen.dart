@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_home_parking/core/constants/app_constants.dart';
 import 'package:my_home_parking/state/main/main_bloc.dart';
 import 'package:my_home_parking/state/main/main_event.dart';
 import 'package:my_home_parking/state/main/main_selector.dart';
 import 'package:my_home_parking/ui/screen/parking_status/sections/parking_status_list_section.dart';
 import 'package:my_home_parking/ui/screen/parking_status/sections/parking_status_summary_section.dart';
+import 'package:my_home_parking/ui/widgets/empty_screen.dart';
 
 class ParkingStatusScreen extends StatefulWidget {
   const ParkingStatusScreen({super.key});
@@ -26,40 +28,43 @@ class _ParkingStatusScreenState extends State<ParkingStatusScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('주차 현황'),
+        title: Text(AppConstants.parkingMainMenuParkingStatus),
       ),
       body: UserInfoSelector((userInfo) {
         return ParkingLocationZoneSelector((parkingLocationZone) {
           if (parkingLocationZone == null) {
-            return const Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(
-                    Icons.info_outline,
-                    size: 48,
-                    color: Colors.grey,
-                  ),
-                  SizedBox(height: 16),
-                  Text(
-                    '등록된 데이터가 없습니다',
-                    style: TextStyle(
-                      fontSize: 16,
-                      color: Colors.grey,
-                    ),
-                  ),
-                ],
-              ),
+            return EmptyScreen(
+              title: '등록된 데이터가 없습니다',
+              description: '등록된 데이터를 추가해주세요',
+              context: context,
             );
           }
 
           return Column(
             children: [
               // 상단 요약 정보 섹션
-              const ParkingStatusSummarySection(),
-              // 주차 차량 목록 섹션x
+              ParkingStatusSummarySection(
+                totalParkingSpaces: parkingLocationZone.carNumbers.length,
+                availableParkingSpaces: parkingLocationZone.carNumbers
+                    .where((car) => !car.isParked)
+                    .length,
+                parkedCars: parkingLocationZone.carNumbers
+                    .where((car) => car.isParked)
+                    .length,
+                exitCars: parkingLocationZone.carNumbers
+                    .where((car) => !car.isParked)
+                    .length,
+              ),
+              // 주차 차량 목록 섹션
               Expanded(
                 child: ParkingStatusListSection(
+                  onSendFcm: (senderCarNumberId, targetCarNumberId, message) {
+                    mainBloc.add(MainEvent.sendFcm(
+                      senderCarNumberId,
+                      targetCarNumberId,
+                      message,
+                    ));
+                  },
                   parkingLocationZone: parkingLocationZone,
                   userInfo: userInfo!,
                   isParked: userInfo.carNumber!.isParked,

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_home_parking/model/user_info.dart';
 import 'package:my_home_parking/routes.dart';
 import 'package:my_home_parking/state/main/main_bloc.dart';
 import 'package:my_home_parking/state/main/main_event.dart';
+import 'package:my_home_parking/state/main/main_selector.dart';
+import 'package:my_home_parking/ui/widgets/empty_screen.dart';
 
 class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});
@@ -13,6 +16,7 @@ class SettingScreen extends StatefulWidget {
 
 class _SettingScreenState extends State<SettingScreen> {
   MainBloc get mainBloc => context.read<MainBloc>();
+
   Future<void> _showResetConfirmDialog(BuildContext context) async {
     return showDialog(
       context: context,
@@ -43,64 +47,113 @@ class _SettingScreenState extends State<SettingScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('설정'),
-      ),
-      body: Column(
-        children: [
-          const Expanded(
-            child: Center(
-              child: Text('설정'),
-            ),
-          ),
-          Container(
-            decoration: BoxDecoration(
-              border: Border(
-                top: BorderSide(
-                  color: Colors.grey.shade300,
-                  width: 1,
+    return UserInfoSelector((userInfo) {
+      if (userInfo == null) {
+        return EmptyScreen(
+          title: '차량 정보가 없습니다.',
+          description: '차량 정보를 등록해주세요',
+          context: context,
+        );
+      }
+      return Scaffold(
+        appBar: AppBar(
+          title: const Text('설정'),
+        ),
+        body: Column(
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                border: Border(
+                  bottom: BorderSide(
+                    color: Colors.grey.shade300,
+                    width: 1,
+                  ),
+                ),
+              ),
+              child: ListTile(
+                contentPadding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 8,
+                ),
+                title: const Text(
+                  '푸시 알림',
+                  style: TextStyle(
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                subtitle: Text(
+                  userInfo.carNumber!.allowFcmNotification
+                      ? '푸시 알림이 활성화되어 있습니다'
+                      : '푸시 알림이 비활성화되어 있습니다',
+                  style: TextStyle(
+                    color: Colors.grey[600],
+                    fontSize: 12,
+                  ),
+                ),
+                trailing: Switch(
+                  value: userInfo.carNumber!.allowFcmNotification,
+                  onChanged: (bool value) {
+                    mainBloc.add(MainEvent.updateParkingCarNumber(
+                      userInfo.carNumber!.copyWith(
+                        allowFcmNotification: value,
+                      ),
+                    ));
+                  },
+                  activeColor: Colors.green,
+                  inactiveTrackColor: Colors.red.shade200,
+                  inactiveThumbColor: Colors.red,
                 ),
               ),
             ),
-            child: ListTile(
-              contentPadding: const EdgeInsets.symmetric(
-                horizontal: 20,
-                vertical: 8,
+            const Spacer(),
+            Container(
+              decoration: BoxDecoration(
+                border: Border(
+                  top: BorderSide(
+                    color: Colors.grey.shade300,
+                    width: 1,
+                  ),
+                ),
               ),
-              title: const Row(
-                children: [
-                  Text(
-                    '설정 초기화',
-                    style: TextStyle(
+              child: ListTile(
+                contentPadding: const EdgeInsets.symmetric(
+                  horizontal: 20,
+                  vertical: 8,
+                ),
+                title: const Row(
+                  children: [
+                    Text(
+                      '설정 초기화',
+                      style: TextStyle(
+                        color: Colors.red,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    SizedBox(width: 8),
+                    Icon(
+                      Icons.warning,
+                      size: 18,
                       color: Colors.red,
-                      fontWeight: FontWeight.w500,
+                    ),
+                  ],
+                ),
+                trailing: TextButton(
+                  onPressed: () => _showResetConfirmDialog(context),
+                  style: TextButton.styleFrom(
+                    foregroundColor: Colors.red,
+                    side: const BorderSide(color: Colors.red),
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 16,
+                      vertical: 8,
                     ),
                   ),
-                  SizedBox(width: 8),
-                  Icon(
-                    Icons.warning,
-                    size: 18,
-                    color: Colors.red,
-                  ),
-                ],
-              ),
-              trailing: TextButton(
-                onPressed: () => _showResetConfirmDialog(context),
-                style: TextButton.styleFrom(
-                  foregroundColor: Colors.red,
-                  side: const BorderSide(color: Colors.red),
-                  padding: const EdgeInsets.symmetric(
-                    horizontal: 16,
-                    vertical: 8,
-                  ),
+                  child: const Text('초기화'),
                 ),
-                child: const Text('초기화'),
               ),
             ),
-          ),
-        ],
-      ),
-    );
+          ],
+        ),
+      );
+    });
   }
 }

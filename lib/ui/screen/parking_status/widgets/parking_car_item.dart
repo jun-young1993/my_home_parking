@@ -6,6 +6,7 @@ class ParkingCarItem extends StatelessWidget {
   final String entryTime;
   final bool isParked;
   final String? parkingMessage;
+  final bool allowFcmNotification;
 
   const ParkingCarItem({
     super.key,
@@ -13,6 +14,7 @@ class ParkingCarItem extends StatelessWidget {
     required this.entryTime,
     required this.isParked,
     this.parkingMessage,
+    required this.allowFcmNotification,
   });
 
   @override
@@ -38,11 +40,34 @@ class ParkingCarItem extends StatelessWidget {
                                 ),
                       ),
                       const SizedBox(height: 4),
-                      Text(
-                        entryTime,
-                        style: Theme.of(context).textTheme.bodyMedium?.copyWith(
-                              color: Colors.grey[600],
-                            ),
+                      Row(
+                        children: [
+                          Icon(
+                            Icons.access_time,
+                            size: 14,
+                            color: Colors.grey[600],
+                          ),
+                          const SizedBox(width: 4),
+                          Text(
+                            isParked ? '입차: $entryTime' : '출차: $entryTime',
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyMedium
+                                ?.copyWith(
+                                  color: Colors.grey[600],
+                                ),
+                          ),
+                          const SizedBox(width: 8),
+                          Icon(
+                            allowFcmNotification
+                                ? Icons.notifications_active
+                                : Icons.notifications_off,
+                            size: 16,
+                            color: allowFcmNotification
+                                ? Colors.green
+                                : Colors.red,
+                          ),
+                        ],
                       ),
                     ],
                   ),

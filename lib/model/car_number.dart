@@ -10,10 +10,11 @@ class CarNumber with _$CarNumber {
     required String region, // 지역 (예: "30")
     required String category, // 분류 (예: "조")
     required String number, // 번호 (예: "7833")
-    required bool isParked,
+    @Default(true) bool isParked,
     String? message,
     required String fcmToken,
     required DateTime? updatedAt,
+    @Default(true) bool allowFcmNotification,
   }) = _CarNumber;
 
   const CarNumber._(); // private constructor
@@ -26,6 +27,7 @@ class CarNumber with _$CarNumber {
         'isParked': isParked,
         'message': message,
         'fcmToken': fcmToken,
+        'allowFcmNotification': allowFcmNotification,
         // id와 parkingLocationId는 제외
       };
 

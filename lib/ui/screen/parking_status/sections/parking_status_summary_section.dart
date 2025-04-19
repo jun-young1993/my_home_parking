@@ -1,7 +1,18 @@
 import 'package:flutter/material.dart';
 
 class ParkingStatusSummarySection extends StatelessWidget {
-  const ParkingStatusSummarySection({super.key});
+  final int totalParkingSpaces;
+  final int availableParkingSpaces;
+  final int parkedCars;
+  final int exitCars;
+
+  const ParkingStatusSummarySection({
+    super.key,
+    required this.totalParkingSpaces,
+    required this.availableParkingSpaces,
+    required this.parkedCars,
+    required this.exitCars,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -24,19 +35,19 @@ class ParkingStatusSummarySection extends StatelessWidget {
           _buildStatusItem(
             context,
             '전체 주차면',
-            '50',
+            totalParkingSpaces.toString(),
             Theme.of(context).colorScheme.primary,
           ),
           _buildStatusItem(
             context,
             '입차',
-            '23',
+            parkedCars.toString(),
             Colors.green,
           ),
           _buildStatusItem(
             context,
-            '잔여',
-            '27',
+            '출차',
+            exitCars.toString(),
             Colors.orange,
           ),
         ],

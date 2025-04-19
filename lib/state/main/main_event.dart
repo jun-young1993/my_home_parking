@@ -18,4 +18,7 @@ class MainEvent with _$MainEvent {
       _UpdateParkingCarNumber;
   const factory MainEvent.updateMessageCarNumber(CarNumber carNumber) =
       _UpdateMessageCarNumber;
+  const factory MainEvent.sendFcm(
+          String senderCarNumberId, String targetCarNumberId, String message) =
+      _SendFcm;
 }

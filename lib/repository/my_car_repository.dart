@@ -6,6 +6,8 @@ import 'package:my_home_parking/model/car_number.dart';
 abstract class MyCarRepository {
   Future<CarNumber> updateParkingCarNumber(CarNumber carNumber);
   Future<CarNumber> updateMessageCarNumber(CarNumber carNumber);
+  Future<void> sendFcm(
+      String senderCarNumberId, String targetCarNumberId, String message);
 }
 
 class MyCarDefaultRepository extends MyCarRepository {
@@ -37,5 +39,18 @@ class MyCarDefaultRepository extends MyCarRepository {
     );
 
     return CarNumber.fromJson(response.data);
+  }
+
+  @override
+  Future<void> sendFcm(String senderCarNumberId, String targetCarNumberId,
+      String message) async {
+    await _dioClient.post(
+      '${ApiEndpoints.myCar}/send-fcm',
+      data: {
+        'senderCarNumberId': senderCarNumberId,
+        'targetCarNumberId': targetCarNumberId,
+        'message': message,
+      },
+    );
   }
 }

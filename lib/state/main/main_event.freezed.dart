@@ -27,6 +27,9 @@ mixin _$MainEvent {
     required TResult Function() getParkingLocationZone,
     required TResult Function(CarNumber carNumber) updateParkingCarNumber,
     required TResult Function(CarNumber carNumber) updateMessageCarNumber,
+    required TResult Function(
+            String senderCarNumberId, String targetCarNumberId, String message)
+        sendFcm,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -40,6 +43,9 @@ mixin _$MainEvent {
     TResult? Function()? getParkingLocationZone,
     TResult? Function(CarNumber carNumber)? updateParkingCarNumber,
     TResult? Function(CarNumber carNumber)? updateMessageCarNumber,
+    TResult? Function(
+            String senderCarNumberId, String targetCarNumberId, String message)?
+        sendFcm,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -53,6 +59,9 @@ mixin _$MainEvent {
     TResult Function()? getParkingLocationZone,
     TResult Function(CarNumber carNumber)? updateParkingCarNumber,
     TResult Function(CarNumber carNumber)? updateMessageCarNumber,
+    TResult Function(
+            String senderCarNumberId, String targetCarNumberId, String message)?
+        sendFcm,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -70,6 +79,7 @@ mixin _$MainEvent {
         updateParkingCarNumber,
     required TResult Function(_UpdateMessageCarNumber value)
         updateMessageCarNumber,
+    required TResult Function(_SendFcm value) sendFcm,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -83,6 +93,7 @@ mixin _$MainEvent {
     TResult? Function(_GetParkingLocationZone value)? getParkingLocationZone,
     TResult? Function(_UpdateParkingCarNumber value)? updateParkingCarNumber,
     TResult? Function(_UpdateMessageCarNumber value)? updateMessageCarNumber,
+    TResult? Function(_SendFcm value)? sendFcm,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -96,6 +107,7 @@ mixin _$MainEvent {
     TResult Function(_GetParkingLocationZone value)? getParkingLocationZone,
     TResult Function(_UpdateParkingCarNumber value)? updateParkingCarNumber,
     TResult Function(_UpdateMessageCarNumber value)? updateMessageCarNumber,
+    TResult Function(_SendFcm value)? sendFcm,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -171,6 +183,9 @@ class _$CheckUserInfoImpl implements _CheckUserInfo {
     required TResult Function() getParkingLocationZone,
     required TResult Function(CarNumber carNumber) updateParkingCarNumber,
     required TResult Function(CarNumber carNumber) updateMessageCarNumber,
+    required TResult Function(
+            String senderCarNumberId, String targetCarNumberId, String message)
+        sendFcm,
   }) {
     return checkUserInfo();
   }
@@ -187,6 +202,9 @@ class _$CheckUserInfoImpl implements _CheckUserInfo {
     TResult? Function()? getParkingLocationZone,
     TResult? Function(CarNumber carNumber)? updateParkingCarNumber,
     TResult? Function(CarNumber carNumber)? updateMessageCarNumber,
+    TResult? Function(
+            String senderCarNumberId, String targetCarNumberId, String message)?
+        sendFcm,
   }) {
     return checkUserInfo?.call();
   }
@@ -203,6 +221,9 @@ class _$CheckUserInfoImpl implements _CheckUserInfo {
     TResult Function()? getParkingLocationZone,
     TResult Function(CarNumber carNumber)? updateParkingCarNumber,
     TResult Function(CarNumber carNumber)? updateMessageCarNumber,
+    TResult Function(
+            String senderCarNumberId, String targetCarNumberId, String message)?
+        sendFcm,
     required TResult orElse(),
   }) {
     if (checkUserInfo != null) {
@@ -226,6 +247,7 @@ class _$CheckUserInfoImpl implements _CheckUserInfo {
         updateParkingCarNumber,
     required TResult Function(_UpdateMessageCarNumber value)
         updateMessageCarNumber,
+    required TResult Function(_SendFcm value) sendFcm,
   }) {
     return checkUserInfo(this);
   }
@@ -242,6 +264,7 @@ class _$CheckUserInfoImpl implements _CheckUserInfo {
     TResult? Function(_GetParkingLocationZone value)? getParkingLocationZone,
     TResult? Function(_UpdateParkingCarNumber value)? updateParkingCarNumber,
     TResult? Function(_UpdateMessageCarNumber value)? updateMessageCarNumber,
+    TResult? Function(_SendFcm value)? sendFcm,
   }) {
     return checkUserInfo?.call(this);
   }
@@ -258,6 +281,7 @@ class _$CheckUserInfoImpl implements _CheckUserInfo {
     TResult Function(_GetParkingLocationZone value)? getParkingLocationZone,
     TResult Function(_UpdateParkingCarNumber value)? updateParkingCarNumber,
     TResult Function(_UpdateMessageCarNumber value)? updateMessageCarNumber,
+    TResult Function(_SendFcm value)? sendFcm,
     required TResult orElse(),
   }) {
     if (checkUserInfo != null) {
@@ -321,6 +345,9 @@ class _$CheckCarNumberImpl implements _CheckCarNumber {
     required TResult Function() getParkingLocationZone,
     required TResult Function(CarNumber carNumber) updateParkingCarNumber,
     required TResult Function(CarNumber carNumber) updateMessageCarNumber,
+    required TResult Function(
+            String senderCarNumberId, String targetCarNumberId, String message)
+        sendFcm,
   }) {
     return checkCarNumber();
   }
@@ -337,6 +364,9 @@ class _$CheckCarNumberImpl implements _CheckCarNumber {
     TResult? Function()? getParkingLocationZone,
     TResult? Function(CarNumber carNumber)? updateParkingCarNumber,
     TResult? Function(CarNumber carNumber)? updateMessageCarNumber,
+    TResult? Function(
+            String senderCarNumberId, String targetCarNumberId, String message)?
+        sendFcm,
   }) {
     return checkCarNumber?.call();
   }
@@ -353,6 +383,9 @@ class _$CheckCarNumberImpl implements _CheckCarNumber {
     TResult Function()? getParkingLocationZone,
     TResult Function(CarNumber carNumber)? updateParkingCarNumber,
     TResult Function(CarNumber carNumber)? updateMessageCarNumber,
+    TResult Function(
+            String senderCarNumberId, String targetCarNumberId, String message)?
+        sendFcm,
     required TResult orElse(),
   }) {
     if (checkCarNumber != null) {
@@ -376,6 +409,7 @@ class _$CheckCarNumberImpl implements _CheckCarNumber {
         updateParkingCarNumber,
     required TResult Function(_UpdateMessageCarNumber value)
         updateMessageCarNumber,
+    required TResult Function(_SendFcm value) sendFcm,
   }) {
     return checkCarNumber(this);
   }
@@ -392,6 +426,7 @@ class _$CheckCarNumberImpl implements _CheckCarNumber {
     TResult? Function(_GetParkingLocationZone value)? getParkingLocationZone,
     TResult? Function(_UpdateParkingCarNumber value)? updateParkingCarNumber,
     TResult? Function(_UpdateMessageCarNumber value)? updateMessageCarNumber,
+    TResult? Function(_SendFcm value)? sendFcm,
   }) {
     return checkCarNumber?.call(this);
   }
@@ -408,6 +443,7 @@ class _$CheckCarNumberImpl implements _CheckCarNumber {
     TResult Function(_GetParkingLocationZone value)? getParkingLocationZone,
     TResult Function(_UpdateParkingCarNumber value)? updateParkingCarNumber,
     TResult Function(_UpdateMessageCarNumber value)? updateMessageCarNumber,
+    TResult Function(_SendFcm value)? sendFcm,
     required TResult orElse(),
   }) {
     if (checkCarNumber != null) {
@@ -511,6 +547,9 @@ class _$SaveUserInfoImpl implements _SaveUserInfo {
     required TResult Function() getParkingLocationZone,
     required TResult Function(CarNumber carNumber) updateParkingCarNumber,
     required TResult Function(CarNumber carNumber) updateMessageCarNumber,
+    required TResult Function(
+            String senderCarNumberId, String targetCarNumberId, String message)
+        sendFcm,
   }) {
     return saveUserInfo(userInfo);
   }
@@ -527,6 +566,9 @@ class _$SaveUserInfoImpl implements _SaveUserInfo {
     TResult? Function()? getParkingLocationZone,
     TResult? Function(CarNumber carNumber)? updateParkingCarNumber,
     TResult? Function(CarNumber carNumber)? updateMessageCarNumber,
+    TResult? Function(
+            String senderCarNumberId, String targetCarNumberId, String message)?
+        sendFcm,
   }) {
     return saveUserInfo?.call(userInfo);
   }
@@ -543,6 +585,9 @@ class _$SaveUserInfoImpl implements _SaveUserInfo {
     TResult Function()? getParkingLocationZone,
     TResult Function(CarNumber carNumber)? updateParkingCarNumber,
     TResult Function(CarNumber carNumber)? updateMessageCarNumber,
+    TResult Function(
+            String senderCarNumberId, String targetCarNumberId, String message)?
+        sendFcm,
     required TResult orElse(),
   }) {
     if (saveUserInfo != null) {
@@ -566,6 +611,7 @@ class _$SaveUserInfoImpl implements _SaveUserInfo {
         updateParkingCarNumber,
     required TResult Function(_UpdateMessageCarNumber value)
         updateMessageCarNumber,
+    required TResult Function(_SendFcm value) sendFcm,
   }) {
     return saveUserInfo(this);
   }
@@ -582,6 +628,7 @@ class _$SaveUserInfoImpl implements _SaveUserInfo {
     TResult? Function(_GetParkingLocationZone value)? getParkingLocationZone,
     TResult? Function(_UpdateParkingCarNumber value)? updateParkingCarNumber,
     TResult? Function(_UpdateMessageCarNumber value)? updateMessageCarNumber,
+    TResult? Function(_SendFcm value)? sendFcm,
   }) {
     return saveUserInfo?.call(this);
   }
@@ -598,6 +645,7 @@ class _$SaveUserInfoImpl implements _SaveUserInfo {
     TResult Function(_GetParkingLocationZone value)? getParkingLocationZone,
     TResult Function(_UpdateParkingCarNumber value)? updateParkingCarNumber,
     TResult Function(_UpdateMessageCarNumber value)? updateMessageCarNumber,
+    TResult Function(_SendFcm value)? sendFcm,
     required TResult orElse(),
   }) {
     if (saveUserInfo != null) {
@@ -710,6 +758,9 @@ class _$CreateCarNumberImpl implements _CreateCarNumber {
     required TResult Function() getParkingLocationZone,
     required TResult Function(CarNumber carNumber) updateParkingCarNumber,
     required TResult Function(CarNumber carNumber) updateMessageCarNumber,
+    required TResult Function(
+            String senderCarNumberId, String targetCarNumberId, String message)
+        sendFcm,
   }) {
     return createCarNumber(carNumber);
   }
@@ -726,6 +777,9 @@ class _$CreateCarNumberImpl implements _CreateCarNumber {
     TResult? Function()? getParkingLocationZone,
     TResult? Function(CarNumber carNumber)? updateParkingCarNumber,
     TResult? Function(CarNumber carNumber)? updateMessageCarNumber,
+    TResult? Function(
+            String senderCarNumberId, String targetCarNumberId, String message)?
+        sendFcm,
   }) {
     return createCarNumber?.call(carNumber);
   }
@@ -742,6 +796,9 @@ class _$CreateCarNumberImpl implements _CreateCarNumber {
     TResult Function()? getParkingLocationZone,
     TResult Function(CarNumber carNumber)? updateParkingCarNumber,
     TResult Function(CarNumber carNumber)? updateMessageCarNumber,
+    TResult Function(
+            String senderCarNumberId, String targetCarNumberId, String message)?
+        sendFcm,
     required TResult orElse(),
   }) {
     if (createCarNumber != null) {
@@ -765,6 +822,7 @@ class _$CreateCarNumberImpl implements _CreateCarNumber {
         updateParkingCarNumber,
     required TResult Function(_UpdateMessageCarNumber value)
         updateMessageCarNumber,
+    required TResult Function(_SendFcm value) sendFcm,
   }) {
     return createCarNumber(this);
   }
@@ -781,6 +839,7 @@ class _$CreateCarNumberImpl implements _CreateCarNumber {
     TResult? Function(_GetParkingLocationZone value)? getParkingLocationZone,
     TResult? Function(_UpdateParkingCarNumber value)? updateParkingCarNumber,
     TResult? Function(_UpdateMessageCarNumber value)? updateMessageCarNumber,
+    TResult? Function(_SendFcm value)? sendFcm,
   }) {
     return createCarNumber?.call(this);
   }
@@ -797,6 +856,7 @@ class _$CreateCarNumberImpl implements _CreateCarNumber {
     TResult Function(_GetParkingLocationZone value)? getParkingLocationZone,
     TResult Function(_UpdateParkingCarNumber value)? updateParkingCarNumber,
     TResult Function(_UpdateMessageCarNumber value)? updateMessageCarNumber,
+    TResult Function(_SendFcm value)? sendFcm,
     required TResult orElse(),
   }) {
     if (createCarNumber != null) {
@@ -869,6 +929,9 @@ class _$ClearErrorImpl implements _ClearError {
     required TResult Function() getParkingLocationZone,
     required TResult Function(CarNumber carNumber) updateParkingCarNumber,
     required TResult Function(CarNumber carNumber) updateMessageCarNumber,
+    required TResult Function(
+            String senderCarNumberId, String targetCarNumberId, String message)
+        sendFcm,
   }) {
     return clearError();
   }
@@ -885,6 +948,9 @@ class _$ClearErrorImpl implements _ClearError {
     TResult? Function()? getParkingLocationZone,
     TResult? Function(CarNumber carNumber)? updateParkingCarNumber,
     TResult? Function(CarNumber carNumber)? updateMessageCarNumber,
+    TResult? Function(
+            String senderCarNumberId, String targetCarNumberId, String message)?
+        sendFcm,
   }) {
     return clearError?.call();
   }
@@ -901,6 +967,9 @@ class _$ClearErrorImpl implements _ClearError {
     TResult Function()? getParkingLocationZone,
     TResult Function(CarNumber carNumber)? updateParkingCarNumber,
     TResult Function(CarNumber carNumber)? updateMessageCarNumber,
+    TResult Function(
+            String senderCarNumberId, String targetCarNumberId, String message)?
+        sendFcm,
     required TResult orElse(),
   }) {
     if (clearError != null) {
@@ -924,6 +993,7 @@ class _$ClearErrorImpl implements _ClearError {
         updateParkingCarNumber,
     required TResult Function(_UpdateMessageCarNumber value)
         updateMessageCarNumber,
+    required TResult Function(_SendFcm value) sendFcm,
   }) {
     return clearError(this);
   }
@@ -940,6 +1010,7 @@ class _$ClearErrorImpl implements _ClearError {
     TResult? Function(_GetParkingLocationZone value)? getParkingLocationZone,
     TResult? Function(_UpdateParkingCarNumber value)? updateParkingCarNumber,
     TResult? Function(_UpdateMessageCarNumber value)? updateMessageCarNumber,
+    TResult? Function(_SendFcm value)? sendFcm,
   }) {
     return clearError?.call(this);
   }
@@ -956,6 +1027,7 @@ class _$ClearErrorImpl implements _ClearError {
     TResult Function(_GetParkingLocationZone value)? getParkingLocationZone,
     TResult Function(_UpdateParkingCarNumber value)? updateParkingCarNumber,
     TResult Function(_UpdateMessageCarNumber value)? updateMessageCarNumber,
+    TResult Function(_SendFcm value)? sendFcm,
     required TResult orElse(),
   }) {
     if (clearError != null) {
@@ -1019,6 +1091,9 @@ class _$RemoveUserInfoImpl implements _RemoveUserInfo {
     required TResult Function() getParkingLocationZone,
     required TResult Function(CarNumber carNumber) updateParkingCarNumber,
     required TResult Function(CarNumber carNumber) updateMessageCarNumber,
+    required TResult Function(
+            String senderCarNumberId, String targetCarNumberId, String message)
+        sendFcm,
   }) {
     return removeUserInfo();
   }
@@ -1035,6 +1110,9 @@ class _$RemoveUserInfoImpl implements _RemoveUserInfo {
     TResult? Function()? getParkingLocationZone,
     TResult? Function(CarNumber carNumber)? updateParkingCarNumber,
     TResult? Function(CarNumber carNumber)? updateMessageCarNumber,
+    TResult? Function(
+            String senderCarNumberId, String targetCarNumberId, String message)?
+        sendFcm,
   }) {
     return removeUserInfo?.call();
   }
@@ -1051,6 +1129,9 @@ class _$RemoveUserInfoImpl implements _RemoveUserInfo {
     TResult Function()? getParkingLocationZone,
     TResult Function(CarNumber carNumber)? updateParkingCarNumber,
     TResult Function(CarNumber carNumber)? updateMessageCarNumber,
+    TResult Function(
+            String senderCarNumberId, String targetCarNumberId, String message)?
+        sendFcm,
     required TResult orElse(),
   }) {
     if (removeUserInfo != null) {
@@ -1074,6 +1155,7 @@ class _$RemoveUserInfoImpl implements _RemoveUserInfo {
         updateParkingCarNumber,
     required TResult Function(_UpdateMessageCarNumber value)
         updateMessageCarNumber,
+    required TResult Function(_SendFcm value) sendFcm,
   }) {
     return removeUserInfo(this);
   }
@@ -1090,6 +1172,7 @@ class _$RemoveUserInfoImpl implements _RemoveUserInfo {
     TResult? Function(_GetParkingLocationZone value)? getParkingLocationZone,
     TResult? Function(_UpdateParkingCarNumber value)? updateParkingCarNumber,
     TResult? Function(_UpdateMessageCarNumber value)? updateMessageCarNumber,
+    TResult? Function(_SendFcm value)? sendFcm,
   }) {
     return removeUserInfo?.call(this);
   }
@@ -1106,6 +1189,7 @@ class _$RemoveUserInfoImpl implements _RemoveUserInfo {
     TResult Function(_GetParkingLocationZone value)? getParkingLocationZone,
     TResult Function(_UpdateParkingCarNumber value)? updateParkingCarNumber,
     TResult Function(_UpdateMessageCarNumber value)? updateMessageCarNumber,
+    TResult Function(_SendFcm value)? sendFcm,
     required TResult orElse(),
   }) {
     if (removeUserInfo != null) {
@@ -1172,6 +1256,9 @@ class _$GetParkingLocationZoneImpl implements _GetParkingLocationZone {
     required TResult Function() getParkingLocationZone,
     required TResult Function(CarNumber carNumber) updateParkingCarNumber,
     required TResult Function(CarNumber carNumber) updateMessageCarNumber,
+    required TResult Function(
+            String senderCarNumberId, String targetCarNumberId, String message)
+        sendFcm,
   }) {
     return getParkingLocationZone();
   }
@@ -1188,6 +1275,9 @@ class _$GetParkingLocationZoneImpl implements _GetParkingLocationZone {
     TResult? Function()? getParkingLocationZone,
     TResult? Function(CarNumber carNumber)? updateParkingCarNumber,
     TResult? Function(CarNumber carNumber)? updateMessageCarNumber,
+    TResult? Function(
+            String senderCarNumberId, String targetCarNumberId, String message)?
+        sendFcm,
   }) {
     return getParkingLocationZone?.call();
   }
@@ -1204,6 +1294,9 @@ class _$GetParkingLocationZoneImpl implements _GetParkingLocationZone {
     TResult Function()? getParkingLocationZone,
     TResult Function(CarNumber carNumber)? updateParkingCarNumber,
     TResult Function(CarNumber carNumber)? updateMessageCarNumber,
+    TResult Function(
+            String senderCarNumberId, String targetCarNumberId, String message)?
+        sendFcm,
     required TResult orElse(),
   }) {
     if (getParkingLocationZone != null) {
@@ -1227,6 +1320,7 @@ class _$GetParkingLocationZoneImpl implements _GetParkingLocationZone {
         updateParkingCarNumber,
     required TResult Function(_UpdateMessageCarNumber value)
         updateMessageCarNumber,
+    required TResult Function(_SendFcm value) sendFcm,
   }) {
     return getParkingLocationZone(this);
   }
@@ -1243,6 +1337,7 @@ class _$GetParkingLocationZoneImpl implements _GetParkingLocationZone {
     TResult? Function(_GetParkingLocationZone value)? getParkingLocationZone,
     TResult? Function(_UpdateParkingCarNumber value)? updateParkingCarNumber,
     TResult? Function(_UpdateMessageCarNumber value)? updateMessageCarNumber,
+    TResult? Function(_SendFcm value)? sendFcm,
   }) {
     return getParkingLocationZone?.call(this);
   }
@@ -1259,6 +1354,7 @@ class _$GetParkingLocationZoneImpl implements _GetParkingLocationZone {
     TResult Function(_GetParkingLocationZone value)? getParkingLocationZone,
     TResult Function(_UpdateParkingCarNumber value)? updateParkingCarNumber,
     TResult Function(_UpdateMessageCarNumber value)? updateMessageCarNumber,
+    TResult Function(_SendFcm value)? sendFcm,
     required TResult orElse(),
   }) {
     if (getParkingLocationZone != null) {
@@ -1365,6 +1461,9 @@ class _$UpdateParkingCarNumberImpl implements _UpdateParkingCarNumber {
     required TResult Function() getParkingLocationZone,
     required TResult Function(CarNumber carNumber) updateParkingCarNumber,
     required TResult Function(CarNumber carNumber) updateMessageCarNumber,
+    required TResult Function(
+            String senderCarNumberId, String targetCarNumberId, String message)
+        sendFcm,
   }) {
     return updateParkingCarNumber(carNumber);
   }
@@ -1381,6 +1480,9 @@ class _$UpdateParkingCarNumberImpl implements _UpdateParkingCarNumber {
     TResult? Function()? getParkingLocationZone,
     TResult? Function(CarNumber carNumber)? updateParkingCarNumber,
     TResult? Function(CarNumber carNumber)? updateMessageCarNumber,
+    TResult? Function(
+            String senderCarNumberId, String targetCarNumberId, String message)?
+        sendFcm,
   }) {
     return updateParkingCarNumber?.call(carNumber);
   }
@@ -1397,6 +1499,9 @@ class _$UpdateParkingCarNumberImpl implements _UpdateParkingCarNumber {
     TResult Function()? getParkingLocationZone,
     TResult Function(CarNumber carNumber)? updateParkingCarNumber,
     TResult Function(CarNumber carNumber)? updateMessageCarNumber,
+    TResult Function(
+            String senderCarNumberId, String targetCarNumberId, String message)?
+        sendFcm,
     required TResult orElse(),
   }) {
     if (updateParkingCarNumber != null) {
@@ -1420,6 +1525,7 @@ class _$UpdateParkingCarNumberImpl implements _UpdateParkingCarNumber {
         updateParkingCarNumber,
     required TResult Function(_UpdateMessageCarNumber value)
         updateMessageCarNumber,
+    required TResult Function(_SendFcm value) sendFcm,
   }) {
     return updateParkingCarNumber(this);
   }
@@ -1436,6 +1542,7 @@ class _$UpdateParkingCarNumberImpl implements _UpdateParkingCarNumber {
     TResult? Function(_GetParkingLocationZone value)? getParkingLocationZone,
     TResult? Function(_UpdateParkingCarNumber value)? updateParkingCarNumber,
     TResult? Function(_UpdateMessageCarNumber value)? updateMessageCarNumber,
+    TResult? Function(_SendFcm value)? sendFcm,
   }) {
     return updateParkingCarNumber?.call(this);
   }
@@ -1452,6 +1559,7 @@ class _$UpdateParkingCarNumberImpl implements _UpdateParkingCarNumber {
     TResult Function(_GetParkingLocationZone value)? getParkingLocationZone,
     TResult Function(_UpdateParkingCarNumber value)? updateParkingCarNumber,
     TResult Function(_UpdateMessageCarNumber value)? updateMessageCarNumber,
+    TResult Function(_SendFcm value)? sendFcm,
     required TResult orElse(),
   }) {
     if (updateParkingCarNumber != null) {
@@ -1567,6 +1675,9 @@ class _$UpdateMessageCarNumberImpl implements _UpdateMessageCarNumber {
     required TResult Function() getParkingLocationZone,
     required TResult Function(CarNumber carNumber) updateParkingCarNumber,
     required TResult Function(CarNumber carNumber) updateMessageCarNumber,
+    required TResult Function(
+            String senderCarNumberId, String targetCarNumberId, String message)
+        sendFcm,
   }) {
     return updateMessageCarNumber(carNumber);
   }
@@ -1583,6 +1694,9 @@ class _$UpdateMessageCarNumberImpl implements _UpdateMessageCarNumber {
     TResult? Function()? getParkingLocationZone,
     TResult? Function(CarNumber carNumber)? updateParkingCarNumber,
     TResult? Function(CarNumber carNumber)? updateMessageCarNumber,
+    TResult? Function(
+            String senderCarNumberId, String targetCarNumberId, String message)?
+        sendFcm,
   }) {
     return updateMessageCarNumber?.call(carNumber);
   }
@@ -1599,6 +1713,9 @@ class _$UpdateMessageCarNumberImpl implements _UpdateMessageCarNumber {
     TResult Function()? getParkingLocationZone,
     TResult Function(CarNumber carNumber)? updateParkingCarNumber,
     TResult Function(CarNumber carNumber)? updateMessageCarNumber,
+    TResult Function(
+            String senderCarNumberId, String targetCarNumberId, String message)?
+        sendFcm,
     required TResult orElse(),
   }) {
     if (updateMessageCarNumber != null) {
@@ -1622,6 +1739,7 @@ class _$UpdateMessageCarNumberImpl implements _UpdateMessageCarNumber {
         updateParkingCarNumber,
     required TResult Function(_UpdateMessageCarNumber value)
         updateMessageCarNumber,
+    required TResult Function(_SendFcm value) sendFcm,
   }) {
     return updateMessageCarNumber(this);
   }
@@ -1638,6 +1756,7 @@ class _$UpdateMessageCarNumberImpl implements _UpdateMessageCarNumber {
     TResult? Function(_GetParkingLocationZone value)? getParkingLocationZone,
     TResult? Function(_UpdateParkingCarNumber value)? updateParkingCarNumber,
     TResult? Function(_UpdateMessageCarNumber value)? updateMessageCarNumber,
+    TResult? Function(_SendFcm value)? sendFcm,
   }) {
     return updateMessageCarNumber?.call(this);
   }
@@ -1654,6 +1773,7 @@ class _$UpdateMessageCarNumberImpl implements _UpdateMessageCarNumber {
     TResult Function(_GetParkingLocationZone value)? getParkingLocationZone,
     TResult Function(_UpdateParkingCarNumber value)? updateParkingCarNumber,
     TResult Function(_UpdateMessageCarNumber value)? updateMessageCarNumber,
+    TResult Function(_SendFcm value)? sendFcm,
     required TResult orElse(),
   }) {
     if (updateMessageCarNumber != null) {
@@ -1674,4 +1794,225 @@ abstract class _UpdateMessageCarNumber implements MainEvent {
   @JsonKey(includeFromJson: false, includeToJson: false)
   _$$UpdateMessageCarNumberImplCopyWith<_$UpdateMessageCarNumberImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$SendFcmImplCopyWith<$Res> {
+  factory _$$SendFcmImplCopyWith(
+          _$SendFcmImpl value, $Res Function(_$SendFcmImpl) then) =
+      __$$SendFcmImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call(
+      {String senderCarNumberId, String targetCarNumberId, String message});
+}
+
+/// @nodoc
+class __$$SendFcmImplCopyWithImpl<$Res>
+    extends _$MainEventCopyWithImpl<$Res, _$SendFcmImpl>
+    implements _$$SendFcmImplCopyWith<$Res> {
+  __$$SendFcmImplCopyWithImpl(
+      _$SendFcmImpl _value, $Res Function(_$SendFcmImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of MainEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? senderCarNumberId = null,
+    Object? targetCarNumberId = null,
+    Object? message = null,
+  }) {
+    return _then(_$SendFcmImpl(
+      null == senderCarNumberId
+          ? _value.senderCarNumberId
+          : senderCarNumberId // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == targetCarNumberId
+          ? _value.targetCarNumberId
+          : targetCarNumberId // ignore: cast_nullable_to_non_nullable
+              as String,
+      null == message
+          ? _value.message
+          : message // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SendFcmImpl implements _SendFcm {
+  const _$SendFcmImpl(
+      this.senderCarNumberId, this.targetCarNumberId, this.message);
+
+  @override
+  final String senderCarNumberId;
+  @override
+  final String targetCarNumberId;
+  @override
+  final String message;
+
+  @override
+  String toString() {
+    return 'MainEvent.sendFcm(senderCarNumberId: $senderCarNumberId, targetCarNumberId: $targetCarNumberId, message: $message)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SendFcmImpl &&
+            (identical(other.senderCarNumberId, senderCarNumberId) ||
+                other.senderCarNumberId == senderCarNumberId) &&
+            (identical(other.targetCarNumberId, targetCarNumberId) ||
+                other.targetCarNumberId == targetCarNumberId) &&
+            (identical(other.message, message) || other.message == message));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, senderCarNumberId, targetCarNumberId, message);
+
+  /// Create a copy of MainEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SendFcmImplCopyWith<_$SendFcmImpl> get copyWith =>
+      __$$SendFcmImplCopyWithImpl<_$SendFcmImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() checkUserInfo,
+    required TResult Function() checkCarNumber,
+    required TResult Function(UserInfo userInfo) saveUserInfo,
+    required TResult Function(CarNumber carNumber) createCarNumber,
+    required TResult Function() clearError,
+    required TResult Function() removeUserInfo,
+    required TResult Function() getParkingLocationZone,
+    required TResult Function(CarNumber carNumber) updateParkingCarNumber,
+    required TResult Function(CarNumber carNumber) updateMessageCarNumber,
+    required TResult Function(
+            String senderCarNumberId, String targetCarNumberId, String message)
+        sendFcm,
+  }) {
+    return sendFcm(senderCarNumberId, targetCarNumberId, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? checkUserInfo,
+    TResult? Function()? checkCarNumber,
+    TResult? Function(UserInfo userInfo)? saveUserInfo,
+    TResult? Function(CarNumber carNumber)? createCarNumber,
+    TResult? Function()? clearError,
+    TResult? Function()? removeUserInfo,
+    TResult? Function()? getParkingLocationZone,
+    TResult? Function(CarNumber carNumber)? updateParkingCarNumber,
+    TResult? Function(CarNumber carNumber)? updateMessageCarNumber,
+    TResult? Function(
+            String senderCarNumberId, String targetCarNumberId, String message)?
+        sendFcm,
+  }) {
+    return sendFcm?.call(senderCarNumberId, targetCarNumberId, message);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? checkUserInfo,
+    TResult Function()? checkCarNumber,
+    TResult Function(UserInfo userInfo)? saveUserInfo,
+    TResult Function(CarNumber carNumber)? createCarNumber,
+    TResult Function()? clearError,
+    TResult Function()? removeUserInfo,
+    TResult Function()? getParkingLocationZone,
+    TResult Function(CarNumber carNumber)? updateParkingCarNumber,
+    TResult Function(CarNumber carNumber)? updateMessageCarNumber,
+    TResult Function(
+            String senderCarNumberId, String targetCarNumberId, String message)?
+        sendFcm,
+    required TResult orElse(),
+  }) {
+    if (sendFcm != null) {
+      return sendFcm(senderCarNumberId, targetCarNumberId, message);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_CheckUserInfo value) checkUserInfo,
+    required TResult Function(_CheckCarNumber value) checkCarNumber,
+    required TResult Function(_SaveUserInfo value) saveUserInfo,
+    required TResult Function(_CreateCarNumber value) createCarNumber,
+    required TResult Function(_ClearError value) clearError,
+    required TResult Function(_RemoveUserInfo value) removeUserInfo,
+    required TResult Function(_GetParkingLocationZone value)
+        getParkingLocationZone,
+    required TResult Function(_UpdateParkingCarNumber value)
+        updateParkingCarNumber,
+    required TResult Function(_UpdateMessageCarNumber value)
+        updateMessageCarNumber,
+    required TResult Function(_SendFcm value) sendFcm,
+  }) {
+    return sendFcm(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_CheckUserInfo value)? checkUserInfo,
+    TResult? Function(_CheckCarNumber value)? checkCarNumber,
+    TResult? Function(_SaveUserInfo value)? saveUserInfo,
+    TResult? Function(_CreateCarNumber value)? createCarNumber,
+    TResult? Function(_ClearError value)? clearError,
+    TResult? Function(_RemoveUserInfo value)? removeUserInfo,
+    TResult? Function(_GetParkingLocationZone value)? getParkingLocationZone,
+    TResult? Function(_UpdateParkingCarNumber value)? updateParkingCarNumber,
+    TResult? Function(_UpdateMessageCarNumber value)? updateMessageCarNumber,
+    TResult? Function(_SendFcm value)? sendFcm,
+  }) {
+    return sendFcm?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_CheckUserInfo value)? checkUserInfo,
+    TResult Function(_CheckCarNumber value)? checkCarNumber,
+    TResult Function(_SaveUserInfo value)? saveUserInfo,
+    TResult Function(_CreateCarNumber value)? createCarNumber,
+    TResult Function(_ClearError value)? clearError,
+    TResult Function(_RemoveUserInfo value)? removeUserInfo,
+    TResult Function(_GetParkingLocationZone value)? getParkingLocationZone,
+    TResult Function(_UpdateParkingCarNumber value)? updateParkingCarNumber,
+    TResult Function(_UpdateMessageCarNumber value)? updateMessageCarNumber,
+    TResult Function(_SendFcm value)? sendFcm,
+    required TResult orElse(),
+  }) {
+    if (sendFcm != null) {
+      return sendFcm(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _SendFcm implements MainEvent {
+  const factory _SendFcm(final String senderCarNumberId,
+      final String targetCarNumberId, final String message) = _$SendFcmImpl;
+
+  String get senderCarNumberId;
+  String get targetCarNumberId;
+  String get message;
+
+  /// Create a copy of MainEvent
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
+  _$$SendFcmImplCopyWith<_$SendFcmImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

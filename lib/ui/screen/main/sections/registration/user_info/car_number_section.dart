@@ -38,7 +38,8 @@ class _CarNumberSectionState extends State<CarNumberSection> {
                 number: _numberController.text,
                 updatedAt: DateTime.now(),
                 fcmToken: fcmToken,
-                isParked: true)),
+                isParked: true,
+                allowFcmNotification: true)),
           );
     }
   }

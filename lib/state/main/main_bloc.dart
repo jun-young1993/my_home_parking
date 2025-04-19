@@ -104,6 +104,13 @@ class MainBloc extends Bloc<MainEvent, MainState> {
               add(const MainEvent.getParkingLocationZone());
             },
           ),
+          sendFcm: (event) async => _handleEvent(
+            emit,
+            () async {
+              await _myCarRepository.sendFcm(event.senderCarNumberId,
+                  event.targetCarNumberId, event.message);
+            },
+          ),
         );
       } catch (e, stackTrace) {
         _handleEvent(

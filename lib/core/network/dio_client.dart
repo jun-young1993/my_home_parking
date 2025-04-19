@@ -32,8 +32,8 @@ class DioClient {
 
   String _getBaseUrl() {
     if (kDebugMode) {
-      return 'http://192.168.45.51:3000';
-      // return 'http://192.168.45.229:3000';
+      // return 'http://192.168.0.30:3000';
+      return 'http://192.168.45.40:3000';
       // return 'http://192.0.0.2:3000';
       return 'http://127.0.0.1:3000';
     }
