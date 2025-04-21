@@ -5,6 +5,7 @@
 안드로이드 빌드
 
 - flutter build apk --release
+- flutter build appbundle
   A new Flutter project.
 
 ## Getting Started
