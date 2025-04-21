@@ -2,7 +2,10 @@
 
 <!-- flutter pub run build_runner watch -d -->
 
-A new Flutter project.
+안드로이드 빌드
+
+- flutter build apk --release
+  A new Flutter project.
 
 ## Getting Started
 
