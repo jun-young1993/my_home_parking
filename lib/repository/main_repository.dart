@@ -31,18 +31,21 @@ class MainDefaultRepository extends MainRepository {
     print('[get user info userInfoJson] $userInfoJson');
     if (userInfoJson == null) return null;
     final decodedUserInfo = jsonDecode(userInfoJson);
-    final response = await _dioClient.get(
-      '${ApiEndpoints.myCar}/${decodedUserInfo['carNumber']['id']}',
-    );
+    if (decodedUserInfo['carNumber'] != null) {
+      final response = await _dioClient.get(
+        '${ApiEndpoints.myCar}/${decodedUserInfo['carNumber']['id']}',
+      );
 
-    if (response.statusCode == 200) {
-      final carNumber = CarNumber.fromJson(response.data);
+      if (response.statusCode == 200) {
+        final carNumber = CarNumber.fromJson(response.data);
 
-      return UserInfo.fromJson({
-        ...decodedUserInfo,
-        'carNumber': carNumber.toJson(),
-      });
+        return UserInfo.fromJson({
+          ...decodedUserInfo,
+          'carNumber': carNumber.toJson(),
+        });
+      }
     }
+
     return UserInfo.fromJson(decodedUserInfo);
   }
 

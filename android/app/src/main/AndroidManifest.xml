@@ -10,7 +10,7 @@
     <uses-permission android:name="android.permission.USE_EXACT_ALARM" />
     <uses-permission android:name="android.permission.ACCESS_NOTIFICATION_POLICY"/>
     <application
-        android:label="my_home_parking"
+        android:label="우리집주차장"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
