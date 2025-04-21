@@ -27,3 +27,6 @@ doc/api/
 .flutter-plugins-dependencies
 ./lib/assets/data/
 assets/data/auth.json
+
+android/app/release.jks
+android/keystore.properties
