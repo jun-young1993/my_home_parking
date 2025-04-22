@@ -28,7 +28,7 @@ class MainDefaultRepository extends MainRepository {
   @override
   Future<UserInfo?> getUserInfo() async {
     final String? userInfoJson = _prefs.getString(_userInfoKey);
-    print('[get user info userInfoJson] $userInfoJson');
+
     if (userInfoJson == null) return null;
     final decodedUserInfo = jsonDecode(userInfoJson);
     if (decodedUserInfo['carNumber'] != null) {
