@@ -16,7 +16,6 @@ enum AdSize {
   mediumRectangle,
   fullBanner,
   leaderboard,
-  adaptive,
 }
 
 /// 광고 크기 매핑
@@ -33,22 +32,22 @@ extension AdSizeExtension on AdSize {
         return ads.AdSize.fullBanner;
       case AdSize.leaderboard:
         return ads.AdSize.leaderboard;
-      case AdSize.adaptive:
-        return ads.AdSize.adaptive;
     }
   }
 }
 
-/// 광고 리스너 인터페이스
-abstract class AdListener {
-  void onAdLoaded(ads.Ad ad);
-  void onAdFailedToLoad(ads.Ad ad, ads.LoadAdError error);
-  void onAdClosed(ads.Ad ad);
-  void onAdFailedToShow(ads.Ad ad, ads.AdError error);
-}
+/// 광고 콜백 타입 정의
+typedef AdLoadedCallback = void Function(ads.Ad ad);
+typedef AdFailedToLoadCallback = void Function(
+    ads.Ad ad, ads.LoadAdError error);
+typedef AdClosedCallback = void Function(ads.Ad ad);
+typedef AdFailedToShowCallback = void Function(ads.Ad ad, ads.AdError error);
+typedef UserEarnedRewardCallback = void Function(
+    ads.Ad ad, ads.RewardItem reward);
 
 /// 광고 ID를 관리하는 클래스
 class AdUnitIds {
+  // 테스트 광고 ID
   static const String testBannerAdUnitId =
       'ca-app-pub-3940256099942544/6300978111';
   static const String testInterstitialAdUnitId =
@@ -60,7 +59,7 @@ class AdUnitIds {
   static const String testAppOpenAdUnitId =
       'ca-app-pub-3940256099942544/3419835294';
 
-  // 실제 광고 ID는 여기에 추가
+  // 실제 광고 ID
   static const String bannerAdUnitId = '';
   static const String interstitialAdUnitId = '';
   static const String rewardedAdUnitId = '';
