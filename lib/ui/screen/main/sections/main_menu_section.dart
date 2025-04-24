@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_home_parking/ad_manager/ad_widgets.dart';
 import 'package:my_home_parking/core/constants/app_constants.dart';
 import 'package:my_home_parking/model/user_info.dart';
 import 'package:my_home_parking/routes.dart';
@@ -47,11 +48,16 @@ class _MainMenuSectionState extends State<MainMenuSection> {
             _buildUserCard(context, userInfo),
             _buildLogSection(context),
             _buildParkingNoticeSection(context),
+            _buildBannerAdWidget(context),
             // 추가 정보 또는 콘텐츠 (중간 공간)
           ],
         ),
       );
     });
+  }
+
+  Widget _buildBannerAdWidget(BuildContext context) {
+    return const BannerAdWidget();
   }
 
   Widget _buildUserCard(
