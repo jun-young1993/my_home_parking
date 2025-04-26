@@ -57,8 +57,8 @@ class _SettingScreenState extends State<SettingScreen> {
       }
       return Scaffold(
         appBar: AppBar(
-          title: const Text('설정'),
-        ),
+            // title: const Text('설정'),
+            ),
         body: Column(
           children: [
             Container(

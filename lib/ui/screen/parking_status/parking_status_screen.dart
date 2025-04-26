@@ -28,8 +28,8 @@ class _ParkingStatusScreenState extends State<ParkingStatusScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppConstants.parkingMainMenuParkingStatus),
-      ),
+          // title: Text(AppConstants.parkingMainMenuParkingStatus),
+          ),
       body: UserInfoSelector((userInfo) {
         return ParkingLocationZoneSelector((parkingLocationZone) {
           if (parkingLocationZone == null) {

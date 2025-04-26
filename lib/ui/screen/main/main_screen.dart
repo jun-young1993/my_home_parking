@@ -35,8 +35,8 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(AppConstants.appName),
-      ),
+          // title: Text(AppConstants.appName),
+          ),
       body: ExceptionSelector(
         (exception) {
           print("exception$exception");

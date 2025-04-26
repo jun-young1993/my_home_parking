@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_home_parking/ui/widgets/modal/parking_time_modal.dart';
 
 class ParkingChangeButton extends StatelessWidget {
   final bool isParked;
@@ -20,10 +21,27 @@ class ParkingChangeButton extends StatelessWidget {
     this.fontWeight = FontWeight.w600,
   });
 
+  void _showTimeModal(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => ParkingTimeModal(
+        isParked: isParked,
+        onCurrentSelected: (isCurrent) {
+          onParkingChanged(!isCurrent);
+        },
+        onTimeSelected: (dateTime) {
+          print('dateTime: $dateTime');
+          // onParkingChanged(dateTime);
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return FilledButton(
-      onPressed: () => onParkingChanged(!isParked),
+      // onPressed: () => onParkingChanged(!isParked),
+      onPressed: () => _showTimeModal(context),
       style: FilledButton.styleFrom(
         backgroundColor: isParked ? Colors.red.shade50 : Colors.green.shade50,
         foregroundColor: isParked ? Colors.red : Colors.green,
