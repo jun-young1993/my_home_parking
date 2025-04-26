@@ -14,27 +14,21 @@ class AdManager {
   static const Map<String, Map<String, String>> _testAdUnitIds = {
     'android': {
       'banner': 'ca-app-pub-3940256099942544/6300978111', // 고정 크기 배너
-      'interstitial': 'ca-app-pub-3940256099942544/1033173712', // 전면 광고
-      'rewarded': 'ca-app-pub-3940256099942544/5224354917', // 보상형 광고
+      // 전면 광고
+      // 보상형 광고
     },
     'ios': {
       'banner': 'ca-app-pub-3940256099942544/2934735716',
-      'interstitial': 'ca-app-pub-3940256099942544/4411468910',
-      'rewarded': 'ca-app-pub-3940256099942544/1712485313',
     },
   };
 
   // 실제 광고 ID
   static const Map<String, Map<String, String>> _realAdUnitIds = {
     'android': {
-      'banner': 'ca-app-pub-4656262305566191/5881182914',
-      'interstitial': 'ca-app-pub-4656262305566191/5881182914',
-      'rewarded': 'ca-app-pub-4656262305566191/5881182914',
+      'banner': 'ca-app-pub-4656262305566191/9119242850',
     },
     'ios': {
-      'banner': 'ca-app-pub-4656262305566191/5881182914',
-      'interstitial': 'ca-app-pub-4656262305566191/5881182914',
-      'rewarded': 'ca-app-pub-4656262305566191/5881182914',
+      'banner': '',
     },
   };
 

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_home_parking/ad_manager/ad_widgets.dart';
 
 class EmptyScreen extends StatelessWidget {
   final String title;
@@ -36,6 +37,7 @@ class EmptyScreen extends StatelessWidget {
                   color: Colors.grey[500],
                 ),
           ),
+          const BannerAdWidget(),
         ],
       ),
     );
