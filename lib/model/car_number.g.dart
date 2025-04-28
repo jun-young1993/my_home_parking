@@ -18,6 +18,9 @@ _$CarNumberImpl _$$CarNumberImplFromJson(Map<String, dynamic> json) =>
       updatedAt: json['updatedAt'] == null
           ? null
           : DateTime.parse(json['updatedAt'] as String),
+      expectedTime: json['expectedTime'] == null
+          ? null
+          : DateTime.parse(json['expectedTime'] as String),
       allowFcmNotification: json['allowFcmNotification'] as bool? ?? true,
     );
 
@@ -31,5 +34,6 @@ Map<String, dynamic> _$$CarNumberImplToJson(_$CarNumberImpl instance) =>
       'message': instance.message,
       'fcmToken': instance.fcmToken,
       'updatedAt': instance.updatedAt?.toIso8601String(),
+      'expectedTime': instance.expectedTime?.toIso8601String(),
       'allowFcmNotification': instance.allowFcmNotification,
     };

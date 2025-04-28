@@ -14,6 +14,7 @@ class ParkingStatusListSection extends StatelessWidget {
     required this.isParked,
     required this.onParkingChanged,
     required this.onMessageChanged,
+    required this.onTimeSelected,
     required this.onSendFcm,
   });
 
@@ -22,6 +23,7 @@ class ParkingStatusListSection extends StatelessWidget {
   final bool isParked;
   final ValueChanged<bool> onParkingChanged;
   final ValueChanged<String> onMessageChanged;
+  final ValueChanged<DateTime> onTimeSelected;
   final void Function(
           String senderCarNumberId, String targetCarNumberId, String message)
       onSendFcm;
@@ -219,6 +221,7 @@ class ParkingStatusListSection extends StatelessWidget {
           parkingMessage: userInfo.carNumber?.message,
           onParkingChanged: onParkingChanged,
           onMessageChanged: onMessageChanged,
+          onTimeSelected: onTimeSelected,
         ),
         Expanded(
           child: ListView.separated(

@@ -1,11 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_home_parking/exceptions/app_exception.dart';
 import 'package:my_home_parking/repository/main_repository.dart';
 import 'package:my_home_parking/repository/my_car_repository.dart';
-import 'package:my_home_parking/state/log/log_bloc.dart';
-import 'package:my_home_parking/state/log/log_event.dart';
 import 'package:my_home_parking/state/main/main_event.dart';
 import 'package:my_home_parking/state/main/main_state.dart';
 

@@ -4,6 +4,7 @@ import 'package:my_home_parking/ui/widgets/modal/parking_time_modal.dart';
 class ParkingChangeButton extends StatelessWidget {
   final bool isParked;
   final ValueChanged<bool> onParkingChanged;
+  final ValueChanged<DateTime> onTimeSelected;
   final double horizontalPadding;
   final double verticalPadding;
   final double iconSize;
@@ -19,6 +20,7 @@ class ParkingChangeButton extends StatelessWidget {
     this.iconSize = 18,
     this.spacing = 4,
     this.fontWeight = FontWeight.w600,
+    required this.onTimeSelected,
   });
 
   void _showTimeModal(BuildContext context) {
@@ -30,8 +32,7 @@ class ParkingChangeButton extends StatelessWidget {
           onParkingChanged(!isCurrent);
         },
         onTimeSelected: (dateTime) {
-          print('dateTime: $dateTime');
-          // onParkingChanged(dateTime);
+          onTimeSelected(dateTime);
         },
       ),
     );

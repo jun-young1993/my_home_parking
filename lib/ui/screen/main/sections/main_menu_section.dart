@@ -15,6 +15,7 @@ import 'package:my_home_parking/state/notice/notice_event.dart';
 import 'package:my_home_parking/state/notice/notice_selector.dart';
 import 'package:my_home_parking/ui/widgets/button/parking_change_button.dart';
 import 'package:my_home_parking/ui/widgets/log/log_item_widget.dart';
+import 'package:my_home_parking/ui/widgets/time_remaining/time_remaining_widget.dart';
 
 class MainMenuSection extends StatefulWidget {
   const MainMenuSection({
@@ -129,8 +130,14 @@ class _MainMenuSectionState extends State<MainMenuSection> {
                               isParked: userInfo.carNumber?.isParked ?? false,
                               onParkingChanged: (isParked) {
                                 mainBloc.add(MainEvent.updateParkingCarNumber(
+                                  userInfo.carNumber!.copyWith(
+                                      isParked: isParked, expectedTime: null),
+                                ));
+                              },
+                              onTimeSelected: (DateTime dateTime) {
+                                mainBloc.add(MainEvent.updateParkingCarNumber(
                                   userInfo.carNumber!
-                                      .copyWith(isParked: isParked),
+                                      .copyWith(expectedTime: dateTime),
                                 ));
                               },
                             ),
@@ -154,7 +161,15 @@ class _MainMenuSectionState extends State<MainMenuSection> {
                 ),
               ],
             ),
-            const SizedBox(height: 16),
+            const SizedBox(height: 8),
+            userInfo.carNumber?.expectedTime == null
+                ? const SizedBox.shrink()
+                : TimeRemainingWidget(
+                    description:
+                        userInfo.carNumber!.isParked ? '출차 까지' : '입차 까지',
+                    expectedTime: userInfo.carNumber!.expectedTime!,
+                  ),
+            const SizedBox(height: 8),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

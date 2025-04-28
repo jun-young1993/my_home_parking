@@ -14,6 +14,7 @@ class CarNumber with _$CarNumber {
     String? message,
     required String fcmToken,
     required DateTime? updatedAt,
+    @Default(null) DateTime? expectedTime, // null도 허용
     @Default(true) bool allowFcmNotification,
   }) = _CarNumber;
 
@@ -28,6 +29,7 @@ class CarNumber with _$CarNumber {
         'message': message,
         'fcmToken': fcmToken,
         'allowFcmNotification': allowFcmNotification,
+        'expectedTime': expectedTime?.toString(),
         // id와 parkingLocationId는 제외
       };
 

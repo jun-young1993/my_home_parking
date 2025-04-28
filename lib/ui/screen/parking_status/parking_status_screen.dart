@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:my_home_parking/core/constants/app_constants.dart';
 import 'package:my_home_parking/state/main/main_bloc.dart';
 import 'package:my_home_parking/state/main/main_event.dart';
 import 'package:my_home_parking/state/main/main_selector.dart';
@@ -70,12 +69,18 @@ class _ParkingStatusScreenState extends State<ParkingStatusScreen> {
                   isParked: userInfo.carNumber!.isParked,
                   onParkingChanged: (isParked) {
                     mainBloc.add(MainEvent.updateParkingCarNumber(
-                      userInfo.carNumber!.copyWith(isParked: isParked),
+                      userInfo.carNumber!
+                          .copyWith(isParked: isParked, expectedTime: null),
                     ));
                   },
                   onMessageChanged: (String message) {
                     mainBloc.add(MainEvent.updateMessageCarNumber(
                       userInfo.carNumber!.copyWith(message: message),
+                    ));
+                  },
+                  onTimeSelected: (DateTime dateTime) {
+                    mainBloc.add(MainEvent.updateParkingCarNumber(
+                      userInfo.carNumber!.copyWith(expectedTime: dateTime),
                     ));
                   },
                 ),

@@ -28,6 +28,7 @@ mixin _$CarNumber {
   String? get message => throw _privateConstructorUsedError;
   String get fcmToken => throw _privateConstructorUsedError;
   DateTime? get updatedAt => throw _privateConstructorUsedError;
+  DateTime? get expectedTime => throw _privateConstructorUsedError; // null도 허용
   bool get allowFcmNotification => throw _privateConstructorUsedError;
 
   /// Serializes this CarNumber to a JSON map.
@@ -54,6 +55,7 @@ abstract class $CarNumberCopyWith<$Res> {
       String? message,
       String fcmToken,
       DateTime? updatedAt,
+      DateTime? expectedTime,
       bool allowFcmNotification});
 }
 
@@ -80,6 +82,7 @@ class _$CarNumberCopyWithImpl<$Res, $Val extends CarNumber>
     Object? message = freezed,
     Object? fcmToken = null,
     Object? updatedAt = freezed,
+    Object? expectedTime = freezed,
     Object? allowFcmNotification = null,
   }) {
     return _then(_value.copyWith(
@@ -115,6 +118,10 @@ class _$CarNumberCopyWithImpl<$Res, $Val extends CarNumber>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      expectedTime: freezed == expectedTime
+          ? _value.expectedTime
+          : expectedTime // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
       allowFcmNotification: null == allowFcmNotification
           ? _value.allowFcmNotification
           : allowFcmNotification // ignore: cast_nullable_to_non_nullable
@@ -140,6 +147,7 @@ abstract class _$$CarNumberImplCopyWith<$Res>
       String? message,
       String fcmToken,
       DateTime? updatedAt,
+      DateTime? expectedTime,
       bool allowFcmNotification});
 }
 
@@ -164,6 +172,7 @@ class __$$CarNumberImplCopyWithImpl<$Res>
     Object? message = freezed,
     Object? fcmToken = null,
     Object? updatedAt = freezed,
+    Object? expectedTime = freezed,
     Object? allowFcmNotification = null,
   }) {
     return _then(_$CarNumberImpl(
@@ -199,6 +208,10 @@ class __$$CarNumberImplCopyWithImpl<$Res>
           ? _value.updatedAt
           : updatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      expectedTime: freezed == expectedTime
+          ? _value.expectedTime
+          : expectedTime // ignore: cast_nullable_to_non_nullable
+              as DateTime?,
       allowFcmNotification: null == allowFcmNotification
           ? _value.allowFcmNotification
           : allowFcmNotification // ignore: cast_nullable_to_non_nullable
@@ -219,6 +232,7 @@ class _$CarNumberImpl extends _CarNumber {
       this.message,
       required this.fcmToken,
       required this.updatedAt,
+      this.expectedTime = null,
       this.allowFcmNotification = true})
       : super._();
 
@@ -247,6 +261,10 @@ class _$CarNumberImpl extends _CarNumber {
   final DateTime? updatedAt;
   @override
   @JsonKey()
+  final DateTime? expectedTime;
+// null도 허용
+  @override
+  @JsonKey()
   final bool allowFcmNotification;
 
   @override
@@ -266,14 +284,26 @@ class _$CarNumberImpl extends _CarNumber {
                 other.fcmToken == fcmToken) &&
             (identical(other.updatedAt, updatedAt) ||
                 other.updatedAt == updatedAt) &&
+            (identical(other.expectedTime, expectedTime) ||
+                other.expectedTime == expectedTime) &&
             (identical(other.allowFcmNotification, allowFcmNotification) ||
                 other.allowFcmNotification == allowFcmNotification));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, region, category, number,
-      isParked, message, fcmToken, updatedAt, allowFcmNotification);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      region,
+      category,
+      number,
+      isParked,
+      message,
+      fcmToken,
+      updatedAt,
+      expectedTime,
+      allowFcmNotification);
 
   /// Create a copy of CarNumber
   /// with the given fields replaced by the non-null parameter values.
@@ -301,6 +331,7 @@ abstract class _CarNumber extends CarNumber {
       final String? message,
       required final String fcmToken,
       required final DateTime? updatedAt,
+      final DateTime? expectedTime,
       final bool allowFcmNotification}) = _$CarNumberImpl;
   const _CarNumber._() : super._();
 
@@ -323,6 +354,8 @@ abstract class _CarNumber extends CarNumber {
   String get fcmToken;
   @override
   DateTime? get updatedAt;
+  @override
+  DateTime? get expectedTime; // null도 허용
   @override
   bool get allowFcmNotification;
 

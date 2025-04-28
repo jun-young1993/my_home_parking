@@ -39,6 +39,7 @@ class _CarNumberSectionState extends State<CarNumberSection> {
                 updatedAt: DateTime.now(),
                 fcmToken: fcmToken,
                 isParked: true,
+                expectedTime: null,
                 allowFcmNotification: true)),
           );
     }

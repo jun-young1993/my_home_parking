@@ -115,7 +115,9 @@ class ParkingTimeModal extends StatelessWidget {
                           (time as DateTime).hour,
                           (time).minute,
                         );
-                        onTimeSelected(selectedDateTime);
+                        // 한국 시간대(KST)로 변환
+                        final kstDateTime = selectedDateTime.toUtc();
+                        onTimeSelected(kstDateTime);
                         Navigator.pop(context);
                       },
                       onCloseButtonPressed: () {

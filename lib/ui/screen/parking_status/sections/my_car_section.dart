@@ -7,6 +7,7 @@ class MyCarSection extends StatelessWidget {
   final UserInfo userInfo;
   final bool isParked;
   final ValueChanged<bool> onParkingChanged;
+  final ValueChanged<DateTime> onTimeSelected;
   final String? parkingMessage;
   final void Function(String) onMessageChanged;
 
@@ -15,6 +16,7 @@ class MyCarSection extends StatelessWidget {
     required this.userInfo,
     required this.isParked,
     required this.onParkingChanged,
+    required this.onTimeSelected,
     this.parkingMessage,
     required this.onMessageChanged,
   });
@@ -85,6 +87,7 @@ class MyCarSection extends StatelessWidget {
                 ParkingChangeButton(
                   isParked: isParked,
                   onParkingChanged: onParkingChanged,
+                  onTimeSelected: onTimeSelected,
                 ),
               ],
             ),
