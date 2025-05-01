@@ -8,7 +8,7 @@ class AdManager {
   AdManager._internal();
 
   bool _isInitialized = false;
-  final bool _isTestMode = kDebugMode || true; // 테스트 모드 기본값
+  final bool _isTestMode = kDebugMode; // 테스트 모드 기본값
 
   // 플랫폼별 테스트 광고 ID
   static const Map<String, Map<String, String>> _testAdUnitIds = {
