@@ -2,10 +2,10 @@
 
 # 명령구문
 
-
-
 #### freezed
+
 > watch freezed실행
+
 ```shell
 flutter pub run build_runner watch -d
 ```

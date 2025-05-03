@@ -28,7 +28,7 @@ class AdManager {
       'banner': 'ca-app-pub-4656262305566191/9119242850',
     },
     'ios': {
-      'banner': '',
+      'banner': 'ca-app-pub-4656262305566191/3532600608',
     },
   };
 

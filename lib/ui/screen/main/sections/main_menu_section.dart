@@ -45,12 +45,10 @@ class _MainMenuSectionState extends State<MainMenuSection> {
       return SingleChildScrollView(
         child: Column(
           children: [
-            // 사용자 정보 카드
             _buildUserCard(context, userInfo),
             _buildLogSection(context),
             _buildParkingNoticeSection(context),
-            _buildBannerAdWidget(context),
-            // 추가 정보 또는 콘텐츠 (중간 공간)
+            // _buildBannerAdWidget(context),
           ],
         ),
       );
@@ -165,6 +163,10 @@ class _MainMenuSectionState extends State<MainMenuSection> {
             userInfo.carNumber?.expectedTime == null
                 ? const SizedBox.shrink()
                 : TimeRemainingWidget(
+                    onFinished: () {
+                      print('onFinished');
+                      mainBloc.add(const MainEvent.checkUserInfo());
+                    },
                     description:
                         userInfo.carNumber!.isParked ? '출차 까지' : '입차 까지',
                     expectedTime: userInfo.carNumber!.expectedTime!,

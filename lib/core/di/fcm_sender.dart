@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:my_home_parking/core/constants/app_constants.dart';
@@ -68,7 +70,10 @@ class FCMSender {
 
   static void initializeFCM() async {
     await FCMSender.requestPermission();
-    await FCMSender.getToken();
+    if (Platform.isAndroid) {
+      await FCMSender.getToken();
+    }
+
     await FCMSender.subscribeToTopic(AppConstants.fcmTopic);
   }
 }

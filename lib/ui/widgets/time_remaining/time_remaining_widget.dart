@@ -4,9 +4,13 @@ import 'package:flutter/material.dart';
 class TimeRemainingWidget extends StatefulWidget {
   final DateTime expectedTime;
   final String? description;
+  final void Function() onFinished;
 
   const TimeRemainingWidget(
-      {super.key, required this.expectedTime, this.description});
+      {super.key,
+      required this.expectedTime,
+      this.description,
+      required this.onFinished});
 
   @override
   State<TimeRemainingWidget> createState() => _TimeRemainingWidgetState();
@@ -15,6 +19,7 @@ class TimeRemainingWidget extends StatefulWidget {
 class _TimeRemainingWidgetState extends State<TimeRemainingWidget> {
   late Timer _timer;
   late Duration _remainingTime;
+  bool _hasFinished = false;
 
   @override
   void initState() {
@@ -34,6 +39,10 @@ class _TimeRemainingWidgetState extends State<TimeRemainingWidget> {
   void _updateRemainingTime() {
     final now = DateTime.now();
     _remainingTime = widget.expectedTime.difference(now);
+    if (_remainingTime.isNegative && !_hasFinished) {
+      _hasFinished = true;
+      widget.onFinished();
+    }
     if (mounted) {
       setState(() {});
     }
@@ -45,7 +54,7 @@ class _TimeRemainingWidgetState extends State<TimeRemainingWidget> {
     }
 
     final hours = _remainingTime.inHours;
-    final minutes = _remainingTime.inMinutes.remainder(60);
+    final minutes = _remainingTime.inMinutes.remainder(60) + 1;
 
     if (hours > 0) {
       return '${widget.description ?? ''} $hours시간 $minutes분';
