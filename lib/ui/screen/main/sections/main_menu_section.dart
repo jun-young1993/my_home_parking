@@ -48,7 +48,7 @@ class _MainMenuSectionState extends State<MainMenuSection> {
             _buildUserCard(context, userInfo),
             _buildLogSection(context),
             _buildParkingNoticeSection(context),
-            // _buildBannerAdWidget(context),
+            _buildBannerAdWidget(context),
           ],
         ),
       );
