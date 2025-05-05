@@ -28,7 +28,7 @@ Future<void> main() async {
   );
 
   // Firebase Messaging 초기화
-  // await FirebaseMessagingWrapper.initialize();
+  await FirebaseMessagingWrapper.initialize();
   FCMSender.initializeFCM();
   // SharedPreferences 인스턴스 초기화
   final SharedPreferences prefs = await SharedPreferences.getInstance();

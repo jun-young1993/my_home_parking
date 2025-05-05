@@ -40,7 +40,6 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
 
   @override
   Widget build(BuildContext context) {
-    print('BannerAdWidget: _isAdLoaded: loading $_isAdLoaded');
     if (!_isAdLoaded) {
       return const SizedBox(
         height: 50,
@@ -51,8 +50,10 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
     }
 
     return SizedBox(
-      width: _bannerAd!.size.width.toDouble(),
-      height: _bannerAd!.size.height.toDouble(),
+      // width: _bannerAd!.size.width.toDouble(),
+      // height: _bannerAd!.size.height.toDouble(),
+      width: 50,
+      height: 50,
       child: AdWidget(ad: _bannerAd!),
     );
   }

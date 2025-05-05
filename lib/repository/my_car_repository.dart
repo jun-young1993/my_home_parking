@@ -8,6 +8,7 @@ abstract class MyCarRepository {
   Future<CarNumber> updateMessageCarNumber(CarNumber carNumber);
   Future<void> sendFcm(
       String senderCarNumberId, String targetCarNumberId, String message);
+  Future<CarNumber> updateLocation(CarNumber carNumber, String zoneCode);
 }
 
 class MyCarDefaultRepository extends MyCarRepository {
@@ -52,5 +53,18 @@ class MyCarDefaultRepository extends MyCarRepository {
         'message': message,
       },
     );
+  }
+
+  @override
+  Future<CarNumber> updateLocation(CarNumber carNumber, String zoneCode) async {
+    if (carNumber.id == null) {
+      throw const AppException.invalidCarNumber();
+    }
+    final response = await _dioClient.put(
+      '${ApiEndpoints.myCar}/location/${carNumber.id}',
+      data: {'zoneCode': zoneCode},
+    );
+
+    return CarNumber.fromJson(response.data);
   }
 }

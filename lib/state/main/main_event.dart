@@ -9,6 +9,7 @@ class MainEvent with _$MainEvent {
   const factory MainEvent.checkUserInfo() = _CheckUserInfo;
   const factory MainEvent.checkCarNumber() = _CheckCarNumber;
   const factory MainEvent.saveUserInfo(UserInfo userInfo) = _SaveUserInfo;
+  const factory MainEvent.updateLocation(UserInfo userInfo) = _UpdateLocation;
   const factory MainEvent.createCarNumber(CarNumber carNumber) =
       _CreateCarNumber;
   const factory MainEvent.clearError() = _ClearError;

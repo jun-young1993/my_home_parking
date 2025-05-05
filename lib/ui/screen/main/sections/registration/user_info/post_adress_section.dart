@@ -3,9 +3,18 @@ import 'package:flutter/material.dart';
 import 'package:my_home_parking/model/address_info.dart';
 
 class PostAddressSection extends StatefulWidget {
-  const PostAddressSection({super.key, required this.onSubmit});
+  const PostAddressSection({
+    super.key,
+    required this.onSubmit,
+    this.title = '주소 등록',
+    this.description = '주소정보를 등록해주세요',
+    this.onCancel,
+  });
 
   final Function(AddressInfo) onSubmit;
+  final String title;
+  final String description;
+  final VoidCallback? onCancel;
 
   @override
   State<PostAddressSection> createState() => _PostAddressSectionState();
@@ -19,6 +28,15 @@ class _PostAddressSectionState extends State<PostAddressSection> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: widget.onCancel ?? () => Navigator.of(context).pop(),
+        ),
+        elevation: 0,
+        backgroundColor: Colors.transparent,
+        foregroundColor: Colors.black,
+      ),
       body: SafeArea(
         child: Column(
           children: [
@@ -36,7 +54,7 @@ class _PostAddressSectionState extends State<PostAddressSection> {
                       ),
                       const SizedBox(height: 16),
                       Text(
-                        '현재 디바이스에 주소정보가 없습니다',
+                        widget.title,
                         style:
                             Theme.of(context).textTheme.titleMedium?.copyWith(
                                   color: Colors.grey[700],
@@ -44,7 +62,7 @@ class _PostAddressSectionState extends State<PostAddressSection> {
                       ),
                       const SizedBox(height: 8),
                       Text(
-                        '주소정보를 등록해주세요',
+                        widget.description,
                         style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                               color: Colors.grey[600],
                             ),

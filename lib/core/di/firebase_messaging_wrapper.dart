@@ -56,10 +56,6 @@ class FirebaseMessagingWrapper {
   static void _handleMessage(RemoteMessage message,
       {required bool isFromBackground}) {
     if (message.notification != null) {
-      debugPrint('onMessage: ${message.notification?.title}');
-      debugPrint('onMessage: ${message.notification?.body}');
-      debugPrint('onMessage: ${message.data['click_action']}');
-
       // 포그라운드에서 알림 표시
       if (!isFromBackground) {
         _showNotification(
@@ -69,7 +65,6 @@ class FirebaseMessagingWrapper {
         );
       }
     }
-    debugPrint('onMessage: ${message.data}');
   }
 
   static Future<void> _showNotification({

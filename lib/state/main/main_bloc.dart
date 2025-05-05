@@ -45,6 +45,22 @@ class MainBloc extends Bloc<MainEvent, MainState> {
             },
             defaultError: const AppException.userInfoSave(),
           ),
+          updateLocation: (event) async => _handleEvent(
+            emit,
+            () async {
+              final userInfo = event.userInfo;
+              final originalUserInfo =
+                  await _mainRepository.getUserInfoOrFail();
+              if (originalUserInfo.carNumber == null) {
+                throw const AppException.notFoundCarNumber();
+              }
+              final carNumber = await _myCarRepository.updateLocation(
+                  originalUserInfo.carNumber!, userInfo.zoneCode);
+
+              add(MainEvent.saveUserInfo(
+                  userInfo.copyWith(carNumber: carNumber)));
+            },
+          ),
           createCarNumber: (event) async => _handleEvent(
             emit,
             () async {

@@ -70,9 +70,8 @@ class FCMSender {
 
   static void initializeFCM() async {
     await FCMSender.requestPermission();
-    if (Platform.isAndroid) {
-      await FCMSender.getToken();
-    }
+
+    await FCMSender.getToken();
 
     await FCMSender.subscribeToTopic(AppConstants.fcmTopic);
   }

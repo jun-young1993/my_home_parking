@@ -37,6 +37,7 @@ class AdManager {
     final platform = Platform.isAndroid ? 'android' : 'ios';
     final adUnitIds = _isTestMode ? _testAdUnitIds : _realAdUnitIds;
     final adUnitId = adUnitIds[platform]?[adType];
+
     if (adUnitId == null) {
       throw Exception('광고 ID가 존재하지 않습니다.');
     }
@@ -74,6 +75,7 @@ class AdManager {
           debugPrint('배너 광고가 로드되었습니다.');
         },
         onAdFailedToLoad: (ad, error) {
+          print('AdManager: onAdFailedToLoad: $error');
           debugPrint('배너 광고 로드 실패: ${error.message}');
           ad.dispose();
         },

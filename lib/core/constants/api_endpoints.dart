@@ -6,4 +6,5 @@ class ApiEndpoints {
   static const String notice = '/notice';
   static const String noticeReply = '/notice-reply';
   static const String myCar = '/my-car';
+  static const String location = '/location';
 }

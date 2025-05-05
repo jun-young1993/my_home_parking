@@ -1,11 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:my_home_parking/model/address_info.dart';
 import 'package:my_home_parking/model/user_info.dart';
 import 'package:my_home_parking/routes.dart';
 import 'package:my_home_parking/state/main/main_bloc.dart';
 import 'package:my_home_parking/state/main/main_event.dart';
 import 'package:my_home_parking/state/main/main_selector.dart';
+import 'package:my_home_parking/ui/screen/main/sections/registration/user_info/post_adress_section.dart';
 import 'package:my_home_parking/ui/widgets/empty_screen.dart';
+
+enum SettingMenu {
+  addressChange,
+  pushNotification,
+  reset,
+}
 
 class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});
@@ -16,6 +24,8 @@ class SettingScreen extends StatefulWidget {
 
 class _SettingScreenState extends State<SettingScreen> {
   MainBloc get mainBloc => context.read<MainBloc>();
+
+  SettingMenu? selectedMenu;
 
   Future<void> _showResetConfirmDialog(BuildContext context) async {
     return showDialog(
@@ -59,20 +69,44 @@ class _SettingScreenState extends State<SettingScreen> {
         appBar: AppBar(
             // title: const Text('설정'),
             ),
-        body: Column(
-          children: [
-            // 주소 변경 버튼
-            _buildAddressChangeButton(context),
-            // 푸시 알림 설정
-            _buildPushNotificationSettingButton(context, userInfo),
-            // 중간 공간을 차지하는 Expanded
-            const Expanded(child: SizedBox()),
-            // 초기화 버튼(맨 하단)
-            _buildResetButton(context),
-          ],
-        ),
+        body: _buildSelectedMenu(context, userInfo),
       );
     });
+  }
+
+  Widget _buildSelectedMenu(BuildContext context, UserInfo userInfo) {
+    if (selectedMenu == SettingMenu.addressChange) {
+      return PostAddressSection(
+        title: '주소 변경',
+        description: '',
+        onSubmit: (AddressInfo data) {
+          mainBloc.add(MainEvent.updateLocation(UserInfo(
+            address: data.address,
+            zoneCode: data.zoneCode,
+          )));
+          setState(() {
+            selectedMenu = null;
+          });
+        },
+        onCancel: () {
+          setState(() {
+            selectedMenu = null;
+          });
+        },
+      );
+    }
+    return Column(
+      children: [
+        // 주소 변경 버튼
+        _buildAddressChangeButton(context),
+        // 푸시 알림 설정
+        _buildPushNotificationSettingButton(context, userInfo),
+        // 중간 공간을 차지하는 Expanded
+        const Expanded(child: SizedBox()),
+        // 초기화 버튼(맨 하단)
+        _buildResetButton(context),
+      ],
+    );
   }
 
   Widget _buildAddressChangeButton(BuildContext context) {
@@ -91,6 +125,9 @@ class _SettingScreenState extends State<SettingScreen> {
           width: double.infinity,
           child: ElevatedButton.icon(
             onPressed: () {
+              setState(() {
+                selectedMenu = SettingMenu.addressChange;
+              });
               mainBloc.add(const MainEvent.checkUserInfo());
             },
             icon: const Icon(Icons.edit_location_alt),
@@ -140,6 +177,9 @@ class _SettingScreenState extends State<SettingScreen> {
         trailing: Switch(
           value: userInfo.carNumber!.allowFcmNotification,
           onChanged: (bool value) {
+            setState(() {
+              selectedMenu = SettingMenu.pushNotification;
+            });
             mainBloc.add(MainEvent.updateParkingCarNumber(
               userInfo.carNumber!.copyWith(
                 allowFcmNotification: value,
@@ -187,7 +227,12 @@ class _SettingScreenState extends State<SettingScreen> {
           ],
         ),
         trailing: TextButton(
-          onPressed: () => _showResetConfirmDialog(context),
+          onPressed: () {
+            setState(() {
+              selectedMenu = SettingMenu.reset;
+            });
+            _showResetConfirmDialog(context);
+          },
           style: TextButton.styleFrom(
             foregroundColor: Colors.red,
             side: const BorderSide(color: Colors.red),
