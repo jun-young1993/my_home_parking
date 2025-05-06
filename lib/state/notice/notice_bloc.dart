@@ -1,16 +1,16 @@
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_home_parking/exceptions/app_exception.dart';
+import 'package:my_home_parking/repository/main_repository.dart';
 import 'package:my_home_parking/repository/notice_repository.dart';
-import 'package:my_home_parking/state/main/main_state.dart';
 import 'package:my_home_parking/state/notice/notice_event.dart';
 import 'package:my_home_parking/state/notice/notice_state.dart';
 
 class NoticeBloc extends Bloc<NoticeEvent, NoticeState> {
   final NoticeRepository _noticeRepository;
-  final MainState _mainState;
+  final MainRepository _mainRepository;
 
-  NoticeBloc(this._noticeRepository, this._mainState)
+  NoticeBloc(this._noticeRepository, this._mainRepository)
       : super(NoticeState.initialize()) {
     on<NoticeEvent>((event, emit) async {
       try {
@@ -18,11 +18,8 @@ class NoticeBloc extends Bloc<NoticeEvent, NoticeState> {
           getNotices: (_) async => _handleEvent(
             emit,
             () async {
-              final zoneCode = _mainState.userInfo?.zoneCode;
-
-              if (zoneCode == null) {
-                throw const AppException.unknown('zoneCode is null');
-              }
+              final userInfo = await _mainRepository.getUserInfoOrFail();
+              final zoneCode = userInfo.zoneCode;
               final notices = await _noticeRepository.getNotices(zoneCode);
 
               emit(state.copyWith(notices: notices));
@@ -50,7 +47,9 @@ class NoticeBloc extends Bloc<NoticeEvent, NoticeState> {
           createNoticeReply: (event) async => _handleEvent(
             emit,
             () async {
-              final carNumber = _mainState.userInfo?.carNumber;
+              final userInfo = await _mainRepository.getUserInfoOrFail();
+              final carNumber = userInfo.carNumber;
+
               if (carNumber == null) {
                 throw const AppException.unknown('carNumber is null');
               }
@@ -63,11 +62,9 @@ class NoticeBloc extends Bloc<NoticeEvent, NoticeState> {
           createNotice: (event) async => _handleEvent(
             emit,
             () async {
-              final zoneCode = _mainState.userInfo?.zoneCode;
-              if (zoneCode == null) {
-                throw const AppException.unknown('zoneCode is null');
-              }
-              final carNumber = _mainState.userInfo?.carNumber;
+              final userInfo = await _mainRepository.getUserInfoOrFail();
+              final zoneCode = userInfo.zoneCode;
+              final carNumber = userInfo.carNumber;
               if (carNumber == null) {
                 throw const AppException.unknown('carNumber is null');
               }

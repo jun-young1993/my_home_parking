@@ -2,26 +2,24 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_home_parking/exceptions/app_exception.dart';
 import 'package:my_home_parking/repository/log_repository.dart';
+import 'package:my_home_parking/repository/main_repository.dart';
 import 'package:my_home_parking/state/log/log_event.dart';
 import 'package:my_home_parking/state/log/log_state.dart';
-import 'package:my_home_parking/state/main/main_state.dart';
 
 class LogBloc extends Bloc<LogEvent, LogState> {
   final LogRepository _logRepository;
-  final MainState _mainState;
+  final MainRepository _mainRepository;
 
-  LogBloc(this._logRepository, this._mainState) : super(LogState.initialize()) {
+  LogBloc(this._logRepository, this._mainRepository)
+      : super(LogState.initialize()) {
     on<LogEvent>((event, emit) async {
       try {
         await event.map(
           getLogs: (_) async => _handleEvent(
             emit,
             () async {
-              final zoneCode = _mainState.userInfo?.zoneCode;
-
-              if (zoneCode == null) {
-                throw const AppException.unknown('zoneCode is null');
-              }
+              final userInfo = await _mainRepository.getUserInfoOrFail();
+              final zoneCode = userInfo.zoneCode;
 
               final logs = await _logRepository.getLogs(zoneCode);
               emit(state.copyWith(logs: logs));

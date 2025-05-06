@@ -59,6 +59,8 @@ class MainBloc extends Bloc<MainEvent, MainState> {
 
               add(MainEvent.saveUserInfo(
                   userInfo.copyWith(carNumber: carNumber)));
+              add(const MainEvent.checkUserInfo());
+              add(const MainEvent.getParkingLocationZone());
             },
           ),
           createCarNumber: (event) async => _handleEvent(
@@ -102,7 +104,6 @@ class MainBloc extends Bloc<MainEvent, MainState> {
               final updatedUserInfo = userInfo.copyWith(carNumber: catNumber);
               await _mainRepository.saveUserInfo(updatedUserInfo);
               add(const MainEvent.checkUserInfo());
-              add(const MainEvent.getParkingLocationZone());
             },
           ),
           updateMessageCarNumber: (event) async => _handleEvent(

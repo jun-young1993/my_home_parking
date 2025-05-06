@@ -23,9 +23,11 @@ class LogItemWidget extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                log.description,
-                style: Theme.of(context).textTheme.bodyLarge,
+              RichText(
+                text: _buildColoredDescription(
+                  log.description,
+                  Theme.of(context).textTheme.bodyLarge!,
+                ),
               ),
               const SizedBox(height: 8),
               Text(
@@ -39,5 +41,35 @@ class LogItemWidget extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  TextSpan _buildColoredDescription(String description, TextStyle baseStyle) {
+    final List<InlineSpan> spans = [];
+    int start = 0;
+    final RegExp regExp = RegExp(r'(출차|주차)');
+    final matches = regExp.allMatches(description);
+
+    for (final match in matches) {
+      if (match.start > start) {
+        spans.add(TextSpan(
+            text: description.substring(start, match.start), style: baseStyle));
+      }
+      final String matchedText = match.group(0)!;
+      Color color;
+      if (matchedText == '출차') {
+        color = Colors.red;
+      } else {
+        color = Colors.green;
+      }
+      spans.add(TextSpan(
+          text: matchedText,
+          style:
+              baseStyle.copyWith(color: color, fontWeight: FontWeight.bold)));
+      start = match.end;
+    }
+    if (start < description.length) {
+      spans.add(TextSpan(text: description.substring(start), style: baseStyle));
+    }
+    return TextSpan(children: spans);
   }
 }

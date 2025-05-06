@@ -3,9 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_home_parking/model/address_info.dart';
 import 'package:my_home_parking/model/user_info.dart';
 import 'package:my_home_parking/routes.dart';
+import 'package:my_home_parking/state/log/log_bloc.dart';
+import 'package:my_home_parking/state/log/log_event.dart';
 import 'package:my_home_parking/state/main/main_bloc.dart';
 import 'package:my_home_parking/state/main/main_event.dart';
 import 'package:my_home_parking/state/main/main_selector.dart';
+import 'package:my_home_parking/state/notice/notice_bloc.dart';
+import 'package:my_home_parking/state/notice/notice_event.dart';
 import 'package:my_home_parking/ui/screen/main/sections/registration/user_info/post_adress_section.dart';
 import 'package:my_home_parking/ui/widgets/empty_screen.dart';
 
@@ -24,6 +28,8 @@ class SettingScreen extends StatefulWidget {
 
 class _SettingScreenState extends State<SettingScreen> {
   MainBloc get mainBloc => context.read<MainBloc>();
+  LogBloc get logBloc => context.read<LogBloc>();
+  NoticeBloc get noticeBloc => context.read<NoticeBloc>();
 
   SettingMenu? selectedMenu;
 
@@ -78,12 +84,14 @@ class _SettingScreenState extends State<SettingScreen> {
     if (selectedMenu == SettingMenu.addressChange) {
       return PostAddressSection(
         title: '주소 변경',
-        description: '',
+        description: '현재 주소: ${userInfo.address}',
         onSubmit: (AddressInfo data) {
           mainBloc.add(MainEvent.updateLocation(UserInfo(
             address: data.address,
             zoneCode: data.zoneCode,
           )));
+          noticeBloc.add(const NoticeEvent.getNotices());
+          logBloc.add(const LogEvent.getLogs());
           setState(() {
             selectedMenu = null;
           });
@@ -98,7 +106,7 @@ class _SettingScreenState extends State<SettingScreen> {
     return Column(
       children: [
         // 주소 변경 버튼
-        _buildAddressChangeButton(context),
+        _buildAddressChangeButton(context, userInfo),
         // 푸시 알림 설정
         _buildPushNotificationSettingButton(context, userInfo),
         // 중간 공간을 차지하는 Expanded
@@ -109,7 +117,7 @@ class _SettingScreenState extends State<SettingScreen> {
     );
   }
 
-  Widget _buildAddressChangeButton(BuildContext context) {
+  Widget _buildAddressChangeButton(BuildContext context, UserInfo userInfo) {
     return Container(
       decoration: BoxDecoration(
         border: Border(
@@ -128,10 +136,21 @@ class _SettingScreenState extends State<SettingScreen> {
               setState(() {
                 selectedMenu = SettingMenu.addressChange;
               });
-              mainBloc.add(const MainEvent.checkUserInfo());
             },
             icon: const Icon(Icons.edit_location_alt),
-            label: const Text('주소 변경'),
+            label: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text('주소 변경'),
+                Text(
+                  userInfo.address ?? '주소 정보 없음',
+                  style: const TextStyle(
+                    fontSize: 12,
+                    color: Colors.white70,
+                  ),
+                ),
+              ],
+            ),
             style: ElevatedButton.styleFrom(
               backgroundColor: Theme.of(context).colorScheme.primary,
               foregroundColor: Colors.white,
@@ -145,53 +164,57 @@ class _SettingScreenState extends State<SettingScreen> {
 
   Widget _buildPushNotificationSettingButton(
       BuildContext context, UserInfo userInfo) {
-    return Container(
-      decoration: BoxDecoration(
-        border: Border(
-          bottom: BorderSide(
-            color: Colors.grey.shade300,
-            width: 1,
+    try {
+      return Container(
+        decoration: BoxDecoration(
+          border: Border(
+            bottom: BorderSide(
+              color: Colors.grey.shade300,
+              width: 1,
+            ),
           ),
         ),
-      ),
-      child: ListTile(
-        contentPadding: const EdgeInsets.symmetric(
-          horizontal: 20,
-          vertical: 8,
-        ),
-        title: const Text(
-          '푸시 알림',
-          style: TextStyle(
-            fontWeight: FontWeight.w500,
+        child: ListTile(
+          contentPadding: const EdgeInsets.symmetric(
+            horizontal: 20,
+            vertical: 8,
+          ),
+          title: const Text(
+            '푸시 알림',
+            style: TextStyle(
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          subtitle: Text(
+            userInfo.carNumber!.allowFcmNotification
+                ? '푸시 알림이 활성화되어 있습니다'
+                : '푸시 알림이 비활성화되어 있습니다',
+            style: TextStyle(
+              color: Colors.grey[600],
+              fontSize: 12,
+            ),
+          ),
+          trailing: Switch(
+            value: userInfo.carNumber!.allowFcmNotification,
+            onChanged: (bool value) {
+              setState(() {
+                selectedMenu = SettingMenu.pushNotification;
+              });
+              mainBloc.add(MainEvent.updateParkingCarNumber(
+                userInfo.carNumber!.copyWith(
+                  allowFcmNotification: value,
+                ),
+              ));
+            },
+            activeColor: Colors.green,
+            inactiveTrackColor: Colors.red.shade200,
+            inactiveThumbColor: Colors.red,
           ),
         ),
-        subtitle: Text(
-          userInfo.carNumber!.allowFcmNotification
-              ? '푸시 알림이 활성화되어 있습니다'
-              : '푸시 알림이 비활성화되어 있습니다',
-          style: TextStyle(
-            color: Colors.grey[600],
-            fontSize: 12,
-          ),
-        ),
-        trailing: Switch(
-          value: userInfo.carNumber!.allowFcmNotification,
-          onChanged: (bool value) {
-            setState(() {
-              selectedMenu = SettingMenu.pushNotification;
-            });
-            mainBloc.add(MainEvent.updateParkingCarNumber(
-              userInfo.carNumber!.copyWith(
-                allowFcmNotification: value,
-              ),
-            ));
-          },
-          activeColor: Colors.green,
-          inactiveTrackColor: Colors.red.shade200,
-          inactiveThumbColor: Colors.red,
-        ),
-      ),
-    );
+      );
+    } catch (e) {
+      return const SizedBox.shrink();
+    }
   }
 
   Widget _buildResetButton(BuildContext context) {

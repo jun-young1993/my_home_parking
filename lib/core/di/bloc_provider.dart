@@ -32,14 +32,12 @@ class BlocProviderWrapper extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => NoticeBloc(
-            context.read<NoticeRepository>(),
-            context.read<MainBloc>().state,
-          ),
+              context.read<NoticeRepository>(), context.read<MainRepository>()),
         ),
         BlocProvider(
           create: (context) => LogBloc(
             context.read<LogRepository>(),
-            context.read<MainBloc>().state,
+            context.read<MainRepository>(),
           ),
         ),
       ],
