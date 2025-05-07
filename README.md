@@ -23,3 +23,9 @@ flutter build apk --release
 ```shell
 flutter build appbundle
 ```
+
+
+> ios build
+```shell
+flutter build ios
+```
