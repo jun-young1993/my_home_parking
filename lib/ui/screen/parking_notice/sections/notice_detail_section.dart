@@ -1,19 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:my_home_parking/model/notice/notice.dart';
-import 'package:my_home_parking/state/notice/notice_event.dart';
-import 'package:my_home_parking/ui/screen/parking_notice/sections/notice_reply_section.dart';
 import 'package:my_home_parking/ui/screen/parking_notice/sections/notice_reply_wrap_section.dart';
+import 'package:my_home_parking/ui/widgets/report_dialog.dart';
 
 class NoticeDetailSection extends StatelessWidget {
   final Notice notice;
   final dateFormatter = DateFormat('yyyy-MM-dd HH:mm');
   final Function(String) onSubmitReply;
+  final Function(ReportReason, String?) onReport;
+
   NoticeDetailSection({
     super.key,
     required this.notice,
     required this.onSubmitReply,
+    required this.onReport,
   });
+
+  void _showReportDialog(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (context) => ReportDialog(
+        onReport: onReport,
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -79,7 +90,7 @@ class NoticeDetailSection extends StatelessWidget {
 
                 const SizedBox(height: 12),
 
-                // 작성자 정보와 조회수
+                // 작성자 정보와 조회수, 신고 버튼
                 Row(
                   children: [
                     const Icon(
@@ -103,11 +114,22 @@ class NoticeDetailSection extends StatelessWidget {
                     ),
                     const SizedBox(width: 4),
                     Text(
-                      notice.viewCount.toString(), // view counter
+                      notice.viewCount.toString(),
                       style: TextStyle(
                         color: Colors.grey.shade600,
                         fontSize: 12,
                       ),
+                    ),
+                    const Spacer(),
+                    IconButton(
+                      onPressed: () => _showReportDialog(context),
+                      icon: const Icon(
+                        Icons.flag_outlined,
+                        size: 20,
+                        color: Colors.grey,
+                      ),
+                      padding: EdgeInsets.zero,
+                      constraints: const BoxConstraints(),
                     ),
                   ],
                 ),

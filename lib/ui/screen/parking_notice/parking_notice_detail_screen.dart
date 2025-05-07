@@ -34,6 +34,16 @@ class _ParkingNoticeDetailScreenState extends State<ParkingNoticeDetailScreen> {
     AppNavigator.pop();
   }
 
+  void _showReportSuccessSnackBar() {
+    ScaffoldMessenger.of(context).showSnackBar(
+      const SnackBar(
+        content: Text('신고가 접수되었습니다.\n검토까지는 최대 24시간이 소요됩니다.'),
+        duration: Duration(seconds: 3),
+        behavior: SnackBarBehavior.floating,
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,6 +71,12 @@ class _ParkingNoticeDetailScreenState extends State<ParkingNoticeDetailScreen> {
 
               return NoticeDetailSection(
                 notice: notice,
+                onReport: (reason, content) {
+                  noticeBloc.add(
+                    NoticeEvent.reportNotice(notice.id, reason, content),
+                  );
+                  _showReportSuccessSnackBar();
+                },
                 onSubmitReply: (content) {
                   noticeBloc
                       .add(NoticeEvent.createNoticeReply(notice.id, content));

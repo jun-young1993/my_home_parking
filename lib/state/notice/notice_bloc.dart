@@ -79,6 +79,19 @@ class NoticeBloc extends Bloc<NoticeEvent, NoticeState> {
               emit(state.copyWith(error: null, isLoading: false));
             },
           ),
+          reportNotice: (event) async => _handleEvent(
+            emit,
+            () async {
+              final userInfo = await _mainRepository.getUserInfoOrFail();
+              final carNumber = userInfo.carNumber;
+              if (carNumber == null) {
+                throw const AppException.unknown('carNumber is null');
+              }
+
+              await _noticeRepository.reportNotice(event.noticeId, event.reason,
+                  event.content, carNumber.toString());
+            },
+          ),
         );
       } catch (e) {
         _handleEvent(

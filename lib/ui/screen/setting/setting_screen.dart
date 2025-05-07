@@ -12,6 +12,7 @@ import 'package:my_home_parking/state/notice/notice_bloc.dart';
 import 'package:my_home_parking/state/notice/notice_event.dart';
 import 'package:my_home_parking/ui/screen/main/sections/registration/user_info/post_adress_section.dart';
 import 'package:my_home_parking/ui/widgets/empty_screen.dart';
+import 'package:package_info_plus/package_info_plus.dart';
 
 enum SettingMenu {
   addressChange,
@@ -32,6 +33,20 @@ class _SettingScreenState extends State<SettingScreen> {
   NoticeBloc get noticeBloc => context.read<NoticeBloc>();
 
   SettingMenu? selectedMenu;
+  String _version = '';
+
+  @override
+  void initState() {
+    super.initState();
+    _getVersion();
+  }
+
+  Future<void> _getVersion() async {
+    final packageInfo = await PackageInfo.fromPlatform();
+    setState(() {
+      _version = packageInfo.version;
+    });
+  }
 
   Future<void> _showResetConfirmDialog(BuildContext context) async {
     return showDialog(
@@ -111,6 +126,8 @@ class _SettingScreenState extends State<SettingScreen> {
         _buildPushNotificationSettingButton(context, userInfo),
         // 중간 공간을 차지하는 Expanded
         const Expanded(child: SizedBox()),
+        // 버전 정보와 문의 이메일
+        _buildInfoSection(),
         // 초기화 버튼(맨 하단)
         _buildResetButton(context),
       ],
@@ -215,6 +232,127 @@ class _SettingScreenState extends State<SettingScreen> {
     } catch (e) {
       return const SizedBox.shrink();
     }
+  }
+
+  Widget _buildInfoSection() {
+    return Container(
+      margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Colors.grey.shade50,
+        borderRadius: BorderRadius.circular(12),
+        border: Border.all(color: Colors.grey.shade200),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              Icon(
+                Icons.info_outline,
+                size: 20,
+                color: Colors.grey.shade600,
+              ),
+              const SizedBox(width: 8),
+              Text(
+                '기타',
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.grey.shade800,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 16),
+          Row(
+            children: [
+              Icon(
+                Icons.new_releases_outlined,
+                size: 16,
+                color: Colors.grey.shade600,
+              ),
+              const SizedBox(width: 8),
+              Text(
+                '버전 정보',
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.grey.shade700,
+                ),
+              ),
+              const SizedBox(width: 8),
+              Text(
+                _version,
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Theme.of(context).primaryColor,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ],
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 12),
+            child: Divider(
+              color: Colors.grey.shade300,
+              height: 1,
+            ),
+          ),
+          Row(
+            children: [
+              Icon(
+                Icons.help_outline,
+                size: 16,
+                color: Colors.grey.shade600,
+              ),
+              const SizedBox(width: 8),
+              Text(
+                '문의',
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Colors.grey.shade700,
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
+          Row(
+            children: [
+              const SizedBox(width: 24),
+              Expanded(
+                child: Text(
+                  '아래 이메일로 문의해주세요.',
+                  style: TextStyle(
+                    fontSize: 14,
+                    color: Colors.grey.shade700,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 4),
+          Row(
+            children: [
+              const SizedBox(width: 24),
+              Icon(
+                Icons.email_outlined,
+                size: 14,
+                color: Colors.grey.shade600,
+              ),
+              const SizedBox(width: 8),
+              Text(
+                'juny3738@gmail.com',
+                style: TextStyle(
+                  fontSize: 14,
+                  color: Theme.of(context).primaryColor,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
   }
 
   Widget _buildResetButton(BuildContext context) {

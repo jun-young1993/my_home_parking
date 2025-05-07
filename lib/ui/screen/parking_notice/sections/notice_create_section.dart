@@ -86,7 +86,7 @@ class _NoticeCreateSectionState extends State<NoticeCreateSection> {
                 controller: _contentController,
                 style: const TextStyle(fontSize: 16, height: 1.6),
                 decoration: InputDecoration(
-                  hintText: '내용을 입력해주세요',
+                  hintText: '부적절하거나 불쾌감을 줄 수 있는 컨텐츠는 제재를 받을 수 있습니다',
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
                   ),

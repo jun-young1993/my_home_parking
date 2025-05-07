@@ -1,10 +1,9 @@
-import 'dart:convert';
-
 import 'package:my_home_parking/core/constants/api_endpoints.dart';
 import 'package:my_home_parking/core/network/dio_client.dart';
 import 'package:my_home_parking/exceptions/app_exception.dart';
 import 'package:my_home_parking/model/notice/notice.dart';
 import 'package:my_home_parking/model/notice/notice_reply.dart';
+import 'package:my_home_parking/ui/widgets/report_dialog.dart';
 
 abstract class NoticeRepository {
   Future<List<Notice>> getNotices(String zoneCode);
@@ -13,6 +12,8 @@ abstract class NoticeRepository {
       String noticeId, String content, String userName);
   Future<Notice> createNotice(String zoneCode, String userName, String content,
       String title, String type);
+  Future<void> reportNotice(String noticeId, ReportReason reason,
+      String? content, String? reporterId);
 }
 
 class NoticeDefaultRepository extends NoticeRepository {
@@ -71,5 +72,22 @@ class NoticeDefaultRepository extends NoticeRepository {
       throw const AppException.unknown('createNoticeReply failed');
     }
     return NoticeReply.fromJson(response.data);
+  }
+
+  @override
+  Future<void> reportNotice(String noticeId, ReportReason reason,
+      String? content, String? reporterId) async {
+    final data = {
+      'noticeId': noticeId,
+      'type': reason.value,
+      'reporterId': reporterId,
+      'content': content ?? reason.value,
+    };
+
+    final response =
+        await _dioClient.post(ApiEndpoints.reportNotice, data: data);
+    if (response.statusCode != 201) {
+      throw const AppException.unknown('reportNotice failed');
+    }
   }
 }
