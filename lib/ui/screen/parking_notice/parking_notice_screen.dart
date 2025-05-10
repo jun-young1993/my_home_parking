@@ -3,6 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:intl/intl.dart';
 import 'package:my_home_parking/core/constants/app_constants.dart';
 import 'package:my_home_parking/routes.dart';
+import 'package:my_home_parking/state/main/main_bloc.dart';
+import 'package:my_home_parking/state/main/main_event.dart';
+import 'package:my_home_parking/state/main/main_selector.dart';
 import 'package:my_home_parking/state/notice/notice_bloc.dart';
 import 'package:my_home_parking/state/notice/notice_event.dart';
 import 'package:my_home_parking/state/notice/notice_selector.dart';
@@ -20,6 +23,7 @@ class ParkingNoticeScreen extends StatefulWidget {
 
 class _ParkingNoticeScreenState extends State<ParkingNoticeScreen> {
   NoticeBloc get noticeBloc => context.read<NoticeBloc>();
+  MainBloc get mainBloc => context.read<MainBloc>();
   final dateFormatter = DateFormat('yyyy-MM-dd HH:mm');
 
   @override
@@ -31,6 +35,31 @@ class _ParkingNoticeScreenState extends State<ParkingNoticeScreen> {
   void _onRetry() {
     noticeBloc.add(const NoticeEvent.clearError());
     AppNavigator.pop();
+  }
+
+  void _showCarNumberDialog() {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: const Text('차량번호 등록 필요'),
+        content: const Text(
+            '게시글을 작성하기 위해서는 차량번호 등록이 필요합니다.\n차량번호 등록 페이지로 이동하시겠습니까?'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text('취소'),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.of(context).pop();
+              Navigator.of(context).pop();
+              mainBloc.add(const MainEvent.checkUserInfo());
+            },
+            child: const Text('확인'),
+          ),
+        ],
+      ),
+    );
   }
 
   @override
@@ -67,12 +96,19 @@ class _ParkingNoticeScreenState extends State<ParkingNoticeScreen> {
                 }));
           });
         }),
-        // 글쓰기 버튼
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            AppNavigator.push(Routes.parkingNoticeCreate);
-          },
-          child: const Icon(Icons.edit),
-        ));
+        floatingActionButton: UserInfoSelector((userInfo) {
+          if (userInfo?.carNumber == null) {
+            return FloatingActionButton(
+              onPressed: _showCarNumberDialog,
+              child: const Icon(Icons.edit),
+            );
+          }
+          return FloatingActionButton(
+            onPressed: () {
+              AppNavigator.push(Routes.parkingNoticeCreate);
+            },
+            child: const Icon(Icons.edit),
+          );
+        }));
   }
 }

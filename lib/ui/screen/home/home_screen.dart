@@ -25,9 +25,22 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: IndexedStack(
-        index: _currentIndex,
-        children: _screens,
+      appBar: AppBar(
+        title: Text(AppConstants.appName),
+      ),
+      backgroundColor: Colors.white,
+      // extendBody: true,
+      // extendBodyBehindAppBar: true,
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.blue),
+        ),
+        child: IndexedStack(
+          index: _currentIndex,
+          children: _screens,
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _currentIndex,

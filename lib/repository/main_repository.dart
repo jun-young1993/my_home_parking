@@ -26,7 +26,7 @@ class MainDefaultRepository extends MainRepository {
   MainDefaultRepository(this._prefs) : _dioClient = DioClient();
 
   @override
-  Future<UserInfo?> getUserInfo() async {
+  Future<UserInfo?> getUserInfo({bool checkCarNumber = true}) async {
     final String? userInfoJson = _prefs.getString(_userInfoKey);
 
     if (userInfoJson == null) return null;
@@ -45,7 +45,9 @@ class MainDefaultRepository extends MainRepository {
         });
       }
     }
-
+    if (checkCarNumber == true) {
+      throw const AppException.notFoundCarNumber();
+    }
     return UserInfo.fromJson(decodedUserInfo);
   }
 
@@ -89,7 +91,11 @@ class MainDefaultRepository extends MainRepository {
 
   @override
   Future<void> updateCarNumber(CarNumber carNumber) async {
-    final userInfo = await getUserInfoOrFail();
+    final userInfo = await getUserInfo(checkCarNumber: false);
+
+    if (userInfo == null) {
+      throw const AppException.notFoundUserInfo();
+    }
     final updatedUserInfo = userInfo.copyWith(
       carNumber: carNumber,
     );

@@ -9,13 +9,14 @@ class PostAddressSection extends StatefulWidget {
     this.title = '주소 등록',
     this.description = '주소정보를 등록해주세요',
     this.onCancel,
+    this.useBackButton = true,
   });
 
   final Function(AddressInfo) onSubmit;
   final String title;
   final String description;
   final VoidCallback? onCancel;
-
+  final bool useBackButton;
   @override
   State<PostAddressSection> createState() => _PostAddressSectionState();
 }
@@ -24,15 +25,25 @@ class _PostAddressSectionState extends State<PostAddressSection> {
   final _homeAddressController = TextEditingController();
   String? _address;
   String? _zonecode;
+  bool _isDisposed = false;
+
+  @override
+  void dispose() {
+    _isDisposed = true;
+    _homeAddressController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: widget.onCancel ?? () => Navigator.of(context).pop(),
-        ),
+        leading: widget.useBackButton
+            ? IconButton(
+                icon: const Icon(Icons.arrow_back),
+                onPressed: widget.onCancel ?? () => Navigator.of(context).pop(),
+              )
+            : null,
         elevation: 0,
         backgroundColor: Colors.transparent,
         foregroundColor: Colors.black,
@@ -43,13 +54,13 @@ class _PostAddressSectionState extends State<PostAddressSection> {
             Expanded(
               child: SingleChildScrollView(
                 child: Padding(
-                  padding: const EdgeInsets.all(16.0),
+                  padding: const EdgeInsets.all(2.0),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Icon(
                         Icons.location_off,
-                        size: 64,
+                        size: 32,
                         color: Colors.grey,
                       ),
                       const SizedBox(height: 16),
@@ -73,13 +84,15 @@ class _PostAddressSectionState extends State<PostAddressSection> {
                               height: 400,
                               child: DaumPostcodeView(
                                 onComplete: (DaumPostcodeModel model) {
-                                  setState(() {
-                                    _address =
-                                        '${model.address} ${model.buildingName}';
-                                    _zonecode = model.buildingCode;
-                                    _homeAddressController.text =
-                                        '$_address, ${model.zonecode}';
-                                  });
+                                  if (!_isDisposed) {
+                                    setState(() {
+                                      _address =
+                                          '${model.address} ${model.buildingName}';
+                                      _zonecode = model.buildingCode;
+                                      _homeAddressController.text =
+                                          '$_address, ${model.zonecode}';
+                                    });
+                                  }
                                 },
                                 options: const DaumPostcodeOptions(
                                   animation: true,
@@ -107,11 +120,13 @@ class _PostAddressSectionState extends State<PostAddressSection> {
                                 children: [
                                   ElevatedButton(
                                     onPressed: () {
-                                      setState(() {
-                                        _homeAddressController.clear();
-                                        _address = null;
-                                        _zonecode = null;
-                                      });
+                                      if (!_isDisposed) {
+                                        setState(() {
+                                          _homeAddressController.clear();
+                                          _address = null;
+                                          _zonecode = null;
+                                        });
+                                      }
                                     },
                                     style: ElevatedButton.styleFrom(
                                       backgroundColor: Colors.grey[300],
@@ -122,7 +137,8 @@ class _PostAddressSectionState extends State<PostAddressSection> {
                                   ElevatedButton(
                                     onPressed: () {
                                       if (_address != null &&
-                                          _zonecode != null) {
+                                          _zonecode != null &&
+                                          !_isDisposed) {
                                         widget.onSubmit(AddressInfo(
                                           address: _address!,
                                           zoneCode: _zonecode!,

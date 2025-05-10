@@ -66,7 +66,10 @@ class MainBloc extends Bloc<MainEvent, MainState> {
           createCarNumber: (event) async => _handleEvent(
             emit,
             () async {
+              print('createCarNumber: ${event.carNumber}');
+
               await _mainRepository.updateCarNumber(event.carNumber);
+
               add(const MainEvent.checkUserInfo());
             },
           ),

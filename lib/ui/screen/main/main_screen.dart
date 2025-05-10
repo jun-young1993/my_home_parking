@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_home_parking/exceptions/app_exception.dart';
+import 'package:my_home_parking/model/car_number.dart';
 import 'package:my_home_parking/model/user_info.dart';
 import 'package:my_home_parking/state/main/main_bloc.dart';
 import 'package:my_home_parking/state/main/main_event.dart';
@@ -33,70 +34,71 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
-          // title: Text(AppConstants.appName),
-          ),
-      body: ExceptionSelector(
-        (exception) {
-          print("exception$exception");
-          if (exception is AppException) {
-            return exception.when(
-              notFoundNotice: () =>
-                  ErrorView(error: exception, onRetry: _onRetry),
-              timeout: () => ErrorView(error: exception, onRetry: _onRetry),
-              network: (message) =>
-                  ErrorView(error: exception, onRetry: _onRetry),
-              badRequest: (message) =>
-                  ErrorView(error: exception, onRetry: _onRetry),
-              unauthorized: () =>
-                  ErrorView(error: exception, onRetry: _onRetry),
-              forbidden: () => ErrorView(error: exception, onRetry: _onRetry),
-              cancelled: () => ErrorView(error: exception, onRetry: _onRetry),
-              notFound: () => ErrorView(error: exception, onRetry: _onRetry),
-              server: (message) =>
-                  ErrorView(error: exception, onRetry: _onRetry),
-              invalidUserInfo: () =>
-                  ErrorView(error: exception, onRetry: _onRetry),
-              userInfoSave: () =>
-                  ErrorView(error: exception, onRetry: _onRetry),
-              invalidCarNumber: () =>
-                  ErrorView(error: exception, onRetry: _onRetry),
-              webView: () => ErrorView(error: exception, onRetry: _onRetry),
-              unknown: (message) =>
-                  ErrorView(error: exception, onRetry: _onRetry),
-              notFoundUserInfo: () => PostAddressSection(
-                onSubmit: (data) {
-                  mainBloc.add(MainEvent.saveUserInfo(
-                    UserInfo(
-                      address: data.address,
-                      zoneCode: data.zoneCode,
-                    ),
-                  ));
-                },
-              ),
-              notFoundCarNumber: () => CarNumberSection(
-                onBack: _onRetry,
-                // onSubmit: (d_buildParkingNoticeSectionata) {
-                //   print(data);
-                // mainBloc.add(MainEvent.saveUserInfo(
-                //   UserInfo(
-                //     carNumber: data.carNumber,
-                //   ),
-                // ));
-                // },
-              ),
-            );
-          } else {
-            return UserInfoSelector((userInfo) {
-              if (userInfo == null) {
-                return ErrorView(
-                    error: const AppException.notFoundUserInfo(),
-                    onRetry: _onRetry);
-              }
-              return const MainMenuSection();
-            });
-          }
-        },
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+      ),
+      body: Container(
+        width: MediaQuery.of(context).size.width,
+        height: MediaQuery.of(context).size.height,
+        color: Colors.white,
+        child: ExceptionSelector(
+          (exception) {
+            print("exception$exception");
+            if (exception is AppException) {
+              return exception.when(
+                notFoundNotice: () =>
+                    ErrorView(error: exception, onRetry: _onRetry),
+                timeout: () => ErrorView(error: exception, onRetry: _onRetry),
+                network: (message) =>
+                    ErrorView(error: exception, onRetry: _onRetry),
+                badRequest: (message) =>
+                    ErrorView(error: exception, onRetry: _onRetry),
+                unauthorized: () =>
+                    ErrorView(error: exception, onRetry: _onRetry),
+                forbidden: () => ErrorView(error: exception, onRetry: _onRetry),
+                cancelled: () => ErrorView(error: exception, onRetry: _onRetry),
+                notFound: () => ErrorView(error: exception, onRetry: _onRetry),
+                server: (message) =>
+                    ErrorView(error: exception, onRetry: _onRetry),
+                invalidUserInfo: () =>
+                    ErrorView(error: exception, onRetry: _onRetry),
+                userInfoSave: () =>
+                    ErrorView(error: exception, onRetry: _onRetry),
+                invalidCarNumber: () =>
+                    ErrorView(error: exception, onRetry: _onRetry),
+                webView: () => ErrorView(error: exception, onRetry: _onRetry),
+                unknown: (message) =>
+                    ErrorView(error: exception, onRetry: _onRetry),
+                notFoundUserInfo: () => PostAddressSection(
+                  useBackButton: false,
+                  onSubmit: (data) {
+                    mainBloc.add(MainEvent.saveUserInfo(
+                      UserInfo(
+                        address: data.address,
+                        zoneCode: data.zoneCode,
+                      ),
+                    ));
+                  },
+                ),
+                notFoundCarNumber: () => CarNumberSection(
+                  onBack: _onRetry,
+                ),
+              );
+            } else {
+              return UserInfoSelector((userInfo) {
+                if (userInfo == null) {
+                  return ErrorView(
+                      error: const AppException.notFoundUserInfo(),
+                      onRetry: _onRetry);
+                }
+                return const MainMenuSection();
+              });
+            }
+          },
+        ),
       ),
     );
   }

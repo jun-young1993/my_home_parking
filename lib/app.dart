@@ -17,6 +17,19 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
+      // builder: (context, child) {
+      //   return MediaQuery(
+      //     data: MediaQuery.of(context).copyWith(
+      //       devicePixelRatio: MediaQuery.of(context).devicePixelRatio,
+      //       textScaler: const TextScaler.linear(1.0),
+      //     ),
+      //     child: SizedBox(
+      //       width: MediaQuery.of(context).size.width,
+      //       height: MediaQuery.of(context).size.height,
+      //       child: child!,
+      //     ),
+      //   );
+      // },
       home: const HomeScreen(),
     );
   }

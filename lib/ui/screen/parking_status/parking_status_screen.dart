@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_home_parking/ad_manager/ad_widgets.dart';
+import 'package:my_home_parking/core/constants/app_constants.dart';
 import 'package:my_home_parking/state/main/main_bloc.dart';
 import 'package:my_home_parking/state/main/main_event.dart';
 import 'package:my_home_parking/state/main/main_selector.dart';
@@ -27,9 +28,9 @@ class _ParkingStatusScreenState extends State<ParkingStatusScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          // title: Text(AppConstants.parkingMainMenuParkingStatus),
-          ),
+      // appBar: AppBar(
+      //   title: Text(AppConstants.parkingMainMenuParkingStatus),
+      // ),
       body: UserInfoSelector((userInfo) {
         return ParkingLocationZoneSelector((parkingLocationZone) {
           if (parkingLocationZone == null) {
@@ -42,8 +43,8 @@ class _ParkingStatusScreenState extends State<ParkingStatusScreen> {
 
           return Column(
             children: [
-              const BannerAdWidget(),
-              const SizedBox(height: 8),
+              // const BannerAdWidget(),
+              // const SizedBox(height: 8),
               // 상단 요약 정보 섹션
               ParkingStatusSummarySection(
                 totalParkingSpaces: parkingLocationZone.carNumbers.length,
