@@ -7,19 +7,20 @@ import 'package:my_home_parking/ui/screen/parking_notice/parking_notice_detail_s
 import 'package:my_home_parking/ui/screen/parking_notice/parking_notice_screen.dart';
 import 'package:my_home_parking/ui/screen/parking_status/parking_status_screen.dart';
 import 'package:my_home_parking/ui/screen/setting/setting_screen.dart';
+import 'package:flutter_common/flutter_common.dart';
 
-class FadeRoute extends PageRouteBuilder {
-  FadeRoute({required this.page})
-      : super(
-          pageBuilder: (_, __, ___) => page,
-          transitionsBuilder: (_, animation, __, child) => FadeTransition(
-            opacity: animation,
-            child: Scaffold(body: child),
-          ),
-        );
+// class FadeRoute extends PageRouteBuilder {
+//   FadeRoute({required this.page})
+//       : super(
+//           pageBuilder: (_, __, ___) => page,
+//           transitionsBuilder: (_, animation, __, child) => FadeTransition(
+//             opacity: animation,
+//             child: Scaffold(body: child),
+//           ),
+//         );
 
-  final Widget page;
-}
+//   final Widget page;
+// }
 
 enum Routes {
   main,
