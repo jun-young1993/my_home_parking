@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:my_home_parking/exceptions/app_exception.dart';
-import 'package:my_home_parking/model/car_number.dart';
 import 'package:my_home_parking/model/user_info.dart';
 import 'package:my_home_parking/state/main/main_bloc.dart';
 import 'package:my_home_parking/state/main/main_event.dart';

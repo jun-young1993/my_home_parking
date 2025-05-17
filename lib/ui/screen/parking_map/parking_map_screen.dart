@@ -24,6 +24,11 @@ class _ParkingMapScreenState extends State<ParkingMapScreen> {
   InAppWebViewController? webViewController;
   final InAppWebViewSettings settings = InAppWebViewSettings(
     isInspectable: kDebugMode,
+    useShouldOverrideUrlLoading: true,
+    useOnLoadResource: true,
+    useOnDownloadStart: true,
+    useShouldInterceptAjaxRequest: true,
+    useShouldInterceptFetchRequest: true,
   );
   PullToRefreshController? pullToRefreshController;
   final PullToRefreshSettings pullToRefreshSettings = PullToRefreshSettings(
@@ -40,7 +45,16 @@ class _ParkingMapScreenState extends State<ParkingMapScreen> {
   @override
   void initState() {
     super.initState();
-    _initializePullToRefresh();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _initializePullToRefresh();
+    });
+  }
+
+  @override
+  void dispose() {
+    webViewController?.dispose();
+    pullToRefreshController?.dispose();
+    super.dispose();
   }
 
   void _initializePullToRefresh() {
@@ -89,20 +103,18 @@ class _ParkingMapScreenState extends State<ParkingMapScreen> {
       actions: [
         SaveStatusStateSelector(
           (saveStatus) => IconButton(
-            icon:
-                saveStatus == ParkingMapStateSaveStatus.initial
-                    ? const Icon(Icons.check_circle, color: Colors.green)
-                    : saveStatus == ParkingMapStateSaveStatus.initial
+            icon: saveStatus == ParkingMapStateSaveStatus.initial
+                ? const Icon(Icons.check_circle, color: Colors.green)
+                : saveStatus == ParkingMapStateSaveStatus.initial
                     ? const Icon(Icons.save_outlined, color: Colors.blue)
                     : saveStatus == ParkingMapStateSaveStatus.error
-                    ? const Icon(Icons.error, color: Colors.red)
-                    : const Icon(Icons.sync, color: Colors.orange),
-            onPressed:
-                saveStatus == ParkingMapStateSaveStatus.saving
-                    ? null // 저장 중일 때는 버튼 비활성화
-                    : () {
-                      context.read<ParkingMapBloc>().add(SaveParkingLayout());
-                    },
+                        ? const Icon(Icons.error, color: Colors.red)
+                        : const Icon(Icons.sync, color: Colors.orange),
+            onPressed: saveStatus == ParkingMapStateSaveStatus.saving
+                ? null // 저장 중일 때는 버튼 비활성화
+                : () {
+                    context.read<ParkingMapBloc>().add(SaveParkingLayout());
+                  },
           ),
         ),
       ],
@@ -149,20 +161,19 @@ class _ParkingMapScreenState extends State<ParkingMapScreen> {
       ),
       child: ListView(
         scrollDirection: Axis.horizontal,
-        children:
-            Object3DType.values.map((objectType) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 4),
-                child: ObjectSelectionButton(
-                  objectType: objectType,
-                  onSelected: () {
-                    parkingMapBloc.add(
-                      AddObject(webViewController!, objectType),
-                    );
-                  },
-                ),
-              );
-            }).toList(),
+        children: Object3DType.values.map((objectType) {
+          return Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 4),
+            child: ObjectSelectionButton(
+              objectType: objectType,
+              onSelected: () {
+                parkingMapBloc.add(
+                  AddObject(webViewController!, objectType),
+                );
+              },
+            ),
+          );
+        }).toList(),
       ),
     );
   }
@@ -177,10 +188,16 @@ class _ParkingMapScreenState extends State<ParkingMapScreen> {
           initialSettings: settings,
           pullToRefreshController: pullToRefreshController,
           initialUrlRequest: URLRequest(url: WebUri(AppConstants.localHostUrl)),
-          onWebViewCreated: (controller) => webViewController = controller,
+          onWebViewCreated: (controller) {
+            if (mounted) {
+              setState(() {
+                webViewController = controller;
+              });
+            }
+          },
           onLoadStop: (_, __) => pullToRefreshController?.endRefreshing(),
-          onReceivedError:
-              (_, __, ___) => pullToRefreshController?.endRefreshing(),
+          onReceivedError: (_, __, ___) =>
+              pullToRefreshController?.endRefreshing(),
           onProgressChanged: (_, progress) {
             if (progress == 100) {
               pullToRefreshController?.endRefreshing();

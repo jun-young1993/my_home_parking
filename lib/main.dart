@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+import 'package:my_home_parking/ad_manager/ad_manager.dart';
 import 'package:my_home_parking/core/di/bloc_provider.dart';
 import 'package:my_home_parking/core/di/fcm_sender.dart';
 import 'package:my_home_parking/core/di/firebase_messaging_wrapper.dart';
@@ -21,7 +22,11 @@ final InAppLocalhostServer localhostServer = InAppLocalhostServer(
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // 광고 초기화
   await MobileAds.instance.initialize();
+  await AdManager().initialize();
+
   // Firebase 초기화
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
@@ -30,6 +35,7 @@ Future<void> main() async {
   // Firebase Messaging 초기화
   await FirebaseMessagingWrapper.initialize();
   FCMSender.initializeFCM();
+
   // SharedPreferences 인스턴스 초기화
   final SharedPreferences prefs = await SharedPreferences.getInstance();
 

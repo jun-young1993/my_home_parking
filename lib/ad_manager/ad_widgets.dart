@@ -23,10 +23,12 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
     print('BannerAdWidget: _loadBannerAd');
     _bannerAd = AdManager().createBannerAd()
       ..load().then((value) {
-        setState(() {
-          print('BannerAdWidget: _isAdLoaded: $_isAdLoaded');
-          _isAdLoaded = true;
-        });
+        if (mounted) {
+          setState(() {
+            print('BannerAdWidget: _isAdLoaded: $_isAdLoaded');
+            _isAdLoaded = true;
+          });
+        }
       }).catchError((error) {
         print('BannerAdWidget: _loadBannerAd: $error');
       });
@@ -50,10 +52,8 @@ class _BannerAdWidgetState extends State<BannerAdWidget> {
     }
 
     return SizedBox(
-      // width: _bannerAd!.size.width.toDouble(),
-      // height: _bannerAd!.size.height.toDouble(),
-      width: 50,
-      height: 50,
+      width: _bannerAd!.size.width.toDouble(),
+      height: _bannerAd!.size.height.toDouble(),
       child: AdWidget(ad: _bannerAd!),
     );
   }

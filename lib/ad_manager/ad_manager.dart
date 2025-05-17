@@ -14,8 +14,6 @@ class AdManager {
   static const Map<String, Map<String, String>> _testAdUnitIds = {
     'android': {
       'banner': 'ca-app-pub-3940256099942544/6300978111', // 고정 크기 배너
-      // 전면 광고
-      // 보상형 광고
     },
     'ios': {
       'banner': 'ca-app-pub-3940256099942544/2934735716',
@@ -50,11 +48,11 @@ class AdManager {
 
     try {
       await MobileAds.instance.initialize();
-      // await MobileAds.instance.updateRequestConfiguration(
-      //   RequestConfiguration(
-      //     testDeviceIds: ['TEST_DEVICE_ID'], // 테스트 기기 ID 추가
-      //   ),
-      // );
+      await MobileAds.instance.updateRequestConfiguration(
+        RequestConfiguration(
+          testDeviceIds: ['TEST_DEVICE_ID'], // 테스트 기기 ID 추가
+        ),
+      );
       _isInitialized = true;
       print('AdManager: 초기화 성공');
     } catch (e) {
@@ -65,6 +63,10 @@ class AdManager {
 
   // 배너 광고 생성
   BannerAd createBannerAd() {
+    if (!_isInitialized) {
+      throw Exception('AdManager가 초기화되지 않았습니다.');
+    }
+
     print('AdManager: createBannerAd ${_getAdUnitId('banner')}');
     return BannerAd(
       adUnitId: _getAdUnitId('banner'),
