@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_common/constants/juny_constants.dart';
+import 'package:flutter_common/state/app_config/app_config_bloc.dart';
+import 'package:flutter_common/widgets/layout/setting_screen_layout.dart';
 import 'package:my_home_parking/model/address_info.dart';
 import 'package:my_home_parking/model/user_info.dart';
 import 'package:my_home_parking/routes.dart';
@@ -21,8 +24,9 @@ enum SettingMenu {
 }
 
 class SettingScreen extends StatefulWidget {
-  const SettingScreen({super.key});
-
+  const SettingScreen({
+    super.key,
+  });
   @override
   State<SettingScreen> createState() => _SettingScreenState();
 }
@@ -31,7 +35,7 @@ class _SettingScreenState extends State<SettingScreen> {
   MainBloc get mainBloc => context.read<MainBloc>();
   LogBloc get logBloc => context.read<LogBloc>();
   NoticeBloc get noticeBloc => context.read<NoticeBloc>();
-
+  AppConfigBloc get appConfigBloc => context.read<AppConfigBloc>();
   SettingMenu? selectedMenu;
   String _version = '';
 
@@ -92,12 +96,13 @@ class _SettingScreenState extends State<SettingScreen> {
           backgroundColor: Colors.transparent,
           foregroundColor: Colors.black,
         ),
-        body: _buildSelectedMenu(context, userInfo),
+        body: _buildSelectedMenu(context, userInfo, appConfigBloc),
       );
     });
   }
 
-  Widget _buildSelectedMenu(BuildContext context, UserInfo userInfo) {
+  Widget _buildSelectedMenu(
+      BuildContext context, UserInfo userInfo, AppConfigBloc appConfigBloc) {
     if (selectedMenu == SettingMenu.addressChange) {
       return PostAddressSection(
         title: '주소 변경',
@@ -125,7 +130,10 @@ class _SettingScreenState extends State<SettingScreen> {
     final isTablet = screenWidth > 600;
     final horizontalPadding = isTablet ? 10.0 : 5.0;
     final maxWidth = isTablet ? 600.0 : double.infinity;
-
+    return SettingScreenLayout(
+      appConfigBloc: appConfigBloc,
+      appKey: AppKeys.myHomeParking,
+    );
     return SingleChildScrollView(
       child: Center(
         child: ConstrainedBox(

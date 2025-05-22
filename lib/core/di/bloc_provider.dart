@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_common/state/app_config/app_config_bloc.dart';
 import 'package:my_home_parking/repository/log_repository.dart';
 import 'package:my_home_parking/repository/main_repository.dart';
 import 'package:my_home_parking/repository/my_car_repository.dart';
@@ -20,6 +21,9 @@ class BlocProviderWrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider(
+          create: (context) => AppConfigBloc(),
+        ),
         BlocProvider(
           create: (context) => MainBloc(
             context.read<MainRepository>(),
