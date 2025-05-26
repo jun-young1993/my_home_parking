@@ -1,5 +1,5 @@
 class AppConstants {
-  static const int localPort = 8080;
+  static const int localPort = 8090;
 
   // localhost URL 생성 헬퍼 메서드
   // static String get localHostUrl => 'http://localhost:$localPort';
