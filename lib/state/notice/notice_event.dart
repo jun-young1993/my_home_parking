@@ -1,5 +1,5 @@
+import 'package:flutter_common/widgets/dialogs/report_dialog.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:my_home_parking/ui/widgets/report_dialog.dart';
 
 part 'notice_event.freezed.dart';
 

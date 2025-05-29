@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_common/widgets/dialogs/report_dialog.dart';
+import 'package:flutter_common/widgets/ui/notice/notice_detail_wrapper.dart';
 import 'package:intl/intl.dart';
 import 'package:my_home_parking/model/notice/notice.dart';
 import 'package:my_home_parking/ui/screen/parking_notice/sections/notice_reply_wrap_section.dart';
-import 'package:my_home_parking/ui/widgets/report_dialog.dart';
 
 class NoticeDetailSection extends StatelessWidget {
   final Notice notice;
@@ -18,16 +19,15 @@ class NoticeDetailSection extends StatelessWidget {
   });
 
   void _showReportDialog(BuildContext context) {
-    showDialog(
+    ReportDialog.show(
       context: context,
-      builder: (context) => ReportDialog(
-        onReport: onReport,
-      ),
+      onReport: onReport,
     );
   }
 
   @override
   Widget build(BuildContext context) {
+    return NoticeDetailWrapper(notice: notice, onReport: onReport);
     return SingleChildScrollView(
       padding: const EdgeInsets.all(16),
       child: Column(
