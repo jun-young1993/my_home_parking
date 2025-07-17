@@ -32,12 +32,12 @@ class DioClient {
 
   String _getBaseUrl() {
     if (kDebugMode) {
-      return 'https://juny.digital';
+      return 'https://juny-api.kr';
 
       return 'http://127.0.0.1:3000';
     }
     // TODO: 실제 운영 서버 URL로 변경
-    return 'https://juny.digital';
+    return 'https://juny-api.kr';
   }
 
   Future<Response<T>> get<T>(
